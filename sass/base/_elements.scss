@@ -1,0 +1,82 @@
+html {
+	font-family: var(--font-base);
+	line-height: 1.5;
+}
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+// Headings.
+h1 {
+	font-size: 1.5rem;
+}
+h2 {
+	font-size: 1.25rem;
+}
+h3 {
+	font-size: 1.125rem;
+}
+h4 {
+	font-size: 1rem;
+}
+
+input, textarea {
+	border: 1px solid var(--color-border);
+	border-radius: .25rem;
+	padding-left: .25rem .5rem;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: var(--color-accent);
+	color: #fff;
+	border-radius: .25rem;
+	padding: .5rem 1rem;
+	cursor: pointer;
+}
+
+ul {
+	padding-left: 2rem;
+	list-style-type: disc;
+}
+ol {
+	padding-left: 2rem;
+	list-style-type: decimal;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, blockquote, pre, figure, hr, dl, dd, table {
+	margin: 0 0 1.5rem;
+}
+
+a {
+	color: var(--color-accent);
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+label {
+	cursor: pointer;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+th, td {
+	border: 1px solid var(--color-border);
+	padding: .5rem 1rem;
+}
+
+img,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+pre,
+code,
+kbd,
+samp {
+	font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}

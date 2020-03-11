@@ -1,0 +1,16 @@
+.pagination {
+	text-align: center;
+}
+.page-numbers {
+	padding: .25rem .5rem;
+}
+a.page-numbers {
+	border: 1px solid var(----color-accent);
+	border-radius: .125rem;
+	text-decoration: none;
+
+	&:hover {
+		background: var(----color-accent);
+		color: #fff;
+	}
+}

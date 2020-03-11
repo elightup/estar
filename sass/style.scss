@@ -12,5 +12,9 @@ Tags:        bright, clean, elegant, light, minimal, modern, natural, profession
 */
 
 @import "variables";
+
 @import "base/normalize";
 @import "base/elements";
+@import "base/accessibility";
+
+@import "components/pagination";
