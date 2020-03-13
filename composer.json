@@ -1,0 +1,8 @@
+{
+  "name": "elightup/estar",
+  "type": "wordpress-theme",
+  "license": "GNU GPL v2",
+  "autoload": {
+  	"psr-4": {"EStar\\": "src/"}
+  }
+}

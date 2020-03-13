@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/vendor/autoload.php';
+
 add_action( 'after_setup_theme', 'estar_setup' );
 
 function estar_setup() {
@@ -97,3 +99,5 @@ function estar_scripts() {
 		wp_enqueue_style( get_stylesheet(), get_stylesheet_uri(), ['estar'], '0.0.1' );
 	}
 }
+
+new EStar\Fonts\Fonts;
