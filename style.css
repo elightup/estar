@@ -13,6 +13,7 @@ Tags:        bright, clean, elegant, light, minimal, modern, natural, profession
 :root {
 	--font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--color-accent: #4299e1;
+	--color-text: #4a5568;
 	--color-border: #e2e8f0;
 }
 
@@ -360,10 +361,15 @@ html {
 	font-family: var(--font-base);
 	line-height: 1.5;
 	box-sizing: border-box;
+	color: var(--color-text);
 }
 
 *, *:before, *:after {
 	box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
 }
 
 h1 {
@@ -380,6 +386,14 @@ h3 {
 
 h4 {
 	font-size: 1rem;
+}
+
+h5 {
+	font-size: .875rem;
+}
+
+h6 {
+	font-size: .75rem;
 }
 
 input[type="text"],
@@ -500,7 +514,7 @@ pre, code, kbd, samp, tt, var {
 	clip: auto !important;
 	-webkit-clip-path: none;
 	        clip-path: none;
-	color: #444;
+	color: var(--color-text);
 	display: block;
 	font-size: 1em;
 	height: auto;
@@ -514,13 +528,11 @@ pre, code, kbd, samp, tt, var {
 }
 
 .alignleft {
-	display: inline;
 	float: left;
 	margin-right: 1.5em;
 }
 
 .alignright {
-	display: inline;
 	float: right;
 	margin-left: 1.5em;
 }
