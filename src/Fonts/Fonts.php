@@ -53,13 +53,15 @@ class Fonts {
 	public static function get_labels() {
 		return [
 			'panel'          => __( 'Fonts', 'estar' ),
+			'no_change'      => __( '- No change -', 'estar' ),
+
+			'font_family'    => __( 'Font Family', 'estar' ),
 			'system_fonts'   => __( 'System Fonts', 'estar' ),
 			'sans_serif'     => __( 'Sans Serif', 'estar' ),
 			'serif'          => __( 'Serif', 'estar' ),
 			'google_fonts'   => __( 'Google Fonts', 'estar' ),
-			'font_family'    => __( 'Font Family', 'estar' ),
+
 			'font_style'     => __( 'Font Style', 'estar' ),
-			'no_change'      => __( '- No change -', 'estar' ),
 			'100'            => __( 'Thin 100', 'estar' ),
 			'100italic'      => __( 'Thin 100 Italic', 'estar' ),
 			'200'            => __( 'Extra-Light 200', 'estar' ),
@@ -78,14 +80,25 @@ class Fonts {
 			'800italic'      => __( 'Extra-Bold 800 Italic', 'estar' ),
 			'900'            => __( 'Ultra-Bold 900', 'estar' ),
 			'900italic'      => __( 'Ultra-Bold 900 Italic', 'estar' ),
+
 			'font_size'      => __( 'Font Size', 'estar' ),
 			'line_height'    => __( 'Line Height', 'estar' ),
 			'letter_spacing' => __( 'Letter Spacing', 'estar' ),
+
 			'text_transform' => __( 'Text Transform', 'estar' ),
 			'none'           => __( 'None', 'estar' ),
 			'lowercase'      => __( 'lowercase', 'estar' ),
 			'uppercase'      => __( 'UPPERCASE', 'estar' ),
 			'capitalize'     => __( 'Capitalize', 'estar' ),
+
+			'font_subsets' => __( 'Languages', 'estar' ),
+			'cyrillic'     => __( 'Cyrillic', 'estar' ),
+			'cyrillic-ext' => __( 'Cyrillic Extended', 'estar' ),
+			'greek'        => __( 'Greek', 'estar' ),
+			'greek-ext'    => __( 'Greek Extended', 'estar' ),
+			'latin'        => __( 'Latin', 'estar' ),
+			'latin-ext'    => __( 'Latin Extended', 'estar' ),
+			'vietnamese'   => __( 'Vietnamese', 'estar' ),
 		];
 	}
 }

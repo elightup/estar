@@ -2,7 +2,7 @@ jQuery( function ( $ ) {
 	'use strict';
 
 	function updateFontStyle() {
-		var styles = $( this ).find( 'option:selected' ).data( 'styles' ),
+		let styles = $( this ).find( 'option:selected' ).data( 'styles' ),
 			$options = $( this ).closest( '.customize-control' ).next().find( 'option' );
 
 		if ( ! styles ) {
@@ -21,5 +21,16 @@ jQuery( function ( $ ) {
 		$options.first().prop( 'selected', true );
 	}
 
-	$( document ).on( 'change', '.customize-control-estar-font-family select', updateFontStyle );
+	function updateCheckboxListValue() {
+		const $control = $( this ).closest( '.customize-control' );
+		const values = $control.find( 'input[type="checkbox"]:checked' ).map( function() {
+			return this.value;
+		} ).get().join( ',' );
+
+		$control.find( 'input[type="hidden"]' ).val( values ).trigger( 'change' );
+	}
+
+	$( document )
+		.on( 'change', '.customize-control-estar-font-family select', updateFontStyle )
+		.on( 'change', '.customize-control-estar-checkbox-list input[type="checkbox"]', updateCheckboxListValue );
 } );

@@ -29,9 +29,10 @@ class CSS {
 			if ( ! $font ) {
 				continue;
 			}
-			$fonts[ $family] = isset( $fonts[ $family] ) ? $fonts[ $family] : [];
+			$fonts[ $family]    = isset( $fonts[ $family] ) ? $fonts[ $family] : [];
 			$fonts[ $family ][] = get_theme_mod( "{$id}_font_style" );
-			$subset           = array_merge( $subset, $font['subsets'] );
+
+			$subset = array_merge( $subset, explode( ',', get_theme_mod( "{$id}_font_subsets" ) ) );
 		}
 		if ( ! $fonts ) {
 			return;
@@ -42,11 +43,11 @@ class CSS {
 		}
 
 		$fonts_url = add_query_arg(
-			[
-				'family'  => rawurlencode( implode( '|', $fonts ) ),
-				'subset'  => rawurlencode( implode( ',', array_unique( $subset ) ) ),
+			array_filter( [
+				'family'  => implode( '|', $fonts ),
+				'subset'  => implode( ',', array_unique( array_filter( $subset ) ) ),
 				'display' => 'swap',
-			],
+			] ),
 			'https://fonts.googleapis.com/css'
 		);
 

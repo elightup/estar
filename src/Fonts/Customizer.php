@@ -82,6 +82,26 @@ class Customizer {
 			'panel'   => 'estar_fonts',
 		] );
 
+		// Languages.
+		$wp_customize->add_setting( "{$id}_font_subsets", [
+			'sanitize_callback' => 'esc_attr',
+			'transport'         => 'postMessage',
+		] );
+		$wp_customize->add_control( new CheckboxListControl( $wp_customize, "{$id}_font_subsets", [
+			'label'   => $this->labels['font_subsets'],
+			'choices' => [
+				'cyrillic'     => $this->labels['cyrillic'],
+				'cyrillic-ext' => $this->labels['cyrillic-ext'],
+				'greek'        => $this->labels['greek'],
+				'greek-ext'    => $this->labels['greek-ext'],
+				'latin'        => $this->labels['latin'],
+				'latin-ext'    => $this->labels['latin-ext'],
+				'vietnamese'   => $this->labels['vietnamese'],
+			],
+			'section' => "{$id}_font",
+			'panel'   => 'estar_fonts',
+		] ) );
+
 		// Font size.
 		$wp_customize->add_setting( "{$id}_font_size", [
 			'sanitize_callback' => 'esc_attr',
