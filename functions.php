@@ -52,7 +52,7 @@ function estar_setup() {
 			'size'      => 24,
 			'slug'      => 'huge',
 		],
-	) );
+	] );
 
 	add_theme_support( 'editor-color-palette', [
 		[
@@ -80,11 +80,15 @@ function estar_setup() {
 			'slug'  => 'background',
 			'color' => '#fff',
 		],
-	) );
+	] );
 }
 
 add_action( 'wp_enqueue_scripts', 'estar_scripts' );
 
 function estar_scripts() {
-	wp_enqueue_style( 'estar', get_stylesheet_uri(), [], '0.0.1' );
+	wp_enqueue_style( 'estar', get_template_directory_uri() . '/style.css', [], '0.0.1' );
+
+	if ( is_child_theme() ) {
+		wp_enqueue_style( get_stylesheet(), get_stylesheet_uri(), ['estar'], '0.0.1' );
+	}
 }
