@@ -1,8 +1,8 @@
 html {
-	font-family: var(--font-base);
+	font-family: var(--font-sans);
 	line-height: 1.5;
 	box-sizing: border-box;
-	color: var(--color-text);
+	color: var(--color-base);
 }
 *, *:before, *:after {
 	box-sizing: inherit;
@@ -11,24 +11,25 @@ html {
 // Headings.
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
+	color: var(--color-dark);
 }
 h1 {
-	font-size: 1.5rem;
+	font-size: var(--text-2xl);
 }
 h2 {
-	font-size: 1.25rem;
+	font-size: var(--text-xl);
 }
 h3 {
-	font-size: 1.125rem;
+	font-size: var(--text-lg);
 }
 h4 {
-	font-size: 1rem;
+	font-size: var(--text-base);
 }
 h5 {
-	font-size: .875rem;
+	font-size: var(--base-sm);
 }
 h6 {
-	font-size: .75rem;
+	font-size: var(--base-xs);
 }
 
 // Forms.
@@ -48,12 +49,12 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--color-light);
 	border-radius: .25rem;
 	padding: .25rem .5rem;
 }
 select {
-	border: 1px solid var(--color-border);
+	border: 1px solid var(--color-light);
 	border-radius: .25rem;
 }
 textarea {
@@ -84,7 +85,7 @@ li > ol {
 }
 
 hr {
-	background-color: var(--color-border);
+	background-color: var(--color-light);
 	border: 0;
 	height: 1px;
 }
@@ -120,6 +121,6 @@ embed, iframe, object {
 }
 
 pre, code, kbd, samp, tt, var {
-	font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-	font-size: .875rem;
+	font-family: var(--font-mono);
+	font-size: var(--text-sm);
 }

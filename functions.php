@@ -61,8 +61,13 @@ function estar_setup() {
 			'color' => '#4299e1',
 		],
 		[
-			'name'  => __( 'Black', 'estar' ),
-			'slug'  => 'black',
+			'name'  => __( 'Dark', 'estar' ),
+			'slug'  => 'dark',
+			'color' => '#1a202c',
+		],
+		[
+			'name'  => __( 'Base', 'estar' ),
+			'slug'  => 'base',
 			'color' => '#4a5568',
 		],
 		[
@@ -71,8 +76,8 @@ function estar_setup() {
 			'color' => '#a0aec0',
 		],
 		[
-			'name'  => __( 'Light Gray', 'estar' ),
-			'slug'  => 'light-gray',
+			'name'  => __( 'Light', 'estar' ),
+			'slug'  => 'light',
 			'color' => '#e2e8f0',
 		],
 		[

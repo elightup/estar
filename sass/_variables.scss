@@ -1,6 +1,20 @@
 :root {
-	--font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-	--color-accent: #4299e1;
-	--color-text: #4a5568;
-	--color-border: #e2e8f0;
+	// https://tailwindcss.com/docs/font-family/
+	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+	// https://tailwindcss.com/docs/font-size/
+	--text-xs: 12px;
+	--text-sm: 14px;
+	--text-base: 16px;
+	--text-lg: 18px;
+	--text-xl: 20px;
+	--text-2xl: 24px;
+
+	// https://tailwindcss.com/docs/text-color/
+	--color-accent: #4299e1; // blue-500
+	--color-dark: #1a202c; // gray-900
+	--color-base: #4a5568; // gray-700
+	--color-gray: #a0aec0; // gray-500
+	--color-light: #e2e8f0; // gray-300
 }
