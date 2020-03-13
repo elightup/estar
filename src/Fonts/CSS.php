@@ -29,11 +29,16 @@ class CSS {
 			if ( ! $font ) {
 				continue;
 			}
-			$fonts[ $family ] = sprintf( '%s:%s', $family, implode( ',', $font['variants'] ) );
+			$fonts[ $family] = isset( $fonts[ $family] ) ? $fonts[ $family] : [];
+			$fonts[ $family ][] = get_theme_mod( "{$id}_font_style" );
 			$subset           = array_merge( $subset, $font['subsets'] );
 		}
 		if ( ! $fonts ) {
 			return;
+		}
+		foreach ( $fonts as $family => $styles ) {
+			$styles = implode( ',', array_filter( $styles ) );
+			$fonts[ $family ] = $styles ? "$family:$styles" : $family;
 		}
 
 		$fonts_url = add_query_arg(
