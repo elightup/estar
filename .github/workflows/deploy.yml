@@ -1,0 +1,13 @@
+name: Deploy to our websites.
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: git-ftp-action
+      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      with:
+        ftp-server: ${{ secrets.TITANWEB_URL }}
+        ftp-username: ${{ secrets.TITANWEB_USER }}
+        ftp-password: ${{ secrets.TITANWEB_PASSWORD }}
