@@ -26,22 +26,21 @@
 	// @link https://www.w3.org/WAI/tutorials/menus/flyout/
 	function toggleSubmenu() {
 		const nav = document.querySelector( '.nav' ),
-			event = /iphone|ipad/gi.test( navigator.appVersion ) ? 'touchstart' : 'click';
+			buttons = [...nav.querySelectorAll( '.sub-menu-toggle' )];
 
-		nav.addEventListener( event, e => {
-			if ( ! e.target.classList.contains( 'sub-menu-toggle' ) ) {
-				return;
-			}
-			e.preventDefault();
-			const button = e.target, a = button.previousElementSibling, li = a.closest( 'li' );
-			if ( li.classList.contains( 'is-open' ) ) {
-				button.setAttribute( 'aria-expanded', 'false' );
-				a.setAttribute( 'aria-expanded', 'false' );
-			} else {
-				button.setAttribute( 'aria-expanded', 'true' );
-				a.setAttribute( 'aria-expanded', 'true' );
-			}
-			li.classList.toggle( 'is-open' );
+		buttons.forEach( button => {
+			button.addEventListener( 'click', e => {
+				e.preventDefault();
+				const a = button.previousElementSibling, li = a.closest( 'li' );
+				if ( li.classList.contains( 'is-open' ) ) {
+					button.setAttribute( 'aria-expanded', 'false' );
+					a.setAttribute( 'aria-expanded', 'false' );
+				} else {
+					button.setAttribute( 'aria-expanded', 'true' );
+					a.setAttribute( 'aria-expanded', 'true' );
+				}
+				li.classList.toggle( 'is-open' );
+			} );
 		} );
 	}
 
