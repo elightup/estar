@@ -627,6 +627,7 @@ pre, code, kbd, samp, tt, var {
 .site-navigation {
 	margin-left: auto;
 	text-transform: uppercase;
+	letter-spacing: .05em;
 	font-size: var(--text-sm);
 	font-weight: 700;
 }
