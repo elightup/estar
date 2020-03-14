@@ -101,3 +101,6 @@ function estar_scripts() {
 }
 
 new EStar\Fonts\Fonts;
+if ( ! is_admin() ) {
+	new EStar\TemplateFunctions;
+}

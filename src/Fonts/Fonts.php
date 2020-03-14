@@ -18,14 +18,6 @@ class Fonts {
 
 	public static function get_elements() {
 		$elements = [
-			'site_title' => [
-				'title'    => __( 'Site Title', 'estar' ),
-				'selector' => '.site-title',
-			],
-			'site-description' => [
-				'title'    => __( 'Site Description', 'estar' ),
-				'selector' => '.site-description',
-			],
 			'body' => [
 				'title'    => __( 'Body', 'estar' ),
 				'selector' => 'body',
@@ -45,6 +37,30 @@ class Fonts {
 			'heading_4' => [
 				'title'    => __( 'Heading 4', 'estar' ),
 				'selector' => 'h4',
+			],
+			'heading_3' => [
+				'title'    => __( 'Heading 5', 'estar' ),
+				'selector' => 'h5',
+			],
+			'heading_4' => [
+				'title'    => __( 'Heading 6', 'estar' ),
+				'selector' => 'h6',
+			],
+			'site_title' => [
+				'title'    => __( 'Site Title', 'estar' ),
+				'selector' => '.site-title',
+			],
+			'site-description' => [
+				'title'    => __( 'Site Description', 'estar' ),
+				'selector' => '.site-description',
+			],
+			'post_title_singular' => [
+				'title'    => __( 'Post Title (Singular)', 'estar' ),
+				'selector' => '.singular .entry-title',
+			],
+			'post_title_archive' => [
+				'title'    => __( 'Post Title (Archive)', 'estar' ),
+				'selector' => '.archive .entry-title',
 			],
 		];
 		return apply_filters( 'estar_fonts_elements', $elements );
