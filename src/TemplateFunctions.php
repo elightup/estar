@@ -57,7 +57,7 @@ class TemplateFunctions {
 
 	public function add_dropdown_icons( $output, $item, $depth, $args ) {
 		if ( isset( $args->theme_location ) && 'menu-1' === $args->theme_location && in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			$output = str_replace( '</a>', '<span class="submenu-toggle" role="button" tabindex="-1"></span></a>', $output );
+			$output = '<div class="menu-text">' . $output . '<button class="sub-menu-toggle" aria-expanded="false"><span class="screen-reader-text">' . esc_html( sprintf( __( 'Show submenu for %s', 'estar' ), $item->title ) ) . '</span></button></div>';
 		}
 		return $output;
 	}

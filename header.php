@@ -25,7 +25,7 @@
 			</div>
 			<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
 				<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'estar' ); ?></button>
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span></button>
 					<?php
 					wp_nav_menu( [
 						'container'      => null,
