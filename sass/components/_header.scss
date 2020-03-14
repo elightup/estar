@@ -1,7 +1,10 @@
+// Sticky header.
 .site-header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: relative;
+	position: sticky;
+	top: 0;
+	background: #fff;
 
 	.container {
 		display: flex;
@@ -9,6 +12,18 @@
 		align-items: center;
 	}
 }
+// For logged in users.
+@media (min-width: 601px) and (max-width: 782px) {
+	.admin-bar .site-header {
+		top: 46px;
+	}
+}
+@media (min-width: 783px) {
+	.admin-bar .site-header {
+		top: 32px;
+	}
+}
+
 .site-logo {
 	margin: 0;
 }
