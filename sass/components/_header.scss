@@ -1,5 +1,22 @@
+.site-header {
+	padding: 8px 0;
+	border-bottom: 1px solid var(--color-light);
+	position: relative;
+
+	.container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+.site-logo {
+	margin: 0;
+}
+.custom-logo-link, .custom-logo {
+	display: block;
+}
 .site-title {
-	font-size: 1.25rem;
+	font-size: var(--text-lg);
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: .05em;
@@ -10,3 +27,214 @@
 		text-decoration: none;
 	}
 }
+
+// Menu.
+.site-navigation {
+	margin-left: auto;
+	text-transform: uppercase;
+	font-size: var(--text-sm);
+	font-weight: 700;
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.menu {
+	display: flex;
+
+	a {
+		display: block;
+		padding: 8px 16px;
+		color: inherit;
+
+		// To show submenu toggle under the dropdown icon.
+		position: relative;
+		z-index: 1;
+
+		&:hover {
+			text-decoration: none;
+			color: var(--color-accent);
+		}
+	}
+
+	li {
+		position: relative;
+
+		// Dropdown 2nd level.
+		ul {
+			position: absolute;
+			display: none;
+			left: 0;
+			top: 100%;
+			z-index: 999;
+			box-shadow: 0 5px 12px rgba(74, 85, 104, .2);
+			background: #fff;
+			font-size: var(--text-xs);
+		}
+		&:hover > ul {
+			display: block;
+		}
+
+		li {
+			width: 180px;
+
+			// Separator
+			border-bottom: 1px solid var(--color-light);
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+	}
+
+	// Dropdown 3-rd, 4th, ... level submenu
+	ul ul {
+		top: 0;
+	}
+	ul li:hover > ul {
+		left: 100%;
+	}
+}
+
+// Add more padding for dropdown icon (both top level menu and submenu)
+.menu-item-has-children > a {
+	padding-right: 32px;
+
+	// Dropdown icon.
+	&:after {
+		content: "";
+		display: block;
+		border: 4px solid transparent;
+		border-top-color: currentColor;
+		position: absolute;
+		z-index: 1001;
+		right: 18px;
+		top: 50%;
+		margin-top: -2px;
+		width: 0;
+		height: 0;
+	}
+	&:hover:after {
+		border-top-color: var(--color-accent);
+	}
+}
+// Dropdown icon for 3-rd, 4th, ... level submenus.
+li li.menu-item-has-children > a {
+	&:after {
+		border-top-color: transparent;
+		border-left-color: currentColor;
+		right: 12px;
+	}
+	&:hover:after {
+		border-top-color: transparent;
+		border-left-color: var(--color-accent);
+	}
+}
+
+// Active status on hover and selected
+.current-menu-item > a,
+.current-menu-ancestor > a {
+	color: var(--color-accent);
+}
+
+// Toggle icon for hamburger menu
+.menu-toggle {
+	width: 24px;
+	height: 20px;
+	padding: 0;
+	border: 0;
+	position: relative;
+	background: transparent;
+	text-indent: -999em;
+	color: inherit;
+	display: none;
+
+	&:hover,
+	&:focus {
+		background: transparent;
+	}
+
+	// 3 lines
+	&:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 24px;
+		height: 20px;
+		border-top: 12px double currentColor;
+		border-bottom: 4px solid currentColor;
+	}
+}
+
+// Submenu toggle icon on tables and mobiles.
+.submenu-toggle {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 45px;
+	background: transparent;
+	z-index: 2; // Display on top of the dropdown icon.
+}
+
+@media (max-width: 1023px) {
+	.menu-toggle {
+		display: block;
+	}
+	.site-navigation ul {
+		border-top: 1px solid var(--color-light);
+	}
+
+	// Main menu.
+	.is-open > .menu {
+		display: block;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 9;
+		background: #fff;
+	}
+	.menu {
+		display: none;
+
+		li {
+			border-bottom: 1px solid var(--color-light);
+
+			ul {
+				position: static;
+				box-shadow: none;
+				text-indent: 16px;
+
+				ul {
+					text-indent: 32px;
+				}
+			}
+
+			li {
+				width: 100%;
+			}
+		}
+
+		.menu-item-has-children > a {
+			&:after {
+				border-top-color: currentColor;
+				border-left-color: transparent;
+				right: 16px;
+			}
+			&:hover:after {
+				border-top-color: var(--color-accent);
+				border-left-color: transparent;
+			}
+		}
+
+		// Submenu.
+		.is-open > ul {
+			display: block;
+		}
+	}
+}
+

@@ -1,10 +1,12 @@
 <?php get_header() ?>
 
 <main>
-	<?php
-	the_post();
-	get_template_part( 'template-parts/content/post' );
-	?>
+	<div class="container">
+		<?php
+		the_post();
+		get_template_part( 'template-parts/content/post' );
+		?>
+	</div>
 </main>
 
 <?php get_footer() ?>

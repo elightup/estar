@@ -7,6 +7,9 @@ html {
 *, *:before, *:after {
 	box-sizing: inherit;
 }
+:focus, :active {
+	outline: none;
+}
 
 // Headings.
 h1, h2, h3, h4, h5, h6 {
@@ -64,8 +67,10 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 	background: var(--color-accent);
 	color: #fff;
 	border-radius: .25rem;
+	border: none;
 	padding: .5rem 1rem;
 	cursor: pointer;
+	line-height: 1;
 }
 
 h1, h2, h3, h4, h5, h6,

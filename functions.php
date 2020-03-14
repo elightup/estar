@@ -6,6 +6,10 @@ add_action( 'after_setup_theme', 'estar_setup' );
 function estar_setup() {
 	load_theme_textdomain( 'estar', get_template_directory() . '/languages' );
 
+	register_nav_menus( [
+		'menu-1' => __( 'Header', 'estar' ),
+	] );
+
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
@@ -98,6 +102,11 @@ function estar_scripts() {
 	if ( is_child_theme() ) {
 		wp_enqueue_style( get_stylesheet(), get_stylesheet_uri(), ['estar'], '0.0.1' );
 	}
+
+	wp_enqueue_script( 'estar', get_template_directory_uri() . '/js/script.js', [], '0.0.1', true );
+	wp_localize_script( 'estar', 'EStar', [
+		'submenuToggle' => __( 'Show submenu for %s', 'estar' ),
+	] );
 }
 
 new EStar\Fonts\Fonts;

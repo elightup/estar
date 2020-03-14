@@ -1,4 +1,10 @@
 :root {
+	// Bootstrap Grid with padding on both sides, so no negative margins on childrens.
+	// https://getbootstrap.com/docs/4.4/layout/overview/
+	--container-xl: 1140px;
+	--container-lg: 960px;
+	--container-md: 720px;
+
 	// https://tailwindcss.com/docs/font-family/
 	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-serif: Georgia, Cambria, "Times New Roman", Times, serif;

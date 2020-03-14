@@ -6,11 +6,34 @@
 	<?php wp_head() ?>
 </head>
 <body <?php body_class() ?>>
-	<?php wp_body_open() ?>
+	<?php
+	if ( function_exists( 'wp_body_open' ) ) {
+		wp_body_open();
+	}
+	?>
 	<header class="site-header">
-		<?php
-		get_template_part( 'template-parts/site/logo' );
-		get_template_part( 'template-parts/site/title' );
-		// get_template_part( 'template-parts/site/description' );
-		?>
+		<div class="container">
+			<div class="site-branding">
+				<?php
+				if ( has_custom_logo() ) {
+					get_template_part( 'template-parts/site/logo' );
+				} else {
+					get_template_part( 'template-parts/site/title' );
+					get_template_part( 'template-parts/site/description' );
+				}
+				?>
+			</div>
+			<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
+				<nav class="site-navigation" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>">
+					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'estar' ); ?></button>
+					<?php
+					wp_nav_menu( [
+						'container'      => null,
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					] );
+					?>
+				</nav>
+			<?php endif ?>
+		</div>
 	</header>

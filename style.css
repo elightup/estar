@@ -11,6 +11,9 @@
  * Tags:        bright, clean, elegant, light, minimal, modern, natural, professional, retro, simple, sophisticated, author-bio, classic-menu, custom-menu, editor-style, featured-images, fixed-menu, infinite-scroll, post-formats, post-slider, rtl-language-support, site-logo, social-menu, sticky-post, threaded-comments, translation-ready, blog, craft, fashion, food, holiday, journal, lifestream, music, nature, travel, tumblelog, white, responsive-layout, right-sidebar, two-columns
  */
 :root {
+	--container-xl: 1140px;
+	--container-lg: 960px;
+	--container-md: 720px;
 	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	--font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -110,8 +113,7 @@ abbr[title] {
 	/* 1 */
 	text-decoration: underline;
 	/* 2 */
-	-webkit-text-decoration: underline dotted;
-	        text-decoration: underline dotted;
+	text-decoration: underline dotted;
 	/* 2 */
 }
 
@@ -232,16 +234,6 @@ button::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
 	border-style: none;
 	padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule.
- */
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-	outline: 1px dotted ButtonText;
 }
 
 /**
@@ -378,6 +370,10 @@ html {
 	box-sizing: inherit;
 }
 
+:focus, :active {
+	outline: none;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	color: var(--color-dark);
@@ -441,8 +437,10 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 	background: var(--color-accent);
 	color: #fff;
 	border-radius: .25rem;
+	border: none;
 	padding: .5rem 1rem;
 	cursor: pointer;
+	line-height: 1;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -509,8 +507,7 @@ pre, code, kbd, samp, tt, var {
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	-webkit-clip-path: inset(50%);
-	        clip-path: inset(50%);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -523,8 +520,7 @@ pre, code, kbd, samp, tt, var {
 .screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	-webkit-clip-path: none;
-	        clip-path: none;
+	clip-path: none;
 	color: var(--color-base);
 	display: block;
 	font-size: 1em;
@@ -555,8 +551,54 @@ pre, code, kbd, samp, tt, var {
 	margin-right: auto;
 }
 
+.container {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--container-xl);
+}
+
+@media (max-width: 1279px) {
+	.container {
+		max-width: var(--container-lg);
+	}
+}
+
+@media (max-width: 1023px) {
+	.container {
+		max-width: var(--container-md);
+	}
+}
+
+@media (max-width: 767px) {
+	.container {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+}
+
+.site-header {
+	padding: 8px 0;
+	border-bottom: 1px solid var(--color-light);
+	position: relative;
+}
+
+.site-header .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.site-logo {
+	margin: 0;
+}
+
+.custom-logo-link, .custom-logo {
+	display: block;
+}
+
 .site-title {
-	font-size: 1.25rem;
+	font-size: var(--text-lg);
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: .05em;
@@ -566,6 +608,194 @@ pre, code, kbd, samp, tt, var {
 .site-title a {
 	color: inherit;
 	text-decoration: none;
+}
+
+.site-navigation {
+	margin-left: auto;
+	text-transform: uppercase;
+	font-size: var(--text-sm);
+	font-weight: 700;
+}
+
+.site-navigation ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.menu {
+	display: flex;
+}
+
+.menu a {
+	display: block;
+	padding: 8px 16px;
+	color: inherit;
+	position: relative;
+	z-index: 1;
+}
+
+.menu a:hover {
+	text-decoration: none;
+	color: var(--color-accent);
+}
+
+.menu li {
+	position: relative;
+}
+
+.menu li ul {
+	position: absolute;
+	display: none;
+	left: 0;
+	top: 100%;
+	z-index: 999;
+	box-shadow: 0 5px 12px rgba(74, 85, 104, 0.2);
+	background: #fff;
+	font-size: var(--text-xs);
+}
+
+.menu li:hover > ul {
+	display: block;
+}
+
+.menu li li {
+	width: 180px;
+	border-bottom: 1px solid var(--color-light);
+}
+
+.menu li li:last-child {
+	border-bottom: none;
+}
+
+.menu ul ul {
+	top: 0;
+}
+
+.menu ul li:hover > ul {
+	left: 100%;
+}
+
+.menu-item-has-children > a {
+	padding-right: 32px;
+}
+
+.menu-item-has-children > a:after {
+	content: "";
+	display: block;
+	border: 4px solid transparent;
+	border-top-color: currentColor;
+	position: absolute;
+	z-index: 1001;
+	right: 18px;
+	top: 50%;
+	margin-top: -2px;
+	width: 0;
+	height: 0;
+}
+
+.menu-item-has-children > a:hover:after {
+	border-top-color: var(--color-accent);
+}
+
+li li.menu-item-has-children > a:after {
+	border-top-color: transparent;
+	border-left-color: currentColor;
+	right: 12px;
+}
+
+li li.menu-item-has-children > a:hover:after {
+	border-top-color: transparent;
+	border-left-color: var(--color-accent);
+}
+
+.current-menu-item > a,
+.current-menu-ancestor > a {
+	color: var(--color-accent);
+}
+
+.menu-toggle {
+	width: 24px;
+	height: 20px;
+	padding: 0;
+	border: 0;
+	position: relative;
+	background: transparent;
+	text-indent: -999em;
+	color: inherit;
+	display: none;
+}
+
+.menu-toggle:hover, .menu-toggle:focus {
+	background: transparent;
+}
+
+.menu-toggle:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 24px;
+	height: 20px;
+	border-top: 12px double currentColor;
+	border-bottom: 4px solid currentColor;
+}
+
+.submenu-toggle {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 45px;
+	background: transparent;
+	z-index: 2;
+}
+
+@media (max-width: 1023px) {
+	.menu-toggle {
+		display: block;
+	}
+	.site-navigation ul {
+		border-top: 1px solid var(--color-light);
+	}
+	.is-open > .menu {
+		display: block;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 9;
+		background: #fff;
+	}
+	.menu {
+		display: none;
+	}
+	.menu li {
+		border-bottom: 1px solid var(--color-light);
+	}
+	.menu li ul {
+		position: static;
+		box-shadow: none;
+		text-indent: 16px;
+	}
+	.menu li ul ul {
+		text-indent: 32px;
+	}
+	.menu li li {
+		width: 100%;
+	}
+	.menu .menu-item-has-children > a:after {
+		border-top-color: currentColor;
+		border-left-color: transparent;
+		right: 16px;
+	}
+	.menu .menu-item-has-children > a:hover:after {
+		border-top-color: var(--color-accent);
+		border-left-color: transparent;
+	}
+	.menu .is-open > ul {
+		display: block;
+	}
 }
 
 .pagination {
