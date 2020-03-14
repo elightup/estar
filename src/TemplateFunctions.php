@@ -9,19 +9,14 @@ class TemplateFunctions {
 		add_filter( 'excerpt_more', [ $this, 'continue_reading_link' ] );
 		add_filter( 'the_content_more_link', [ $this, 'continue_reading_link' ] );
 		add_filter( 'nav_menu_link_attributes', [ $this, 'add_menu_link_attributes' ], 10, 4 );
+		add_filter( 'walker_nav_menu_start_el', [ $this, 'add_dropdown_icons' ], 10, 4 );
 	}
 
-	/**
-	 * Add custom CSS classes to body for easy styling.
-	 *
-	 * - Singular: .singular
-	 * - Archive: .archive.hfeed. .hfeed is required for hAtom.
-	 */
 	public function add_body_classes( $classes ) {
 		if ( is_singular() ) {
 			$classes[] = 'singular';
 		} else {
-			$classes[] = 'archive hfeed';
+			$classes[] = 'archive hfeed'; // .hfeed is required for hAtom.
 		}
 		return $classes;
 	}
@@ -60,31 +55,10 @@ class TemplateFunctions {
 		return $atts;
 	}
 
-	/**
-	 * Add a dropdown icon to top-level menu items.
-	 *
-	 * @param string $output Nav menu item start element.
-	 * @param object $item   Nav menu item.
-	 * @param int    $depth  Depth.
-	 * @param object $args   Nav menu args.
-	 * @return string Nav menu item start element.
-	 */
 	public function add_dropdown_icons( $output, $item, $depth, $args ) {
-		// Only add class to 'top level' items on the 'primary' menu.
-		if ( ! isset( $args->theme_location ) || 'menu-1' !== $args->theme_location ) {
-			return $output;
+		if ( isset( $args->theme_location ) && 'menu-1' === $args->theme_location && in_array( 'menu-item-has-children', $item->classes, true ) ) {
+			$output = str_replace( '</a>', '<span class="submenu-toggle" role="button" tabindex="-1"></span></a>', $output );
 		}
-
-		if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			// Add SVG icon to parent items.
-			$icon = varia_get_icon_svg( 'keyboard_arrow_down', 24 );
-
-			$output .= sprintf(
-				'<button class="submenu-expand" tabindex="-1">%s</button>',
-				$icon
-			);
-		}
-
 		return $output;
 	}
 }

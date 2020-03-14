@@ -43,8 +43,8 @@
 	}
 }
 
-// Menu.
-.site-navigation {
+// Primary Menu.
+.nav {
 	margin-left: auto;
 	text-transform: uppercase;
 	letter-spacing: .05em;
@@ -62,13 +62,12 @@
 	display: flex;
 
 	a {
-		display: block;
-		padding: 8px 16px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px 12px;
 		color: inherit;
-
-		// To show submenu toggle under the dropdown icon.
 		position: relative;
-		z-index: 1;
 
 		&:hover {
 			text-decoration: none;
@@ -114,41 +113,6 @@
 	}
 }
 
-// Add more padding for dropdown icon (both top level menu and submenu)
-.menu-item-has-children > a {
-	padding-right: 32px;
-
-	// Dropdown icon.
-	&:after {
-		content: "";
-		display: block;
-		border: 4px solid transparent;
-		border-top-color: currentColor;
-		position: absolute;
-		z-index: 1001;
-		right: 18px;
-		top: 50%;
-		margin-top: -2px;
-		width: 0;
-		height: 0;
-	}
-	&:hover:after {
-		border-top-color: var(--color-accent);
-	}
-}
-// Dropdown icon for 3-rd, 4th, ... level submenus.
-li li.menu-item-has-children > a {
-	&:after {
-		border-top-color: transparent;
-		border-left-color: currentColor;
-		right: 12px;
-	}
-	&:hover:after {
-		border-top-color: transparent;
-		border-left-color: var(--color-accent);
-	}
-}
-
 // Active status on hover and selected
 .current-menu-item > a,
 .current-menu-ancestor > a {
@@ -185,15 +149,28 @@ li li.menu-item-has-children > a {
 	}
 }
 
-// Submenu toggle icon on tables and mobiles.
+// Dropdown icon for submenu toggling.
 .submenu-toggle {
-	position: absolute;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	width: 45px;
-	background: transparent;
-	z-index: 2; // Display on top of the dropdown icon.
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 4px;
+
+	&:after {
+		content: "";
+		display: block;
+		border: 4px solid transparent;
+		border-top-color: currentColor;
+		width: 0;
+		height: 0;
+		margin-top: 2px;
+	}
+
+	.sub-menu &:after {
+		border-top-color: transparent;
+		border-left-color: currentColor;
+		margin-top: 0;
+	}
 }
 
 @media (max-width: 1023px) {
@@ -203,8 +180,24 @@ li li.menu-item-has-children > a {
 	.site-navigation ul {
 		border-top: 1px solid var(--color-light);
 	}
+	.submenu-toggle {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		padding: 12px;
+
+		.sub-menu &:after {
+			border-top-color: currentColor;
+			border-left-color: transparent;
+			margin-top: 2px;
+		}
+	}
 
 	// Main menu.
+	.is-open > ul {
+		border-top: 1px solid var(--color-light);
+	}
 	.is-open > .menu {
 		display: block;
 		position: absolute;
@@ -223,10 +216,14 @@ li li.menu-item-has-children > a {
 			ul {
 				position: static;
 				box-shadow: none;
-				text-indent: 16px;
+				text-indent: 12px;
 
 				ul {
-					text-indent: 32px;
+					text-indent: 24px;
+
+					ul {
+						text-indent: 36px;
+					}
 				}
 			}
 
