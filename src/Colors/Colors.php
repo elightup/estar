@@ -31,7 +31,8 @@ class Colors {
 				'description' => __( 'Body text color', 'estar' ),
 			],
 			'color-gray' => [
-				'title' => __( 'Gray Color', 'estar' ),
+				'title'       => __( 'Gray Color', 'estar' ),
+				'description' => __( 'Post meta, comment meta', 'estar' ),
 			],
 			'color-light' => [
 				'title'       => __( 'Light Color', 'estar' ),

@@ -1,3 +1,4 @@
+// Container.
 .container {
 	@include center-block;
 	max-width: var(--container-xl);
@@ -17,4 +18,12 @@
 		padding-left: 12px;
 		padding-right: 12px;
 	}
+}
+
+// Content area.
+main {
+	@include center-block;
+	max-width: 42rem;
+	padding-left: 12px;
+	padding-right: 12px;
 }

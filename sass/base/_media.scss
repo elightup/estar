@@ -7,18 +7,15 @@
 
 .wp-caption {
 	margin-bottom: 1.5em;
-	max-width: 100%;
 
-	img[class*="wp-image-"] {
+	img {
 		@include center-block;
-	}
-
-	.wp-caption-text {
-		margin: .75em 0;
 	}
 }
 .wp-caption-text {
 	text-align: center;
+	font-size: var(--text-xs);
+	margin-top: .5rem;
 }
 
 .gallery {
@@ -33,7 +30,7 @@
 	// Loops to enumerate the classes for gallery columns.
 	@for $i from 2 through 9 {
 		.gallery-columns-#{$i} & {
-			max-width: map-get( $columns, $i );
+			max-width: 100% / $i;
 		}
 	}
 }

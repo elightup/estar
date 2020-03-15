@@ -38,11 +38,11 @@ class Fonts {
 				'title'    => __( 'Heading 4', 'estar' ),
 				'selector' => 'h4',
 			],
-			'heading_3' => [
+			'heading_5' => [
 				'title'    => __( 'Heading 5', 'estar' ),
 				'selector' => 'h5',
 			],
-			'heading_4' => [
+			'heading_6' => [
 				'title'    => __( 'Heading 6', 'estar' ),
 				'selector' => 'h6',
 			],

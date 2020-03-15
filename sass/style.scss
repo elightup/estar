@@ -18,8 +18,16 @@
 @import "base/elements";
 @import "base/accessibility";
 @import "base/alignments";
-@import "base/layout";
+@import "base/media";
 
+@import "components/layout";
 @import "components/blocks";
 @import "components/header";
 @import "components/pagination";
+@import "components/breadcrumbs";
+@import "components/comments";
+
+@import "components/content";
+@import "components/page";
+
+@import "utilities";
