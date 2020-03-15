@@ -110,6 +110,7 @@ function estar_scripts() {
 }
 
 new EStar\Fonts\Fonts;
+new EStar\Colors\Colors;
 if ( ! is_admin() ) {
 	new EStar\TemplateFunctions;
 }

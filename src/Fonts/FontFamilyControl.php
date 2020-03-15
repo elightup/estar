@@ -12,7 +12,6 @@ class FontFamilyControl extends \WP_Customize_Control {
 	 * Allows the content to be overridden without having to rewrite the wrapper.
 	 */
 	protected function render_content() {
-		$labels   = Fonts::get_labels();
 		$input_id = "_customize-input-{$this->id}";
 		?>
 
@@ -21,12 +20,12 @@ class FontFamilyControl extends \WP_Customize_Control {
 		<?php endif; ?>
 
 		<select <?php $this->link(); ?> id="<?= esc_attr( $input_id ) ?>">
-			<option value=""><?= esc_html( $labels['no_change'] ); ?></option>
-			<optgroup label="<?= esc_attr( $labels['system_fonts'] ); ?>">
-				<option value="sans-serif"<?php selected( $this->value(), 'sans-serif' ); ?>><?= esc_html( $labels['sans_serif'] ); ?></option>
-				<option value="serif"<?php selected( $this->value(), 'serif' ); ?>><?= esc_html( $labels['serif'] ); ?></option>
+			<option value=""><?php esc_html_e( '- No change -', 'estar' ); ?></option>
+			<optgroup label="<?php esc_attr_e( 'System Fonts', 'estar' ); ?>">
+				<option value="sans-serif"<?php selected( $this->value(), 'sans-serif' ); ?>><?php esc_html_e( 'Sans Serif', 'estar' ); ?></option>
+				<option value="serif"<?php selected( $this->value(), 'serif' ); ?>><?php esc_html_e( 'Serif', 'estar' ); ?></option>
 			</optgroup>
-			<optgroup label="<?= esc_attr( $labels['google_fonts'] ); ?>">
+			<optgroup label="<?php esc_attr_e( 'Google Fonts', 'estar' ); ?>">
 				<?php
 				$fonts = include __DIR__ . '/fonts.php';
 				foreach ( $fonts as $font ) {

@@ -3,29 +3,22 @@ namespace EStar\Fonts;
 
 class Customizer {
 	private $elements;
-	private $labels;
 
 	public function __construct() {
 		$this->elements = Fonts::get_elements();
-		$this->labels   = Fonts::get_labels();
 
 		add_action( 'customize_register', [ $this, 'register' ] );
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'enqueue_controls_scripts' ] );
 		add_action( 'customize_preview_init', [ $this, 'enqueue_preview_scripts' ] );
 	}
 
-	/**
-	 * Register typography settings in the Customizer.
-	 *
-	 * @param WP_Customize_Manager $wp_customize The WP customize manager object.
-	 */
 	public function register( $wp_customize ) {
 		if ( empty( $this->elements ) ) {
 			return;
 		}
 
 		$wp_customize->add_panel( 'estar_fonts', [
-			'title' => $this->labels['panel'],
+			'title' => __( 'Fonts', 'estar' ),
 		] );
 
 		array_walk( $this->elements, [ $this, 'register_element_settings' ], $wp_customize );
@@ -44,7 +37,7 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( new FontFamilyControl( $wp_customize, "{$id}_font_family", [
-			'label'   => $this->labels['font_family'],
+			'label'   => __( 'Font Family', 'estar' ),
 			'section' => "{$id}_font",
 			'panel'   => 'estar_fonts',
 		] ) );
@@ -55,28 +48,28 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( "{$id}_font_style", [
-			'label'   => $this->labels['font_style'],
+			'label'   => __( 'Font Style', 'estar' ),
 			'type'    => 'select',
 			'choices' => [
-				''          => $this->labels['no_change'],
-				'100'       => $this->labels['100'],
-				'100italic' => $this->labels['100italic'],
-				'200'       => $this->labels['200'],
-				'200italic' => $this->labels['200italic'],
-				'300'       => $this->labels['300'],
-				'300italic' => $this->labels['300italic'],
-				'regular'   => $this->labels['400'],
-				'italic'    => $this->labels['400italic'],
-				'500'       => $this->labels['500'],
-				'500italic' => $this->labels['500italic'],
-				'600'       => $this->labels['600'],
-				'600italic' => $this->labels['600italic'],
-				'700'       => $this->labels['700'],
-				'700italic' => $this->labels['700italic'],
-				'800'       => $this->labels['800'],
-				'800italic' => $this->labels['800italic'],
-				'900'       => $this->labels['900'],
-				'900italic' => $this->labels['900italic'],
+				''          => __( '- No change -', 'estar' ),
+				'100'       => __( 'Thin 100', 'estar' ),
+				'100italic' => __( 'Thin 100 Italic', 'estar' ),
+				'200'       => __( 'Extra-Light 200', 'estar' ),
+				'200italic' => __( 'Extra-Light 200 Italic', 'estar' ),
+				'300'       => __( 'Light 300', 'estar' ),
+				'300italic' => __( 'Light 300 Italic', 'estar' ),
+				'regular'   => __( 'Normal 400', 'estar' ),
+				'italic'    => __( 'Normal 400 Italic', 'estar' ),
+				'500'       => __( 'Medium 500', 'estar' ),
+				'500italic' => __( 'Medium 500 Italic', 'estar' ),
+				'600'       => __( 'Semi-Bold 600', 'estar' ),
+				'600italic' => __( 'Semi-Bold 600 Italic', 'estar' ),
+				'700'       => __( 'Bold 700', 'estar' ),
+				'700italic' => __( 'Bold 700 Italic', 'estar' ),
+				'800'       => __( 'Extra-Bold 800', 'estar' ),
+				'800italic' => __( 'Extra-Bold 800 Italic', 'estar' ),
+				'900'       => __( 'Ultra-Bold 900', 'estar' ),
+				'900italic' => __( 'Ultra-Bold 900 Italic', 'estar' ),
 			],
 			'section' => "{$id}_font",
 			'panel'   => 'estar_fonts',
@@ -88,15 +81,15 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( new CheckboxListControl( $wp_customize, "{$id}_font_subsets", [
-			'label'   => $this->labels['font_subsets'],
+			'label'   => __( 'Languages', 'estar' ),
 			'choices' => [
-				'cyrillic'     => $this->labels['cyrillic'],
-				'cyrillic-ext' => $this->labels['cyrillic-ext'],
-				'greek'        => $this->labels['greek'],
-				'greek-ext'    => $this->labels['greek-ext'],
-				'latin'        => $this->labels['latin'],
-				'latin-ext'    => $this->labels['latin-ext'],
-				'vietnamese'   => $this->labels['vietnamese'],
+				'cyrillic'     => __( 'Cyrillic', 'estar' ),
+				'cyrillic-ext' => __( 'Cyrillic Extended', 'estar' ),
+				'greek'        => __( 'Greek', 'estar' ),
+				'greek-ext'    => __( 'Greek Extended', 'estar' ),
+				'latin'        => __( 'Latin', 'estar' ),
+				'latin-ext'    => __( 'Latin Extended', 'estar' ),
+				'vietnamese'   => __( 'Vietnamese', 'estar' ),
 			],
 			'section' => "{$id}_font",
 			'panel'   => 'estar_fonts',
@@ -108,7 +101,7 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( "{$id}_font_size", [
-			'label'      => $this->labels['font_size'],
+			'label'      => __( 'Font Size', 'estar' ),
 			'type'       => 'number',
 			'section'    => "{$id}_font",
 			'panel'      => 'estar_fonts',
@@ -137,7 +130,7 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( "{$id}_line_height", [
-			'label'      => $this->labels['line_height'],
+			'label'      => __( 'Line Height', 'estar' ),
 			'type'       => 'number',
 			'section'    => "{$id}_font",
 			'panel'      => 'estar_fonts',
@@ -166,7 +159,7 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( "{$id}_letter_spacing", [
-			'label'      => $this->labels['letter_spacing'],
+			'label'      => __( 'Letter Spacing', 'estar' ),
 			'type'       => 'number',
 			'section'    => "{$id}_font",
 			'panel'      => 'estar_fonts',
@@ -195,14 +188,14 @@ class Customizer {
 			'transport'         => 'postMessage',
 		] );
 		$wp_customize->add_control( "{$id}_text_transform", [
-			'label'   => $this->labels['text_transform'],
+			'label'   => __( 'Text Transform', 'estar' ),
 			'type'    => 'select',
 			'choices' => [
-				''           => $this->labels['no_change'],
-				'normal'     => $this->labels['none'],
-				'lowercase'  => $this->labels['lowercase'],
-				'uppercase'  => $this->labels['uppercase'],
-				'capitalize' => $this->labels['capitalize'],
+				''           => __( '- No change -', 'estar' ),
+				'normal'     => __( 'None', 'estar' ),
+				'lowercase'  => __( 'lowercase', 'estar' ),
+				'uppercase'  => __( 'UPPERCASE', 'estar' ),
+				'capitalize' => __( 'Capitalize', 'estar' ),
 			],
 			'section' => "{$id}_font",
 			'panel'   => 'estar_fonts',

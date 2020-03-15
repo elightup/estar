@@ -1,14 +1,14 @@
-(function ( document, customize, WebFont, settings ) {
+( function ( document, customize, WebFont, settings ) {
 	'use strict';
 
 	if ( typeof settings === 'undefined' ) {
 		return;
 	}
 
-	var style = document.querySelector( '#estar-fonts' );
+	let style = document.querySelector( '#estar-fonts' );
 
 	function loadFont( id ) {
-		var fontFamily = customize.get()[id + '_font_family'];
+		const fontFamily = customize.get()[id + '_font_family'];
 		if ( ! fontFamily ) {
 			return;
 		}
@@ -20,7 +20,7 @@
 	}
 
 	function buildCSS( id ) {
-		var rules = [],
+		let rules = [],
 			properties = [
 				'font_family',
 				'font_style',
@@ -31,7 +31,7 @@
 			];
 
 		properties.forEach( function( property ) {
-			var value = customize.get()[id + '_' + property];
+			let value = customize.get()[id + '_' + property];
 			if ( ! value ) {
 				return;
 			}
@@ -45,7 +45,7 @@
 					}
 					break;
 				case 'font_style':
-					var fontWeight = value,
+					let fontWeight = value,
 						fontStyle  = 'normal';
 					if ( -1 !== value.indexOf( 'italic' ) ) {
 						fontWeight = value.replace( 'italic', '' );
@@ -57,12 +57,12 @@
 					return;
 				case 'font_size':
 				case 'letter_spacing':
-					var unit = customize.get()[id + '_' + property + '_unit'];
+					let unit = customize.get()[id + '_' + property + '_unit'];
 					unit = unit || 'px';
 					value += unit;
 					break;
 				case 'line_height':
-					var lhUnit = customize.get()[id + '_' + property + '_unit'];
+					let lhUnit = customize.get()[id + '_' + property + '_unit'];
 					value += lhUnit;
 					break;
 			}
@@ -73,7 +73,7 @@
 	}
 
 	function listenForChange( id ) {
-		var properties = [
+		const properties = [
 			'font_family',
 			'font_style',
 			'font_size',
@@ -85,10 +85,10 @@
 			'text_transform',
 		];
 
-		var refreshCSS = function () {
+		const refreshCSS = function () {
 			loadFont( id );
 
-			var css = style.innerHTML,
+			let css = style.innerHTML,
 				rule = buildCSS( id ),
 				regex = new RegExp( settings[id].selector + ' { .*? }', 'g' );
 
@@ -108,4 +108,4 @@
 	}
 
 	Object.keys( settings ).forEach( listenForChange );
-})( document, wp.customize, WebFont, EStar_Fonts_Settings );
+} )( document, wp.customize, WebFont, EStar_Fonts_Settings );
