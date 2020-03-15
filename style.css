@@ -586,6 +586,74 @@ pre, code, kbd, samp, tt, var {
 	}
 }
 
+.has-small-font-size {
+	font-size: 14px;
+}
+
+.has-regular-font-size {
+	font-size: 16px;
+}
+
+.has-large-font-size {
+	font-size: 18px;
+}
+
+.has-larger-font-size {
+	font-size: 20px;
+}
+
+.has-huge-font-size {
+	font-size: 24px;
+}
+
+.has-accent-background-color {
+	background-color: #4299e1;
+}
+
+.has-accent-color {
+	color: #4299e1;
+}
+
+.has-dark-background-color {
+	background-color: #1a202c;
+}
+
+.has-dark-color {
+	color: #1a202c;
+}
+
+.has-base-background-color {
+	background-color: #4a5568;
+}
+
+.has-base-color {
+	color: #4a5568;
+}
+
+.has-gray-background-color {
+	background-color: #a0aec0;
+}
+
+.has-gray-color {
+	color: #a0aec0;
+}
+
+.has-light-background-color {
+	background-color: #e2e8f0;
+}
+
+.has-light-color {
+	color: #e2e8f0;
+}
+
+.has-white-background-color {
+	background-color: #fff;
+}
+
+.has-white-color {
+	color: #fff;
+}
+
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
