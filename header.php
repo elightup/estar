@@ -11,7 +11,7 @@
 		wp_body_open();
 	}
 	?>
-	<header class="site-header">
+	<header class="header">
 		<div class="container">
 			<div class="branding">
 				<?php
