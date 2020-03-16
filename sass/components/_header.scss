@@ -220,7 +220,7 @@
 		border-left-color: currentColor;
 		margin-top: 0;
 	}
-	.is-open > .menu-text > .sub-menu-toggle::after {
+	.sub-menu .is-open > .menu-text > .sub-menu-toggle::after {
 		border-bottom-color: transparent;
 		margin-top: 0;
 	}

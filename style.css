@@ -956,7 +956,7 @@ main {
 		border-left-color: currentColor;
 		margin-top: 0;
 	}
-	.is-open > .menu-text > .sub-menu-toggle::after {
+	.sub-menu .is-open > .menu-text > .sub-menu-toggle::after {
 		border-bottom-color: transparent;
 		margin-top: 0;
 	}
@@ -1071,8 +1071,7 @@ a.page-numbers:hover {
 
 .reply a:before {
 	content: "\21B5";
-	-webkit-transform: scale(1, -1);
-	        transform: scale(1, -1);
+	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
