@@ -51,67 +51,50 @@
 	font-weight: 700;
 
 	ul {
+		display: none;
 		list-style: none;
 		padding: 0;
 		margin: 0;
 	}
-}
-
-.menu {
-	display: flex;
-	align-items: center;
-
+	li {
+		border-top: 1px solid var(--color-light);
+	}
 	a {
 		display: block;
 		padding: 8px 12px;
 		color: inherit;
-		flex: 1;
 
 		&:hover {
 			text-decoration: none;
 			color: var(--color-accent);
 		}
 	}
+}
+.menu {
+	border-bottom: 1px solid var(--color-light);
+}
 
-	li {
-		position: relative;
+// Indent sub menus.
+.sub-menu {
+	text-indent: 12px;
+	font-size: var(--text-xs);
 
-		&:hover > ul {
-			display: block;
-		}
-
-		li:not(:last-child) {
-			border-bottom: 1px solid var(--color-light);
-		}
-	}
-
-	// Dropdown 2nd level.
 	ul {
-		display: none;
-		position: absolute;
-		left: 0;
-		top: 100%;
-		z-index: 999;
-		box-shadow: 0 5px 12px rgba(74, 85, 104, .2);
-		background: #fff;
-		font-size: var(--text-xs);
-		width: 180px;
-	}
+		text-indent: 24px;
 
-	// Dropdown 3-rd, 4th, ... level submenu
-	ul ul {
-		top: 0;
-		left: 100%;
+		ul {
+			text-indent: 36px;
+		}
 	}
 }
 
-// Active status on hover and selected
+// Active status on selected.
 .current-menu-item > a,
 .current-menu-ancestor > a {
 	color: var(--color-accent);
 }
 
-// Toggle icon for hamburger menu
+// Toggle icon for hamburger menu.
 .menu-toggle {
 	width: 24px;
 	height: 20px;
@@ -120,7 +103,6 @@
 	position: relative;
 	background: transparent;
 	color: inherit;
-	display: none;
 
 	&:hover,
 	&:focus {
@@ -149,6 +131,7 @@
 
 	a {
 		padding-right: 0;
+		flex: 1;
 	}
 }
 .sub-menu-toggle {
@@ -166,13 +149,13 @@
 		border-top-color: currentColor;
 		width: 0;
 		height: 0;
-		margin-top: 2px;
+		margin-top: 4px;
 	}
 
-	.sub-menu &:after {
+	.is-open > .menu-text > &:after {
 		border-top-color: transparent;
-		border-left-color: currentColor;
-		margin-top: 0;
+		border-bottom-color: currentColor;
+		margin-top: -6px;
 	}
 }
 
@@ -189,48 +172,56 @@
 	background: #fff;
 }
 
-@media (max-width: 1023px) {
+@media (min-width: 1024px) {
 	.menu-toggle {
+		display: none;
+	}
+	.nav {
+		.menu {
+			display: flex;
+			align-items: center;
+		}
+		.sub-menu {
+			text-indent: 0;
+		}
+		li {
+			position: relative;
+		}
+	}
+	.menu,
+	.menu > li,
+	.nav li:first-child {
+		border: none;
+	}
+
+	// Dropdown 2nd level.
+	.sub-menu {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		z-index: 999;
+		background: #fff;
+		width: 180px;
+		box-shadow: 0 5px 12px rgba(74, 85, 104, .2);
+	}
+
+	// Dropdown 3-rd, 4th, ... level submenu
+	.sub-menu ul {
+		top: 0;
+		left: 100%;
+	}
+
+	.nav li:hover > ul {
 		display: block;
 	}
-	.nav ul {
-		border-top: 1px solid var(--color-light);
-		width: 100%;
-	}
-	.sub-menu-toggle {
-		.sub-menu &:after {
-			border-top-color: currentColor;
-			border-left-color: transparent;
-			margin-top: 2px;
-		}
-	}
-	.is-open > .menu-text > .sub-menu-toggle:after {
+
+	.sub-menu .sub-menu-toggle:after {
 		border-top-color: transparent;
-		border-bottom-color: currentColor;
-		margin-top: -6px;
+		border-left-color: currentColor;
+		margin-top: 0;
 	}
-
-	.menu {
-		display: none;
-
-		&,
-		li:not(:last-child) {
-			border-bottom: 1px solid var(--color-light);
-		}
-
-		ul {
-			position: static;
-			box-shadow: none;
-			text-indent: 12px;
-
-			ul {
-				text-indent: 24px;
-
-				ul {
-					text-indent: 36px;
-				}
-			}
-		}
+	.is-open > .menu-text > .sub-menu-toggle::after {
+		border-bottom-color: transparent;
+		margin-top: 0;
 	}
 }
-
