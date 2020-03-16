@@ -10,7 +10,7 @@ class CSS {
 
 	public function __construct() {
 		$this->elements = Fonts::get_elements();
-		$this->fonts    = include __DIR__ . '/fonts.php';
+		$this->fonts    = include __DIR__ . '/google-fonts.php';
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
 		add_action( 'wp_head', [ $this, 'output' ], 20 );
 	}

@@ -27,7 +27,7 @@ class FontFamilyControl extends \WP_Customize_Control {
 			</optgroup>
 			<optgroup label="<?php esc_attr_e( 'Google Fonts', 'estar' ); ?>">
 				<?php
-				$fonts = include __DIR__ . '/fonts.php';
+				$fonts = include __DIR__ . '/google-fonts.php';
 				foreach ( $fonts as $font ) {
 					printf(
 						'<option value="%s"%s data-styles="%s">%s</option>',
