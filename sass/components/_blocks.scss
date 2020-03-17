@@ -85,6 +85,11 @@
 
 	padding-left: 12px;
 	padding-right: 12px;
+
+	img {
+		width: auto;
+		@include center-block;
+	}
 }
 @media(min-width: 768px) {
 	.alignwide {

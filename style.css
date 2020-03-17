@@ -785,6 +785,13 @@ main {
 	padding-right: 12px;
 }
 
+.alignwide img {
+	width: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 @media (min-width: 768px) {
 	.alignwide {
 		--width: var(--container-md);
