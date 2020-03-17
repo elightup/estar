@@ -66,7 +66,6 @@
 
 		&:hover {
 			text-decoration: none;
-			color: var(--color-accent);
 		}
 	}
 }
@@ -88,7 +87,9 @@
 	}
 }
 
-// Active status on selected.
+// Active status on hover & selected.
+.nav li:hover > a,
+.nav li:hover > .menu-text,
 .current-menu-item > a,
 .current-menu-ancestor > a {
 	color: var(--color-accent);
@@ -104,12 +105,7 @@
 	background: transparent;
 	color: inherit;
 
-	&:hover,
-	&:focus {
-		background: transparent;
-	}
-
-	// 3 lines
+	// 3 lines.
 	&:before {
 		content: "";
 		position: absolute;

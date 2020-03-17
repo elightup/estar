@@ -816,7 +816,6 @@ main {
 
 .nav a:hover {
 	text-decoration: none;
-	color: var(--color-accent);
 }
 
 .menu {
@@ -836,6 +835,8 @@ main {
 	text-indent: 36px;
 }
 
+.nav li:hover > a,
+.nav li:hover > .menu-text,
 .current-menu-item > a,
 .current-menu-ancestor > a {
 	color: var(--color-accent);
@@ -849,10 +850,6 @@ main {
 	position: relative;
 	background: transparent;
 	color: inherit;
-}
-
-.menu-toggle:hover, .menu-toggle:focus {
-	background: transparent;
 }
 
 .menu-toggle:before {
@@ -1071,7 +1068,8 @@ a.page-numbers:hover {
 
 .reply a:before {
 	content: "\21B5";
-	transform: scale(1, -1);
+	-webkit-transform: scale(1, -1);
+	        transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
