@@ -13,6 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 	color: var(--color-dark);
 	margin: 0 0 1.5rem;
+	line-height: 1.25;
 }
 h1 {
 	font-size: var(--text-2xl);
@@ -62,7 +63,8 @@ select {
 textarea {
 	width: 100%;
 }
-button, input[type="button"], input[type="submit"], input[type="reset"] {
+button, input[type="button"], input[type="submit"], input[type="reset"],
+.wp-block-button__link {
 	background: var(--color-accent);
 	color: #fff;
 	border-radius: .25rem;
@@ -72,6 +74,11 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 	line-height: 1;
 	font-size: var(--text-sm);
 	font-weight: 700;
+
+	&:hover {
+		text-decoration: none;
+		opacity: .75;
+	}
 }
 
 p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
