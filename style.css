@@ -835,8 +835,6 @@ main {
 	text-indent: 36px;
 }
 
-.nav li:hover > a,
-.nav li:hover > .menu-text,
 .current-menu-item > a,
 .current-menu-ancestor > a {
 	color: var(--color-accent);
@@ -947,6 +945,10 @@ main {
 	}
 	.nav li:hover > ul {
 		display: block;
+	}
+	.nav li:hover > a,
+	.nav li:hover > .menu-text {
+		color: var(--color-accent);
 	}
 	.sub-menu .sub-menu-toggle:after {
 		border-top-color: transparent;

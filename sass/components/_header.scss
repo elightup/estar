@@ -87,9 +87,7 @@
 	}
 }
 
-// Active status on hover & selected.
-.nav li:hover > a,
-.nav li:hover > .menu-text,
+// Active status on selected.
 .current-menu-item > a,
 .current-menu-ancestor > a {
 	color: var(--color-accent);
@@ -209,6 +207,12 @@
 
 	.nav li:hover > ul {
 		display: block;
+	}
+
+	// Active status when hover.
+	.nav li:hover > a,
+	.nav li:hover > .menu-text {
+		color: var(--color-accent);
 	}
 
 	.sub-menu .sub-menu-toggle:after {
