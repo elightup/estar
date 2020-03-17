@@ -30,34 +30,52 @@ function estar_setup() {
 
 	add_theme_support( 'editor-font-sizes', [
 		[
+			'name'      => _x( 'Very Small', 'Name of the very small font size in the block editor', 'estar' ),
+			'shortName' => _x( 'XS', 'Short name of the very small font size in the block editor.', 'estar' ),
+			'size'      => 12,
+			'slug'      => 'xs',
+		],
+		[
 			'name'      => _x( 'Small', 'Name of the small font size in the block editor', 'estar' ),
 			'shortName' => _x( 'S', 'Short name of the small font size in the block editor.', 'estar' ),
 			'size'      => 14,
-			'slug'      => 'small',
+			'slug'      => 'sm',
 		],
 		[
-			'name'      => _x( 'Regular', 'Name of the regular font size in the block editor', 'estar' ),
-			'shortName' => _x( 'M', 'Short name of the regular font size in the block editor.', 'estar' ),
+			'name'      => _x( 'Medium', 'Name of the medium font size in the block editor', 'estar' ),
+			'shortName' => _x( 'M', 'Short name of the medium font size in the block editor.', 'estar' ),
 			'size'      => 16,
-			'slug'      => 'normal',
+			'slug'      => 'md',
 		],
 		[
 			'name'      => _x( 'Large', 'Name of the large font size in the block editor', 'estar' ),
 			'shortName' => _x( 'L', 'Short name of the large font size in the block editor.', 'estar' ),
 			'size'      => 18,
-			'slug'      => 'large',
+			'slug'      => 'lg',
 		],
 		[
-			'name'      => _x( 'Larger', 'Name of the larger font size in the block editor', 'estar' ),
-			'shortName' => _x( 'XL', 'Short name of the larger font size in the block editor.', 'estar' ),
+			'name'      => _x( 'XL', 'Name of the XL font size in the block editor', 'estar' ),
+			'shortName' => _x( 'XL', 'Short name of the XL font size in the block editor.', 'estar' ),
 			'size'      => 20,
-			'slug'      => 'larger',
+			'slug'      => 'xl',
 		],
 		[
-			'name'      => _x( 'Huge', 'Name of the huge font size in the block editor', 'estar' ),
-			'shortName' => _x( 'XL', 'Short name of the huge font size in the block editor.', 'estar' ),
+			'name'      => _x( '2XL', 'Name of the 2XL font size in the block editor', 'estar' ),
+			'shortName' => _x( '2XL', 'Short name of the 2XL font size in the block editor.', 'estar' ),
 			'size'      => 24,
-			'slug'      => 'huge',
+			'slug'      => '2xl',
+		],
+		[
+			'name'      => _x( '3XL', 'Name of the 3XL font size in the block editor', 'estar' ),
+			'shortName' => _x( '3XL', 'Short name of the 3XL font size in the block editor.', 'estar' ),
+			'size'      => 30,
+			'slug'      => '3xl',
+		],
+		[
+			'name'      => _x( '4XL', 'Name of the 4XL font size in the block editor', 'estar' ),
+			'shortName' => _x( '4XL', 'Short name of the 4XL font size in the block editor.', 'estar' ),
+			'size'      => 36,
+			'slug'      => '4xl',
 		],
 	] );
 
