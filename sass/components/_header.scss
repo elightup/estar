@@ -5,6 +5,7 @@
 	position: sticky;
 	top: 0;
 	background: #fff;
+	z-index: 9;
 
 	.container {
 		display: flex;
@@ -68,21 +69,22 @@
 			text-decoration: none;
 		}
 	}
-}
-.menu {
-	border-bottom: 1px solid var(--color-light);
-}
 
-// Indent sub menus.
-.sub-menu {
-	text-indent: 12px;
-	font-size: var(--text-xs);
+	.menu {
+		border-bottom: 1px solid var(--color-light);
+	}
 
-	ul {
-		text-indent: 24px;
+	// Indent sub menus.
+	.sub-menu {
+		text-indent: 12px;
+		font-size: var(--text-xs);
 
 		ul {
-			text-indent: 36px;
+			text-indent: 24px;
+
+			ul {
+				text-indent: 36px;
+			}
 		}
 	}
 }
@@ -175,34 +177,33 @@
 			display: flex;
 			align-items: center;
 		}
-		.sub-menu {
-			text-indent: 0;
-		}
 		li {
 			position: relative;
 		}
-	}
-	.menu,
-	.menu > li,
-	.nav li:first-child {
-		border: none;
-	}
 
-	// Dropdown 2nd level.
-	.sub-menu {
-		position: absolute;
-		left: 0;
-		top: 100%;
-		z-index: 999;
-		background: #fff;
-		width: 180px;
-		box-shadow: 0 5px 12px rgba(74, 85, 104, .2);
-	}
+		// Dropdown 2nd level.
+		.sub-menu {
+			position: absolute;
+			left: 0;
+			top: 100%;
+			z-index: 999;
+			background: #fff;
+			width: 180px;
+			box-shadow: 0 5px 12px rgba(74, 85, 104, .2);
+			text-indent: 0;
+		}
 
-	// Dropdown 3-rd, 4th, ... level submenu
-	.sub-menu ul {
-		top: 0;
-		left: 100%;
+		// Dropdown 3-rd, 4th, ... level submenu
+		.sub-menu ul {
+			top: 0;
+			left: 100%;
+		}
+
+		.menu,
+		.menu > li,
+		li:first-child {
+			border: none;
+		}
 	}
 
 	.nav li:hover > ul {

@@ -128,6 +128,19 @@ function estar_scripts() {
 	] );
 }
 
+add_action( 'widgets_init', 'estar_widgets_init' );
+
+function estar_widgets_init() {
+	register_sidebar( [
+		'name'          => esc_html__( 'Footer', 'estar' ),
+		'id'            => 'sidebar-1',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	] );
+}
+
 new EStar\Fonts\Fonts;
 new EStar\Colors\Colors;
 if ( ! is_admin() ) {

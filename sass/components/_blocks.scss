@@ -85,14 +85,16 @@
 
 	padding-left: 12px;
 	padding-right: 12px;
-
-	img {
-		width: auto;
-		@include center-block;
-	}
 }
+.wp-block-image.alignwide img {
+	width: auto;
+	@include center-block;
+}
+
 @media(min-width: 768px) {
 	.alignwide {
+		padding-left: 0;
+		padding-right: 0;
 		--width: var(--container-md);
 	}
 }

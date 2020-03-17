@@ -23,6 +23,7 @@
 	--text-lg: 18px;
 	--text-xl: 20px;
 	--text-2xl: 24px;
+	--text-3xl: 30px;
 	--color-accent: #4299e1;
 	--color-dark: #1a202c;
 	--color-base: #4a5568;
@@ -389,27 +390,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: var(--text-2xl);
+	font-size: var(--text-3xl);
 }
 
 h2 {
-	font-size: var(--text-xl);
+	font-size: var(--text-2xl);
 }
 
 h3 {
-	font-size: var(--text-lg);
+	font-size: var(--text-xl);
 }
 
 h4 {
-	font-size: var(--text-md);
+	font-size: var(--text-lg);
 }
 
 h5 {
-	font-size: var(--base-sm);
+	font-size: var(--base-md);
 }
 
 h6 {
-	font-size: var(--base-xs);
+	font-size: var(--base-sm);
 }
 
 input[type="text"],
@@ -785,7 +786,7 @@ main {
 	padding-right: 12px;
 }
 
-.alignwide img {
+.wp-block-image.alignwide img {
 	width: auto;
 	display: block;
 	margin-left: auto;
@@ -794,6 +795,8 @@ main {
 
 @media (min-width: 768px) {
 	.alignwide {
+		padding-left: 0;
+		padding-right: 0;
 		--width: var(--container-md);
 	}
 }
@@ -826,6 +829,7 @@ main {
 	position: sticky;
 	top: 0;
 	background: #fff;
+	z-index: 9;
 }
 
 .header .container {
@@ -895,20 +899,20 @@ main {
 	text-decoration: none;
 }
 
-.menu {
+.nav .menu {
 	border-bottom: 1px solid var(--color-light);
 }
 
-.sub-menu {
+.nav .sub-menu {
 	text-indent: 12px;
 	font-size: var(--text-xs);
 }
 
-.sub-menu ul {
+.nav .sub-menu ul {
 	text-indent: 24px;
 }
 
-.sub-menu ul ul {
+.nav .sub-menu ul ul {
 	text-indent: 36px;
 }
 
@@ -996,18 +1000,10 @@ main {
 		display: flex;
 		align-items: center;
 	}
-	.nav .sub-menu {
-		text-indent: 0;
-	}
 	.nav li {
 		position: relative;
 	}
-	.menu,
-	.menu > li,
-	.nav li:first-child {
-		border: none;
-	}
-	.sub-menu {
+	.nav .sub-menu {
 		position: absolute;
 		left: 0;
 		top: 100%;
@@ -1015,10 +1011,16 @@ main {
 		background: #fff;
 		width: 180px;
 		box-shadow: 0 5px 12px rgba(74, 85, 104, 0.2);
+		text-indent: 0;
 	}
-	.sub-menu ul {
+	.nav .sub-menu ul {
 		top: 0;
 		left: 100%;
+	}
+	.nav .menu,
+	.nav .menu > li,
+	.nav li:first-child {
+		border: none;
 	}
 	.nav li:hover > ul {
 		display: block;
@@ -1195,6 +1197,65 @@ a.page-numbers:hover {
 
 .comment-navigation .nav-next a:after {
 	content: "\2192";
+}
+
+.footer {
+	font-size: var(--text-sm);
+}
+
+.footer .widget {
+	flex: 1;
+}
+
+.footer .widget + .widget {
+	margin-top: 2rem;
+}
+
+.footer .widget-title {
+	font-size: var(--text-lg);
+	text-transform: uppercase;
+	letter-spacing: .05em;
+}
+
+.footer ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.footer ul ul {
+	margin-top: .5rem;
+	padding-left: 1rem;
+}
+
+.footer li {
+	margin-bottom: .5rem;
+}
+
+.footer li a {
+	color: inherit;
+}
+
+.footer-widgets {
+	padding: 3rem 0;
+	background: var(--color-light);
+}
+
+.site-info {
+	text-align: center;
+	padding: 1.5rem .5rem;
+	border-top: 1px solid var(--color-light);
+}
+
+@media (min-width: 1024px) {
+	.footer-widgets .container {
+		display: flex;
+		justify-content: space-between;
+		align-items: top;
+	}
+	.footer-widgets .widget + .widget {
+		margin-top: 0;
+		margin-left: 2rem;
+	}
 }
 
 .entry-content:before, .entry-content:after {
