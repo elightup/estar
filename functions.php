@@ -107,7 +107,7 @@ function estar_setup() {
 		],
 		[
 			'name'  => __( 'White', 'estar' ),
-			'slug'  => 'background',
+			'slug'  => 'white',
 			'color' => '#fff',
 		],
 	] );

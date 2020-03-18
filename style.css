@@ -875,7 +875,7 @@ main {
 	text-transform: uppercase;
 	letter-spacing: .05em;
 	font-size: var(--text-sm);
-	font-weight: 700;
+	font-weight: 500;
 }
 
 .nav ul {
@@ -929,6 +929,7 @@ main {
 	position: relative;
 	background: transparent;
 	color: inherit;
+	display: flex;
 }
 
 .menu-toggle:before {
