@@ -8,9 +8,14 @@
 		<?php endif; ?>
 
 		<div class="site-info">
-			<?php esc_html_e( 'Proudly powered by WordPress', 'floral' ); ?>
-			<?php // Translators: %1$s - Theme name, %2$s - Theme shop name. ?>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'floral' ), '<a href="https://gretathemes.com/wordpress-themes/estar/">eStar</a>', 'GretaThemes' ); ?>
+			<?php
+			$copyright = get_theme_mod( 'footer_copyright' );
+			if ( ! $copyright ) {
+				// Translators: %1$s - Theme name, %2$s - Theme shop name.
+				$copyright = sprintf( __( 'Proudly powered by WordPress. Theme %1$s by %2$s.', 'estar' ), '<a href="https://gretathemes.com/wordpress-themes/estar/">eStar</a>', 'GretaThemes' );
+			}
+			echo wp_kses_post( $copyright );
+			?>
 		</div>
 	</footer>
 

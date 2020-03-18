@@ -143,6 +143,7 @@ function estar_widgets_init() {
 
 new EStar\Fonts\Fonts;
 new EStar\Colors\Colors;
+new EStar\Customizer;
 if ( ! is_admin() ) {
 	new EStar\TemplateFunctions;
 }

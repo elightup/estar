@@ -12,7 +12,8 @@ class Customizer {
 
 	public function register( $wp_customize ) {
 		$wp_customize->add_section( 'estar_colors', [
-			'title' => __( 'Colors', 'estar' ),
+			'title'    => __( 'Colors', 'estar' ),
+			'priority' => '1000',
 		] );
 
 		foreach ( $this->elements as $id => $element ) {

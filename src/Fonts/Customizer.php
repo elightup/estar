@@ -18,7 +18,8 @@ class Customizer {
 		}
 
 		$wp_customize->add_panel( 'estar_fonts', [
-			'title' => __( 'Fonts', 'estar' ),
+			'title'    => __( 'Fonts', 'estar' ),
+			'priority' => '1100',
 		] );
 
 		array_walk( $this->elements, [ $this, 'register_element_settings' ], $wp_customize );
