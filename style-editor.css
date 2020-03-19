@@ -45,27 +45,27 @@ h1, .editor-post-title__input, h2, h3, h4, h5, h6 {
 }
 
 h1, .editor-post-title__input {
-	font-size: var(--text-2xl);
+	font-size: var(--text-3xl);
 }
 
 h2 {
-	font-size: var(--text-xl);
+	font-size: var(--text-2xl);
 }
 
 h3 {
-	font-size: var(--text-lg);
+	font-size: var(--text-xl);
 }
 
 h4 {
-	font-size: var(--text-md);
+	font-size: var(--text-lg);
 }
 
 h5 {
-	font-size: var(--base-sm);
+	font-size: var(--base-md);
 }
 
 h6 {
-	font-size: var(--base-xs);
+	font-size: var(--base-sm);
 }
 
 input,
