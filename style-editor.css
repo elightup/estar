@@ -225,22 +225,6 @@ pre {
 	color: #fff;
 }
 
-.wp-block {
-	max-width: 678px;
-}
-
-.wp-block[data-align="wide"] {
-	max-width: 1170px;
-}
-
-.wp-block[data-align="full"] {
-	max-width: none;
-}
-
-.editor-post-title__input {
-	font-family: var(--font-sans);
-}
-
 .wp-block-button__link {
 	background: var(--color-accent);
 	color: #fff;
@@ -256,4 +240,20 @@ pre {
 .wp-block-button__link:hover {
 	text-decoration: none;
 	opacity: .75;
+}
+
+.wp-block {
+	max-width: 678px;
+}
+
+.wp-block[data-align="wide"] {
+	max-width: 1170px;
+}
+
+.wp-block[data-align="full"] {
+	max-width: none;
+}
+
+.editor-post-title__input {
+	font-family: var(--font-sans);
 }
