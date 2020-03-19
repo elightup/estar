@@ -182,7 +182,7 @@ img {
  * 1. Change the font styles in all browsers.
  * 2. Remove the margin in Firefox and Safari.
  */
-button,
+button, .wp-block-button__link,
 input,
 optgroup,
 select,
@@ -201,7 +201,7 @@ textarea {
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
-button,
+button, .wp-block-button__link,
 input {
 	/* 1 */
 	overflow: visible;
@@ -211,7 +211,7 @@ input {
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-button,
+button, .wp-block-button__link,
 select {
 	/* 1 */
 	text-transform: none;
@@ -220,7 +220,7 @@ select {
 /**
  * Correct the inability to style clickable types in iOS and Safari.
  */
-button,
+button, .wp-block-button__link,
 [type="button"],
 [type="reset"],
 [type="submit"] {
@@ -230,7 +230,7 @@ button,
 /**
  * Remove the inner border and padding in Firefox.
  */
-button::-moz-focus-inner,
+button::-moz-focus-inner, .wp-block-button__link::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
@@ -241,7 +241,7 @@ button::-moz-focus-inner,
 /**
  * Restore the focus styles unset by the previous rule.
  */
-button:-moz-focusring,
+button:-moz-focusring, .wp-block-button__link:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
@@ -426,8 +426,7 @@ textarea {
 	width: 100%;
 }
 
-button, input[type="button"], input[type="submit"], input[type="reset"],
-.wp-block-button__link {
+button, .wp-block-button__link, input[type="button"], input[type="submit"], input[type="reset"] {
 	background: var(--color-accent);
 	color: #fff;
 	border-radius: .25rem;
@@ -439,8 +438,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"],
 	font-weight: 700;
 }
 
-button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover,
-.wp-block-button__link:hover {
+button:hover, .wp-block-button__link:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
 	text-decoration: none;
 	opacity: .75;
 }
@@ -808,6 +806,10 @@ main {
 	padding-right: 0;
 	width: auto;
 	max-width: none;
+}
+
+.wp-block-button {
+	margin-bottom: 1.5em;
 }
 
 .header {

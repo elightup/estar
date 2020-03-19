@@ -83,27 +83,27 @@ function estar_setup() {
 		[
 			'name'  => __( 'Accent Color', 'estar' ),
 			'slug'  => 'accent',
-			'color' => '#4299e1',
+			'color' => get_theme_mod( 'color-accent', '#4299e1' ),
 		],
 		[
 			'name'  => __( 'Dark', 'estar' ),
 			'slug'  => 'dark',
-			'color' => '#1a202c',
+			'color' => get_theme_mod( 'color-dark', '#1a202c' ),
 		],
 		[
 			'name'  => __( 'Base', 'estar' ),
 			'slug'  => 'base',
-			'color' => '#4a5568',
+			'color' => get_theme_mod( 'color-base', '#4a5568' ),
 		],
 		[
 			'name'  => __( 'Gray', 'estar' ),
 			'slug'  => 'gray',
-			'color' => '#a0aec0',
+			'color' => get_theme_mod( 'color-gray', '#a0aec0' ),
 		],
 		[
 			'name'  => __( 'Light', 'estar' ),
 			'slug'  => 'light',
-			'color' => '#e2e8f0',
+			'color' => get_theme_mod( 'color-light', '#e2e8f0' ),
 		],
 		[
 			'name'  => __( 'White', 'estar' ),
@@ -111,6 +111,8 @@ function estar_setup() {
 			'color' => '#fff',
 		],
 	] );
+
+	$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 648 );
 }
 
 add_action( 'wp_enqueue_scripts', 'estar_scripts' );

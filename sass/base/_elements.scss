@@ -46,8 +46,7 @@ select {
 textarea {
 	width: 100%;
 }
-button, input[type="button"], input[type="submit"], input[type="reset"],
-.wp-block-button__link {
+button, input[type="button"], input[type="submit"], input[type="reset"] {
 	background: var(--color-accent);
 	color: #fff;
 	border-radius: .25rem;

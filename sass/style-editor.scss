@@ -48,49 +48,16 @@ h6 {
 }
 
 // Forms.
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"],
-input[type="number"],
-input[type="tel"],
-input[type="range"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="color"],
-textarea {
+input,
+textarea,
+select {
 	border: 1px solid var(--color-light);
 	border-radius: .25rem;
 	padding: .5rem;
 	line-height: 1.5;
 }
-select {
-	border: 1px solid var(--color-light);
-	border-radius: .25rem;
-}
 textarea {
 	width: 100%;
-}
-.wp-block-button__link {
-	background: var(--color-accent);
-	color: #fff;
-	border-radius: .25rem;
-	border: none;
-	padding: .75rem 1rem;
-	cursor: pointer;
-	line-height: 1;
-	font-size: var(--text-sm);
-	font-weight: 700;
-
-	&:hover {
-		text-decoration: none;
-		opacity: .75;
-	}
 }
 
 p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
@@ -152,12 +119,6 @@ pre {
 	white-space: pre-wrap;
 }
 
-// Post title.
-.editor-post-title__input {
-	font-family: var(--font-sans);
-	@extend h1;
-}
-
-@import "components/blocks";
+@import "components/blocks/editor";
 
 @import "utilities";

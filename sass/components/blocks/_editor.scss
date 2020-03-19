@@ -1,0 +1,39 @@
+@import "blocks";
+
+// Main column width.
+.wp-block {
+    max-width: 648px + 15px*2; // Margin on both sides.
+}
+
+// Width of "wide" blocks.
+.wp-block[data-align="wide"] {
+    max-width: 1140px + 15px*2;
+}
+
+// Width of "full-wide" blocks.
+.wp-block[data-align="full"] {
+    max-width: none;
+}
+
+// Post title.
+.editor-post-title__input {
+	font-family: var(--font-sans);
+	@extend h1;
+}
+
+.wp-block-button__link {
+	background: var(--color-accent);
+	color: #fff;
+	border-radius: .25rem;
+	border: none;
+	padding: .75rem 1rem;
+	cursor: pointer;
+	line-height: 1;
+	font-size: var(--text-sm);
+	font-weight: 700;
+
+	&:hover {
+		text-decoration: none;
+		opacity: .75;
+	}
+}
