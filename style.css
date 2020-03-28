@@ -762,7 +762,8 @@ main {
 }
 
 .current-menu-item > a,
-.current-menu-ancestor > a {
+.current-menu-item > .menu-text,
+.current-menu-ancestor > .menu-text {
 	color: var(--color-accent);
 }
 
@@ -995,8 +996,7 @@ a.page-numbers:hover {
 
 .reply a:before {
 	content: "\21B5";
-	-webkit-transform: scale(1, -1);
-	        transform: scale(1, -1);
+	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1075,10 +1075,6 @@ a.page-numbers:hover {
 
 .footer li {
 	margin-bottom: .5rem;
-}
-
-.footer li a {
-	color: inherit;
 }
 
 .footer-widgets {

@@ -88,7 +88,8 @@
 
 // Active status on selected.
 .current-menu-item > a,
-.current-menu-ancestor > a {
+.current-menu-item > .menu-text,
+.current-menu-ancestor > .menu-text {
 	color: var(--color-accent);
 }
 
