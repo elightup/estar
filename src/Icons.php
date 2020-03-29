@@ -23,6 +23,7 @@ class Icons {
 		$icon = $this->icons[ $name ];
 
 		// Add extra attributes to SVG code.
-		return str_replace( '<svg ', '<svg aria-hidden="true" role="img" focusable="false" ', $icon );
+		$icon = str_replace( '<svg ', '<svg aria-hidden="true" role="img" focusable="false" ', $icon );
+		return wp_kses( $icon, SVG::get_allowed_tags() );
 	}
 }
