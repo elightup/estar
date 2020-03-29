@@ -1,6 +1,6 @@
 name: Deploy to our websites.
 on:
-  push
+  push:
     branches:
       - master
 jobs:
