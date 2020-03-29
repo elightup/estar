@@ -11,8 +11,8 @@
 			<?php
 			$copyright = get_theme_mod( 'footer_copyright' );
 			if ( ! $copyright ) {
-				// Translators: %1$s - Theme name, %2$s - Theme shop name.
-				$copyright = sprintf( __( 'Proudly powered by WordPress. Theme %1$s by %2$s.', 'estar' ), '<a href="https://gretathemes.com/wordpress-themes/estar/">eStar</a>', 'GretaThemes' );
+				// Translators: %1$s - Current year, %2$s - Blog name, %3$s - Theme name, %4$s - Theme shop name.
+				$copyright = sprintf( __( 'Copyright &copy; %1$s %2$s. Theme %3$s by %4$s.', 'estar' ), gmdate( 'Y' ), get_bloginfo( 'name' ), '<a href="https://gretathemes.com/wordpress-themes/estar/">eStar</a>', 'GretaThemes' );
 			}
 			echo wp_kses_post( $copyright );
 			?>
