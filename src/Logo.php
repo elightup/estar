@@ -18,7 +18,9 @@ class Logo {
 	}
 
 	public function add_customizer_settings( $wp_customize ) {
-		$wp_customize->add_setting( 'svg_logo' );
+		$wp_customize->add_setting( 'svg_logo', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_svg' ],
+		] );
 		$wp_customize->add_control( 'svg_logo', [
 			'label'    => esc_html__( 'SVG Logo', 'thefour' ),
 			'section'  => 'title_tagline',
