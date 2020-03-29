@@ -698,12 +698,21 @@ main {
 	}
 }
 
-.logo {
-	margin: 0;
+.branding {
+	display: flex;
 }
 
-.custom-logo-link, .custom-logo {
+.logo, .logo img {
+	margin: 0;
 	display: block;
+}
+
+.site-name {
+	margin-left: 12px;
+}
+
+.hide-site-name .site-name {
+	display: none;
 }
 
 .site-title {
