@@ -2,9 +2,15 @@
 namespace EStar;
 
 class Logo {
+	private $sanitizer;
+
+	public function __construct( $sanitizer ) {
+		$this->sanitizer = $sanitizer;
+	}
 	public function setup() {
 		add_action( 'after_setup_theme', [ $this, 'add_theme_support' ] );
 		add_action( 'customize_register', [ $this, 'add_customizer_settings' ] );
+		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 	}
 
 	public function add_theme_support() {
@@ -19,19 +25,36 @@ class Logo {
 			'type'     => 'textarea',
 			'priority' => 9, // After default logo.
 		] );
+
+		$wp_customize->add_setting( 'hide_site_name', array(
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+		) );
+		$wp_customize->add_control( 'hide_site_name', array(
+			'label'   => esc_html__( 'Hide site title and tagline', 'thefour' ),
+			'section' => 'title_tagline',
+			'type'    => 'checkbox',
+			'priority' => 20, // After tagline.
+		) );
 	}
 
-	public function output() {
-		printf( '<a href="%s" class="logo" rel="home">%s</a>', esc_url( home_url( '/' ) ), $this->get_logo() );
+	public function add_body_classes( $classes ) {
+		if ( get_theme_mod( 'hide_site_name' ) ) {
+			$classes[] = 'hide-site-name';
+		}
+		return $classes;
 	}
 
-	private function get_logo() {
+	public static function output() {
+		printf( '<a href="%s" class="logo" rel="home">%s</a>', esc_url( home_url( '/' ) ), wp_kses( self::get_logo(), SVG::get_allowed_tags() ) );
+	}
+
+	private static function get_logo() {
 		$logo = get_theme_mod( 'svg_logo' );
-		$logo = $logo ? wp_kses( $logo, SVG::get_allowed_tags() ) : $this->get_wordpress_logo();
+		$logo = $logo ?: self::get_wordpress_logo();
 		return apply_filters( 'estar_logo', $logo );
 	}
 
-	private function get_wordpress_logo() {
+	private static function get_wordpress_logo() {
 		$logo_id = get_theme_mod( 'custom_logo' );
 		if ( ! $logo_id ) {
 			return null;
@@ -40,6 +63,6 @@ class Logo {
 		if ( empty( $logo ) ) {
 			return null;
 		}
-		return sprintf( '<img src="%s" width="%s" height="%s" alt="%s">', esc_url( $logo[0] ), intval( $logo[1] ), intval( $logo[2] ), esc_attr( get_bloginfo( 'name' ) ) );
+		return sprintf( '<img src="%s" width="%s" height="%s" alt="%s">', $logo[0], $logo[1], $logo[2], get_bloginfo( 'name' ) );
 	}
 }

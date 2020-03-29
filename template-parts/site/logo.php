@@ -1,1 +1,1 @@
-<?php ( new EStar\Logo )->output(); ?>
+<?php EStar\Logo::output(); ?>

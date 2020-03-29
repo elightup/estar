@@ -28,14 +28,16 @@
 .branding {
 	display: flex;
 }
-.logo {
+.logo, .logo img {
 	margin: 0;
-}
-.custom-logo-link, .custom-logo {
 	display: block;
 }
 .site-name {
 	margin-left: 12px;
+
+	.hide-site-name & {
+		display: none;
+	}
 }
 .site-title {
 	font-size: var(--text-lg);
