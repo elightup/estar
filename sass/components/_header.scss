@@ -25,11 +25,17 @@
 	}
 }
 
+.branding {
+	display: flex;
+}
 .logo {
 	margin: 0;
 }
 .custom-logo-link, .custom-logo {
 	display: block;
+}
+.site-name {
+	margin-left: 12px;
 }
 .site-title {
 	font-size: var(--text-lg);

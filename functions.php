@@ -13,7 +13,6 @@ function estar_setup() {
 	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
-	add_theme_support( 'custom-logo' );
 	add_theme_support( 'html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption'] );
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -146,6 +145,9 @@ function estar_widgets_init() {
 new EStar\Fonts\Fonts;
 new EStar\Colors\Colors;
 new EStar\Customizer;
+
+$estar_logo = new EStar\Logo;
+$estar_logo->setup();
 
 $estar_sanitizer = new EStar\Sanitizer;
 $estar_icons = new EStar\Icons;

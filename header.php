@@ -14,14 +14,13 @@
 	<header class="header">
 		<div class="container">
 			<div class="branding">
-				<?php
-				if ( has_custom_logo() ) {
-					get_template_part( 'template-parts/site/logo' );
-				} else {
+				<?php get_template_part( 'template-parts/site/logo' ); ?>
+				<div class="site-name">
+					<?php
 					get_template_part( 'template-parts/site/title' );
 					get_template_part( 'template-parts/site/description' );
-				}
-				?>
+					?>
+				</div>
 			</div>
 			<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
 				<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>">
