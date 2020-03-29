@@ -1088,6 +1088,29 @@ a.page-numbers:hover {
 	border-top: 1px solid var(--color-light);
 }
 
+.go-to-top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.2);
+	position: fixed;
+	right: 12px;
+	bottom: 12px;
+}
+
+.go-to-top:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.go-to-top svg {
+	fill: #fff;
+	width: 36px;
+	height: 36px;
+}
+
 @media (min-width: 1024px) {
 	.footer-widgets .container {
 		display: flex;

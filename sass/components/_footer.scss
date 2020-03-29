@@ -35,6 +35,30 @@
 	border-top: 1px solid var(--color-light);
 }
 
+// Go to top button.
+.go-to-top {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, .2);
+	position: fixed;
+	right: 12px;
+	bottom: 12px;
+
+	&:hover {
+		background: rgba(0, 0, 0, .3);
+	}
+
+	svg {
+		fill: #fff;
+		width: 36px;
+		height: 36px;
+	}
+}
+
 @media (min-width: 1024px) {
 	.footer-widgets {
 		.container {

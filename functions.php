@@ -146,6 +146,11 @@ function estar_widgets_init() {
 new EStar\Fonts\Fonts;
 new EStar\Colors\Colors;
 new EStar\Customizer;
+
+$estar_sanitizer = new EStar\Sanitizer;
+$estar_icons = new EStar\Icons;
+new EStar\GoToTop( $estar_sanitizer, $estar_icons );
+
 if ( ! is_admin() ) {
 	new EStar\TemplateFunctions;
 }
