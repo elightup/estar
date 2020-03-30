@@ -28,4 +28,9 @@ main {
 	max-width: 42rem;
 	padding-left: 12px;
 	padding-right: 12px;
+
+	.archive & {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
 }

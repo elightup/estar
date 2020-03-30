@@ -510,6 +510,11 @@ main {
 	padding-right: 12px;
 }
 
+.archive main {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
 .has-xs-font-size {
 	font-size: 14px;
 }
@@ -1005,7 +1010,8 @@ a.page-numbers:hover {
 
 .reply a:before {
 	content: "\21B5";
-	transform: scale(1, -1);
+	-webkit-transform: scale(1, -1);
+	        transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
