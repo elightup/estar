@@ -18,19 +18,20 @@ class Logo {
 	}
 
 	public function add_customizer_settings( $wp_customize ) {
-		$wp_customize->add_setting( 'hide_site_name', array(
+		$wp_customize->add_setting( 'show_site_name', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
-		) );
-		$wp_customize->add_control( 'hide_site_name', array(
-			'label'   => esc_html__( 'Hide site title and tagline', 'estar' ),
+			'default'           => true,
+		] );
+		$wp_customize->add_control( 'show_site_name', [
+			'label'   => esc_html__( 'Show site title and tagline', 'estar' ),
 			'section' => 'title_tagline',
 			'type'    => 'checkbox',
 			'priority' => 20, // After tagline.
-		) );
+		] );
 	}
 
 	public function add_body_classes( $classes ) {
-		if ( get_theme_mod( 'hide_site_name' ) ) {
+		if ( ! Settings::get( 'show_site_name' ) ) {
 			$classes[] = 'hide-site-name';
 		}
 		return $classes;

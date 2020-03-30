@@ -14,7 +14,21 @@ class Settings {
 
 	public static function get( $name ) {
 		$setting = self::$customize_manager->get_setting( $name );
-		$value   = get_theme_mod( $name );
+		$control = self::$customize_manager->get_control( $name );
+
+		$value = get_theme_mod( $name, null );
+
+		// Haven't set in the Customizer.
+		if ( null === $value ) {
+			return $setting->default;
+		}
+
+		// Respect the checkbox value.
+		if ( 'checkbox' === $control->type ) {
+			return $value;
+		}
+
+		// Other field types: use default value if it's empty.
 		return $value ?: $setting->default;
 	}
 }
