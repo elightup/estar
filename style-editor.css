@@ -235,6 +235,7 @@ pre {
 	line-height: 1;
 	font-size: var(--text-sm);
 	font-weight: 700;
+	transition: all .25s;
 }
 
 .wp-block-button__link:hover {

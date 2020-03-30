@@ -47,20 +47,7 @@ textarea {
 	width: 100%;
 }
 button, input[type="button"], input[type="submit"], input[type="reset"] {
-	background: var(--color-accent);
-	color: #fff;
-	border-radius: .25rem;
-	border: none;
-	padding: .75rem 1rem;
-	cursor: pointer;
-	line-height: 1;
-	font-size: var(--text-sm);
-	font-weight: 700;
-
-	&:hover {
-		text-decoration: none;
-		opacity: .75;
-	}
+	@include button;
 }
 
 p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
@@ -93,6 +80,7 @@ hr {
 a {
 	color: var(--color-accent);
 	text-decoration: none;
+	transition: all .25s;
 
 	&:hover {
 		text-decoration: underline;
