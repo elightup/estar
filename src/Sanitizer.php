@@ -27,10 +27,6 @@ class Sanitizer {
 		return ! is_null( $hex_color ) ? $hex_color : $setting->default;
 	}
 
-	public function sanitize_html( $html ) {
-		return wp_filter_post_kses( $html );
-	}
-
 	public function sanitize_image( $image, $setting ) {
 	    $mimes = array(
 	        'jpg|jpeg|jpe' => 'image/jpeg',
@@ -47,25 +43,7 @@ class Sanitizer {
 	    return $file['ext'] ? $image : $setting->default;
 	}
 
-	public function sanitize_nohtml( $nohtml ) {
-		return wp_filter_nohtml_kses( $nohtml );
-	}
-
-	public function sanitize_number_absint( $number, $setting ) {
-		$number = absint( $number );
-		return $number ? $number : $setting->default;
-	}
-
-	public function sanitize_number_range( $number, $setting ) {
-		$number = absint( $number );
-		$atts   = $setting->manager->get_control( $setting->id )->input_attrs;
-		$min    = isset( $atts['min'] ) ? $atts['min'] : $number;
-		$max    = isset( $atts['max'] ) ? $atts['max'] : $number;
-		$step   = isset( $atts['step'] ) ? $atts['step'] : 1;
-		return $min <= $number && $number <= $max && is_int( $number / $step ) ? $number : $setting->default;
-	}
-
-	public function sanitize_select( $input, $setting ) {
+	public function sanitize_choice( $input, $setting ) {
 		$input = sanitize_key( $input );
 		$choices = $setting->manager->get_control( $setting->id )->choices;
 		return array_key_exists( $input, $choices ) ? $input : $setting->default;

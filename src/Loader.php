@@ -149,12 +149,16 @@ class Loader {
 		new Fonts\Fonts;
 		new Colors\Colors;
 
+		Settings::setup();
+
 		$sanitizer = new Sanitizer;
 
 		new Customizer;
 
 		$logo = new Logo( $sanitizer );
 		$logo->setup();
+
+		new Archive( $sanitizer );
 
 		$icons = new Icons;
 		new GoToTop( $sanitizer, $icons );

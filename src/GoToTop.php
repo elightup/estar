@@ -18,7 +18,7 @@ class GoToTop {
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
 		) );
 		$wp_customize->add_control( 'hide_go_to_top', array(
-			'label'   => esc_html__( 'Hide go to top button', 'thefour' ),
+			'label'   => esc_html__( 'Hide go to top button', 'estar' ),
 			'section' => 'footer',
 			'type'    => 'checkbox',
 		) );

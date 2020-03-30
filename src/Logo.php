@@ -22,7 +22,7 @@ class Logo {
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
 		) );
 		$wp_customize->add_control( 'hide_site_name', array(
-			'label'   => esc_html__( 'Hide site title and tagline', 'thefour' ),
+			'label'   => esc_html__( 'Hide site title and tagline', 'estar' ),
 			'section' => 'title_tagline',
 			'type'    => 'checkbox',
 			'priority' => 20, // After tagline.
