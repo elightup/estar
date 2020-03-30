@@ -217,6 +217,7 @@ html {
 	line-height: 1.5;
 	box-sizing: border-box;
 	color: var(--color-base);
+	word-wrap: break-word;
 }
 
 *, *:before, *:after {
