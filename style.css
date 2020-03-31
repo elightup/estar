@@ -49,7 +49,7 @@ h1 {
 	margin: 0.67em 0;
 }
 
-hr {
+hr, .wp-block-separator {
 	box-sizing: content-box;
 	height: 0;
 	overflow: visible;
@@ -286,7 +286,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 	opacity: .75;
 }
 
-p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
+p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }
 
@@ -309,10 +309,11 @@ li > ol {
 	margin-bottom: 0;
 }
 
-hr {
+hr, .wp-block-separator {
 	background-color: var(--color-light);
 	border: 0;
 	height: 1px;
+	margin-bottom: 1.5em;
 }
 
 a {
@@ -1149,11 +1150,45 @@ a.page-numbers:hover {
 	}
 }
 
+.entry-header {
+	margin-bottom: 1.5rem;
+}
+
+.entry-title {
+	margin-bottom: 0;
+}
+
+.entry-meta {
+	margin-top: .5rem;
+	font-size: var(--text-sm);
+}
+
+.entry-meta, .entry-meta a {
+	color: var(--color-gray);
+}
+
+.entry-meta .author {
+	margin-right: 12px;
+}
+
+.entry-meta .avatar {
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
 .entry-content:before, .entry-content:after {
 	content: " ";
 	display: table;
 }
 
 .entry-content:after {
+	clear: both;
+}
+
+.page-links {
 	clear: both;
 }

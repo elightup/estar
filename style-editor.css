@@ -81,7 +81,7 @@ textarea {
 	width: 100%;
 }
 
-p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
+p, ul, ol, blockquote, pre, figure, hr, .wp-block-separator, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }
 
@@ -98,7 +98,7 @@ li > ol {
 	margin-bottom: 0;
 }
 
-hr {
+hr, .wp-block-separator {
 	background-color: var(--color-light);
 	border: 0;
 	height: 1px;

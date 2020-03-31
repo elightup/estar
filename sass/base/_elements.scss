@@ -51,7 +51,7 @@ button, input[type="button"], input[type="submit"], input[type="reset"] {
 	@include button;
 }
 
-p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
+p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }
 
@@ -76,6 +76,7 @@ hr {
 	background-color: var(--color-light);
 	border: 0;
 	height: 1px;
+	margin-bottom: 1.5em;
 }
 
 a {

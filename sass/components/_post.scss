@@ -1,0 +1,32 @@
+.entry-header {
+	margin-bottom: 1.5rem;
+}
+.entry-title {
+	margin-bottom: 0;
+}
+
+// Entry meta.
+.entry-meta {
+	margin-top: .5rem;
+	font-size: var(--text-sm);
+}
+.entry-meta, .entry-meta a {
+	color: var(--color-gray);
+}
+.entry-meta .author {
+	margin-right: 12px;
+}
+.entry-meta .avatar {
+	border-radius: 50%;
+	vertical-align: middle;
+}
+.updated:not(.published) {
+	display: none;
+}
+
+.entry-content {
+	@include clearfix;
+}
+.page-links {
+	clear: both;
+}

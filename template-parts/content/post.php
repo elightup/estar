@@ -14,8 +14,8 @@
 		<?php
 		the_content();
 		wp_link_pages( [
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'estar' ),
-			'after'  => '</div>',
+			'before' => '<p class="page-links">' . esc_html__( 'Pages:', 'estar' ),
+			'after'  => '</p>',
 		] );
 		?>
 	</div>

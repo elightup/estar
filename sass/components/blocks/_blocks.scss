@@ -66,3 +66,8 @@
 .wp-block-button__link {
 	@include button;
 }
+
+// Separator
+.wp-block-separator {
+	@extend hr;
+}
