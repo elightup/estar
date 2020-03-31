@@ -1,3 +1,37 @@
+// Columns
+.wp-block-columns {
+	margin-bottom: 1.5rem;
+}
+
+// Buttons
+.wp-block-button__link {
+	@include button;
+}
+.is-style-outline {
+	color: var(--color-base);
+
+	.wp-block-cover & {
+		color: #fff;
+	}
+}
+.is-style-outline .wp-block-button__link:not(.has-text-color) {
+	color: var(--color-accent);
+}
+.is-style-outline .wp-block-button__link {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: transparent;
+	border: 2px solid;
+}
+
+// Separator
+.wp-block-separator {
+	background-color: var(--color-light);
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
 // Font sizes.
 .has-xs-font-size {
 	font-size: 14px;
@@ -60,14 +94,4 @@
 }
 .has-white-color {
 	color: #fff;
-}
-
-// Buttons
-.wp-block-button__link {
-	@include button;
-}
-
-// Separator
-.wp-block-separator {
-	@extend hr;
 }
