@@ -1,9 +1,13 @@
-// Columns
-.wp-block-columns {
+.wp-block-columns,
+.wp-block-cover,
+.wp-block-separator,
+.wp-block-image,
+.wp-block-embed,
+.wp-block-media-text {
 	margin-bottom: 1.5rem;
 }
 
-// Buttons
+// Buttons.
 .wp-block-button__link {
 	@include button;
 }
@@ -24,12 +28,125 @@
 	border: 2px solid;
 }
 
-// Separator
+// Separator.
 .wp-block-separator {
 	background-color: var(--color-light);
 	border: 0;
-	height: 1px;
+	height: 2px;
+}
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	max-width: 5em;
+}
+
+// Image.
+.wp-block-image img {
+	display: block;
+}
+
+// File.
+.wp-block-file .wp-block-file__button {
+	background: var(--color-accent);
+	border-radius: 4px;
+	line-height: 1;
+	font-size: var(--text-sm);
+	font-weight: 700;
+}
+
+// Table.
+.wp-block-table td, .wp-block-table th,
+.wp-block-table thead, .wp-block-table tfoot {
+	border-color: var(--color-light);
+}
+
+// Quotes.
+blockquote {
+	border-left: 4px solid;
+}
+blockquote,
+.wp-block-quote {
+	border-color: var(--color-light);
+	padding-left: 1em;
 	margin-bottom: 1.5em;
+
+	p:last-of-type {
+		margin: 0;
+	}
+
+	cite,
+	footer,
+	&__citation {
+		display: block;
+		margin-top: 1rem;
+		font-size: var(--text-sm);
+	}
+
+	&.has-text-align-right {
+		border-color: var(--color-light);
+	}
+}
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large {
+	margin-bottom: 1.5em;
+	text-align: center;
+	border: none;
+	padding: 0;
+
+	&:before,
+	&:after {
+		display: block;
+		content: '';
+		position: relative;
+		width: 5em;
+		border-top: 2px solid var(--color-light);
+		margin: 2.5em auto;
+	}
+
+	cite,
+	footer,
+	&__citation {
+		text-align: center;
+		font-size: var(--text-lg);
+	}
+}
+
+// Pull quotes.
+.wp-block-pullquote {
+	border-color: var(--color-light);
+	color: var(--color-base);
+	margin-bottom: 1.5em;
+	padding: 2.5em 0;
+
+	blockquote {
+		border: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	p {
+		font-size: var(--text-2xl);
+	}
+
+	cite,
+	footer,
+	&__citation {
+		color: inherit;
+		font-size: var(--text-sm);
+	}
+
+	&.is-style-solid-color {
+		background: var(--color-base);
+		color: #fff;
+
+		blockquote {
+			text-align: center;
+			max-width: 100%;
+			padding: 0 2.5em;
+
+			cite {
+				text-transform: uppercase;
+			}
+		}
+	}
 }
 
 // Font sizes.

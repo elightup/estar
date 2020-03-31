@@ -47,9 +47,6 @@ select {
 textarea {
 	width: 100%;
 }
-button, input[type="button"], input[type="submit"], input[type="reset"] {
-	@include button;
-}
 
 p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
@@ -75,7 +72,7 @@ li > ol {
 hr {
 	background-color: var(--color-light);
 	border: 0;
-	height: 1px;
+	height: 2px;
 	margin-bottom: 1.5em;
 }
 

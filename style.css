@@ -268,24 +268,6 @@ textarea {
 	width: 100%;
 }
 
-button, input[type="button"], input[type="submit"], input[type="reset"] {
-	background: var(--color-accent);
-	color: #fff;
-	border-radius: 4px;
-	border: none;
-	padding: 12px 16px;
-	cursor: pointer;
-	line-height: 1;
-	font-size: var(--text-sm);
-	font-weight: 700;
-	transition: all .25s;
-}
-
-button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-	text-decoration: none;
-	opacity: .75;
-}
-
 p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }
@@ -312,7 +294,7 @@ li > ol {
 hr {
 	background-color: var(--color-light);
 	border: 0;
-	height: 1px;
+	height: 2px;
 	margin-bottom: 1.5em;
 }
 
@@ -356,6 +338,24 @@ pre, code, kbd, samp, tt, var {
 
 pre {
 	white-space: pre-wrap;
+}
+
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+	background: var(--color-accent);
+	color: #fff;
+	border-radius: 4px;
+	border: none;
+	padding: 12px 16px;
+	cursor: pointer;
+	line-height: 1;
+	font-size: var(--text-sm);
+	font-weight: 700;
+	transition: all .25s;
+}
+
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
+	text-decoration: none;
+	opacity: .75;
 }
 
 .screen-reader-text {
@@ -519,7 +519,12 @@ main {
 	padding-bottom: 3rem;
 }
 
-.wp-block-columns {
+.wp-block-columns,
+.wp-block-cover,
+.wp-block-separator,
+.wp-block-image,
+.wp-block-embed,
+.wp-block-media-text {
 	margin-bottom: 1.5rem;
 }
 
@@ -563,8 +568,125 @@ main {
 .wp-block-separator {
 	background-color: var(--color-light);
 	border: 0;
-	height: 1px;
+	height: 2px;
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+	max-width: 5em;
+}
+
+.wp-block-image img {
+	display: block;
+}
+
+.wp-block-file .wp-block-file__button {
+	background: var(--color-accent);
+	border-radius: 4px;
+	line-height: 1;
+	font-size: var(--text-sm);
+	font-weight: 700;
+}
+
+.wp-block-table td, .wp-block-table th,
+.wp-block-table thead, .wp-block-table tfoot {
+	border-color: var(--color-light);
+}
+
+blockquote {
+	border-left: 4px solid;
+}
+
+blockquote,
+.wp-block-quote {
+	border-color: var(--color-light);
+	padding-left: 1em;
 	margin-bottom: 1.5em;
+}
+
+blockquote p:last-of-type,
+.wp-block-quote p:last-of-type {
+	margin: 0;
+}
+
+blockquote cite,
+blockquote footer, blockquote__citation,
+.wp-block-quote cite,
+.wp-block-quote footer,
+.wp-block-quote__citation {
+	display: block;
+	margin-top: 1rem;
+	font-size: var(--text-sm);
+}
+
+blockquote.has-text-align-right,
+.wp-block-quote.has-text-align-right {
+	border-color: var(--color-light);
+}
+
+.wp-block-quote.is-large,
+.wp-block-quote.is-style-large {
+	margin-bottom: 1.5em;
+	text-align: center;
+	border: none;
+	padding: 0;
+}
+
+.wp-block-quote.is-large:before, .wp-block-quote.is-large:after,
+.wp-block-quote.is-style-large:before,
+.wp-block-quote.is-style-large:after {
+	display: block;
+	content: '';
+	position: relative;
+	width: 5em;
+	border-top: 2px solid var(--color-light);
+	margin: 2.5em auto;
+}
+
+.wp-block-quote.is-large cite,
+.wp-block-quote.is-large footer, .wp-block-quote.is-large__citation,
+.wp-block-quote.is-style-large cite,
+.wp-block-quote.is-style-large footer,
+.wp-block-quote.is-style-large__citation {
+	text-align: center;
+	font-size: var(--text-lg);
+}
+
+.wp-block-pullquote {
+	border-color: var(--color-light);
+	color: var(--color-base);
+	margin-bottom: 1.5em;
+	padding: 2.5em 0;
+}
+
+.wp-block-pullquote blockquote {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.wp-block-pullquote p {
+	font-size: var(--text-2xl);
+}
+
+.wp-block-pullquote cite,
+.wp-block-pullquote footer, .wp-block-pullquote__citation {
+	color: inherit;
+	font-size: var(--text-sm);
+}
+
+.wp-block-pullquote.is-style-solid-color {
+	background: var(--color-base);
+	color: #fff;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote {
+	text-align: center;
+	max-width: 100%;
+	padding: 0 2.5em;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote cite {
+	text-transform: uppercase;
 }
 
 .has-xs-font-size {
