@@ -58,13 +58,13 @@ class Archive {
 	}
 
 	public function continue_reading_link() {
-		$text = Settings::get( 'archive_continue_text' );
+		$text = get_theme_mod( 'archive_continue_text', __( 'Continue reading', 'estar' ) );
 		$text .= the_title( ' <span class="screen-reader-text">', '</span>', false );
 		return '<p class="more"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( $text ) . '</a></p>';
 	}
 
 	public function change_excerpt_length( $length ) {
-		return Settings::get( 'archive_excerpt_length' );
+		return get_theme_mod( 'archive_excerpt_length', 55 );
 	}
 
 	public function change_archive_title( $title ) {

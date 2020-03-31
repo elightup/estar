@@ -3,10 +3,10 @@
 
 	<div class="entry-summary">
 		<?php
-		if ( 'content' === Estar\Settings::get( 'archive_content' ) ) {
-			the_content();
-		} else {
+		if ( 'excerpt' === get_theme_mod( 'archive_content', 'excerpt' ) ) {
 			the_excerpt();
+		} else {
+			the_content();
 		}
 		?>
 	</div>

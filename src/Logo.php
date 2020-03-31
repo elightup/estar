@@ -31,7 +31,7 @@ class Logo {
 	}
 
 	public function add_body_classes( $classes ) {
-		if ( ! Settings::get( 'show_site_name' ) ) {
+		if ( ! get_theme_mod( 'show_site_name', true ) ) {
 			$classes[] = 'hide-site-name';
 		}
 		return $classes;

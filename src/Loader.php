@@ -149,8 +149,6 @@ class Loader {
 		new Fonts\Fonts;
 		new Colors\Colors;
 
-		Settings::setup();
-
 		$sanitizer = new Sanitizer;
 
 		new Customizer;

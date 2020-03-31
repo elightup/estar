@@ -20,7 +20,7 @@ class Customizer {
 			'sanitize_callback' => 'wp_kses_post',
 			'transport'         => 'postMessage',
 			// Translators: %1$s - Current year, %2$s - Blog name, %3$s - Theme name, %4$s - Theme shop name.
-			'default'           => sprintf( __( 'Copyright &copy; %1$s %2$s. Theme %3$s by %4$s.', 'estar' ), gmdate( 'Y' ), get_bloginfo( 'name' ), '<a href="https://gretathemes.com/wordpress-themes/estar/">eStar</a>', 'GretaThemes' )
+			'default'           => sprintf( __( 'Copyright &copy; %1$s %2$s. Theme %3$s by %4$s.', 'estar' ), gmdate( 'Y' ), get_bloginfo( 'name' ), '<a href="https://gretathemes.com/wordpress-themes/estar/">eStar</a>', 'GretaThemes' ),
 		] );
 		$wp_customize->add_control( 'footer_copyright', [
 			'label'   => esc_html__( 'Copyright Text', 'estar' ),

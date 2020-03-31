@@ -3,6 +3,10 @@
 		<?php
 		get_template_part( 'template-parts/breadcrumbs' );
 		the_title( '<h1 class="entry-title">', '</h1>' );
+
+		if ( 'post' === get_post_type() ) {
+			get_template_part( 'template-parts/post-meta' );
+		}
 		?>
 	</header>
 

@@ -26,7 +26,7 @@ class GoToTop {
 	}
 
 	public function output() {
-		if ( Settings::get( 'go_to_top' ) ) {
+		if ( get_theme_mod( 'go_to_top', true ) ) {
 			echo '<a href="#" class="go-to-top">' . $this->icons->get( 'cheveron-up' ) . '</a>';
 		}
 	}
