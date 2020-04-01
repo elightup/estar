@@ -40,9 +40,10 @@ input,
 textarea,
 select {
 	border: 1px solid var(--color-light);
-	border-radius: .25rem;
-	padding: .5rem;
-	line-height: 1.5;
+	border-radius: 4px;
+	padding: 8px 12px;
+	line-height: 24px;
+	font-size: var(--text-md);
 }
 textarea {
 	width: 100%;
