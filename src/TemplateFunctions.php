@@ -12,8 +12,6 @@ class TemplateFunctions {
 	public function add_body_classes( $classes ) {
 		if ( is_singular() ) {
 			$classes[] = 'singular';
-		} else {
-			$classes[] = 'archive hfeed'; // .hfeed is required for hAtom.
 		}
 		return $classes;
 	}

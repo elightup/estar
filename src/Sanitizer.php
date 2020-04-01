@@ -44,9 +44,8 @@ class Sanitizer {
 	}
 
 	public function sanitize_choice( $input, $setting ) {
-		$input = sanitize_key( $input );
 		$choices = $setting->manager->get_control( $setting->id )->choices;
-		return array_key_exists( $input, $choices ) ? $input : $setting->default;
+		return isset( $choices[ $input ] ) ? $input : $setting->default;
 	}
 
 	public function sanitize_url( $url ) {

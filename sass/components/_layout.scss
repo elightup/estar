@@ -15,6 +15,33 @@
 	.container {
 		max-width: var(--container-lg);
 	}
+	.content {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.sidebar {
+		width: 300px;
+		margin-left: 32px;
+		margin-top: 0;
+	}
+	.main {
+		flex: 1;
+	}
+	.sidebar-left {
+		.sidebar {
+			margin-left: 0;
+			margin-right: 32px;
+		}
+		.main {
+			order: 2;
+		}
+	}
+	.no-sidebar {
+		.main {
+			margin-left: 166px;
+			margin-right: 166px;
+		}
+	}
 }
 @media (min-width: 1280px) {
 	.container {
@@ -23,14 +50,10 @@
 }
 
 // Content area.
-main {
-	@include center-block;
-	max-width: 42rem;
-	padding-left: 12px;
-	padding-right: 12px;
-
-	.archive & {
-		padding-top: 3rem;
-		padding-bottom: 3rem;
-	}
+.archive .content {
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+.sidebar {
+	margin-top: 48px;
 }

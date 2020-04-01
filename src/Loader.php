@@ -136,8 +136,16 @@ class Loader {
 
 	public function widgets_init() {
 		register_sidebar( [
-			'name'          => esc_html__( 'Footer', 'estar' ),
+			'name'          => esc_html__( 'Sidebar', 'estar' ),
 			'id'            => 'sidebar-1',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		] );
+		register_sidebar( [
+			'name'          => esc_html__( 'Footer', 'estar' ),
+			'id'            => 'sidebar-2',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',

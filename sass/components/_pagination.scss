@@ -4,9 +4,10 @@
 .page-numbers {
 	background: var(--color-light);
 	color: var(--color-base);
-	border-radius: .25rem;
+	border-radius: 4px;
 	border: none;
-	padding: .5rem .75rem;
+	display: inline-block;
+	padding: 8px 12px;
 	line-height: 1;
 	font-size: var(--text-sm);
 	font-weight: 700;
