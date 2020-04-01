@@ -1,9 +1,14 @@
+.page-title {
+	margin-bottom: 6px;
+}
+
 .archive {
 	.more {
 		margin-bottom: 0;
 	}
 
 	.entry-thumbnail {
+		display: block;
 		width: 100%;
 		padding-bottom: 75%;
 		position: relative;
@@ -15,12 +20,61 @@
 			object-fit: cover;
 		}
 	}
+
+	.entry-title {
+		margin-bottom: 12px;
+
+		a {
+			color: var(--color-dark);
+
+			&:hover {
+				text-decoration: none;
+				color: var(--color-accent);
+			}
+		}
+	}
 }
 .entries {
 	display: grid;
 	grid-gap: 32px;
 	grid-template-columns: 1fr;
+	align-items: start;
 }
+
+// Card style for grid.
+.grid {
+	background: var(--color-light);
+
+	.entry {
+		box-shadow: var(--shadow-md);
+
+		&:hover {
+			box-shadow: var(--shadow-lg);
+		}
+	}
+	.entry-thumbnail img {
+		border-radius: 4px 4px 0 0;
+	}
+	.entry-body {
+		border-radius: 4px 4px 0 0;
+		background: #fff;
+		padding: 24px 32px;
+	}
+	.entry-thumbnail + .entry-body {
+		border-radius: 0;
+	}
+	.entry-meta {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	// Pagination.
+	.page-numbers {
+		background: #fff;
+	}
+}
+
 @media ( min-width: 768px ) {
 	.grid .entries {
 		grid-template-columns: 1fr 1fr;

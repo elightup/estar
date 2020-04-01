@@ -24,7 +24,6 @@
 @import "components/layout";
 @import "components/blocks/style";
 @import "components/header";
-@import "components/pagination";
 @import "components/breadcrumbs";
 @import "components/comments";
 @import "components/footer";
@@ -32,5 +31,7 @@
 @import "components/archive";
 @import "components/post";
 @import "components/widgets";
+
+@import "components/pagination";
 
 @import "utilities";

@@ -13,6 +13,10 @@
 .entry-meta, .entry-meta a {
 	color: var(--color-gray);
 }
+.entry-meta a:hover {
+	text-decoration: none;
+	color: var(--color-accent);
+}
 .entry-meta .author {
 	margin-right: 12px;
 }

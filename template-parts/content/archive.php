@@ -1,8 +1,8 @@
 <article <?php post_class() ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
-		<div class="entry-thumbnail">
+		<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail(); ?>
-		</div>
+		</a>
 	<?php endif; ?>
 
 	<div class="entry-body">
@@ -17,6 +17,10 @@
 			}
 			?>
 		</div>
+		<?php
+		if ( 'post' === get_post_type() ) {
+			get_template_part( 'template-parts/post-meta' );
+		}
+		?>
 	</div>
 </article>
-
