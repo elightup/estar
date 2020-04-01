@@ -69,8 +69,7 @@ a {
 abbr[title] {
 	border-bottom: none;
 	text-decoration: underline;
-	-webkit-text-decoration: underline dotted;
-	        text-decoration: underline dotted;
+	text-decoration: underline dotted;
 }
 
 b,
@@ -219,8 +218,7 @@ html {
 	line-height: 1.5;
 	box-sizing: border-box;
 	color: var(--color-base);
-	word-wrap: break-word;
-	word-break: break-all;
+	word-break: break-word;
 }
 
 *, *:before, *:after {
@@ -369,8 +367,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	-webkit-clip-path: inset(50%);
-	        clip-path: inset(50%);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -383,8 +380,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	-webkit-clip-path: none;
-	        clip-path: none;
+	clip-path: none;
 	color: var(--color-base);
 	display: block;
 	font-size: 1em;
@@ -901,7 +897,6 @@ blockquote.has-text-align-right,
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	background: #fff;
@@ -1213,8 +1208,7 @@ blockquote.has-text-align-right,
 
 .reply a:before {
 	content: "\21B5";
-	-webkit-transform: scale(1, -1);
-	        transform: scale(1, -1);
+	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1315,11 +1309,15 @@ blockquote.has-text-align-right,
 	}
 }
 
+.page-header {
+	margin-bottom: 32px;
+}
+
 .page-title {
 	margin-bottom: 6px;
 }
 
-.archive .more {
+.more {
 	margin-bottom: 0;
 }
 
@@ -1334,8 +1332,13 @@ blockquote.has-text-align-right,
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	-o-object-fit: cover;
-	   object-fit: cover;
+	object-fit: cover;
+	border-radius: 4px;
+}
+
+.archive .entry-meta {
+	text-transform: uppercase;
+	margin-bottom: 6px;
 }
 
 .archive .entry-title {
@@ -1358,6 +1361,11 @@ blockquote.has-text-align-right,
 	align-items: start;
 }
 
+.list-vertical .entry-thumbnail {
+	margin-bottom: 16px;
+	padding-bottom: 56.25%;
+}
+
 .grid {
 	background: var(--color-light);
 }
@@ -1368,6 +1376,10 @@ blockquote.has-text-align-right,
 
 .grid .entry:hover {
 	box-shadow: var(--shadow-lg);
+}
+
+.grid .entry-thumbnail {
+	padding-bottom: 56.25%;
 }
 
 .grid .entry-thumbnail img {
@@ -1387,7 +1399,8 @@ blockquote.has-text-align-right,
 .grid .entry-meta {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	text-transform: none;
+	margin-bottom: 0;
 }
 
 .grid .page-numbers {
@@ -1426,8 +1439,9 @@ blockquote.has-text-align-right,
 }
 
 .entry-meta {
-	margin-top: .5rem;
 	font-size: var(--text-sm);
+	display: flex;
+	align-items: center;
 }
 
 .entry-meta, .entry-meta a {
@@ -1440,16 +1454,26 @@ blockquote.has-text-align-right,
 }
 
 .entry-meta .author {
-	margin-right: 12px;
+	display: flex;
+	align-items: center;
 }
 
 .entry-meta .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
+	margin-right: 6px;
 }
 
 .updated:not(.published) {
 	display: none;
+}
+
+.singular .entry-meta {
+	margin-top: 6px;
+}
+
+.singular .entry-meta .author {
+	margin-right: 12px;
 }
 
 .entry-content:before, .entry-content:after {

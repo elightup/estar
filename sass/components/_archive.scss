@@ -1,12 +1,15 @@
+.page-header {
+	margin-bottom: 32px;
+}
 .page-title {
 	margin-bottom: 6px;
 }
 
-.archive {
-	.more {
-		margin-bottom: 0;
-	}
+.more {
+	margin-bottom: 0;
+}
 
+.archive {
 	.entry-thumbnail {
 		display: block;
 		width: 100%;
@@ -18,9 +21,14 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			border-radius: 4px;
 		}
 	}
 
+	.entry-meta {
+		text-transform: uppercase;
+		margin-bottom: 6px;
+	}
 	.entry-title {
 		margin-bottom: 12px;
 
@@ -41,6 +49,14 @@
 	align-items: start;
 }
 
+// List vertical.
+.list-vertical {
+	.entry-thumbnail {
+		margin-bottom: 16px;
+		padding-bottom: 56.25%;
+	}
+}
+
 // Card style for grid.
 .grid {
 	background: var(--color-light);
@@ -51,6 +67,9 @@
 		&:hover {
 			box-shadow: var(--shadow-lg);
 		}
+	}
+	.entry-thumbnail {
+		padding-bottom: 56.25%;
 	}
 	.entry-thumbnail img {
 		border-radius: 4px 4px 0 0;
@@ -66,7 +85,8 @@
 	.entry-meta {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		text-transform: none;
+		margin-bottom: 0;
 	}
 
 	// Pagination.

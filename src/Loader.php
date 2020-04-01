@@ -24,6 +24,8 @@ class Loader {
 
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 373, 280, true );
+		add_image_size( 'list-vertical', 778, 438, true );
+		add_image_size( 'grid', 373, 210, true );
 
 		/**
 		 * Add support for the block editor.

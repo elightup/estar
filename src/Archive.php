@@ -70,15 +70,15 @@ class Archive {
 			'type'    => 'number',
 		] );
 
-		// $wp_customize->add_setting( 'archive_continue_text', [
-		// 	'sanitize_callback' => 'sanitize_text_field',
-		// 	'default'           => __( 'Continue reading', 'estar' ),
-		// ] );
-		// $wp_customize->add_control( 'archive_continue_text', [
-		// 	'label'   => esc_html__( 'Continue Reading Text', 'estar' ),
-		// 	'section' => 'archive',
-		// 	'type'    => 'text',
-		// ] );
+		$wp_customize->add_setting( 'archive_continue_text', [
+			'sanitize_callback' => 'sanitize_text_field',
+			'default'           => __( 'Continue reading', 'estar' ),
+		] );
+		$wp_customize->add_control( 'archive_continue_text', [
+			'label'   => esc_html__( 'Continue Reading Text', 'estar' ),
+			'section' => 'archive',
+			'type'    => 'text',
+		] );
 	}
 
 	public function add_body_classes( $classes ) {
@@ -91,11 +91,14 @@ class Archive {
 	}
 
 	public function continue_reading_link() {
-		return '...';
+		$archive_layout = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
+		if ( false !== strpos( $archive_layout, 'grid' ) ) {
+			return '&hellip;';
+		}
 
 		$text = get_theme_mod( 'archive_continue_text', __( 'Continue reading', 'estar' ) );
 		$text .= the_title( ' <span class="screen-reader-text">', '</span>', false );
-		return '<p class="more"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( $text ) . '</a></p>';
+		return '&hellip;<p class="more"><a class="more-link" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( $text ) . '</a></p>';
 	}
 
 	public function change_excerpt_length( $length ) {
@@ -107,5 +110,17 @@ class Archive {
 			$title = single_term_title( '', false );
 		}
 		return $title;
+	}
+
+	public static function get_thumbnail_size() {
+		$size = 'post-thumbnail';
+		$archive_layout = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
+		if ( false !== strpos( $archive_layout, 'list-vertical' ) ) {
+			$size = 'list-vertical';
+		}
+		if ( false !== strpos( $archive_layout, 'grid' ) ) {
+			$size = 'grid';
+		}
+		return $size;
 	}
 }

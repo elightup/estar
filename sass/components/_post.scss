@@ -7,8 +7,9 @@
 
 // Entry meta.
 .entry-meta {
-	margin-top: .5rem;
 	font-size: var(--text-sm);
+	display: flex;
+	align-items: center;
 }
 .entry-meta, .entry-meta a {
 	color: var(--color-gray);
@@ -18,14 +19,27 @@
 	color: var(--color-accent);
 }
 .entry-meta .author {
-	margin-right: 12px;
+	display: flex;
+	align-items: center;
 }
 .entry-meta .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
+	margin-right: 6px;
 }
 .updated:not(.published) {
 	display: none;
+}
+
+// For singular pages only.
+.singular {
+	.entry-meta {
+		margin-top: 6px;
+
+		.author {
+			margin-right: 12px;
+		}
+	}
 }
 
 .entry-content {

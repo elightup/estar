@@ -1,7 +1,7 @@
 <article <?php post_class() ?>>
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail(); ?>
+			<?php the_post_thumbnail( EStar\Archive::get_thumbnail_size() ); ?>
 		</a>
 	<?php endif; ?>
 
