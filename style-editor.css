@@ -88,6 +88,10 @@ textarea {
 	width: 100%;
 }
 
+select {
+	max-width: 100%;
+}
+
 p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }

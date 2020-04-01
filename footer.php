@@ -1,8 +1,8 @@
 	<footer class="footer">
-		<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+		<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
 			<div class="footer-widgets">
 				<div class="container">
-					<?php dynamic_sidebar( 'sidebar-1' ); ?>
+					<?php dynamic_sidebar( 'sidebar-2' ); ?>
 				</div>
 			</div>
 		<?php endif; ?>

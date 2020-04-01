@@ -4,6 +4,16 @@
 	padding-left: 12px;
 	padding-right: 12px;
 }
+
+// Content area.
+.archive .content {
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+.sidebar {
+	margin-top: 48px;
+}
+
 @media (min-width: 768px) {
 	.container {
 		padding-left: 0;
@@ -47,13 +57,4 @@
 	.container {
 		max-width: var(--container-xl);
 	}
-}
-
-// Content area.
-.archive .content {
-	padding-top: 48px;
-	padding-bottom: 48px;
-}
-.sidebar {
-	margin-top: 48px;
 }

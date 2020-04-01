@@ -67,7 +67,8 @@ a {
 abbr[title] {
 	border-bottom: none;
 	text-decoration: underline;
-	text-decoration: underline dotted;
+	-webkit-text-decoration: underline dotted;
+	        text-decoration: underline dotted;
 }
 
 b,
@@ -268,6 +269,10 @@ textarea {
 	width: 100%;
 }
 
+select {
+	max-width: 100%;
+}
+
 p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }
@@ -361,7 +366,8 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
+	-webkit-clip-path: inset(50%);
+	        clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -374,7 +380,8 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	clip-path: none;
+	-webkit-clip-path: none;
+	        clip-path: none;
 	color: var(--color-base);
 	display: block;
 	font-size: 1em;
@@ -483,6 +490,15 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 	padding-right: 12px;
 }
 
+.archive .content {
+	padding-top: 48px;
+	padding-bottom: 48px;
+}
+
+.sidebar {
+	margin-top: 48px;
+}
+
 @media (min-width: 768px) {
 	.container {
 		padding-left: 0;
@@ -524,15 +540,6 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 	.container {
 		max-width: var(--container-xl);
 	}
-}
-
-.archive .content {
-	padding-top: 48px;
-	padding-bottom: 48px;
-}
-
-.sidebar {
-	margin-top: 48px;
 }
 
 .wp-block-columns,
@@ -887,6 +894,7 @@ blockquote.has-text-align-right,
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
+	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	background: #fff;
@@ -1225,7 +1233,8 @@ a.page-numbers:hover {
 
 .reply a:before {
 	content: "\21B5";
-	transform: scale(1, -1);
+	-webkit-transform: scale(1, -1);
+	        transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1274,46 +1283,19 @@ a.page-numbers:hover {
 	content: "\2192";
 }
 
-.footer {
-	font-size: var(--text-sm);
+.footer-widgets {
+	padding: 48px 0;
+	background: var(--color-light);
 }
 
 .footer .widget {
 	flex: 1;
 }
 
-.footer .widget + .widget {
-	margin-top: 2rem;
-}
-
-.footer .widget-title {
-	font-size: var(--text-lg);
-	text-transform: uppercase;
-	letter-spacing: .05em;
-}
-
-.footer ul {
-	list-style: none;
-	padding-left: 0;
-}
-
-.footer ul ul {
-	margin-top: .5rem;
-	padding-left: 1rem;
-}
-
-.footer li {
-	margin-bottom: .5rem;
-}
-
-.footer-widgets {
-	padding: 3rem 0;
-	background: var(--color-light);
-}
-
 .site-info {
+	font-size: var(--text-sm);
 	text-align: center;
-	padding: .75rem;
+	padding: 12px;
 	border-top: 1px solid var(--color-light);
 }
 
@@ -1348,7 +1330,7 @@ a.page-numbers:hover {
 	}
 	.footer-widgets .widget + .widget {
 		margin-top: 0;
-		margin-left: 2rem;
+		margin-left: 32px;
 	}
 }
 
@@ -1393,4 +1375,46 @@ a.page-numbers:hover {
 
 .page-links {
 	clear: both;
+}
+
+.widget {
+	font-size: var(--text-sm);
+}
+
+.widget ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+.widget ul ul {
+	margin-top: 8px;
+	padding-left: 16px;
+}
+
+.widget li {
+	margin-bottom: 8px;
+}
+
+.widget + .widget {
+	margin-top: 32px;
+}
+
+.widget-title {
+	font-size: var(--text-md);
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	margin-bottom: 12px;
+}
+
+.search-form {
+	display: flex;
+}
+
+.search-form .search-submit {
+	border-radius: 0 4px 4px 0;
+}
+
+.search-field {
+	border-radius: 4px 0 0 4px;
+	border-right: none;
 }
