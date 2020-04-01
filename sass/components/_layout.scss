@@ -46,11 +46,13 @@
 			order: 2;
 		}
 	}
-	.no-sidebar {
-		.main {
-			margin-left: 166px;
-			margin-right: 166px;
-		}
+	.no-sidebar .main {
+		margin-left: 166px;
+		margin-right: 166px;
+	}
+	.grid.no-sidebar .main {
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 @media (min-width: 1280px) {
