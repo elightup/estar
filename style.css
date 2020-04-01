@@ -67,8 +67,7 @@ a {
 abbr[title] {
 	border-bottom: none;
 	text-decoration: underline;
-	-webkit-text-decoration: underline dotted;
-	        text-decoration: underline dotted;
+	text-decoration: underline dotted;
 }
 
 b,
@@ -366,8 +365,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	-webkit-clip-path: inset(50%);
-	        clip-path: inset(50%);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -380,8 +378,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	-webkit-clip-path: none;
-	        clip-path: none;
+	clip-path: none;
 	color: var(--color-base);
 	display: block;
 	font-size: 1em;
@@ -894,7 +891,6 @@ blockquote.has-text-align-right,
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	background: #fff;
@@ -1117,19 +1113,25 @@ blockquote.has-text-align-right,
 }
 
 .pagination {
-	text-align: center;
+	margin-top: 32px;
+}
+
+.pagination .nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .page-numbers {
 	background: var(--color-light);
 	color: var(--color-base);
-	border-radius: 4px;
+	border-radius: 2px;
 	border: none;
 	display: inline-block;
 	padding: 8px 12px;
+	margin: 0 4px 4px 0;
 	line-height: 1;
 	font-size: var(--text-sm);
-	font-weight: 700;
 }
 
 a.page-numbers:hover {
@@ -1233,8 +1235,7 @@ a.page-numbers:hover {
 
 .reply a:before {
 	content: "\21B5";
-	-webkit-transform: scale(1, -1);
-	        transform: scale(1, -1);
+	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1331,6 +1332,41 @@ a.page-numbers:hover {
 	.footer-widgets .widget + .widget {
 		margin-top: 0;
 		margin-left: 32px;
+	}
+}
+
+.archive .more {
+	margin-bottom: 0;
+}
+
+.archive .entry + .entry {
+	margin-top: 32px;
+}
+
+.archive .entry-thumbnail {
+	width: 100%;
+	padding-bottom: 75%;
+	position: relative;
+}
+
+.archive .entry-thumbnail img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@media (min-width: 768px) {
+	.archive .entry {
+		display: flex;
+	}
+	.archive .entry-thumbnail {
+		width: 280px;
+		padding-bottom: 210px;
+		margin-right: 16px;
+	}
+	.archive .entry-body {
+		flex: 1;
 	}
 }
 

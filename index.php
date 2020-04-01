@@ -2,20 +2,22 @@
 
 <div class="content container">
 	<main class="main">
-		<?php
-		if ( have_posts() ) {
-			get_template_part( 'template-parts/page-header' );
+		<?php if ( have_posts() ) : ?>
+			<?php get_template_part( 'template-parts/page-header' ); ?>
 
-			while ( have_posts() ) {
-				the_post();
-				get_template_part( 'template-parts/content/archive' );
-			}
+			<div class="entries">
+ 				<?php
+ 				while ( have_posts() ) {
+					the_post();
+					get_template_part( 'template-parts/content/archive' );
+				}
+				?>
+			</div>
 
-			the_posts_pagination();
-		} else {
-			get_template_part( 'template-parts/content/none' );
-		}
-		?>
+			<?php the_posts_pagination(); ?>
+		<?php else : ?>
+			<?php get_template_part( 'template-parts/content/none' ); ?>
+		<?php endif; ?>
 	</main>
 
 	<?php get_sidebar(); ?>

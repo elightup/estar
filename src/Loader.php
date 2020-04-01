@@ -19,9 +19,11 @@ class Loader {
 
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
-		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption'] );
 		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 373, 280, true );
 
 		/**
 		 * Add support for the block editor.
