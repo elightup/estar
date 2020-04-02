@@ -1,24 +1,10 @@
 <?php
 namespace EStar;
 
-class TemplateFunctions {
+class Menu {
 	public function __construct() {
-		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
-		add_filter( 'post_class', [ $this, 'add_post_classes' ] );
 		add_filter( 'nav_menu_link_attributes', [ $this, 'add_menu_link_attributes' ], 10, 4 );
 		add_filter( 'walker_nav_menu_start_el', [ $this, 'add_dropdown_icons' ], 10, 4 );
-	}
-
-	public function add_body_classes( $classes ) {
-		if ( is_singular() ) {
-			$classes[] = 'singular';
-		}
-		return $classes;
-	}
-
-	public function add_post_classes( $classes ) {
-		$classes[] = 'entry';
-		return $classes;
 	}
 
 	/**

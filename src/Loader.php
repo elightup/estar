@@ -169,12 +169,13 @@ class Loader {
 		$logo->setup();
 
 		new Archive( $sanitizer );
+		new Post( $sanitizer );
 
 		$icons = new Icons;
 		new GoToTop( $sanitizer, $icons );
 
 		if ( ! is_admin() ) {
-			new TemplateFunctions;
+			new Menu;
 		}
 	}
 }

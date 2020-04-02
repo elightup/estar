@@ -3,11 +3,9 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 
-if ( ! is_singular() ) {
-	$archive_layout = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
-	if ( false !== strpos( $archive_layout, 'no-sidebar' ) ) {
-		return;
-	}
+$layout = is_singular() ? get_theme_mod( 'post_layout', 'sidebar-right' ) : get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
+if ( false !== strpos( $layout, 'no-sidebar' ) ) {
+	return;
 }
 ?>
 

@@ -13,7 +13,7 @@ class Customizer {
 
 		$wp_customize->add_section( 'footer', [
 			'title'    => esc_html__( 'Footer', 'estar' ),
-			'priority' => '1300',
+			'priority' => '1400',
 		] );
 
 		$wp_customize->add_setting( 'footer_copyright', [
