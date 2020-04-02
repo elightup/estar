@@ -170,6 +170,7 @@ class Loader {
 
 		new Archive( $sanitizer );
 		new Post( $sanitizer );
+		new Page( $sanitizer );
 
 		$icons = new Icons;
 		new GoToTop( $sanitizer, $icons );

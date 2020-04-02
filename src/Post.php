@@ -35,7 +35,7 @@ class Post {
 	}
 
 	public function add_body_classes( $classes ) {
-		if ( ! is_singular() ) {
+		if ( ! is_single() ) {
 			return $classes;
 		}
 		$classes[] = 'singular';
@@ -72,5 +72,16 @@ class Post {
 			esc_html( get_the_author() )
 		);
 		echo $byline; // WPCS: OK.
+	}
+
+	public static function categories() {
+		the_category();
+	}
+
+	public static function tags() {
+		$tags = get_the_tag_list( '', '' );
+		if ( $tags ) {
+			echo '<div class="tags">', $tags, '</div>'; // WPCS: OK.
+		}
 	}
 }

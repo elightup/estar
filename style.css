@@ -741,7 +741,7 @@ blockquote.has-text-align-right,
 .tag-cloud-link {
 	display: inline-block;
 	padding: 4px 12px;
-	background: 1px solid var(--color-light);
+	background: var(--color-light);
 	color: var(--color-base);
 	font-size: var(--text-sm) !important;
 	border-radius: 2px;
@@ -1126,11 +1126,6 @@ blockquote.has-text-align-right,
 		border-bottom-color: transparent;
 		margin-top: 0;
 	}
-}
-
-.breadcrumbs {
-	font-size: var(--text-xs);
-	padding: 1rem 0;
 }
 
 .comments-area {

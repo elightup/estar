@@ -1,9 +1,6 @@
 <article <?php post_class() ?>>
 	<header class="entry-header">
-		<?php
-		get_template_part( 'template-parts/breadcrumbs' );
-		the_title( '<h1 class="entry-title">', '</h1>' );
-		?>
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header>
 
 	<div class="entry-content">
