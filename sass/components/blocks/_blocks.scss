@@ -168,10 +168,11 @@ blockquote,
 }
 
 // Tag cloud.
+.tags a,
 .tag-cloud-link {
 	display: inline-block;
-	padding: 2px 8px;
-	border: 1px solid var(--color-base);
+	padding: 4px 12px;
+	background: 1px solid var(--color-light);
 	color: var(--color-base);
 	font-size: var(--text-sm) !important;
 	border-radius: 2px;
@@ -182,6 +183,13 @@ blockquote,
 		color: #fff;
 		text-decoration: none;
 	}
+}
+
+// Dropcap.
+.has-drop-cap:not(:focus):first-letter {
+	font-size: 4em;
+	font-weight: 400;
+	margin: 6px 12px 0 0;
 }
 
 // Font sizes.

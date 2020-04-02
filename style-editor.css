@@ -31,6 +31,9 @@
 	--color-light: #e2e8f0;
 	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--tracking-wide: 0.025em;
+	--tracking-wider: 0.05em;
+	--tracking-widest: 0.1em;
 }
 
 html {
@@ -356,20 +359,28 @@ blockquote.has-text-align-right,
 	text-decoration: underline;
 }
 
+.tags a,
 .tag-cloud-link {
 	display: inline-block;
-	padding: 2px 8px;
-	border: 1px solid var(--color-base);
+	padding: 4px 12px;
+	background: 1px solid var(--color-light);
 	color: var(--color-base);
 	font-size: var(--text-sm) !important;
 	border-radius: 2px;
 	margin: 0 4px 4px 0;
 }
 
+.tags a:hover,
 .tag-cloud-link:hover {
 	background: var(--color-base);
 	color: #fff;
 	text-decoration: none;
+}
+
+.has-drop-cap:not(:focus):first-letter {
+	font-size: 4em;
+	font-weight: 400;
+	margin: 6px 12px 0 0;
 }
 
 .has-xs-font-size {

@@ -5,6 +5,25 @@
 	margin-bottom: 0;
 }
 
+// Categories.
+.post-categories {
+	list-style: none;
+	margin: 0 0 6px;
+	padding: 0;
+	text-transform: uppercase;
+	letter-spacing: var(--tracking-wide);
+	font-size: var(--text-sm);
+	display: flex;
+	flex-wrap: wrap;
+
+	li:not(:last-child) {
+		margin-right: 12px;
+	}
+	a {
+		color: var(--color-gray);
+	}
+}
+
 // Entry meta.
 .entry-meta {
 	font-size: var(--text-sm);
@@ -36,8 +55,10 @@
 	.entry-meta {
 		margin-top: 6px;
 
-		.author {
-			margin-right: 12px;
+		.author:after {
+			display: inline-block;
+			content: "/";
+			margin: 0 12px;
 		}
 	}
 }

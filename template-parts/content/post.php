@@ -1,7 +1,7 @@
 <article <?php post_class() ?>>
 	<header class="entry-header">
 		<?php
-		get_template_part( 'template-parts/breadcrumbs' );
+		the_category();
 		the_title( '<h1 class="entry-title">', '</h1>' );
 
 		if ( 'post' === get_post_type() ) {
@@ -21,5 +21,11 @@
 	</div>
 
 	<footer class="entry-footer">
+		<?php
+		$tags = get_the_tag_list( '', '' );
+		if ( $tags ) {
+			echo '<div class="tags">', $tags, '</div>'; // WPCS: OK.
+		}
+		?>
 	</footer>
 </article>
