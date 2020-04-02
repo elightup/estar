@@ -71,7 +71,11 @@ class Post {
 		}
 		$classes[] = 'singular';
 		$classes[] = get_theme_mod( 'post_layout', 'sidebar-right' );
-		$classes[] = get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' );
+
+		$thumbnail = get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' );
+		if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail ) {
+			$classes[] = $thumbnail;
+		}
 		$classes[] = 'entry-header-' . get_theme_mod( 'post_header_align', '' );
 		return $classes;
 	}
