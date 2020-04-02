@@ -89,7 +89,7 @@ class Post {
 
 	public function output_thumbnail_css() {
 		?>
-		<style>.entry-header { background-image: url(<?= esc_url( get_the_post_thumbnail_url( null, 'full' ) ); ?>); }
+		<style>.entry-header { background-image: url(<?= esc_url( get_the_post_thumbnail_url( null, 'full' ) ); ?>); }</style>
 		<?php
 	}
 

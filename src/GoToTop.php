@@ -26,8 +26,17 @@ class GoToTop {
 	}
 
 	public function output() {
-		if ( get_theme_mod( 'go_to_top', true ) ) {
-			echo '<a href="#" class="go-to-top">' . $this->icons->get( 'cheveron-up' ) . '</a>';
+		if ( ! get_theme_mod( 'go_to_top', true ) ) {
+			return;
 		}
+		?>
+		<a href="#" class="go-to-top"><?= $this->icons->get( 'cheveron-up' ); ?></a>
+		<script>
+		document.querySelector( '.go-to-top' ).addEventListener( 'click', e => {
+			e.preventDefault();
+			window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+		} );
+		</script>
+		<?php
 	}
 }
