@@ -1493,6 +1493,15 @@ blockquote.has-text-align-right,
 	display: none;
 }
 
+.singular .entry-thumbnail {
+	margin-bottom: 24px;
+}
+
+.singular .entry-thumbnail img {
+	display: block;
+	width: 100%;
+}
+
 .singular .entry-meta {
 	margin-top: 6px;
 }

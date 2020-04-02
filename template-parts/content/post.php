@@ -1,4 +1,5 @@
 <article <?php post_class() ?>>
+	<?php do_action( 'estar/entry_header/before' ); ?>
 	<header class="entry-header">
 		<?php
 		EStar\Post::categories();
@@ -9,6 +10,7 @@
 		}
 		?>
 	</header>
+	<?php do_action( 'estar/entry_header/after' ); ?>
 
 	<div class="entry-content">
 		<?php

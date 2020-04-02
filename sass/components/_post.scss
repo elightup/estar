@@ -52,6 +52,15 @@
 
 // For singular pages only.
 .singular {
+	.entry-thumbnail {
+		margin-bottom: 24px;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+	}
+
 	.entry-meta {
 		margin-top: 6px;
 
