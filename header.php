@@ -12,7 +12,7 @@
 	}
 	?>
 	<header class="header">
-		<div class="container">
+		<div class="header-inner container">
 			<div class="branding">
 				<?php get_template_part( 'template-parts/site/logo' ); ?>
 				<div class="site-name">
@@ -34,5 +34,15 @@
 					?>
 				</nav>
 			<?php endif ?>
+			<button class="search-open" aria-expanded="false">
+				<span class="screen-reader-text"><?php esc_html_e( 'Search', 'estar' ); ?></span>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z"/></svg>
+			</button>
+			<div class="header-search">
+				<?php get_search_form(); ?>
+				<button class="search-close">
+					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'estar' ); ?></span>
+					&times;
+				</button>
 		</div>
 	</header>

@@ -44,6 +44,40 @@
 		} );
 	}
 
+	function goToTop() {
+		document.querySelector( '.go-to-top' ).addEventListener( 'click', e => {
+			e.preventDefault();
+			window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
+		} );
+	}
+
+	function openSearch() {
+		const button = document.querySelector( '.search-open' ),
+			input = document.querySelector( '.header-search .search-field' );
+
+		button.addEventListener( 'click', e => {
+			e.preventDefault();
+			document.body.classList.add( 'header-search-open' );
+			button.setAttribute( 'aria-expanded', 'true' );
+			input.focus();
+		} );
+	}
+
+	function closeSearch() {
+		const button = document.querySelector( '.search-close' ),
+			open = document.querySelector( '.search-open' );
+
+		button.addEventListener( 'click', e => {
+			e.preventDefault();
+			document.body.classList.remove( 'header-search-open' );
+			open.setAttribute( 'aria-expanded', 'false' );
+			open.focus();
+		} );
+	}
+
 	toggleMenu();
 	toggleSubmenu();
+	goToTop();
+	openSearch();
+	closeSearch();
 } )( window, document, EStar );

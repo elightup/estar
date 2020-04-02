@@ -29,6 +29,10 @@
 .search-form {
 	display: flex;
 
+	label {
+		flex: 1;
+	}
+
 	.search-submit {
 		border-radius: 0 4px 4px 0;
 	}
@@ -36,4 +40,5 @@
 .search-field {
 	border-radius: 4px 0 0 4px;
 	border-right: none;
+	width: 100%;
 }

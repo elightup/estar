@@ -913,10 +913,11 @@ blockquote.has-text-align-right,
 	z-index: 9;
 }
 
-.header .container {
+.header-inner {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
 }
 
 @media (min-width: 601px) and (max-width: 782px) {
@@ -933,6 +934,7 @@ blockquote.has-text-align-right,
 
 .branding {
 	display: flex;
+	z-index: 1;
 }
 
 .custom-logo-link {
@@ -965,6 +967,8 @@ blockquote.has-text-align-right,
 	letter-spacing: .05em;
 	font-size: var(--text-sm);
 	font-weight: 500;
+	margin-left: auto;
+	z-index: 1;
 }
 
 .nav ul {
@@ -1126,6 +1130,53 @@ blockquote.has-text-align-right,
 		border-bottom-color: transparent;
 		margin-top: 0;
 	}
+}
+
+.search-open {
+	padding: 8px 0 8px 12px;
+	background: none;
+	display: flex;
+}
+
+.search-open svg {
+	width: 16px;
+	height: 16px;
+	fill: var(--color-base);
+}
+
+.search-close {
+	padding: 8px;
+	background: none;
+	display: flex;
+	color: inherit;
+}
+
+.header-search {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #fff;
+	z-index: 2;
+	align-items: center;
+}
+
+.header-search .search-form {
+	flex: 1;
+}
+
+.header-search .search-field {
+	border: none;
+}
+
+.header-search .search-submit {
+	display: none;
+}
+
+.header-search-open .header-search {
+	display: flex;
 }
 
 .comments-area {
@@ -1632,6 +1683,10 @@ blockquote.has-text-align-right,
 	display: flex;
 }
 
+.search-form label {
+	flex: 1;
+}
+
 .search-form .search-submit {
 	border-radius: 0 4px 4px 0;
 }
@@ -1639,6 +1694,7 @@ blockquote.has-text-align-right,
 .search-field {
 	border-radius: 4px 0 0 4px;
 	border-right: none;
+	width: 100%;
 }
 
 .pagination {

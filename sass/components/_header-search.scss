@@ -1,0 +1,43 @@
+.search-open {
+	padding: 8px 0 8px 12px;
+	background: none;
+	display: flex;
+
+	svg {
+		width: 16px;
+		height: 16px;
+		fill: var(--color-base);
+	}
+}
+.search-close {
+	padding: 8px;
+	background: none;
+	display: flex;
+	color: inherit;
+}
+.header-search {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: #fff;
+	z-index: 2;
+	align-items: center;
+
+	.search-form {
+		flex: 1;
+	}
+	.search-field {
+		border: none;
+	}
+	.search-submit {
+		display: none;
+	}
+}
+.header-search-open {
+	.header-search {
+		display: flex;
+	}
+}
