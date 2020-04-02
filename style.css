@@ -1437,7 +1437,13 @@ blockquote.has-text-align-right,
 }
 
 .entry-header {
-	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+
+.entry-header-text {
+	width: 100%;
 }
 
 .entry-title {
@@ -1493,6 +1499,22 @@ blockquote.has-text-align-right,
 	display: none;
 }
 
+.entry-header-right .entry-header {
+	text-align: right;
+}
+
+.entry-header-right .post-categories, .entry-header-right .entry-meta {
+	justify-content: end;
+}
+
+.entry-header-center .entry-header {
+	text-align: center;
+}
+
+.entry-header-center .post-categories, .entry-header-center .entry-meta {
+	justify-content: center;
+}
+
 .singular .entry-thumbnail {
 	margin-bottom: 24px;
 }
@@ -1500,6 +1522,7 @@ blockquote.has-text-align-right,
 .singular .entry-thumbnail img {
 	display: block;
 	width: 100%;
+	border-radius: 4px;
 }
 
 .singular .entry-meta {
@@ -1510,6 +1533,57 @@ blockquote.has-text-align-right,
 	display: inline-block;
 	content: "/";
 	margin: 0 12px;
+}
+
+.thumbnail-after-header .entry-thumbnail {
+	order: 2;
+	margin: 24px 0 0;
+}
+
+.thumbnail-header-background .content {
+	padding-top: 0;
+}
+
+.thumbnail-header-background .entry-header {
+	position: relative;
+}
+
+.thumbnail-header-background .entry-thumbnail {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100vw;
+	margin: 0 calc(50% - 50vw);
+	z-index: 1;
+}
+
+.thumbnail-header-background .entry-thumbnail:after {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	content: "";
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail-header-background .entry-thumbnail img {
+	object-fit: cover;
+	border-radius: 0;
+	height: 100%;
+}
+
+.thumbnail-header-background .entry-header-text {
+	z-index: 2;
+	padding: 96px 0;
+}
+
+.thumbnail-header-background .entry-header-text h1,
+.thumbnail-header-background .entry-header-text a,
+.thumbnail-header-background .entry-header-text ul,
+.thumbnail-header-background .entry-header-text .entry-meta {
+	color: #fff;
 }
 
 .entry-content:before, .entry-content:after {

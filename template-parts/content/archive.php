@@ -1,4 +1,4 @@
-<article <?php post_class() ?>>
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
 			<?php the_post_thumbnail( EStar\Archive::get_thumbnail_size() ); ?>

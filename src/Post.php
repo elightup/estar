@@ -10,8 +10,6 @@ class Post {
 		add_action( 'customize_register', [ $this, 'register' ] );
 		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 		add_filter( 'post_class', [ $this, 'add_post_classes' ] );
-
-		add_action( 'template_redirect', [ $this, 'add_hook_for_thumbnail' ] );
 	}
 
 	public function register( $wp_customize ) {
@@ -50,6 +48,21 @@ class Post {
 				'no-thumbnail'                => __( 'Do not display', 'estar' ),
 			],
 		] );
+
+		$wp_customize->add_setting( 'post_header_align', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'left',
+		] );
+		$wp_customize->add_control( 'post_header_align', [
+			'label'   => esc_html__( 'Post Header Alignment', 'estar' ),
+			'section' => 'post',
+			'type'    => 'select',
+			'choices' => [
+				'left'   => __( 'Left', 'estar' ),
+				'right'  => __( 'Right', 'estar' ),
+				'center' => __( 'Center', 'estar' ),
+			],
+		] );
 	}
 
 	public function add_body_classes( $classes ) {
@@ -59,38 +72,13 @@ class Post {
 		$classes[] = 'singular';
 		$classes[] = get_theme_mod( 'post_layout', 'sidebar-right' );
 		$classes[] = get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' );
+		$classes[] = 'entry-header-' . get_theme_mod( 'post_header_align', '' );
 		return $classes;
 	}
 
 	public function add_post_classes( $classes ) {
 		$classes[] = 'entry';
 		return $classes;
-	}
-
-	public function add_hook_for_thumbnail() {
-		if ( ! is_single() || ! has_post_thumbnail() ) {
-			return;
-		}
-		$position = get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' );
-		if ( 'thumbnail-before-header' === $position ) {
-			add_action( $hook, [ 'estar/entry_header/before', 'output_thumbnail' ] );
-		} elseif ( 'thumbnail-after-header' === $position ) {
-			add_action( $hook, [ 'estar/entry_header/after', 'output_thumbnail' ] );
-		} elseif ( 'thumbnail-header-background' === $position ) {
-			add_action( 'wp_head', [ $this, 'output_thumbnail_css' ] );
-		}
-	}
-
-	public function output_thumbnail() {
-		echo '<div class="entry-thumbnail">';
-		the_post_thumbnail( 'full' );
-		echo '</div>';
-	}
-
-	public function output_thumbnail_css() {
-		?>
-		<style>.entry-header { background-image: url(<?= esc_url( get_the_post_thumbnail_url( null, 'full' ) ); ?>); }</style>
-		<?php
 	}
 
 	public static function date() {

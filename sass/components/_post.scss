@@ -1,5 +1,10 @@
 .entry-header {
-	margin-bottom: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+.entry-header-text {
+	width: 100%;
 }
 .entry-title {
 	margin-bottom: 0;
@@ -50,6 +55,24 @@
 	display: none;
 }
 
+// Header align.
+.entry-header-right {
+	.entry-header {
+		text-align: right;
+	}
+	.post-categories, .entry-meta {
+		justify-content: end;
+	}
+}
+.entry-header-center {
+	.entry-header {
+		text-align: center;
+	}
+	.post-categories, .entry-meta {
+		justify-content: center;
+	}
+}
+
 // For singular pages only.
 .singular {
 	.entry-thumbnail {
@@ -58,6 +81,7 @@
 		img {
 			display: block;
 			width: 100%;
+			border-radius: 4px;
 		}
 	}
 
@@ -68,6 +92,60 @@
 			display: inline-block;
 			content: "/";
 			margin: 0 12px;
+		}
+	}
+}
+
+// Thumbnail after header.
+.thumbnail-after-header {
+	.entry-thumbnail {
+		order: 2;
+		margin: 24px 0 0;
+	}
+}
+
+// Thumbnail as header background.
+.thumbnail-header-background {
+	.content {
+		padding-top: 0;
+	}
+	.entry-header {
+		position: relative;
+	}
+	.entry-thumbnail {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100vw;
+		margin: 0 calc(50% - 50vw);
+		z-index: 1;
+
+		&:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: block;
+			content: "";
+			background: rgba(0, 0, 0, .3);
+		}
+
+		img {
+			object-fit: cover;
+			border-radius: 0;
+			height: 100%;
+		}
+	}
+	.entry-header-text {
+		z-index: 2;
+		padding: 96px 0;
+
+		h1,
+		a,
+		ul,
+		.entry-meta {
+			color: #fff;
 		}
 	}
 }

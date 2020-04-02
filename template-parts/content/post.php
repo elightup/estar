@@ -1,16 +1,21 @@
-<article <?php post_class() ?>>
-	<?php do_action( 'estar/entry_header/before' ); ?>
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<header class="entry-header">
-		<?php
-		EStar\Post::categories();
-		the_title( '<h1 class="entry-title">', '</h1>' );
+		<?php if ( has_post_thumbnail() && 'no-thumbnail' !== get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ) : ?>
+			<div class="entry-thumbnail">
+				<?php the_post_thumbnail( 'full' ); ?>
+			</div>
+		<?php endif; ?>
+		<div class="entry-header-text">
+			<?php
+			EStar\Post::categories();
+			the_title( '<h1 class="entry-title">', '</h1>' );
 
-		if ( 'post' === get_post_type() ) {
-			get_template_part( 'template-parts/post-meta' );
-		}
-		?>
+			if ( 'post' === get_post_type() ) {
+				get_template_part( 'template-parts/post-meta' );
+			}
+			?>
+		</div>
 	</header>
-	<?php do_action( 'estar/entry_header/after' ); ?>
 
 	<div class="entry-content">
 		<?php
