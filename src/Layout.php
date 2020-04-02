@@ -24,7 +24,7 @@ class Layout {
 			esc_html_e( 'Please go to Customize > Widgets and add widgets to this area.', 'estar' );
 			return;
 		}
-		echo '<aside class="' . esc_attr( $class ) . '">';
+		echo '<aside class="' . esc_attr( $class ) . '" role="complementary">';
 		dynamic_sidebar( $id );
 		echo '</aside>';
 	}

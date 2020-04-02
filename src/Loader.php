@@ -136,6 +136,10 @@ class Loader {
 		wp_localize_script( 'estar', 'EStar', [
 			'submenuToggle' => __( 'Show submenu for %s', 'estar' ),
 		] );
+
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 	}
 
 	public function widgets_init() {

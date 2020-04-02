@@ -15,7 +15,7 @@ class CheckboxListControl extends \WP_Customize_Control {
 		?>
 
 		<?php if ( !empty( $this->label ) ) : ?>
-			<label class="customize-control-title"><?= esc_html( $this->label ); ?></label>
+			<label class="customize-control-title"><?php echo esc_html( $this->label ); ?></label>
 		<?php endif; ?>
 
 		<?php
@@ -26,12 +26,12 @@ class CheckboxListControl extends \WP_Customize_Control {
 			<?php foreach ( $this->choices as $value => $label ) : ?>
 				<li>
 					<label>
-						<input type="checkbox" value="<?= esc_attr( $value ); ?>" <?php checked( in_array( $value, $values ) ); ?>>
-						<?= esc_html( $label ); ?>
+						<input type="checkbox" value="<?php echo esc_attr( $value ); ?>" <?php checked( in_array( $value, $values ) ); ?>>
+						<?php echo esc_html( $label ); ?>
 					</label>
 				</li>
 			<?php endforeach; ?>
 		</ul>
-		<input type="hidden" <?php $this->link(); ?> value="<?= esc_attr( implode( ',', $values ) ); ?>">
+		<input type="hidden" <?php $this->link(); ?> value="<?php echo esc_attr( implode( ',', $values ) ); ?>">
 	<?php }
 }

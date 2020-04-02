@@ -1,4 +1,6 @@
-	<footer class="footer">
+	</div><!-- .content -->
+
+	<footer class="footer" role="contentinfo">
 		<?php if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
 			<div class="footer-widgets">
 				<div class="container">

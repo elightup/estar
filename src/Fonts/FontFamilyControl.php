@@ -16,10 +16,10 @@ class FontFamilyControl extends \WP_Customize_Control {
 		?>
 
 		<?php if ( ! empty( $this->label ) ) : ?>
-			<label class="customize-control-title" for="<?= esc_attr( $input_id ) ?>"><?= esc_html( $this->label ); ?></label>
+			<label class="customize-control-title" for="<?php echo esc_attr( $input_id ) ?>"><?php echo esc_html( $this->label ); ?></label>
 		<?php endif; ?>
 
-		<select <?php $this->link(); ?> id="<?= esc_attr( $input_id ) ?>">
+		<select <?php $this->link(); ?> id="<?php echo esc_attr( $input_id ) ?>">
 			<option value=""><?php esc_html_e( '- No change -', 'estar' ); ?></option>
 			<optgroup label="<?php esc_attr_e( 'System Fonts', 'estar' ); ?>">
 				<option value="sans-serif"<?php selected( $this->value(), 'sans-serif' ); ?>><?php esc_html_e( 'Sans Serif', 'estar' ); ?></option>

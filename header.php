@@ -6,12 +6,13 @@
 	<?php wp_head() ?>
 </head>
 <body <?php body_class() ?>>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'estar' ); ?></a>
 	<?php
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
 	}
 	?>
-	<header class="header">
+	<header class="header" role="banner">
 		<div class="header-inner container">
 			<div class="branding">
 				<?php get_template_part( 'template-parts/site/logo' ); ?>
@@ -23,7 +24,7 @@
 				</div>
 			</div>
 			<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
-				<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>">
+				<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
 					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span></button>
 					<?php
 					wp_nav_menu( [
@@ -44,5 +45,8 @@
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'estar' ); ?></span>
 					&times;
 				</button>
+			</div>
 		</div>
 	</header>
+
+	<div class="content container" id="content">
