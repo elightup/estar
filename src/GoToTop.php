@@ -3,11 +3,9 @@ namespace EStar;
 
 class GoToTop {
 	private $sanitizer;
-	private $icons;
 
-	public function __construct( $sanitizer, $icons ) {
+	public function __construct( $sanitizer ) {
 		$this->sanitizer = $sanitizer;
-		$this->icons     = $icons;
 
 		add_action( 'customize_register', [ $this, 'register' ] );
 		add_action( 'wp_footer', [ $this, 'output' ] );
@@ -30,7 +28,7 @@ class GoToTop {
 			return;
 		}
 		?>
-		<a href="#" class="go-to-top"><?= $this->icons->get( 'cheveron-up' ); ?></a>
+		<a href="#" class="go-to-top"><svg aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.7 14.7a1 1 0 0 1-1.4-1.4l4-4a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1-1.4 1.4L12 11.42l-3.3 3.3z"/></svg></a>
 		<script>
 		document.querySelector( '.go-to-top' ).addEventListener( 'click', e => {
 			e.preventDefault();

@@ -172,8 +172,7 @@ class Loader {
 		new Post( $sanitizer );
 		new Page( $sanitizer );
 
-		$icons = new Icons;
-		new GoToTop( $sanitizer, $icons );
+		new GoToTop( $sanitizer );
 
 		if ( ! is_admin() ) {
 			new Menu;
