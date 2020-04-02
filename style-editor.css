@@ -36,12 +36,13 @@
 	--tracking-widest: 0.1em;
 }
 
-html {
+body {
 	font-family: var(--font-sans);
 	line-height: 1.5;
 	box-sizing: border-box;
 	color: var(--color-base);
 	word-break: break-word;
+	background: #fff;
 }
 
 *, *:before, *:after {

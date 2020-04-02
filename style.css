@@ -217,12 +217,13 @@ template {
 	display: none;
 }
 
-html {
+body {
 	font-family: var(--font-sans);
 	line-height: 1.5;
 	box-sizing: border-box;
 	color: var(--color-base);
 	word-break: break-word;
+	background: #fff;
 }
 
 *, *:before, *:after {
