@@ -13,7 +13,7 @@ class Layout {
 		} elseif ( is_single() ) {
 			$layout = get_theme_mod( 'post_layout', 'sidebar-right' );
 		} else {
-			$layout = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
+			$layout = get_theme_mod( 'archive_layout', 'sidebar-right' );
 		}
 
 		return apply_filters( 'estar_layout', $layout );

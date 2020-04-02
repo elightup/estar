@@ -27,22 +27,31 @@ class Archive {
 
 		$wp_customize->add_setting( 'archive_layout', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
-			'default'           => 'list-horizontal sidebar-right',
+			'default'           => 'sidebar-right',
 		] );
 		$wp_customize->add_control( 'archive_layout', [
 			'label'   => esc_html__( 'Layout', 'estar' ),
 			'section' => 'archive',
 			'type'    => 'select',
 			'choices' => [
-				'list-horizontal sidebar-right' => __( 'List (Horizontal) - Sidebar Right', 'estar' ),
-				'list-horizontal sidebar-left'  => __( 'List (Horizontal) - Sidebar Left', 'estar' ),
-				'list-horizontal no-sidebar'    => __( 'List (Horizontal) - No Sidebar', 'estar' ),
-				'list-vertical sidebar-right'   => __( 'List (Vertical) - Sidebar Right', 'estar' ),
-				'list-vertical sidebar-left'    => __( 'List (Vertical) - Sidebar Left', 'estar' ),
-				'list-vertical no-sidebar'      => __( 'List (Vertical) - No Sidebar', 'estar' ),
-				'grid sidebar-right'            => __( 'Grid - Sidebar Right', 'estar' ),
-				'grid sidebar-left'             => __( 'Grid - Sidebar Left', 'estar' ),
-				'grid no-sidebar'               => __( 'Grid - No Sidebar', 'estar' ),
+				'sidebar-right' => __( 'Sidebar Right', 'estar' ),
+				'sidebar-left'  => __( 'Sidebar Left', 'estar' ),
+				'no-sidebar'    => __( 'No Sidebar', 'estar' ),
+			],
+		] );
+
+		$wp_customize->add_setting( 'archive_content_layout', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'list-horizontal',
+		] );
+		$wp_customize->add_control( 'archive_content_layout', [
+			'label'   => esc_html__( 'Content Layout', 'estar' ),
+			'section' => 'archive',
+			'type'    => 'select',
+			'choices' => [
+				'list-horizontal' => __( 'List (Horizontal)', 'estar' ),
+				'list-vertical'   => __( 'List (Vertical)', 'estar' ),
+				'grid'            => __( 'Grid', 'estar' ),
 			],
 		] );
 
@@ -86,12 +95,13 @@ class Archive {
 			return $classes;
 		}
 		$classes[] = 'archive hfeed'; // .hfeed is required for hAtom.
-		$classes[] = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
+		$classes[] = get_theme_mod( 'archive_layout', 'sidebar-right' );
+		$classes[] = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
 		return $classes;
 	}
 
 	public function continue_reading_link() {
-		$archive_layout = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
+		$archive_layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
 		if ( false !== strpos( $archive_layout, 'grid' ) ) {
 			return '&hellip;';
 		}
@@ -113,14 +123,7 @@ class Archive {
 	}
 
 	public static function get_thumbnail_size() {
-		$size = 'post-thumbnail';
-		$archive_layout = get_theme_mod( 'archive_layout', 'list-horizontal sidebar-right' );
-		if ( false !== strpos( $archive_layout, 'list-vertical' ) ) {
-			$size = 'list-vertical';
-		}
-		if ( false !== strpos( $archive_layout, 'grid' ) ) {
-			$size = 'grid';
-		}
-		return $size;
+		$archive_layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
+		return 'list-horizontal' === $archive_layout ? 'post-thumbnail' : $archive_layout;
 	}
 }
