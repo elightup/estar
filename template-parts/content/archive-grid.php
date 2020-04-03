@@ -17,10 +17,13 @@
 			}
 			?>
 		</div>
-		<?php
-		if ( 'post' === get_post_type() ) {
-			get_template_part( 'template-parts/post-meta' );
-		}
-		?>
+		<?php if ( 'post' === get_post_type() ) : ?>
+			<div class="entry-meta">
+				<?php
+				EStar\Post::author();
+				EStar\Post::date();
+				?>
+			</div>
+		<?php endif; ?>
 	</div>
 </article>

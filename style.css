@@ -1319,10 +1319,12 @@ blockquote.has-text-align-right,
 
 .comment-navigation .nav-previous a:before {
 	content: "\2190";
+	margin-right: 4px;
 }
 
 .comment-navigation .nav-next a:after {
 	content: "\2192";
+	margin-left: 4px;
 }
 
 .footer-widgets {
