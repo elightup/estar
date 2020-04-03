@@ -15,8 +15,8 @@
 @import "mixins";
 
 @import "base/normalize";
+@import "base/typography";
 @import "base/elements";
-@import "base/buttons";
 @import "base/accessibility";
 @import "base/alignments";
 @import "base/media";
@@ -35,5 +35,3 @@
 @import "components/widgets";
 
 @import "components/pagination";
-
-@import "utilities";

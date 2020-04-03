@@ -39,14 +39,7 @@
 body {
 	font-family: var(--font-sans);
 	line-height: 1.5;
-	box-sizing: border-box;
 	color: var(--color-base);
-	word-break: break-word;
-	background: #fff;
-}
-
-*, *:before, *:after {
-	box-sizing: inherit;
 }
 
 h1, .editor-post-title__input, h2, h3, h4, h5, h6 {
@@ -78,96 +71,6 @@ h5 {
 
 h6 {
 	font-size: var(--base-sm);
-}
-
-input,
-textarea,
-select {
-	border: 1px solid var(--color-light);
-	border-radius: 4px;
-	padding: 8px 12px;
-	line-height: 24px;
-	font-size: var(--text-md);
-}
-
-textarea {
-	width: 100%;
-}
-
-select {
-	max-width: 100%;
-}
-
-p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
-	margin: 0 0 1.5em;
-}
-
-nav ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-
-ul {
-	padding-left: 2rem;
-}
-
-ol {
-	padding-left: 2rem;
-}
-
-li > ul,
-li > ol {
-	margin-bottom: 0;
-}
-
-hr {
-	background-color: var(--color-light);
-	border: 0;
-	height: 2px;
-	margin-bottom: 1.5em;
-}
-
-a {
-	color: var(--color-accent);
-	text-decoration: none;
-	transition: all .25s;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-label {
-	cursor: pointer;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-}
-
-th, td {
-	border: 1px solid var(--color-light);
-	padding: 8px 12px;
-}
-
-img, video {
-	max-width: 100%;
-	height: auto;
-}
-
-figure, embed, iframe, object {
-	max-width: 100%;
-}
-
-pre, code, kbd, samp, tt, var {
-	font-family: var(--font-mono);
-	font-size: .875em;
-}
-
-pre {
-	white-space: pre-wrap;
 }
 
 .wp-block-columns,

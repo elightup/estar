@@ -1,39 +1,10 @@
 body {
-	font-family: var(--font-sans);
-	line-height: 1.5;
 	box-sizing: border-box;
-	color: var(--color-base);
-    word-break: break-word;
-    background: #fff;
+	word-break: break-word;
+	background: #fff;
 }
 *, *:before, *:after {
 	box-sizing: inherit;
-}
-
-// Headings.
-h1, h2, h3, h4, h5, h6 {
-	clear: both;
-	color: var(--color-dark);
-	margin: 0 0 1.5rem;
-	line-height: 1.25;
-}
-h1 {
-	font-size: var(--text-3xl);
-}
-h2 {
-	font-size: var(--text-2xl);
-}
-h3 {
-	font-size: var(--text-xl);
-}
-h4 {
-	font-size: var(--text-lg);
-}
-h5 {
-	font-size: var(--base-md);
-}
-h6 {
-	font-size: var(--base-sm);
 }
 
 // Forms.
@@ -51,6 +22,9 @@ textarea {
 }
 select {
 	max-width: 100%;
+}
+button, input[type="button"], input[type="submit"], input[type="reset"] {
+	@include button;
 }
 
 p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
