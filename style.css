@@ -1758,6 +1758,11 @@ blockquote.has-text-align-right,
 	}
 }
 
+.page-template-landing .content {
+	padding-top: 0;
+	padding-right: 0;
+}
+
 .widget {
 	font-size: var(--text-sm);
 }

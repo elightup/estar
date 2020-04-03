@@ -6,11 +6,11 @@
 
 <?php get_header() ?>
 
-<main id="content" class="container">
-	<?php
+<?php
+while ( have_posts() ) {
 	the_post();
 	the_content();
-	?>
-</main>
+}
+?>
 
 <?php get_footer() ?>
