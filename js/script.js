@@ -75,9 +75,18 @@
 		} );
 	}
 
+	function setSidebarMargin() {
+		if ( ! document.body.classList.contains( 'thumbnail-header-background' ) || document.body.classList.contains( 'no-sidebar' ) ) {
+			return;
+		}
+		const height = document.querySelector( '.entry-header' ).clientHeight;
+		document.querySelector( '.sidebar' ).style.top = `${height}px`;
+	}
+
 	toggleMenu();
 	toggleSubmenu();
 	goToTop();
 	openSearch();
 	closeSearch();
+	setSidebarMargin();
 } )( window, document, EStar );

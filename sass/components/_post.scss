@@ -164,3 +164,18 @@
 .entry-footer {
 	margin-top: 32px;
 }
+
+@media (min-width: 1024px) {
+	.thumbnail-header-background:not(.no-sidebar) {
+		.sidebar {
+			position: relative;
+			margin-top: 24px;
+		}
+		.entry-header {
+			width: calc(100% + 332px);
+		}
+	}
+	.thumbnail-header-background.sidebar-left .entry-header {
+		left: -332px;
+	}
+}
