@@ -531,6 +531,8 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 	}
 	.main {
 		flex: 1;
+		min-width: 0;
+		min-height: 0;
 	}
 	.sidebar-left .sidebar {
 		margin-left: 0;
@@ -1664,6 +1666,10 @@ blockquote.has-text-align-right,
 
 .page-links {
 	clear: both;
+}
+
+.entry-footer {
+	margin-top: 32px;
 }
 
 .widget {
