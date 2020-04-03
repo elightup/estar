@@ -15,7 +15,7 @@ class Post {
 	public function register( $wp_customize ) {
 		$wp_customize->add_section( 'post', [
 			'title'    => esc_html__( 'Post', 'estar' ),
-			'priority' => '1300',
+			'priority' => Customizer::get_priority( 'post' ),
 		] );
 
 		$wp_customize->add_setting( 'post_layout', [

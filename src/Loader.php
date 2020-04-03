@@ -167,7 +167,7 @@ class Loader {
 
 		$sanitizer = new Sanitizer;
 
-		new Customizer;
+		new Customizer( $sanitizer );
 
 		$logo = new Logo( $sanitizer );
 		$logo->setup();

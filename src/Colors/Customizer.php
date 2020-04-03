@@ -1,6 +1,8 @@
 <?php
 namespace EStar\Colors;
 
+use EStar\Customizer as Base;
+
 class Customizer {
 	private $elements;
 
@@ -13,7 +15,7 @@ class Customizer {
 	public function register( $wp_customize ) {
 		$wp_customize->add_section( 'estar_colors', [
 			'title'    => __( 'Colors', 'estar' ),
-			'priority' => '1000',
+			'priority' => Base::get_priority( 'colors' ),
 		] );
 
 		foreach ( $this->elements as $id => $element ) {

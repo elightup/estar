@@ -2,7 +2,11 @@
 namespace EStar;
 
 class Customizer {
-	public function __construct() {
+	private $sanitizer;
+
+	public function __construct( $sanitizer ) {
+		$this->sanitizer = $sanitizer;
+
 		add_action( 'customize_register', [ $this, 'register' ] );
 		add_action( 'customize_preview_init', [ $this, 'enqueue_preview_js' ] );
 	}
@@ -11,9 +15,26 @@ class Customizer {
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
+		// Header.
+		$wp_customize->add_section( 'header', [
+			'title'    => esc_html__( 'Header', 'estar' ),
+			'priority' => self::get_priority( 'header' ),
+		] );
+
+		$wp_customize->add_setting( 'header_search', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => true,
+		] );
+		$wp_customize->add_control( 'header_search', [
+			'label'   => esc_html__( 'Show search button', 'estar' ),
+			'section' => 'header',
+			'type'    => 'checkbox',
+		] );
+
+		// Footer.
 		$wp_customize->add_section( 'footer', [
 			'title'    => esc_html__( 'Footer', 'estar' ),
-			'priority' => '1500',
+			'priority' => self::get_priority( 'footer' ),
 		] );
 
 		$wp_customize->add_setting( 'footer_copyright', [
@@ -31,5 +52,18 @@ class Customizer {
 
 	public function enqueue_preview_js() {
 		wp_enqueue_script( 'estar-customizer', get_template_directory_uri() . '/js/customizer.js', ['customize-preview'], '1.0.0', true );
+	}
+
+	public static function get_priority( $id ) {
+		$priorities = [
+			'colors'  => 1000,
+			'fonts'   => 1100,
+			'header'  => 1200,
+			'archive' => 1300,
+			'post'    => 1400,
+			'page'    => 1500,
+			'footer'  => 1600,
+		];
+		return $priorities[ $id ];
 	}
 }

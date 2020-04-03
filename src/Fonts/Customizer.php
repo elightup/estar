@@ -1,6 +1,8 @@
 <?php
 namespace EStar\Fonts;
 
+use EStar\Customizer as Base;
+
 class Customizer {
 	private $elements;
 
@@ -19,7 +21,7 @@ class Customizer {
 
 		$wp_customize->add_panel( 'estar_fonts', [
 			'title'    => __( 'Fonts', 'estar' ),
-			'priority' => '1100',
+			'priority' => Base::get_priority( 'fonts' ),
 		] );
 
 		array_walk( $this->elements, [ $this, 'register_element_settings' ], $wp_customize );

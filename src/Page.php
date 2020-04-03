@@ -13,7 +13,7 @@ class Page {
 	public function register( $wp_customize ) {
 		$wp_customize->add_section( 'page', [
 			'title'    => esc_html__( 'Page', 'estar' ),
-			'priority' => '1400',
+			'priority' => Customizer::get_priority( 'page' ),
 		] );
 
 		$wp_customize->add_setting( 'page_layout', [

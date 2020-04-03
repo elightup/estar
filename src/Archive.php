@@ -22,7 +22,7 @@ class Archive {
 	public function register( $wp_customize ) {
 		$wp_customize->add_section( 'archive', [
 			'title'    => esc_html__( 'Archive', 'estar' ),
-			'priority' => '1200',
+			'priority' => Customizer::get_priority( 'archive' ),
 		] );
 
 		$wp_customize->add_setting( 'archive_layout', [
