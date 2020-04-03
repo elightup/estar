@@ -76,7 +76,7 @@ blockquote,
 	footer,
 	&__citation {
 		display: block;
-		margin-top: 1rem;
+		margin-top: 16px;
 		font-size: var(--text-sm);
 	}
 
@@ -113,7 +113,8 @@ blockquote,
 .wp-block-pullquote {
 	border-color: var(--color-light);
 	color: var(--color-base);
-	margin-bottom: 1.5em;
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
 	padding: 2.5em 0;
 
 	blockquote {
@@ -130,6 +131,8 @@ blockquote,
 	footer,
 	&__citation {
 		color: inherit;
+		display: block;
+		margin-top: 16px;
 		font-size: var(--text-sm);
 	}
 
@@ -146,6 +149,12 @@ blockquote,
 				text-transform: uppercase;
 			}
 		}
+	}
+
+	&.alignleft,
+	&.alignright {
+		margin-top: 1em;
+		margin-bottom: 1em;
 	}
 }
 

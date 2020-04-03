@@ -656,7 +656,7 @@ blockquote footer, blockquote__citation,
 .wp-block-quote footer,
 .wp-block-quote__citation {
 	display: block;
-	margin-top: 1rem;
+	margin-top: 16px;
 	font-size: var(--text-sm);
 }
 
@@ -696,7 +696,8 @@ blockquote.has-text-align-right,
 .wp-block-pullquote {
 	border-color: var(--color-light);
 	color: var(--color-base);
-	margin-bottom: 1.5em;
+	margin-top: 2.5em;
+	margin-bottom: 2.5em;
 	padding: 2.5em 0;
 }
 
@@ -713,6 +714,8 @@ blockquote.has-text-align-right,
 .wp-block-pullquote cite,
 .wp-block-pullquote footer, .wp-block-pullquote__citation {
 	color: inherit;
+	display: block;
+	margin-top: 16px;
 	font-size: var(--text-sm);
 }
 
@@ -729,6 +732,11 @@ blockquote.has-text-align-right,
 
 .wp-block-pullquote.is-style-solid-color blockquote cite {
 	text-transform: uppercase;
+}
+
+.wp-block-pullquote.alignleft, .wp-block-pullquote.alignright {
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .wp-block-calendar table th {
