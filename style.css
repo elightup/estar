@@ -1001,6 +1001,7 @@ blockquote.has-text-align-right,
 }
 
 .nav .menu {
+	box-shadow: var(--shadow-md);
 	border-bottom: 1px solid var(--color-light);
 }
 
@@ -1100,6 +1101,7 @@ blockquote.has-text-align-right,
 		display: none;
 	}
 	.nav .menu {
+		box-shadow: none;
 		display: flex;
 		align-items: center;
 	}
