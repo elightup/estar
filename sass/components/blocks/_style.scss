@@ -46,7 +46,11 @@
 		--width: var(--container-xl);
 	}
 }
+
+// Reset for sidebar-enabled pages.
 // Don't adjust the width and margin for elements inside a grid column.
+.sidebar-left .alignwide, .sidebar-right .alignwide,
+.sidebar-left .alignfull, .sidebar-right .alignfull,
 .wp-block-jetpack-layout-grid-column .alignwide {
 	margin-left: 0;
 	margin-right: 0;

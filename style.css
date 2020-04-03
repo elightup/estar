@@ -72,8 +72,7 @@ a {
 abbr[title] {
 	border-bottom: none;
 	text-decoration: underline;
-	-webkit-text-decoration: underline dotted;
-	        text-decoration: underline dotted;
+	text-decoration: underline dotted;
 }
 
 b,
@@ -372,8 +371,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	-webkit-clip-path: inset(50%);
-	        clip-path: inset(50%);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -386,8 +384,7 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 .screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	-webkit-clip-path: none;
-	        clip-path: none;
+	clip-path: none;
 	color: var(--color-base);
 	display: block;
 	font-size: 1em;
@@ -901,6 +898,8 @@ blockquote.has-text-align-right,
 	}
 }
 
+.sidebar-left .alignwide, .sidebar-right .alignwide,
+.sidebar-left .alignfull, .sidebar-right .alignfull,
 .wp-block-jetpack-layout-grid-column .alignwide {
 	margin-left: 0;
 	margin-right: 0;
@@ -917,7 +916,6 @@ blockquote.has-text-align-right,
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
 	background: #fff;
@@ -1194,8 +1192,8 @@ blockquote.has-text-align-right,
 
 .comments-area {
 	border-top: 1px solid var(--color-light);
-	margin-top: 1rem;
-	padding-top: 1rem;
+	margin-top: 24px;
+	padding-top: 24px;
 	font-size: var(--text-sm);
 }
 
@@ -1277,8 +1275,7 @@ blockquote.has-text-align-right,
 
 .reply a:before {
 	content: "\21B5";
-	-webkit-transform: scale(1, -1);
-	        transform: scale(1, -1);
+	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1402,8 +1399,7 @@ blockquote.has-text-align-right,
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	-o-object-fit: cover;
-	   object-fit: cover;
+	object-fit: cover;
 	border-radius: 4px;
 }
 
@@ -1639,8 +1635,7 @@ blockquote.has-text-align-right,
 }
 
 .thumbnail-header-background .entry-thumbnail img {
-	-o-object-fit: cover;
-	   object-fit: cover;
+	object-fit: cover;
 	border-radius: 0;
 	height: 100%;
 }
@@ -1672,6 +1667,66 @@ blockquote.has-text-align-right,
 
 .entry-footer {
 	margin-top: 32px;
+}
+
+.post-navigation {
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid var(--color-light);
+}
+
+.adjacent {
+	display: flex;
+	align-items: center;
+	flex: 1;
+}
+
+.adjacent:last-child {
+	text-align: right;
+}
+
+.adjacent:last-child .adjacent-thumbnail {
+	order: 2;
+	margin-right: 0;
+	margin-left: 12px;
+}
+
+.adjacent h3 {
+	margin-bottom: 0;
+}
+
+.adjacent a {
+	color: inherit;
+}
+
+.adjacent img {
+	display: block;
+	border-radius: 4px;
+}
+
+.adjacent-thumbnail {
+	margin-right: 16px;
+}
+
+.adjacent-body {
+	flex: 1;
+}
+
+.adjacent-label {
+	text-transform: uppercase;
+	font-size: var(--text-xs);
+	color: var(--color-gray);
+	letter-spacing: var(--tracking-wide);
+}
+
+@media (min-width: 768px) {
+	.post-navigation .nav-links {
+		display: flex;
+		justify-content: center;
+	}
+	.adjacent:not(:last-child) {
+		margin-right: 32px;
+	}
 }
 
 @media (min-width: 1024px) {

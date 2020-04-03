@@ -10,6 +10,9 @@ class Post {
 		add_action( 'customize_register', [ $this, 'register' ] );
 		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 		add_filter( 'post_class', [ $this, 'add_post_classes' ] );
+
+		add_filter( 'previous_post_link', [ $this, 'previous_post_link' ], 10, 4 );
+		add_filter( 'next_post_link', [ $this, 'next_post_link' ], 10, 4 );
 	}
 
 	public function register( $wp_customize ) {
@@ -83,6 +86,36 @@ class Post {
 	public function add_post_classes( $classes ) {
 		$classes[] = 'entry';
 		return $classes;
+	}
+
+	public function previous_post_link( $output, $format, $link, $adjacent_post ) {
+		if ( empty( $adjacent_post ) ) {
+			return $output;
+		}
+		global $post;
+		$post = $adjacent_post;
+		setup_postdata( $post );
+
+		ob_start();
+		get_template_part( 'template-parts/content/adjacent', 'previous' );
+		wp_reset_postdata();
+
+		return ob_get_clean();
+	}
+
+	public function next_post_link( $output, $format, $link, $adjacent_post ) {
+		if ( empty( $adjacent_post ) ) {
+			return $output;
+		}
+		global $post;
+		$post = $adjacent_post;
+		setup_postdata( $post );
+
+		ob_start();
+		get_template_part( 'template-parts/content/adjacent', 'next' );
+		wp_reset_postdata();
+
+		return ob_get_clean();
 	}
 
 	public static function date() {

@@ -2,11 +2,15 @@
 
 <main class="main" role="main">
 	<?php
-	the_post();
-	get_template_part( 'template-parts/content/post' );
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/content/post' );
 
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
+		the_post_navigation();
+
+		if ( comments_open() || get_comments_number() ) {
+			comments_template();
+		}
 	}
 	?>
 </main>
