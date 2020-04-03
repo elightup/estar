@@ -176,14 +176,8 @@
 	align-items: center;
 	flex: 1;
 
-	&:last-child {
-		text-align: right;
-
-		.adjacent-thumbnail {
-			order: 2;
-			margin-right: 0;
-			margin-left: 12px;
-		}
+	+ .adjacent {
+		margin-top: 24px;
 	}
 
 	h3 {
@@ -198,7 +192,7 @@
 	}
 }
 .adjacent-thumbnail {
-	margin-right: 16px;
+	margin-right: 12px;
 }
 .adjacent-body {
 	flex: 1;
@@ -215,8 +209,16 @@
 		display: flex;
 		justify-content: center;
 	}
-	.adjacent:not(:last-child) {
-		margin-right: 32px;
+	.adjacent + .adjacent {
+		margin-top: 0;
+		margin-left: 32px;
+		text-align: right;
+
+		.adjacent-thumbnail {
+			order: 2;
+			margin-right: 0;
+			margin-left: 12px;
+		}
 	}
 }
 

@@ -498,7 +498,8 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 }
 
 .content {
-	padding: 48px 0;
+	padding-top: 48px;
+	padding-bottom: 48px;
 }
 
 .sidebar {
@@ -1681,14 +1682,8 @@ blockquote.has-text-align-right,
 	flex: 1;
 }
 
-.adjacent:last-child {
-	text-align: right;
-}
-
-.adjacent:last-child .adjacent-thumbnail {
-	order: 2;
-	margin-right: 0;
-	margin-left: 12px;
+.adjacent + .adjacent {
+	margin-top: 24px;
 }
 
 .adjacent h3 {
@@ -1705,7 +1700,7 @@ blockquote.has-text-align-right,
 }
 
 .adjacent-thumbnail {
-	margin-right: 16px;
+	margin-right: 12px;
 }
 
 .adjacent-body {
@@ -1724,8 +1719,15 @@ blockquote.has-text-align-right,
 		display: flex;
 		justify-content: center;
 	}
-	.adjacent:not(:last-child) {
-		margin-right: 32px;
+	.adjacent + .adjacent {
+		margin-top: 0;
+		margin-left: 32px;
+		text-align: right;
+	}
+	.adjacent + .adjacent .adjacent-thumbnail {
+		order: 2;
+		margin-right: 0;
+		margin-left: 12px;
 	}
 }
 
