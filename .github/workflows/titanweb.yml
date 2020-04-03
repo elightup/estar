@@ -1,4 +1,4 @@
-name: Deploy to our websites.
+name: Deploy to TitanWeb.
 on:
   push:
     branches:
