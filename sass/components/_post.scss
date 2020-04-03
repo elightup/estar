@@ -6,7 +6,7 @@
 .entry-header {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 24px;
+	margin-bottom: 32px;
 }
 .entry-header-text {
 	width: 100%;
@@ -81,7 +81,7 @@
 // For singular pages only.
 .singular {
 	.entry-thumbnail {
-		margin-bottom: 24px;
+		margin-bottom: 32px;
 
 		img {
 			display: block;
@@ -105,7 +105,7 @@
 .thumbnail-after-header {
 	.entry-thumbnail {
 		order: 2;
-		margin: 24px 0 0;
+		margin: 32px 0 0;
 	}
 }
 
