@@ -192,6 +192,12 @@ blockquote,
 	margin: 6px 12px 0 0;
 }
 
+// Covers.
+.wp-block-cover-image .wp-block-cover__inner-container,
+.wp-block-cover .wp-block-cover__inner-container {
+	color: #fff;
+}
+
 // Font sizes.
 .has-xs-font-size {
 	font-size: 14px;
