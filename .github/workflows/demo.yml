@@ -7,10 +7,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: wlixcc/SFTP-Deploy-Action@v1.0
+    - uses: actions/checkout@master
+    - uses: uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.DEMO_SERVER }}
+        USERNAME: ${{ secrets.DEMO_USER }}
+        KEY: ${{ secrets.DEMO_PRIVATE_KEY }}
       with:
-        username: ${{ secrets.DEMO_USER }}
-        server: ${{ secrets.DEMO_SERVER }}
-        private_key: ${{ secrets.DEMO_PRIVATE_KEY }}
-        remote_path: ${{ secrets.DEMO_DIR }}
+        target: ${{ secrets.DEMO_DIR }}
