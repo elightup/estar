@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: uses: appleboy/scp-action@master
+    - uses: appleboy/scp-action@master
       env:
         HOST: ${{ secrets.DEMO_SERVER }}
         USERNAME: ${{ secrets.DEMO_USER }}
