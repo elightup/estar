@@ -7,10 +7,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: git-ftp-action
-      uses: SamKirkland/FTP-Deploy-Action@3.0.0
+    - uses: actions/checkout@v2
+    - uses: wlixcc/SFTP-Deploy-Action@v1.0
       with:
-        ftp-server: ${{ secrets.DEMO_URL }}
-        ftp-username: ${{ secrets.DEMO_USER }}
-        ftp-password: ${{ secrets.DEMO_PASSWORD }}
+        username: ${{ secrets.DEMO_USER }}
+        server: ${{ secrets.DEMO_SERVER }}
+        private_key: ${{ secrets.DEMO_PRIVATE_KEY }}
+        remote_path: ${{ secrets.DEMO_DIR }}
