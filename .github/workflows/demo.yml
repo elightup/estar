@@ -8,10 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: appleboy/scp-action@master
-      env:
-        HOST: ${{ secrets.DEMO_SERVER }}
-        USERNAME: ${{ secrets.DEMO_USER }}
-        KEY: ${{ secrets.DEMO_PRIVATE_KEY }}
+    - uses: SamKirkland/FTP-Deploy-Action@3.0.0
       with:
-        target: ${{ secrets.DEMO_DIR }}
+        ftp-server: ${{ secrets.DEMO_URL }}
+        ftp-username: ${{ secrets.DEMO_USER }}
+        ftp-password: ${{ secrets.DEMO_PASSWORD }}
+        git-ftp-args: --insecure
