@@ -1,7 +1,7 @@
 <article class="adjacent">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a class="adjacent-thumbnail" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-			<?php the_post_thumbnail( [64, 64, true] ); ?>
+			<?php the_post_thumbnail( 'thumbnail' ); ?>
 		</a>
 	<?php endif; ?>
 	<div class="adjacent-body">

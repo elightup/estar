@@ -1755,6 +1755,8 @@ blockquote.has-text-align-right,
 .adjacent img {
 	display: block;
 	border-radius: 4px;
+	width: 64px;
+	height: 64px;
 }
 
 .adjacent-thumbnail {
