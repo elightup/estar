@@ -356,13 +356,17 @@ th, td {
 	padding: 8px 12px;
 }
 
-img, video {
+img, video, svg {
 	max-width: 100%;
 	height: auto;
 }
 
 figure, embed, iframe, object {
 	max-width: 100%;
+}
+
+svg {
+	fill: currentColor;
 }
 
 pre, code, kbd, samp, tt, var {
