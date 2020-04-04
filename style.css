@@ -1463,7 +1463,9 @@ blockquote.has-text-align-right,
 }
 
 .grid .entries {
-	grid-gap: 32px;
+	-webkit-column-gap: 32px;
+	        column-gap: 32px;
+	row-gap: 48px;
 }
 
 .grid .entry-thumbnail {
@@ -1478,6 +1480,10 @@ blockquote.has-text-align-right,
 	margin-top: 16px;
 }
 
+.grid .entry-title {
+	font-size: var(--text-xl);
+}
+
 .grid .entry-meta {
 	display: flex;
 	justify-content: space-between;
@@ -1487,6 +1493,10 @@ blockquote.has-text-align-right,
 
 .grid-card {
 	background: var(--color-lightest);
+}
+
+.grid-card .entries {
+	row-gap: 32px;
 }
 
 .grid-card .entry {
@@ -1504,7 +1514,7 @@ blockquote.has-text-align-right,
 .grid-card .entry-body {
 	border-radius: 4px;
 	background: #fff;
-	padding: 24px 32px;
+	padding: 18px 24px;
 }
 
 .grid-card .entry-thumbnail + .entry-body {

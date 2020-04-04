@@ -61,7 +61,8 @@
 // Grid layout.
 .grid {
 	.entries {
-		grid-gap: 32px;
+		column-gap: 32px;
+		row-gap: 48px;
 	}
 	.entry-thumbnail {
 		padding-bottom: 56.25%;
@@ -73,6 +74,9 @@
 		+ .entry-body {
 			margin-top: 16px;
 		}
+	}
+	.entry-title {
+		font-size: var(--text-xl);
 	}
 	.entry-meta {
 		display: flex;
@@ -86,6 +90,9 @@
 .grid-card {
 	background: var(--color-lightest);
 
+	.entries {
+		row-gap: 32px;
+	}
 	.entry {
 		box-shadow: var(--shadow-md);
 
@@ -99,7 +106,7 @@
 	.entry-body {
 		border-radius: 4px;
 		background: #fff;
-		padding: 24px 32px;
+		padding: 18px 24px;
 	}
 	.entry-thumbnail + .entry-body {
 		border-radius: 0 0 4px 4px;
