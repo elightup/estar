@@ -52,6 +52,7 @@ class Archive {
 				'list-horizontal' => __( 'List (Horizontal)', 'estar' ),
 				'list-vertical'   => __( 'List (Vertical)', 'estar' ),
 				'grid'            => __( 'Grid', 'estar' ),
+				'grid-card'       => __( 'Grid (Card)', 'estar' ),
 			],
 		] );
 
@@ -96,7 +97,12 @@ class Archive {
 		}
 		$classes[] = 'archive hfeed'; // .hfeed is required for hAtom.
 		$classes[] = get_theme_mod( 'archive_layout', 'sidebar-right' );
-		$classes[] = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
+
+		$layout    = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
+		$classes[] = $layout;
+		if ( 'grid-card' === $layout ) {
+			$classes[] = 'grid';
+		}
 		return $classes;
 	}
 
@@ -127,6 +133,7 @@ class Archive {
 			'list-horizontal' => 'post-thumbnail',
 			'list-vertical'   => 'medium_large',
 			'grid'            => 'grid',
+			'grid-card'       => 'grid',
 		];
 		$layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
 		return $sizes[ $layout ];

@@ -8,7 +8,10 @@
 				<?php
 				while ( have_posts() ) {
 				the_post();
-				get_template_part( 'template-parts/content/archive', get_theme_mod( 'archive_content_layout', 'list-horizontal' ) );
+
+				$layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
+				$layout = in_array( $layout, ['grid', 'grid-card'], true ) ? 'grid' : 'list';
+				get_template_part( 'template-parts/content/archive', $layout );
 			}
 			?>
 		</div>

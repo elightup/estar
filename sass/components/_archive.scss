@@ -58,13 +58,34 @@
 	}
 }
 
-// Card style for grid.
+// Grid layout.
 .grid {
-	background: var(--color-light);
-
 	.entries {
 		grid-gap: 32px;
 	}
+	.entry-thumbnail {
+		padding-bottom: 56.25%;
+
+		img {
+			border-radius: 4px;
+		}
+
+		+ .entry-body {
+			margin-top: 16px;
+		}
+	}
+	.entry-meta {
+		display: flex;
+		justify-content: space-between;
+		text-transform: none;
+		margin-bottom: 0;
+	}
+}
+
+// Card style for grid.
+.grid-card {
+	background: var(--color-lightest);
+
 	.entry {
 		box-shadow: var(--shadow-md);
 
@@ -72,25 +93,17 @@
 			box-shadow: var(--shadow-lg);
 		}
 	}
-	.entry-thumbnail {
-		padding-bottom: 56.25%;
-	}
 	.entry-thumbnail img {
 		border-radius: 4px 4px 0 0;
 	}
 	.entry-body {
-		border-radius: 4px 4px 0 0;
+		border-radius: 4px;
 		background: #fff;
 		padding: 24px 32px;
 	}
 	.entry-thumbnail + .entry-body {
-		border-radius: 0;
-	}
-	.entry-meta {
-		display: flex;
-		justify-content: space-between;
-		text-transform: none;
-		margin-bottom: 0;
+		border-radius: 0 0 4px 4px;
+		margin-top: 0;
 	}
 
 	// Pagination.
