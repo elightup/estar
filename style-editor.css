@@ -298,11 +298,6 @@ blockquote.has-text-align-right,
 	margin: 6px 12px 0 0;
 }
 
-.wp-block-cover-image .wp-block-cover__inner-container,
-.wp-block-cover .wp-block-cover__inner-container {
-	color: #fff;
-}
-
 .has-xs-font-size {
 	font-size: 14px;
 }
