@@ -6,6 +6,6 @@
 	<?php endif; ?>
 	<div class="adjacent-body">
 		<div class="adjacent-label"><?php esc_html_e( 'Next Post', 'estar' ); ?></div>
-		<?php the_title( '<h3><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' ); ?>
+		<?php the_title( '<h4><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h4>' ); ?>
 	</header>
 </article>

@@ -45,16 +45,13 @@
 }
 .entries {
 	display: grid;
-	grid-gap: 32px;
+	grid-gap: 48px;
 	grid-template-columns: 1fr;
 	align-items: start;
 }
 
 // List vertical.
 .list-vertical {
-	.entries {
-		grid-gap: 48px;
-	}
 	.entry-thumbnail {
 		margin-bottom: 16px;
 		padding-bottom: 56.25%;
@@ -65,6 +62,9 @@
 .grid {
 	background: var(--color-light);
 
+	.entries {
+		grid-gap: 32px;
+	}
 	.entry {
 		box-shadow: var(--shadow-md);
 
@@ -106,6 +106,7 @@
 	.list-horizontal {
 		.entry {
 			display: flex;
+			align-items: flex-start;
 		}
 		.entry-thumbnail {
 			width: 280px;

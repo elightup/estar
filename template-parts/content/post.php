@@ -1,7 +1,8 @@
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && 'no-thumbnail' !== get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ) : ?>
-			<div class="entry-thumbnail">
+			<?php $class = 'thumbnail-header-background' === get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ? 'alignfull' : 'alignwide'; ?>
+			<div class="entry-thumbnail <?php echo esc_attr( $class ); ?>">
 				<?php the_post_thumbnail( 'full' ); ?>
 			</div>
 		<?php endif; ?>

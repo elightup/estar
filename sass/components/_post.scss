@@ -6,7 +6,7 @@
 .entry-header {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 32px;
+	margin-bottom: 48px;
 }
 .entry-header-text {
 	width: 100%;
@@ -99,13 +99,20 @@
 			margin: 0 12px;
 		}
 	}
+
+	.entry-content > p:first-child {
+		font-size: var(--text-xl);
+		font-weight: 200;
+		color: var(--color-gray);
+	}
 }
 
 // Thumbnail after header.
 .thumbnail-after-header {
 	.entry-thumbnail {
 		order: 2;
-		margin: 32px 0 0;
+		margin-top: 32px;
+		margin-bottom: 0;
 	}
 }
 
@@ -121,8 +128,7 @@
 		position: absolute;
 		top: 0;
 		bottom: 0;
-		width: 100vw;
-		margin: 0 calc(50% - 50vw);
+		margin-bottom: 0;
 		z-index: 1;
 
 		&:after {
@@ -144,7 +150,7 @@
 	}
 	.entry-header-text {
 		z-index: 2;
-		padding: 96px 0;
+		padding: 128px 0;
 
 		h1,
 		a,
@@ -226,13 +232,13 @@
 	.thumbnail-header-background:not(.no-sidebar) {
 		.sidebar {
 			position: relative;
-			margin-top: 24px;
+			margin-top: 48px;
 		}
 		.entry-header {
-			width: calc(100% + 332px);
+			width: calc(100% + 342px);
 		}
 	}
 	.thumbnail-header-background.sidebar-left .entry-header {
-		left: -332px;
+		left: -342px;
 	}
 }

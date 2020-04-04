@@ -529,7 +529,7 @@ pre {
 		flex-wrap: wrap;
 	}
 	.sidebar {
-		width: 300px;
+		width: 310px;
 		margin-left: 32px;
 		margin-top: 0;
 	}
@@ -546,8 +546,8 @@ pre {
 		order: 2;
 	}
 	.no-sidebar .main {
-		margin-left: 166px;
-		margin-right: 166px;
+		margin-left: 171px;
+		margin-right: 171px;
 	}
 	.grid.no-sidebar .main {
 		margin-left: 0;
@@ -566,7 +566,8 @@ pre {
 .wp-block-separator,
 .wp-block-image,
 .wp-block-embed,
-.wp-block-media-text {
+.wp-block-media-text,
+.wp-block-gallery {
 	margin-bottom: 1.5rem;
 }
 
@@ -1449,13 +1450,9 @@ blockquote.has-text-align-right,
 
 .entries {
 	display: grid;
-	grid-gap: 32px;
+	grid-gap: 48px;
 	grid-template-columns: 1fr;
 	align-items: start;
-}
-
-.list-vertical .entries {
-	grid-gap: 48px;
 }
 
 .list-vertical .entry-thumbnail {
@@ -1465,6 +1462,10 @@ blockquote.has-text-align-right,
 
 .grid {
 	background: var(--color-light);
+}
+
+.grid .entries {
+	grid-gap: 32px;
 }
 
 .grid .entry {
@@ -1510,6 +1511,7 @@ blockquote.has-text-align-right,
 	}
 	.list-horizontal .entry {
 		display: flex;
+		align-items: flex-start;
 	}
 	.list-horizontal .entry-thumbnail {
 		width: 280px;
@@ -1534,7 +1536,7 @@ blockquote.has-text-align-right,
 .entry-header {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 32px;
+	margin-bottom: 48px;
 }
 
 .entry-header-text {
@@ -1630,9 +1632,16 @@ blockquote.has-text-align-right,
 	margin: 0 12px;
 }
 
+.singular .entry-content > p:first-child {
+	font-size: var(--text-xl);
+	font-weight: 200;
+	color: var(--color-gray);
+}
+
 .thumbnail-after-header .entry-thumbnail {
 	order: 2;
-	margin: 32px 0 0;
+	margin-top: 32px;
+	margin-bottom: 0;
 }
 
 .thumbnail-header-background .content {
@@ -1647,8 +1656,7 @@ blockquote.has-text-align-right,
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	width: 100vw;
-	margin: 0 calc(50% - 50vw);
+	margin-bottom: 0;
 	z-index: 1;
 }
 
@@ -1672,7 +1680,7 @@ blockquote.has-text-align-right,
 
 .thumbnail-header-background .entry-header-text {
 	z-index: 2;
-	padding: 96px 0;
+	padding: 128px 0;
 }
 
 .thumbnail-header-background .entry-header-text h1,
@@ -1763,13 +1771,13 @@ blockquote.has-text-align-right,
 @media (min-width: 1024px) {
 	.thumbnail-header-background:not(.no-sidebar) .sidebar {
 		position: relative;
-		margin-top: 24px;
+		margin-top: 48px;
 	}
 	.thumbnail-header-background:not(.no-sidebar) .entry-header {
-		width: calc(100% + 332px);
+		width: calc(100% + 342px);
 	}
 	.thumbnail-header-background.sidebar-left .entry-header {
-		left: -332px;
+		left: -342px;
 	}
 }
 

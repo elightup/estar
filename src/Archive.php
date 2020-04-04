@@ -101,8 +101,8 @@ class Archive {
 	}
 
 	public function continue_reading_link() {
-		$archive_layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
-		if ( false !== strpos( $archive_layout, 'grid' ) ) {
+		$layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
+		if ( false !== strpos( $layout, 'grid' ) ) {
 			return '&hellip;';
 		}
 
@@ -123,7 +123,12 @@ class Archive {
 	}
 
 	public static function get_thumbnail_size() {
-		$archive_layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
-		return 'list-horizontal' === $archive_layout ? 'post-thumbnail' : $archive_layout;
+		$sizes = [
+			'list-horizontal' => 'post-thumbnail',
+			'list-vertical'   => 'medium_large',
+			'grid'            => 'grid',
+		];
+		$layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
+		return $sizes[ $layout ];
 	}
 }
