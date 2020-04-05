@@ -1743,12 +1743,9 @@ blockquote.has-text-align-right,
 	margin-top: 24px;
 }
 
-.adjacent h3 {
-	margin-bottom: 0;
-}
-
 .adjacent a {
 	color: inherit;
+	font-weight: 700;
 }
 
 .adjacent img {
