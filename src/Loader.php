@@ -86,6 +86,18 @@ class Loader {
 				'size'      => 36,
 				'slug'      => '4xl',
 			],
+			[
+				'name'      => _x( '5XL', 'Name of the 4XL font size in the block editor', 'estar' ),
+				'shortName' => _x( '5XL', 'Short name of the 4XL font size in the block editor.', 'estar' ),
+				'size'      => 48,
+				'slug'      => '5xl',
+			],
+			[
+				'name'      => _x( '6XL', 'Name of the 4XL font size in the block editor', 'estar' ),
+				'shortName' => _x( '6XL', 'Short name of the 4XL font size in the block editor.', 'estar' ),
+				'size'      => 64,
+				'slug'      => '6xl',
+			],
 		] );
 
 		add_theme_support( 'editor-color-palette', [

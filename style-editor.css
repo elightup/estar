@@ -336,7 +336,7 @@ blockquote.has-text-align-right,
 }
 
 .has-xs-font-size {
-	font-size: 14px;
+	font-size: 12px;
 }
 
 .has-sm-font-size {
@@ -365,6 +365,14 @@ blockquote.has-text-align-right,
 
 .has-4-xl-font-size {
 	font-size: 36px;
+}
+
+.has-5-xl-font-size {
+	font-size: 48px;
+}
+
+.has-6-xl-font-size {
+	font-size: 64px;
 }
 
 .has-accent-background-color {
