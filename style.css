@@ -1019,15 +1019,15 @@ blockquote.has-text-align-right,
 }
 
 .site-title {
-	font-size: var(--text-lg);
+	font-size: var(--text-xl);
 	font-weight: 700;
 	text-transform: uppercase;
-	letter-spacing: .05em;
+	letter-spacing: var(--tracking-wide);
 	margin: 0;
 }
 
 .site-title a {
-	color: inherit;
+	color: var(--color-dark);
 	text-decoration: none;
 }
 
