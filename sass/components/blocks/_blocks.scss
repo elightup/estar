@@ -202,6 +202,53 @@ blockquote,
 	margin: 6px 12px 0 0;
 }
 
+// Latest posts.
+.wp-block-latest-posts {
+	&.is-grid {
+		display: grid;
+		grid-gap: 32px;
+
+		li {
+			margin: 0;
+			width: 100%;
+		}
+		a {
+			color: inherit;
+			font-size: var(--text-lg);
+			font-weight: 700;
+			line-height: 1.25;
+			display: block;
+			color: var(--color-dark);
+		}
+		img {
+			width: 100%;
+			border-radius: 4px;
+			display: block;
+			margin-bottom: 16px;
+		}
+	}
+
+	@media (min-width: 768px) {
+		&.is-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (min-width: 1024px) {
+		&.columns-3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		&.columns-4 {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		&.columns-5 {
+			grid-template-columns: repeat(5, 1fr);
+		}
+		&.columns-6 {
+			grid-template-columns: repeat(6, 1fr);
+		}
+	}
+}
+
 // Font sizes.
 .has-xs-font-size {
 	font-size: 14px;
