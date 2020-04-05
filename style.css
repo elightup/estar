@@ -567,16 +567,6 @@ pre {
 	}
 }
 
-.wp-block-columns,
-.wp-block-cover,
-.wp-block-separator,
-.wp-block-image,
-.wp-block-embed,
-.wp-block-media-text,
-.wp-block-gallery {
-	margin-bottom: 1.5rem;
-}
-
 .wp-block-button__link {
 	background: var(--color-accent);
 	color: #fff;
