@@ -1,10 +1,4 @@
-/**
- * File navigation.js.
- *
- * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
- */
-( function( window, document, i18n ) {
+( function( window, document ) {
 	function toggleMenu() {
 		const nav = document.querySelector( '.nav' ),
 			menu = nav.querySelector( 'ul' ),
@@ -89,4 +83,4 @@
 	openSearch();
 	closeSearch();
 	setSidebarMargin();
-} )( window, document, EStar );
+} )( window, document );
