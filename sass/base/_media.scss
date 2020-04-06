@@ -20,19 +20,23 @@
 
 .gallery {
 	margin-bottom: 1.5em;
-}
-.gallery-item {
-	display: inline-block;
+	display: grid;
+	grid-gap: 16px;
 	text-align: center;
-	vertical-align: top;
-	width: 100%;
 
-	// Loops to enumerate the classes for gallery columns.
-	@for $i from 2 through 9 {
-		.gallery-columns-#{$i} & {
-			max-width: 100% / $i;
-		}
+	img {
+		display: block;
 	}
+}
+// Loops to enumerate the classes for gallery columns.
+@for $i from 2 through 9 {
+	.gallery-columns-#{$i} {
+		grid-template-columns: repeat($i, 1fr);
+	}
+}
+
+.gallery-item {
+	margin: 0;
 }
 
 .gallery-caption {
