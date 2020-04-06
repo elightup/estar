@@ -9,14 +9,14 @@
 
 	function loadFont( id ) {
 		const fontFamily = customize.get()[id + '_font_family'];
-		if ( ! fontFamily ) {
+		if ( ! fontFamily || fontFamily === 'sans-serif' || fontFamily === 'serif' ) {
 			return;
 		}
-		WebFont.load({
+		WebFont.load( {
 			google: {
 				families: [fontFamily + ':100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic:cyrillic,greek,latin,greek-ext,cyrillic-ext,latin-ext,vietnamese']
 			}
-		});
+		} );
 	}
 
 	function buildCSS( id ) {
@@ -106,6 +106,9 @@
 			} );
 		} );
 	}
+
+	settings.base = {selector: 'body'};
+	settings.headings = {selector: 'h1,h2,h3,h4,h5,h6'};
 
 	Object.keys( settings ).forEach( listenForChange );
 } )( document, wp.customize, WebFont, EStar_Fonts_Settings );

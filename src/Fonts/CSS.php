@@ -18,7 +18,12 @@ class CSS {
 	public function enqueue() {
 		$fonts  = [];
 		$subset = [];
-		foreach ( $this->elements as $id => $element ) {
+
+		// Font family are set in the Global section.
+		$elements = ['base', 'headings'];
+		// $elements = array_merge( $elements, array_keys( $this->elements ) );
+
+		foreach ( $elements as $id ) {
 			$family = get_theme_mod( "{$id}_font_family" );
 
 			// Don't import system fonts.
@@ -56,7 +61,12 @@ class CSS {
 
 	public function output() {
 		$css = [];
-		foreach ( $this->elements as $id => $element ) {
+		$elements = [
+			'base' => ['selector' => 'body'],
+			'headings' => ['selector' => 'h1,h2,h3,h4,h5,h6'],
+		];
+		$elements = array_merge( $elements, $this->elements );
+		foreach ( $elements as $id => $element ) {
 			$css[] = $this->get_css( $id, $element );
 		}
 		$css = array_filter( $css );
