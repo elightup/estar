@@ -9,6 +9,8 @@ class Customizer {
 
 		add_action( 'customize_register', [ $this, 'register' ] );
 		add_action( 'customize_preview_init', [ $this, 'enqueue_preview_js' ] );
+
+		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 	}
 
 	public function register( $wp_customize ) {
@@ -19,6 +21,16 @@ class Customizer {
 		$wp_customize->add_section( 'header', [
 			'title'    => esc_html__( 'Header', 'estar' ),
 			'priority' => self::get_priority( 'header' ),
+		] );
+
+		$wp_customize->add_setting( 'header_sticky', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => true,
+		] );
+		$wp_customize->add_control( 'header_sticky', [
+			'label'   => esc_html__( 'Make header sticky', 'estar' ),
+			'section' => 'header',
+			'type'    => 'checkbox',
 		] );
 
 		$wp_customize->add_setting( 'header_search', [
@@ -52,6 +64,13 @@ class Customizer {
 
 	public function enqueue_preview_js() {
 		wp_enqueue_script( 'estar-customizer', get_template_directory_uri() . '/js/customizer.js', ['customize-preview'], '1.0.0', true );
+	}
+
+	public function add_body_classes( $classes ) {
+		if ( get_theme_mod( 'header_sticky', true ) ) {
+			$classes[] = 'header-sticky';
+		}
+		return $classes;
 	}
 
 	public static function get_priority( $id ) {

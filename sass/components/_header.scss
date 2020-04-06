@@ -2,8 +2,6 @@
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: sticky;
-	top: 0;
 	background: #fff;
 	z-index: 9;
 
@@ -14,14 +12,20 @@
 		position: relative;
 	}
 }
+
+// Sticky header.
+.header-sticky .header {
+	position: sticky;
+	top: 0;
+}
 // For logged in users.
 @media (min-width: 601px) and (max-width: 782px) {
-	.admin-bar .header {
+	.header-sticky.admin-bar .header {
 		top: 46px;
 	}
 }
 @media (min-width: 783px) {
-	.admin-bar .header {
+	.header-sticky.admin-bar .header {
 		top: 32px;
 	}
 }

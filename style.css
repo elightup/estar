@@ -983,9 +983,6 @@ blockquote.has-text-align-right,
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
 	background: #fff;
 	z-index: 9;
 }
@@ -997,14 +994,20 @@ blockquote.has-text-align-right,
 	position: relative;
 }
 
+.header-sticky .header {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
 @media (min-width: 601px) and (max-width: 782px) {
-	.admin-bar .header {
+	.header-sticky.admin-bar .header {
 		top: 46px;
 	}
 }
 
 @media (min-width: 783px) {
-	.admin-bar .header {
+	.header-sticky.admin-bar .header {
 		top: 32px;
 	}
 }
