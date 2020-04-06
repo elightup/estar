@@ -24,6 +24,9 @@
 	--text-xl: 20px;
 	--text-2xl: 24px;
 	--text-3xl: 30px;
+	--text-4xl: 36px;
+	--text-5xl: 48px;
+	--text-6xl: 64px;
 	--color-accent: #4299e1;
 	--color-dark: #1a202c;
 	--color-base: #4a5568;
@@ -230,6 +233,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--color-dark);
 	margin: 0 0 1.5rem;
 	line-height: 1.25;
+	font-weight: 700;
 }
 
 h1 {
@@ -831,43 +835,43 @@ blockquote.has-text-align-right,
 }
 
 .has-xs-font-size {
-	font-size: 12px;
+	font-size: var(--text-xs);
 }
 
 .has-sm-font-size {
-	font-size: 14px;
+	font-size: var(--text-sm);
 }
 
 .has-md-font-size {
-	font-size: 16px;
+	font-size: var(--text-md);
 }
 
 .has-lg-font-size {
-	font-size: 18px;
+	font-size: var(--text-lg);
 }
 
 .has-xl-font-size {
-	font-size: 20px;
+	font-size: var(--text-xl);
 }
 
 .has-2-xl-font-size {
-	font-size: 24px;
+	font-size: var(--text-2xl);
 }
 
 .has-3-xl-font-size {
-	font-size: 30px;
+	font-size: var(--text-3xl);
 }
 
 .has-4-xl-font-size {
-	font-size: 36px;
+	font-size: var(--text-4xl);
 }
 
 .has-5-xl-font-size {
-	font-size: 48px;
+	font-size: var(--text-5xl);
 }
 
 .has-6-xl-font-size {
-	font-size: 64px;
+	font-size: var(--text-6xl);
 }
 
 .has-accent-background-color {
@@ -1038,7 +1042,7 @@ blockquote.has-text-align-right,
 	text-transform: uppercase;
 	letter-spacing: .05em;
 	font-size: var(--text-sm);
-	font-weight: 500;
+	font-weight: 600;
 	margin-left: auto;
 	z-index: 1;
 }

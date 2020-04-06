@@ -240,34 +240,34 @@ blockquote,
 
 // Font sizes.
 .has-xs-font-size {
-	font-size: 12px;
+	font-size: var(--text-xs);
 }
 .has-sm-font-size {
-	font-size: 14px;
+	font-size: var(--text-sm);
 }
 .has-md-font-size {
-	font-size: 16px;
+	font-size: var(--text-md);
 }
 .has-lg-font-size {
-	font-size: 18px;
+	font-size: var(--text-lg);
 }
 .has-xl-font-size {
-	font-size: 20px;
+	font-size: var(--text-xl);
 }
 .has-2-xl-font-size {
-	font-size: 24px;
+	font-size: var(--text-2xl);
 }
 .has-3-xl-font-size {
-	font-size: 30px;
+	font-size: var(--text-3xl);
 }
 .has-4-xl-font-size {
-	font-size: 36px;
+	font-size: var(--text-4xl);
 }
 .has-5-xl-font-size {
-	font-size: 48px;
+	font-size: var(--text-5xl);
 }
 .has-6-xl-font-size {
-	font-size: 64px;
+	font-size: var(--text-6xl);
 }
 
 // Color palletes.
