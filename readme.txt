@@ -28,6 +28,7 @@ See http://gretathemes.com/wordpress-themes/estar/
 
 == Credits ==
 
-* Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., GPLv2 or later.
+* Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., GPLv2 or later
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2020 Nicolas Gallagher and Jonathan Neal, MIT
 * SVG icons (chevron-up & search) https://github.com/sschoger/heroicons-ui/, (C) Steve Schoger, MIT
+* Screenshot URL https://stocksnap.io/photo/VHXFNKMU96, (C) StockSnapp, CC0
