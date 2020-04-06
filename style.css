@@ -1781,7 +1781,7 @@ blockquote.has-text-align-right,
 }
 
 .adjacent a {
-	color: inherit;
+	color: var(--color-dark);
 	font-weight: 700;
 }
 
