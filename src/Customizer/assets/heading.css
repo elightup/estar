@@ -1,0 +1,13 @@
+.customize-control-estar-heading {
+	margin-top: 24px;
+}
+.customize-control-estar-heading .customize-control-title {
+	margin-left: -12px;
+	margin-right: -12px;
+	padding: 6px 12px;
+	background: #ddd;
+	text-transform: uppercase;
+}
+.customize-control-estar-heading:nth-child(2) {
+	margin-top: -15px;
+}

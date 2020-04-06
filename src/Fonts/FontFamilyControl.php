@@ -7,6 +7,11 @@ namespace EStar\Fonts;
 class FontFamilyControl extends \WP_Customize_Control {
 	public $type = 'estar-font-family';
 
+	public function enqueue() {
+		wp_enqueue_style( 'estar-font-family-control', get_template_directory_uri() . '/src/Fonts/assets/font-family.css', [], '1.0.0' );
+		wp_enqueue_script( 'estar-font-family-control', get_template_directory_uri() . '/src/Fonts/assets/font-family.js', ['jquery', 'customize-preview'], '1.0.0', true );
+	}
+
 	/**
 	 * Render the control's content.
 	 * Allows the content to be overridden without having to rewrite the wrapper.

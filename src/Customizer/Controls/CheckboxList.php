@@ -4,12 +4,16 @@
  *
  * @link http://justintadlock.com/archives/2015/05/26/multiple-checkbox-customizer-control
  */
-namespace EStar\Fonts;
+namespace EStar\Customizer\Controls;
 
-class CheckboxListControl extends \WP_Customize_Control {
+class CheckboxList extends \WP_Customize_Control {
 	public $type = 'estar-checkbox-list';
 
-	public function render_content() {
+	public function enqueue() {
+		wp_enqueue_script( 'estar-checkbox-list', get_template_directory_uri() . '/src/Customizer/assets/checkbox-list.js', ['jquery', 'customize-preview'], '1.0.0', true );
+	}
+
+	protected function render_content() {
 		if ( empty( $this->choices ) )
 			return;
 		?>
