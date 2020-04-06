@@ -2,6 +2,7 @@ body {
 	box-sizing: border-box;
 	word-break: break-word;
 	background: #fff;
+	overflow-x: hidden; // Fix horizontal scrollbar for .alignfull
 }
 *, *:before, *:after {
 	box-sizing: inherit;
