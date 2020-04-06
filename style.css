@@ -1029,6 +1029,7 @@ blockquote.has-text-align-right,
 .site-title {
 	font-size: var(--text-xl);
 	font-weight: 700;
+	line-height: 1;
 	text-transform: uppercase;
 	letter-spacing: var(--tracking-wide);
 	margin: 0;
