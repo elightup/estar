@@ -133,7 +133,7 @@ class Loader {
 			],
 		] );
 
-		$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 648 );
+		$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 768 );
 	}
 
 	public function enqueue_assets() {
