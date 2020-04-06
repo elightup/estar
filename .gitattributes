@@ -3,3 +3,4 @@ sass export-ignore
 .gitattributes export-ignore
 .gitignore export-ignore
 *.json export-ignore
+*.zip export-ignore
