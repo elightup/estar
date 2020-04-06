@@ -21,6 +21,7 @@ class Loader {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption'] );
 		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'custom-logo' );
 
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 373, 280, true );
@@ -170,9 +171,6 @@ class Loader {
 		$sanitizer = new Sanitizer;
 
 		new Customizer( $sanitizer );
-
-		$logo = new Logo( $sanitizer );
-		$logo->setup();
 
 		new Archive( $sanitizer );
 		new Post( $sanitizer );

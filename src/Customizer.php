@@ -18,9 +18,17 @@ class Customizer {
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
 
 		// Header.
-		$wp_customize->add_section( 'header', [
-			'title'    => esc_html__( 'Header', 'estar' ),
-			'priority' => self::get_priority( 'header' ),
+		$wp_customize->get_section( 'title_tagline' )->title = esc_html__( 'Header', 'estar' );
+		$wp_customize->get_section( 'title_tagline' )->priority = self::get_priority( 'header' );
+
+		$wp_customize->add_setting( 'show_site_name', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => true,
+		] );
+		$wp_customize->add_control( 'show_site_name', [
+			'label'   => esc_html__( 'Show site title and tagline', 'estar' ),
+			'section' => 'title_tagline',
+			'type'    => 'checkbox',
 		] );
 
 		$wp_customize->add_setting( 'header_sticky', [
@@ -29,7 +37,7 @@ class Customizer {
 		] );
 		$wp_customize->add_control( 'header_sticky', [
 			'label'   => esc_html__( 'Make header sticky', 'estar' ),
-			'section' => 'header',
+			'section' => 'title_tagline',
 			'type'    => 'checkbox',
 		] );
 
@@ -39,7 +47,7 @@ class Customizer {
 		] );
 		$wp_customize->add_control( 'header_search', [
 			'label'   => esc_html__( 'Show search button', 'estar' ),
-			'section' => 'header',
+			'section' => 'title_tagline',
 			'type'    => 'checkbox',
 		] );
 
@@ -69,6 +77,9 @@ class Customizer {
 	public function add_body_classes( $classes ) {
 		if ( get_theme_mod( 'header_sticky', true ) ) {
 			$classes[] = 'header-sticky';
+		}
+		if ( ! get_theme_mod( 'show_site_name', true ) ) {
+			$classes[] = 'hide-site-name';
 		}
 		return $classes;
 	}
