@@ -871,43 +871,43 @@ blockquote.has-text-align-right,
 }
 
 .has-accent-background-color {
-	background-color: #4299e1;
+	background-color: var(--color-accent);
 }
 
 .has-accent-color {
-	color: #4299e1;
+	color: var(--color-accent);
 }
 
 .has-dark-background-color {
-	background-color: #1a202c;
+	background-color: var(--color-dark);
 }
 
 .has-dark-color {
-	color: #1a202c;
+	color: var(--color-dark);
 }
 
 .has-base-background-color {
-	background-color: #4a5568;
+	background-color: var(--color-base);
 }
 
 .has-base-color {
-	color: #4a5568;
+	color: var(--color-base);
 }
 
 .has-gray-background-color {
-	background-color: #a0aec0;
+	background-color: var(--color-gray);
 }
 
 .has-gray-color {
-	color: #a0aec0;
+	color: var(--color-gray);
 }
 
 .has-light-background-color {
-	background-color: #e2e8f0;
+	background-color: var(--color-light);
 }
 
 .has-light-color {
-	color: #e2e8f0;
+	color: var(--color-light);
 }
 
 .has-white-background-color {
