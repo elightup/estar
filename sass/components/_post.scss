@@ -207,6 +207,11 @@
 	letter-spacing: var(--tracking-wide);
 }
 
+// Sharing buttons.
+.es-buttons {
+	margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
 	.post-navigation .nav-links {
 		display: flex;

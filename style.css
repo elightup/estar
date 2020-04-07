@@ -1811,6 +1811,10 @@ blockquote.has-text-align-right,
 	letter-spacing: var(--tracking-wide);
 }
 
+.es-buttons {
+	margin-bottom: 0;
+}
+
 @media (min-width: 768px) {
 	.post-navigation .nav-links {
 		display: flex;
