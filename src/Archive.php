@@ -124,6 +124,8 @@ class Archive {
 	public function change_archive_title( $title ) {
 		if ( is_category() || is_tag() || is_tax() ) {
 			$title = single_term_title( '', false );
+		} elseif ( is_post_type_archive() ) {
+			$title = post_type_archive_title( '', false );
 		}
 		return $title;
 	}
