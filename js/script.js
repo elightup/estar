@@ -1,7 +1,11 @@
 ( function( window, document ) {
 	function toggleMenu() {
-		const nav = document.querySelector( '.nav' ),
-			menu = nav.querySelector( 'ul' ),
+		const nav = document.querySelector( '.nav' );
+		if ( ! nav ) {
+			return;
+		}
+
+		const menu = nav.querySelector( 'ul' ),
 			button = nav.querySelector( 'button' );
 
 		menu.setAttribute( 'aria-expanded', 'false' );
@@ -19,8 +23,12 @@
 
 	// @link https://www.w3.org/WAI/tutorials/menus/flyout/
 	function toggleSubmenu() {
-		const nav = document.querySelector( '.nav' ),
-			buttons = [...nav.querySelectorAll( '.sub-menu-toggle' )];
+		const nav = document.querySelector( '.nav' );
+		if ( ! nav ) {
+			return;
+		}
+
+		const buttons = [...nav.querySelectorAll( '.sub-menu-toggle' )];
 
 		buttons.forEach( button => {
 			button.addEventListener( 'click', e => {
