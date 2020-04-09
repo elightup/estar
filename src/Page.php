@@ -68,13 +68,15 @@ class Page {
 			return $classes;
 		}
 		$classes[] = 'singular';
-		$classes[] = get_theme_mod( 'page_layout', 'no-sidebar' );
+		if ( ! is_page_template() ) {
+			$classes[] = get_theme_mod( 'page_layout', 'no-sidebar' );
+		}
 
 		$thumbnail = get_theme_mod( 'page_thumbnail', 'thumbnail-before-header' );
 		if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail ) {
 			$classes[] = $thumbnail;
 		}
-		$classes[] = 'entry-header-' . get_theme_mod( 'page_header_align', '' );
+		$classes[] = 'entry-header-' . get_theme_mod( 'page_header_align', 'left' );
 		return $classes;
 	}
 

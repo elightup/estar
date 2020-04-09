@@ -79,7 +79,7 @@ class Post {
 		if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail ) {
 			$classes[] = $thumbnail;
 		}
-		$classes[] = 'entry-header-' . get_theme_mod( 'post_header_align', '' );
+		$classes[] = 'entry-header-' . get_theme_mod( 'post_header_align', 'left' );
 		return $classes;
 	}
 
