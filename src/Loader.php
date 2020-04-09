@@ -187,5 +187,8 @@ class Loader {
 		if ( defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 			new Integration\BeaverThemer;
 		}
+		if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
+			new Integration\ElementorPro;
+		}
 	}
 }

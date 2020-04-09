@@ -21,24 +21,10 @@ class BeaverThemer {
 	public function register_part_hooks() {
 		return [
 			[
-				'label' => __( 'Site', 'estar' ),
-				'hooks' => [
-					'estar_body_top'    => __( 'Body Top', 'estar' ),
-					'estar_body_bottom' => __( 'Body Bottom', 'estar' ),
-				],
-			],
-			[
 				'label' => __( 'Header', 'estar' ),
 				'hooks' => [
 					'estar_header_before' => __( 'Before Header', 'estar' ),
 					'estar_header_after'  => __( 'After Header', 'estar' ),
-				],
-			],
-			[
-				'label' => __( 'Content', 'estar' ),
-				'hooks' => [
-					'estar_content_before' => __( 'Before Content', 'estar' ),
-					'estar_content_after'  => __( 'After Content', 'estar' ),
 				],
 			],
 			[
@@ -51,8 +37,8 @@ class BeaverThemer {
 			[
 				'label' => __( 'Sidebar', 'estar' ),
 				'hooks' => [
-					'estar_sidebar_top' => __( 'Sidebar Top', 'estar' ),
-					'estar_sidebar_bottom'  => __( 'Sidebar Bottom', 'estar' ),
+					'estar_sidebar_top'    => __( 'Sidebar Top', 'estar' ),
+					'estar_sidebar_bottom' => __( 'Sidebar Bottom', 'estar' ),
 				],
 			],
 			[

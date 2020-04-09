@@ -1,19 +1,24 @@
-<?php get_header() ?>
+<?php get_header(); ?>
 
-<main class="main" role="main">
-	<?php
-	while ( have_posts() ) {
-		the_post();
-		get_template_part( 'template-parts/content/page' );
+<?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) : ?>
 
-		do_action( 'estar_comments_before' );
-		if ( comments_open() || get_comments_number() ) {
-			comments_template();
+	<main class="main" role="main">
+		<?php
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'template-parts/content/page' );
+
+			do_action( 'estar_comments_before' );
+			if ( comments_open() || get_comments_number() ) {
+				comments_template();
+			}
+			do_action( 'estar_comments_after' );
 		}
-		do_action( 'estar_comments_after' );
-	}
-	?>
-</main>
+		?>
+	</main>
 
-<?php get_sidebar(); ?>
-<?php get_footer() ?>
+	<?php get_sidebar(); ?>
+
+<?php endif; ?>
+
+<?php get_footer(); ?>

@@ -6,9 +6,6 @@
 	<?php wp_head() ?>
 </head>
 <body <?php body_class() ?>>
-
-	<?php do_action( 'estar_body_top' ); ?>
-
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'estar' ); ?></a>
 
 	<?php
@@ -19,8 +16,6 @@
 	do_action( 'estar_header_before' );
 	do_action( 'estar_header' );
 	do_action( 'estar_header_after' );
-
-	do_action( 'estar_content_before' );
 	?>
 
 	<div class="content container" id="content">
