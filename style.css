@@ -574,8 +574,8 @@ pre {
 		max-width: none;
 	}
 	.page-template-narrow .content,
-	.page-template-wide
-.page-template-full .content {
+	.page-template-wide .content,
+	.page-template-full .content {
 		padding-top: 0;
 		padding-bottom: 0;
 	}
