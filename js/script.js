@@ -47,7 +47,11 @@
 	}
 
 	function goToTop() {
-		document.querySelector( '.go-to-top' ).addEventListener( 'click', e => {
+		const button = document.querySelector( '.go-to-top' );
+		if ( ! button ) {
+			return;
+		}
+		button.addEventListener( 'click', e => {
 			e.preventDefault();
 			window.scrollTo( { top: 0, left: 0, behavior: 'smooth' } );
 		} );
@@ -56,6 +60,10 @@
 	function openSearch() {
 		const button = document.querySelector( '.search-open' ),
 			input = document.querySelector( '.header-search .search-field' );
+
+		if ( ! button ) {
+			return;
+		}
 
 		button.addEventListener( 'click', e => {
 			e.preventDefault();
@@ -69,6 +77,10 @@
 		const button = document.querySelector( '.search-close' ),
 			open = document.querySelector( '.search-open' );
 
+		if ( ! button ) {
+			return;
+		}
+
 		button.addEventListener( 'click', e => {
 			e.preventDefault();
 			document.body.classList.remove( 'header-search-open' );
@@ -81,8 +93,12 @@
 		if ( ! document.body.classList.contains( 'thumbnail-header-background' ) || document.body.classList.contains( 'no-sidebar' ) ) {
 			return;
 		}
-		const height = document.querySelector( '.entry-header' ).clientHeight;
-		document.querySelector( '.sidebar' ).style.top = `${height}px`;
+		const entryHeader = document.querySelector( '.entry-header' ),
+			sidebar = document.querySelector( '.sidebar' );
+
+		if ( entryHeader && sidebar ) {
+			sidebar.style.top = `${entryHeader.clientHeight}px`;
+		}
 	}
 
 	toggleMenu();
