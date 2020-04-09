@@ -71,7 +71,7 @@ class BeaverThemer {
 		if ( empty( $header_ids ) ) {
 			return;
 		}
-		add_filter( 'estar_header_enabled', '__return_false' );
+		remove_action( 'estar_header', 'EStar\Structure::render_header' );
 		add_action( 'estar_header', 'FLThemeBuilderLayoutRenderer::render_header' );
 	}
 
@@ -80,7 +80,7 @@ class BeaverThemer {
 		if ( empty( $footer_ids ) ) {
 			return;
 		}
-		add_filter( 'estar_footer_enabled', '__return_false' );
+		remove_action( 'estar_footer', 'EStar\Structure::render_footer' );
 		add_action( 'estar_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 	}
 }

@@ -165,7 +165,7 @@ class Loader {
 	}
 
 	private function init() {
-		new Structure;
+		Structure::setup();
 
 		new Fonts\Fonts;
 		new Colors\Colors;
