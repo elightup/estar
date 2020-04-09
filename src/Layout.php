@@ -18,14 +18,4 @@ class Layout {
 
 		return apply_filters( 'estar_layout', $layout );
 	}
-
-	public static function output_sidebar( $id = 'sidebar-1', $class = 'sidebar' ) {
-		if ( ! is_active_sidebar( $id ) ) {
-			esc_html_e( 'Please go to Customize > Widgets and add widgets to this area.', 'estar' );
-			return;
-		}
-		echo '<aside class="' . esc_attr( $class ) . '" role="complementary">';
-		dynamic_sidebar( $id );
-		echo '</aside>';
-	}
 }

@@ -1,4 +1,8 @@
+<?php do_action( 'estar_entry_before' ); ?>
+
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+	<?php do_action( 'estar_entry_header_before' ); ?>
+
 	<header class="entry-header">
 		<?php if ( has_post_thumbnail() && 'no-thumbnail' !== get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ) : ?>
 			<?php $class = 'thumbnail-header-background' === get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ? 'alignfull' : 'alignwide'; ?>
@@ -23,6 +27,10 @@
 		</div>
 	</header>
 
+	<?php do_action( 'estar_entry_header_after' ); ?>
+
+	<?php do_action( 'estar_entry_content_before' ); ?>
+
 	<div class="entry-content">
 		<?php
 		the_content();
@@ -33,7 +41,15 @@
 		?>
 	</div>
 
+	<?php do_action( 'estar_entry_content_after' ); ?>
+
+	<?php do_action( 'estar_entry_footer_before' ); ?>
+
 	<footer class="entry-footer">
 		<?php EStar\Post::tags(); ?>
 	</footer>
+
+	<?php do_action( 'estar_entry_footer_after' ); ?>
 </article>
+
+<?php do_action( 'estar_entry_after' ); ?>

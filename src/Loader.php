@@ -165,6 +165,9 @@ class Loader {
 	}
 
 	private function init() {
+		new Structure;
+		new BeaverBuilder;
+
 		new Fonts\Fonts;
 		new Colors\Colors;
 

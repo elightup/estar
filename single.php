@@ -8,9 +8,11 @@
 
 		the_post_navigation();
 
+		do_action( 'estar_comments_before' );
 		if ( comments_open() || get_comments_number() ) {
 			comments_template();
 		}
+		do_action( 'estar_ccomments_after' );
 	}
 	?>
 </main>
