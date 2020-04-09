@@ -1,9 +1,9 @@
 <?php
-namespace EStar;
+namespace EStar\Integration;
 
 use FLThemeBuilderLayoutData;
 
-class BeaverBuilder {
+class BeaverThemer {
 	public function __construct() {
 		add_action( 'after_setup_theme', [ $this, 'add_theme_support' ] );
 		add_filter( 'fl_theme_builder_part_hooks', [ $this, 'register_part_hooks' ] );
