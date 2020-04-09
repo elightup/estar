@@ -67,6 +67,14 @@
 	.page-template-full .content {
 		max-width: none;
 	}
+	.page-template-narrow,
+	.page-template-wide
+	.page-template-full {
+		.content {
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
 }
 @media (min-width: 1280px) {
 	.container {
