@@ -138,8 +138,9 @@ class Loader {
 	}
 
 	public function enqueue_assets() {
-		wp_enqueue_style( 'estar', get_stylesheet_uri(), [], '0.0.1' );
-		wp_enqueue_script( 'estar', get_template_directory_uri() . '/js/script.js', [], '0.0.1', true );
+		$suffix = defined( 'WP_DEBUG' ) && WP_DEBUG ? '' : '.min';
+		wp_enqueue_style( 'estar', get_template_directory_uri() . "/style$suffix.css", [], '0.0.1' );
+		wp_enqueue_script( 'estar', get_template_directory_uri() . "/js/script$suffix.js", [], '0.0.1', true );
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
