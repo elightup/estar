@@ -9,6 +9,7 @@
 				?>
 			</div>
 		</div>
+
 		<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
 			<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span></button>
@@ -21,6 +22,9 @@
 				?>
 			</nav>
 		<?php endif ?>
+
+		<?php EStar\Integration\WooCommerce::output_cart_icon(); ?>
+
 		<?php if ( get_theme_mod( 'header_search', true ) ) : ?>
 			<button class="search-open" aria-expanded="false">
 				<span class="screen-reader-text"><?php esc_html_e( 'Search', 'estar' ); ?></span>

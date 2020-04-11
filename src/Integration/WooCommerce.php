@@ -13,6 +13,8 @@ class WooCommerce {
 
 		add_action( 'template_redirect', [ $this, 'setup_hooks' ] );
 		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
+
+		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'add_cart_icon_fragment' ] );
 	}
 
 	public function add_theme_support() {
@@ -26,6 +28,16 @@ class WooCommerce {
 	}
 
 	public function register( $wp_customize ) {
+		$wp_customize->add_setting( 'header_cart', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => true,
+		] );
+		$wp_customize->add_control( 'header_cart', [
+			'label'   => esc_html__( 'Show cart icon', 'estar' ),
+			'section' => 'title_tagline',
+			'type'    => 'checkbox',
+		] );
+
 		$wp_customize->add_setting( 'product_archive_layout', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'default'           => 'no-sidebar',
@@ -107,5 +119,29 @@ class WooCommerce {
 		$classes[] = get_theme_mod( 'product_archive_layout', 'no-sidebar' );
 
 		return $classes;
+	}
+
+	public function add_cart_icon_fragment( $fragments ) {
+		ob_start();
+		self::output_cart_icon();
+		$fragments['.cart-icon'] = ob_get_clean();
+		return $fragments;
+	}
+
+	public static function output_cart_icon() {
+		if ( ! defined( 'WC_PLUGIN_FILE' ) || ! get_theme_mod( 'header_cart', true ) ) {
+			return;
+		}
+		?>
+		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-icon">
+			<?php
+			$count = WC()->cart->get_cart_contents_count();
+			if ( $count ) {
+				echo '<span class="cart-badge">' . esc_html( $count ) . '<span class="screen-reader-text">' . __( 'Items in Cart', 'estar' ) . '</span></span>';
+			}
+			?>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17 16a3 3 0 1 1-2.83 2H9.83a3 3 0 1 1-5.62-.1A3 3 0 0 1 5 12V4H3a1 1 0 1 1 0-2h3a1 1 0 0 1 1 1v1h14a1 1 0 0 1 .9 1.45l-4 8a1 1 0 0 1-.9.55H5a1 1 0 0 0 0 2h12zM7 12h9.38l3-6H7v6zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
+		</a>
+		<?php
 	}
 }

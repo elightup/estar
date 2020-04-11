@@ -1,7 +1,33 @@
 // Full-width layout for WooCommerce pages.
-.woocommerce .main {
+.woocommerce-page .main {
 	margin-left: 0;
 	margin-right: 0;
+}
+
+// Cart icon.
+.cart-icon {
+	padding: 8px 12px;
+	color: inherit;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	&:hover {
+		color: var(--color-accent);
+	}
+}
+.cart-badge {
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: var(--color-accent);
+	color: #fff;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	font-size: 10px;
+	text-align: center;
+	line-height: 16px;
 }
 
 // Button.
