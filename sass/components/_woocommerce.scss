@@ -1,7 +1,23 @@
+// Full-width layout for cart, checkout and my account pages.
+.woocommerce-cart .main,
+.woocommerce-account .main,
+.woocommerce-checkout .main {
+	margin-left: 0;
+	margin-right: 0;
+}
+
 // Button.
 .woocommerce #respond input#submit,
 .woocommerce .button.button.button.button {
 	@include button;
+
+	&.loading {
+		padding-right: 36px;
+
+		&:after {
+			right: 12px;
+		}
+	}
 
 	&:hover {
 		background: var(--color-accent);
@@ -86,4 +102,61 @@
 			@extend .page-numbers;
 		}
 	}
+}
+
+// Cart.
+.woocommerce table.shop_table {
+	border-collapse: collapse;
+}
+.woocommerce .shop_table.shop_table th,
+.woocommerce .shop_table.shop_table td {
+	border-color: var(--color-light);
+	padding: 8px 12px;
+}
+#add_payment_method table.cart td.actions .coupon .input-text,
+.woocommerce-cart table.cart td.actions .coupon .input-text,
+.woocommerce-checkout table.cart td.actions .coupon .input-text {
+	padding: 8px 12px;
+}
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-page table.cart td.actions .input-text {
+	min-width: 10em;
+}
+
+// Check out.
+#customer_details {
+	margin-bottom: 24px;
+}
+.select2-container--default .select2-selection--single {
+	height: 38px;
+
+	.select2-selection__rendered {
+		line-height: 38px;
+		color: var(--color-base);
+	}
+	.select2-selection__arrow {
+		height: 36px;
+	}
+}
+.select2-dropdown,
+.select2-container--default .select2-selection--single,
+.select2-container--default .select2-search--dropdown .select2-search__field {
+	border-color: var(--color-light);
+}
+
+// Account page.
+.woocommerce-order-overview {
+	padding-left: 0;
+}
+.wc-item-meta {
+	padding-left: 0;
+	font-size: var(--text-sm);
+}
+.woocommerce-MyAccount-navigation li {
+	margin-bottom: 8px;
+}
+.woocommerce table.my_account_orders {
+	font-size: var(--text-md);
 }
