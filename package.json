@@ -8,7 +8,7 @@
     "js:minify": "uglifyjs js/script.js -c -m -o js/script.min.js",
     "watch": "node-sass --output-style expanded --indent-type tab --indent-width 1 -w sass -r -o .",
     "zip": "git archive -o estar.zip --prefix=estar/ HEAD",
-    "start": "npm run css:style & npm run css:editor"
+    "start": "npm run css:style & npm run css:editor && npm run css:minify && npm run js:minify"
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",

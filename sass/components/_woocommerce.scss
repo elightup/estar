@@ -1,0 +1,73 @@
+// Button.
+.woocommerce #respond input#submit,
+.woocommerce .button.button.button.button {
+	@include button;
+
+	&:hover {
+		background: var(--color-accent);
+		color: #fff;
+	}
+}
+
+// Variation & product meta.
+.woocommerce-variation {
+	margin-bottom: 16px;
+}
+.woocommerce .quantity .qty {
+	min-width: 64px;
+}
+.product_meta > span {
+	display: block;
+	font-size: var(--text-sm);
+}
+
+// Tabs.
+.woocommerce div.product .woocommerce-tabs ul.tabs li,
+.woocommerce div.product .woocommerce-tabs ul.tabs li:after,
+.woocommerce div.product .woocommerce-tabs ul.tabs li:before {
+	border-color: var(--color-light);
+	box-shadow: none;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+	background-color: var(--color-light);
+
+	a,
+	a:hover,
+	&.active a {
+		color: var(--color-dark);
+	}
+}
+
+// Product attribute table.
+.woocommerce table.shop_attributes th,
+.woocommerce table.shop_attributes td {
+	padding: 8px 12px;
+	border: 1px solid var(--color-light);
+
+	p {
+		padding: 0;
+	}
+}
+
+// Sale badge.
+.woocommerce span.onsale {
+	font-size: var(--text-sm);
+	width: 48px;
+	height: 48px;
+	line-height: 48px;
+	padding: 0;
+	top: 8px;
+	left: 8px;
+}
+
+// Product grid.
+.woocommerce ul.products li.product {
+	background: #fff;
+
+	.price {
+		font-size: var(--text-md);
+	}
+	.onsale {
+		margin: 8px 8px 0 0;
+	}
+}

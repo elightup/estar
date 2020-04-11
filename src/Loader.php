@@ -191,5 +191,8 @@ class Loader {
 		if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
 			new Integration\ElementorPro;
 		}
+		if ( defined( 'WC_PLUGIN_FILE' ) ) {
+			new Integration\WooCommerce;
+		}
 	}
 }
