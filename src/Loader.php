@@ -192,7 +192,7 @@ class Loader {
 			new Integration\ElementorPro;
 		}
 		if ( defined( 'WC_PLUGIN_FILE' ) ) {
-			new Integration\WooCommerce;
+			new Integration\WooCommerce( $sanitizer );
 		}
 	}
 }

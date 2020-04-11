@@ -2,8 +2,15 @@
 namespace EStar\Integration;
 
 class WooCommerce {
-	public function __construct() {
+	private $sanitizer;
+
+	public function __construct( $sanitizer ) {
+		$this->sanitizer = $sanitizer;
+
 		add_action( 'after_setup_theme', [ $this, 'add_theme_support' ] );
+		add_action( 'customize_register', [ $this, 'register' ] );
+		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
+
 		add_action( 'template_redirect', [ $this, 'setup_hooks' ] );
 		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 	}
@@ -18,30 +25,87 @@ class WooCommerce {
 		add_theme_support( 'wc-product-gallery-slider' );
 	}
 
+	public function register( $wp_customize ) {
+		$wp_customize->add_setting( 'product_archive_layout', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'no-sidebar',
+		] );
+		$wp_customize->add_control( 'product_archive_layout', [
+			'label'    => esc_html__( 'Layout', 'estar' ),
+			'section'  => 'woocommerce_product_catalog',
+			'panel'    => 'woocommerce',
+			'priority' => 1,
+			'type'     => 'select',
+			'choices'  => [
+				'sidebar-right' => __( 'Sidebar Right', 'estar' ),
+				'sidebar-left'  => __( 'Sidebar Left', 'estar' ),
+				'no-sidebar'    => __( 'No Sidebar', 'estar' ),
+			],
+		] );
+	}
+
+	public function widgets_init() {
+		register_sidebar( [
+			'name'          => esc_html__( 'Shop Sidebar', 'estar' ),
+			'id'            => 'sidebar-3',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		] );
+	}
+
 	public function setup_hooks() {
-		// Remove content wrapper.
+		if ( ! is_woocommerce() ) {
+			return;
+		}
+
+		// Change content wrapper.
 		remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper' );
 		remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end' );
 
 		// No sidebar for single products.
 		if ( is_product() ) {
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' );
+			return;
 		}
+
+		// Product archive.
+		add_action( 'woocommerce_before_main_content', [ $this, 'output_content_wrapper' ] );
+		add_action( 'woocommerce_after_main_content', [ $this, 'output_content_wrapper_end' ] );
+	}
+
+	public function output_content_wrapper() {
+		echo '<main class="main" role="main">';
+	}
+
+	public function output_content_wrapper_end() {
+		echo '</main>';
 	}
 
 	public function add_body_classes( $classes ) {
 		if ( ! is_woocommerce() ) {
 			return $classes;
 		}
+
+		// Remove all classes set by Post/Archive classes.
 		$classes = array_diff( $classes, [
 			'singular',
 			'sidebar-right', 'sidebar-left', 'no-sidebar',
 			'thumbnail-before-header', 'thumbnail-after-header', 'thumbnail-header-background',
 			'entry-header-left', 'entry-header-right', 'entry-header-center',
 
-			'archive',
+			'archive', 'hfeed',
 			'list-horizontal', 'list-vertical', 'grid', 'grid-card',
 		] );
+
+		if ( is_product() ) {
+			return $classes;
+		}
+
+		// Classes for product archive layout.
+		$classes[] = get_theme_mod( 'product_archive_layout', 'no-sidebar' );
+
 		return $classes;
 	}
 }
