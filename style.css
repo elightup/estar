@@ -384,8 +384,6 @@ embed, iframe, object {
 
 svg {
 	fill: currentColor;
-	width: 1em;
-	height: 1em;
 }
 
 pre, code, kbd, samp, tt, var {
@@ -1973,6 +1971,11 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 
 .cart-icon:hover {
 	color: var(--color-accent);
+}
+
+.cart-icon svg {
+	width: 16px;
+	height: 16px;
 }
 
 .cart-badge {

@@ -15,6 +15,11 @@
 	&:hover {
 		color: var(--color-accent);
 	}
+
+	svg {
+		width: 16px;
+		height: 16px;
+	}
 }
 .cart-badge {
 	position: absolute;
