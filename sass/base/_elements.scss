@@ -66,16 +66,6 @@ hr {
 	margin-bottom: 1.5em;
 }
 
-a {
-	color: var(--color-accent);
-	text-decoration: none;
-	transition: all .25s;
-
-	&:hover {
-		text-decoration: underline;
-	}
-}
-
 label {
 	cursor: pointer;
 }

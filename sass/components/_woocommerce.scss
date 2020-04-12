@@ -217,3 +217,11 @@
 	font-size: var(--text-sm);
 	margin-left: auto;
 }
+
+// Reviews.
+.woocommerce #reviews #comments ol.commentlist li img.avatar {
+	border-radius: 50%;
+	border: none;
+	background: none;
+	padding: 0;
+}

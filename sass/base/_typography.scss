@@ -30,3 +30,12 @@ h5 {
 h6 {
 	font-size: var(--base-sm);
 }
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: all .25s;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
