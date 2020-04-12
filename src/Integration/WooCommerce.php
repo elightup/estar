@@ -15,6 +15,8 @@ class WooCommerce {
 		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
 
 		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'add_cart_icon_fragment' ] );
+
+		add_action( 'template_redirect', [ $this, 'remove_assets' ] );
 	}
 
 	public function add_theme_support() {
@@ -53,6 +55,22 @@ class WooCommerce {
 				'sidebar-left'  => __( 'Sidebar Left', 'estar' ),
 				'no-sidebar'    => __( 'No Sidebar', 'estar' ),
 			],
+		] );
+
+		$wp_customize->add_section( 'wc_optimization', [
+			'title' => __( 'Optimization', 'estar' ),
+			'panel' => 'woocommerce',
+		] );
+
+		$wp_customize->add_setting( 'wc_no_assets', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => true,
+		] );
+		$wp_customize->add_control( 'wc_no_assets', [
+			'label'   => esc_html__( 'Remove styles and scripts on non-WooCommerce pages', 'estar' ),
+			'section' => 'wc_optimization',
+			'type'    => 'checkbox',
+			'description' => __( 'Do not enable this option if you use WooCommerce blocks', 'estar' ),
 		] );
 	}
 
@@ -143,5 +161,14 @@ class WooCommerce {
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path class="heroicon-ui" d="M17 16a3 3 0 1 1-2.83 2H9.83a3 3 0 1 1-5.62-.1A3 3 0 0 1 5 12V4H3a1 1 0 1 1 0-2h3a1 1 0 0 1 1 1v1h14a1 1 0 0 1 .9 1.45l-4 8a1 1 0 0 1-.9.55H5a1 1 0 0 0 0 2h12zM7 12h9.38l3-6H7v6zm0 8a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
 		</a>
 		<?php
+	}
+
+	public function remove_assets() {
+		if ( ! get_theme_mod( 'wc_no_assets', true ) || is_woocommerce() || is_cart() || is_checkout() ) {
+			return;
+		}
+		remove_action( 'wp_enqueue_scripts', [ 'WC_Frontend_Scripts', 'load_scripts' ] );
+		remove_action( 'wp_print_scripts', [ 'WC_Frontend_Scripts', 'localize_printed_scripts' ], 5 );
+		remove_action( 'wp_print_footer_scripts', [ 'WC_Frontend_Scripts', 'localize_printed_scripts' ], 5 );
 	}
 }
