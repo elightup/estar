@@ -8,6 +8,7 @@ class PostSettings {
 		add_filter( 'estar_layout', [ $this, 'get_layout' ] );
 		add_filter( 'estar_post_thumbnail_position', [ $this, 'get_post_thumbnail_position' ] );
 		add_filter( 'estar_post_thumbnail_class', [ $this, 'get_post_thumbnail_class' ] );
+		add_action( 'wp_head', [ $this, 'output_custom_css' ] );
 	}
 
 	public function register_meta_boxes( $meta_boxes ) {
@@ -81,6 +82,12 @@ class PostSettings {
 						'center' => __( 'Center', 'estar' ),
 					],
 				],
+				[
+					'name' => esc_html__( 'Custom CSS', 'estar' ),
+					'id'   => 'custom_css',
+					'type' => 'textarea',
+					'rows' => 10,
+				],
 			],
 		];
 
@@ -140,5 +147,13 @@ class PostSettings {
 			$class = 'alignfull';
 		}
 		return $class;
+	}
+
+	public function output_custom_css() {
+		$css = rwmb_meta( 'custom_css' );
+		if ( ! $css ) {
+			return;
+		}
+		echo '<style>', wp_strip_all_tags( $css ), '</style>';
 	}
 }
