@@ -31,12 +31,12 @@ class Page {
 			],
 		] );
 
-		$wp_customize->add_setting( 'page_thumbnail', [
+		$wp_customize->add_setting( 'page_thumbnail_position', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'default'           => 'thumbnail-before-header',
 		] );
-		$wp_customize->add_control( 'page_thumbnail', [
-			'label'   => esc_html__( 'Page Thumbnail Position', 'estar' ),
+		$wp_customize->add_control( 'page_thumbnail_position', [
+			'label'   => esc_html__( 'Thumbnail Position', 'estar' ),
 			'section' => 'page',
 			'type'    => 'select',
 			'choices' => [
@@ -52,7 +52,7 @@ class Page {
 			'default'           => 'left',
 		] );
 		$wp_customize->add_control( 'page_header_align', [
-			'label'   => esc_html__( 'Page Header Alignment', 'estar' ),
+			'label'   => esc_html__( 'Header Alignment', 'estar' ),
 			'section' => 'page',
 			'type'    => 'select',
 			'choices' => [

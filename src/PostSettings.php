@@ -60,7 +60,7 @@ class PostSettings {
 				],
 				[
 					'name'    => esc_html__( 'Thumbnail Position', 'estar' ),
-					'id'      => 'thumbnail',
+					'id'      => 'thumbnail_position',
 					'type'    => 'select',
 					'options' => [
 						''                            => __( 'Default', 'estar' ),
@@ -127,7 +127,7 @@ class PostSettings {
 	}
 
 	public function get_post_thumbnail_position( $position ) {
-		$settings = rwmb_meta( 'thumbnail' );
+		$settings = rwmb_meta( 'thumbnail_position' );
 		if ( $settings ) {
 			$position = $settings;
 		}

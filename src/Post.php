@@ -36,11 +36,11 @@ class Post {
 			],
 		] );
 
-		$wp_customize->add_setting( 'post_thumbnail', [
+		$wp_customize->add_setting( 'post_thumbnail_position', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'default'           => 'thumbnail-before-header',
 		] );
-		$wp_customize->add_control( 'post_thumbnail', [
+		$wp_customize->add_control( 'post_thumbnail_position', [
 			'label'   => esc_html__( 'Thumbnail Position', 'estar' ),
 			'section' => 'post',
 			'type'    => 'select',
@@ -57,7 +57,7 @@ class Post {
 			'default'           => 'left',
 		] );
 		$wp_customize->add_control( 'post_header_align', [
-			'label'   => esc_html__( 'Post Header Alignment', 'estar' ),
+			'label'   => esc_html__( 'Header Alignment', 'estar' ),
 			'section' => 'post',
 			'type'    => 'select',
 			'choices' => [
@@ -160,7 +160,7 @@ class Post {
 
 	public static function get_thumbnail_position() {
 		$type = is_page() ? 'page' : 'post';
-		return apply_filters( 'estar_post_thumbnail_position', get_theme_mod( "{$type}_thumbnail", 'thumbnail-before-header' ) );
+		return apply_filters( 'estar_post_thumbnail_position', get_theme_mod( "{$type}_thumbnail_position", 'thumbnail-before-header' ) );
 	}
 
 	public static function get_thumbnail_size() {
