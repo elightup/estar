@@ -1106,8 +1106,12 @@ blockquote.has-text-align-right,
 	}
 }
 
-.sidebar-left .alignwide, .sidebar-right .alignwide,
-.sidebar-left .alignfull, .sidebar-right .alignfull,
+.sidebar-left .entry-content .alignwide,
+.sidebar-left .entry-summary .alignwide,
+.sidebar-right .entry-content .alignwide,
+.sidebar-right .entry-summary .alignwide,
+.sidebar-left .entry-content .alignfull,
+.sidebar-right .entry-summary .alignfull,
 .wp-block-jetpack-layout-grid-column .alignwide {
 	margin-left: 0;
 	margin-right: 0;
