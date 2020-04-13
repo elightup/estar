@@ -30,6 +30,24 @@
 	}
 }
 
+// Transparent header.
+.header-transparent {
+	.header {
+		position: absolute;
+		left: 0;
+		right: 0;
+		background: none;
+		border-bottom-color: rgba(255, 255, 255, .2);
+	}
+	.site-description,
+	.site-title a,
+	.menu-toggle,
+	.cart-icon,
+	.search-open {
+		color: #fff;
+	}
+}
+
 .branding {
 	display: flex;
 	z-index: 1;
@@ -54,5 +72,15 @@
 	a {
 		color: var(--color-dark);
 		text-decoration: none;
+	}
+}
+
+@media (min-width: 1024px) {
+	.header-transparent {
+		.nav > ul > li > a,
+		.nav > ul > li > .menu-text > a,
+		.nav > ul > li > .menu-text > .sub-menu-toggle {
+			color: #fff;
+		}
 	}
 }

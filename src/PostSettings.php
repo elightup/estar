@@ -83,6 +83,17 @@ class PostSettings {
 					],
 				],
 				[
+					'name'    => esc_html__( 'Transparent Header', 'estar' ),
+					'id'      => 'header_transparent',
+					'desc'    => esc_html__( 'Works only when the thumbnail is set as header background.', 'estar' ),
+					'type'    => 'select',
+					'options' => [
+						''  => esc_html__( 'Default', 'estar' ),
+						'1' => esc_html__( 'Yes', 'estar' ),
+						'0' => esc_html__( 'No', 'estar' ),
+					],
+				],
+				[
 					'name' => esc_html__( 'Custom CSS', 'estar' ),
 					'id'   => 'custom_css',
 					'type' => 'textarea',
@@ -109,6 +120,13 @@ class PostSettings {
 			$classes[] = 'header-sticky';
 		} elseif ( '0' === $header_sticky ) {
 			$classes = array_diff( $classes, ['header-sticky'] );
+		}
+
+		$header_transparent = rwmb_meta( 'header_transparent' );
+		if ( '1' === $header_transparent ) {
+			$classes[] = 'header-transparent';
+		} elseif ( '0' === $header_transparent ) {
+			$classes = array_diff( $classes, ['header-transparent'] );
 		}
 
 		$align = rwmb_meta( 'post_header_align' );
