@@ -54,18 +54,26 @@
 		}
 	}
 	.page-template-narrow,
+	.content-narrow,
 	.no-sidebar {
 		.main {
 			margin-left: ($sidebar-width + $sidebar-margin) / 2;
 			margin-right: ($sidebar-width + $sidebar-margin) / 2;
 		}
 	}
-	.grid.no-sidebar .main {
-		margin-left: 0;
-		margin-right: 0;
+	.grid.no-sidebar,
+	.content-wide,
+	.content-full {
+		.main {
+			margin-left: 0;
+			margin-right: 0;
+		}
 	}
-	.page-template-full .content {
-		max-width: none;
+	.page-template-full,
+	.content-full {
+		.content {
+			max-width: none;
+		}
 	}
 	.page-template-narrow,
 	.page-template-wide,

@@ -574,15 +574,19 @@ pre {
 		order: 2;
 	}
 	.page-template-narrow .main,
+	.content-narrow .main,
 	.no-sidebar .main {
 		margin-left: 171px;
 		margin-right: 171px;
 	}
-	.grid.no-sidebar .main {
+	.grid.no-sidebar .main,
+	.content-wide .main,
+	.content-full .main {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	.page-template-full .content {
+	.page-template-full .content,
+	.content-full .content {
 		max-width: none;
 	}
 	.page-template-narrow .content,

@@ -6,7 +6,8 @@ class PostSettings {
 		add_filter( 'rwmb_meta_boxes', [ $this, 'register_meta_boxes' ] );
 		add_filter( 'body_class', [ $this, 'add_body_classes' ], 99 );
 		add_filter( 'estar_layout', [ $this, 'get_layout' ] );
-		add_filter( 'estar_post_thumbnail_position', [ $this, 'get_thumbnail_position' ] );
+		add_filter( 'estar_post_thumbnail_position', [ $this, 'get_post_thumbnail_position' ] );
+		add_filter( 'estar_post_thumbnail_class', [ $this, 'get_post_thumbnail_class' ] );
 	}
 
 	public function register_meta_boxes( $meta_boxes ) {
@@ -80,17 +81,6 @@ class PostSettings {
 						'center' => __( 'Center', 'estar' ),
 					],
 				],
-				// [
-				// 	'name'    => esc_html__( 'Transparent Header', 'estar' ),
-				// 	'id'      => 'header_transparent',
-				// 	'desc'    => esc_html__( 'Works only when the thumbnail is set as header background.', 'estar' ),
-				// 	'type'    => 'select',
-				// 	'options' => [
-				// 		''  => esc_html__( 'Default', 'estar' ),
-				// 		'1' => esc_html__( 'Yes', 'estar' ),
-				// 		'0' => esc_html__( 'No', 'estar' ),
-				// 	],
-				// ],
 			],
 		];
 
@@ -120,13 +110,6 @@ class PostSettings {
 			$classes[] = "entry-header-$align";
 		}
 
-		// $header_transparent = rwmb_meta( 'header_transparent' );
-		// if ( '1' === $header_transparent ) {
-		// 	$classes[] = 'header-transparent';
-		// } elseif ( '0' === $header_transparent ) {
-		// 	$classes = array_diff( $classes, ['header-transparent'] );
-		// }
-
 		$classes = array_unique( array_filter( $classes ) );
 
 		return $classes;
@@ -143,14 +126,19 @@ class PostSettings {
 		return $layout;
 	}
 
-	public function get_thumbnail_position( $position ) {
-		if ( ! is_singular() || is_singular( ['attachment', 'product'] ) ) {
-			return $position;
-		}
+	public function get_post_thumbnail_position( $position ) {
 		$settings = rwmb_meta( 'thumbnail' );
 		if ( $settings ) {
 			$position = $settings;
 		}
 		return $position;
+	}
+
+	public function get_post_thumbnail_class( $class ) {
+		$settings = rwmb_meta( 'content_width' );
+		if ( 'full' === $settings ) {
+			$class = 'alignfull';
+		}
+		return $class;
 	}
 }

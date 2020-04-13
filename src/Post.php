@@ -167,13 +167,15 @@ class Post {
 		$thumbnail_position = self::get_thumbnail_position();
 		$layout             = Layout::get_layout();
 
-		return 'thumbnail-header-background' === $thumbnail_position || 'no-sidebar' === $layout ? 'full' : 'medium_large';
+		$size = 'thumbnail-header-background' === $thumbnail_position || 'no-sidebar' === $layout ? 'full' : 'medium_large';
+		return apply_filters( 'estar_post_thumbnail_size', $size );
 	}
 
 	public static function get_thumbnail_class() {
 		$thumbnail_position = self::get_thumbnail_position();
 		$layout             = Layout::get_layout();
 
-		return 'thumbnail-header-background' === $thumbnail_position ? 'alignfull' : ( 'no-sidebar' === $layout ? 'alignwide' : '' );
+		$class = 'thumbnail-header-background' === $thumbnail_position ? 'alignfull' : ( 'no-sidebar' === $layout ? 'alignwide' : '' );
+		return apply_filters( 'estar_post_thumbnail_class', $class );
 	}
 }
