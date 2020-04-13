@@ -4,12 +4,8 @@
 	<?php do_action( 'estar_entry_header_before' ); ?>
 
 	<header class="entry-header">
-		<?php if ( has_post_thumbnail() && 'no-thumbnail' !== get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ) : ?>
-			<?php $class = 'thumbnail-header-background' === get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' ) ? 'alignfull' : 'alignwide'; ?>
-			<div class="entry-thumbnail <?php echo esc_attr( $class ); ?>">
-				<?php the_post_thumbnail( 'full' ); ?>
-			</div>
-		<?php endif; ?>
+		<?php get_template_part( 'template-parts/entry-thumbnail' ); ?>
+
 		<div class="entry-header-text">
 			<?php
 			EStar\Post::categories();

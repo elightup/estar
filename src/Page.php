@@ -36,14 +36,14 @@ class Page {
 			'default'           => 'thumbnail-before-header',
 		] );
 		$wp_customize->add_control( 'page_thumbnail', [
-			'label'   => esc_html__( 'Page Thumbnail', 'estar' ),
+			'label'   => esc_html__( 'Page Thumbnail Position', 'estar' ),
 			'section' => 'page',
 			'type'    => 'select',
 			'choices' => [
-				'thumbnail-header-background' => __( 'As page Header Background', 'estar' ),
-				'thumbnail-before-header'     => __( 'Before page Header', 'estar' ),
-				'thumbnail-after-header'      => __( 'After page Header', 'estar' ),
-				'no-thumbnail'                => __( 'Do not display', 'estar' ),
+				'thumbnail-header-background' => __( 'As Page Header Background', 'estar' ),
+				'thumbnail-before-header'     => __( 'Before Page Header', 'estar' ),
+				'thumbnail-after-header'      => __( 'After Page Header', 'estar' ),
+				'no-thumbnail'                => __( 'Do Not Display', 'estar' ),
 			],
 		] );
 
@@ -67,14 +67,7 @@ class Page {
 		if ( ! is_page() ) {
 			return $classes;
 		}
-		$classes[] = 'singular';
 		if ( ! is_page_template() ) {
-			$classes[] = get_theme_mod( 'page_layout', 'no-sidebar' );
-
-			$thumbnail = get_theme_mod( 'page_thumbnail', 'thumbnail-before-header' );
-			if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail ) {
-				$classes[] = $thumbnail;
-			}
 			$classes[] = 'entry-header-' . get_theme_mod( 'page_header_align', 'left' );
 		}
 

@@ -2,6 +2,15 @@
 namespace EStar;
 
 class Layout {
+	public static function setup() {
+		add_filter( 'body_class', [ __CLASS__, 'add_body_classes' ] );
+	}
+
+	public static function add_body_classes( $classes ) {
+		$classes[] = self::get_layout();
+		return $classes;
+	}
+
 	public static function has_sidebar() {
 		$layout = self::get_layout();
 		return false === strpos( $layout, 'no-sidebar' );

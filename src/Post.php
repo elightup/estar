@@ -41,14 +41,14 @@ class Post {
 			'default'           => 'thumbnail-before-header',
 		] );
 		$wp_customize->add_control( 'post_thumbnail', [
-			'label'   => esc_html__( 'Post Thumbnail', 'estar' ),
+			'label'   => esc_html__( 'Thumbnail Position', 'estar' ),
 			'section' => 'post',
 			'type'    => 'select',
 			'choices' => [
 				'thumbnail-header-background' => __( 'As Post Header Background', 'estar' ),
 				'thumbnail-before-header'     => __( 'Before Post Header', 'estar' ),
 				'thumbnail-after-header'      => __( 'After Post Header', 'estar' ),
-				'no-thumbnail'                => __( 'Do not display', 'estar' ),
+				'no-thumbnail'                => __( 'Do Not Display', 'estar' ),
 			],
 		] );
 
@@ -69,15 +69,18 @@ class Post {
 	}
 
 	public function add_body_classes( $classes ) {
-		if ( ! is_single() ) {
+		if ( ! is_singular() ) {
 			return $classes;
 		}
 		$classes[] = 'singular';
-		$classes[] = get_theme_mod( 'post_layout', 'sidebar-right' );
 
-		$thumbnail = get_theme_mod( 'post_thumbnail', 'thumbnail-before-header' );
-		if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail ) {
-			$classes[] = $thumbnail;
+		$thumbnail_position = self::get_thumbnail_position();
+		if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail_position ) {
+			$classes[] = $thumbnail_position;
+		}
+
+		if ( ! is_single() ) {
+			return $classes;
 		}
 		$classes[] = 'entry-header-' . get_theme_mod( 'post_header_align', 'left' );
 		return $classes;
@@ -153,5 +156,24 @@ class Post {
 		if ( $tags ) {
 			echo '<div class="tags">', $tags, '</div>'; // WPCS: OK.
 		}
+	}
+
+	public static function get_thumbnail_position() {
+		$type = is_page() ? 'page' : 'post';
+		return apply_filters( 'estar_post_thumbnail_position', get_theme_mod( "{$type}_thumbnail", 'thumbnail-before-header' ) );
+	}
+
+	public static function get_thumbnail_size() {
+		$thumbnail_position = self::get_thumbnail_position();
+		$layout             = Layout::get_layout();
+
+		return 'thumbnail-header-background' === $thumbnail_position || 'no-sidebar' === $layout ? 'full' : 'medium_large';
+	}
+
+	public static function get_thumbnail_class() {
+		$thumbnail_position = self::get_thumbnail_position();
+		$layout             = Layout::get_layout();
+
+		return 'thumbnail-header-background' === $thumbnail_position ? 'alignfull' : ( 'no-sidebar' === $layout ? 'alignwide' : '' );
 	}
 }

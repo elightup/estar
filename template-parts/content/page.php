@@ -4,7 +4,11 @@
 	<?php do_action( 'estar_entry_header_before' ); ?>
 
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php get_template_part( 'template-parts/entry-thumbnail' ); ?>
+
+		<div class="entry-header-text">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		</div>
 	</header>
 
 	<?php do_action( 'estar_entry_header_after' ); ?>
@@ -23,3 +27,5 @@
 
 	<?php do_action( 'estar_entry_content_after' ); ?>
 </article>
+
+<?php do_action( 'estar_entry_after' ); ?>

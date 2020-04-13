@@ -12,7 +12,8 @@ class WooCommerce {
 		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
 
 		add_action( 'template_redirect', [ $this, 'setup_hooks' ] );
-		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
+		add_filter( 'body_class', [ $this, 'remove_body_classes' ], 99 );
+		add_filter( 'estar_layout', [ $this, 'get_layout' ] );
 
 		add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'add_cart_icon_fragment' ] );
 
@@ -113,7 +114,7 @@ class WooCommerce {
 		echo '</main>';
 	}
 
-	public function add_body_classes( $classes ) {
+	public function remove_body_classes( $classes ) {
 		if ( ! is_woocommerce() ) {
 			return $classes;
 		}
@@ -121,7 +122,6 @@ class WooCommerce {
 		// Remove all classes set by Post/Archive classes.
 		$classes = array_diff( $classes, [
 			'singular',
-			'sidebar-right', 'sidebar-left', 'no-sidebar',
 			'thumbnail-before-header', 'thumbnail-after-header', 'thumbnail-header-background',
 			'entry-header-left', 'entry-header-right', 'entry-header-center',
 
@@ -129,14 +129,15 @@ class WooCommerce {
 			'list-horizontal', 'list-vertical', 'grid', 'grid-card',
 		] );
 
-		if ( is_product() ) {
-			return $classes;
-		}
-
-		// Classes for product archive layout.
-		$classes[] = get_theme_mod( 'product_archive_layout', 'no-sidebar' );
-
 		return $classes;
+	}
+
+	public function get_layout( $layout ) {
+		if ( ! is_woocommerce() ) {
+			return $layout;
+		}
+		// No layout for single product, set layout for product archive only.
+		return is_product() ? '' : get_theme_mod( 'product_archive_layout', 'no-sidebar' );
 	}
 
 	public function add_cart_icon_fragment( $fragments ) {

@@ -3,11 +3,22 @@ namespace EStar;
 
 class Loader {
 	public function __construct() {
+		add_action( 'tgmpa_register', [ $this, 'register_plugins' ] );
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
 
 		$this->init();
+	}
+
+	public function register_plugins() {
+		$plugins = [
+			[
+				'name' => __( 'Meta Box', 'estar' ),
+				'slug' => 'meta-box',
+			],
+		];
+		tgmpa( $plugins );
 	}
 
 	public function setup() {
@@ -167,6 +178,7 @@ class Loader {
 
 	private function init() {
 		Structure::setup();
+		Layout::setup();
 
 		new Fonts\Fonts;
 		new Colors\Colors;
@@ -193,6 +205,9 @@ class Loader {
 		}
 		if ( defined( 'WC_PLUGIN_FILE' ) ) {
 			new Integration\WooCommerce( $sanitizer );
+		}
+		if ( defined( 'RWMB_VER' ) ) {
+			new PostSettings;
 		}
 	}
 }
