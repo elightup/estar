@@ -96,9 +96,10 @@
 		const entryHeader = document.querySelector( '.entry-header' ),
 			sidebar = document.querySelector( '.sidebar' );
 
-		if ( entryHeader && sidebar ) {
-			sidebar.style.top = `${entryHeader.clientHeight}px`;
+		if ( ! entryHeader || ! sidebar ) {
+			return;
 		}
+		sidebar.style.paddingTop = `${entryHeader.clientHeight}px`;
 	}
 
 	toggleMenu();
