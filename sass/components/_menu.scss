@@ -52,26 +52,13 @@
 
 // Toggle icon for hamburger menu.
 .menu-toggle {
-	width: 24px;
-	height: 20px;
 	padding: 0;
 	border: 0;
 	position: relative;
 	background: transparent;
 	color: inherit;
 	display: flex;
-
-	// 3 lines.
-	&:before {
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 24px;
-		height: 20px;
-		border-top: 12px double;
-		border-bottom: 4px solid;
-	}
+	align-items: center;
 }
 
 // Dropdown icon for submenu toggling.

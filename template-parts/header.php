@@ -12,7 +12,10 @@
 
 		<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
 			<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span></button>
+				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"/></svg>
+				</button>
 				<?php
 				wp_nav_menu( [
 					'container'      => null,
@@ -33,7 +36,7 @@
 			<div class="header-search">
 				<?php get_search_form(); ?>
 				<button class="search-close">
-					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'estar' ); ?></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Close', 'estar' ); ?></span>
 					&times;
 				</button>
 			</div>

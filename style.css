@@ -1177,6 +1177,13 @@ blockquote.has-text-align-right,
 	color: #fff;
 }
 
+.header-transparent .site-title a:hover,
+.header-transparent .menu-toggle:hover,
+.header-transparent .cart-icon:hover,
+.header-transparent .search-open:hover {
+	opacity: .75;
+}
+
 .branding {
 	display: flex;
 	z-index: 1;
@@ -1213,6 +1220,11 @@ blockquote.has-text-align-right,
 	.header-transparent .nav > ul > li > .menu-text > a,
 	.header-transparent .nav > ul > li > .menu-text > .sub-menu-toggle {
 		color: #fff;
+	}
+	.header-transparent .nav > ul > li:hover > a,
+	.header-transparent .nav > ul > li:hover > .menu-text > a,
+	.header-transparent .nav > ul > li:hover > .menu-text > .sub-menu-toggle {
+		opacity: .75;
 	}
 }
 
@@ -1268,25 +1280,13 @@ blockquote.has-text-align-right,
 }
 
 .menu-toggle {
-	width: 24px;
-	height: 20px;
 	padding: 0;
 	border: 0;
 	position: relative;
 	background: transparent;
 	color: inherit;
 	display: flex;
-}
-
-.menu-toggle:before {
-	content: "";
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 24px;
-	height: 20px;
-	border-top: 12px double;
-	border-bottom: 4px solid;
+	align-items: center;
 }
 
 .menu-text {
@@ -1389,7 +1389,7 @@ blockquote.has-text-align-right,
 }
 
 .search-open {
-	padding: 8px 0 8px 12px;
+	padding: 8px 0;
 	background: none;
 	display: flex;
 	color: inherit;
@@ -1398,7 +1398,6 @@ blockquote.has-text-align-right,
 .search-open svg {
 	width: 16px;
 	height: 16px;
-	fill: currentColor;
 }
 
 .search-close {
@@ -1434,6 +1433,12 @@ blockquote.has-text-align-right,
 
 .header-search-open .header-search {
 	display: flex;
+}
+
+@media (min-width: 1024px) {
+	.search-open {
+		padding-left: 12px;
+	}
 }
 
 .comments-area {
@@ -2121,7 +2126,7 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 }
 
 .cart-icon:hover {
-	color: var(--color-accent);
+	opacity: .75;
 }
 
 .cart-icon svg {

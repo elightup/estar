@@ -46,6 +46,12 @@
 	.search-open {
 		color: #fff;
 	}
+	.site-title a:hover,
+	.menu-toggle:hover,
+	.cart-icon:hover,
+	.search-open:hover {
+		opacity: .75;
+	}
 }
 
 .branding {
@@ -81,6 +87,11 @@
 		.nav > ul > li > .menu-text > a,
 		.nav > ul > li > .menu-text > .sub-menu-toggle {
 			color: #fff;
+		}
+		.nav > ul > li:hover > a,
+		.nav > ul > li:hover > .menu-text > a,
+		.nav > ul > li:hover > .menu-text > .sub-menu-toggle {
+			opacity: .75;
 		}
 	}
 }

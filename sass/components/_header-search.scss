@@ -1,5 +1,5 @@
 .search-open {
-	padding: 8px 0 8px 12px;
+	padding: 8px 0;
 	background: none;
 	display: flex;
 	color: inherit;
@@ -7,7 +7,6 @@
 	svg {
 		width: 16px;
 		height: 16px;
-		fill: currentColor;
 	}
 }
 .search-close {
@@ -40,5 +39,10 @@
 .header-search-open {
 	.header-search {
 		display: flex;
+	}
+}
+@media (min-width: 1024px) {
+	.search-open {
+		padding-left: 12px;
 	}
 }
