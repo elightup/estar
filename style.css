@@ -1111,10 +1111,12 @@ blockquote.has-text-align-right,
 }
 
 .sidebar-left .entry-content .alignwide,
-.sidebar-left .entry-summary .alignwide,
-.sidebar-right .entry-content .alignwide,
-.sidebar-right .entry-summary .alignwide,
 .sidebar-left .entry-content .alignfull,
+.sidebar-left .entry-summary .alignwide,
+.sidebar-left .entry-summary .alignfull,
+.sidebar-right .entry-content .alignwide,
+.sidebar-right .entry-content .alignfull,
+.sidebar-right .entry-summary .alignwide,
 .sidebar-right .entry-summary .alignfull,
 .wp-block-jetpack-layout-grid-column .alignwide {
 	margin-left: 0;
