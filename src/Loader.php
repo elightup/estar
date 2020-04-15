@@ -14,6 +14,10 @@ class Loader {
 	public function register_plugins() {
 		$plugins = [
 			[
+				'name' => __( 'eRocket', 'estar' ),
+				'slug' => 'erocket',
+			],
+			[
 				'name' => __( 'Meta Box', 'estar' ),
 				'slug' => 'meta-box',
 			],
