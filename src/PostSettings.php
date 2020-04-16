@@ -8,6 +8,7 @@ class PostSettings {
 		add_filter( 'estar_layout', [ $this, 'get_layout' ] );
 		add_filter( 'estar_post_thumbnail_position', [ $this, 'get_post_thumbnail_position' ] );
 		add_filter( 'estar_post_thumbnail_class', [ $this, 'get_post_thumbnail_class' ] );
+		add_filter( 'estar_post_header_height', [ $this, 'get_post_header_height' ] );
 		add_action( 'wp_head', [ $this, 'output_custom_css' ] );
 	}
 
@@ -81,6 +82,14 @@ class PostSettings {
 						'right'  => __( 'Right', 'estar' ),
 						'center' => __( 'Center', 'estar' ),
 					],
+				],
+				[
+					'name'        => esc_html__( 'Header Height', 'estar' ),
+					'id'          => 'post_header_height',
+					'type'        => 'number',
+					'size'        => 6,
+					'append'      => 'px',
+					'description' => esc_html__( 'Works only when the thumbnail is set as header background.', 'estar' ),
 				],
 				[
 					'name'    => esc_html__( 'Transparent Header', 'estar' ),
@@ -167,11 +176,21 @@ class PostSettings {
 		return $class;
 	}
 
+	public function get_post_header_height( $height ) {
+		$settings = rwmb_meta( 'post_header_height' );
+		if ( $settings ) {
+			$height = $settings;
+		}
+		return $height;
+	}
+
 	public function output_custom_css() {
-		$css = rwmb_meta( 'custom_css' );
-		if ( ! $css ) {
+		if ( ! is_singular() ) {
 			return;
 		}
-		echo '<style>', wp_strip_all_tags( $css ), '</style>';
+		$css = rwmb_meta( 'custom_css' );
+		if ( $css ) {
+			echo '<style>', wp_strip_all_tags( $css ), '</style>';
+		}
 	}
 }

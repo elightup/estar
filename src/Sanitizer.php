@@ -51,8 +51,4 @@ class Sanitizer {
 	public function sanitize_url( $url ) {
 		return esc_url_raw( $url );
 	}
-
-	public function sanitize_svg( $svg ) {
-		return wp_kses( $svg, SVG::get_allowed_tags() );
-	}
 }

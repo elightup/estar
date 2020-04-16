@@ -61,6 +61,16 @@ class Page {
 				'center' => __( 'Center', 'estar' ),
 			],
 		] );
+
+		$wp_customize->add_setting( 'page_header_height', [
+			'sanitize_callback' => 'absint',
+		] );
+		$wp_customize->add_control( 'page_header_height', [
+			'label'       => esc_html__( 'Header Height (px)', 'estar' ),
+			'section'     => 'page',
+			'type'        => 'number',
+			'description' => esc_html__( 'Works only when the thumbnail is set as header background.', 'estar' ),
+		] );
 	}
 
 	public function add_body_classes( $classes ) {

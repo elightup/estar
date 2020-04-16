@@ -13,6 +13,8 @@ class Post {
 
 		add_filter( 'previous_post_link', [ $this, 'previous_post_link' ], 10, 4 );
 		add_filter( 'next_post_link', [ $this, 'next_post_link' ], 10, 4 );
+
+		add_action( 'wp_head', [ $this, 'output_css' ] );
 	}
 
 	public function register( $wp_customize ) {
@@ -65,6 +67,16 @@ class Post {
 				'right'  => __( 'Right', 'estar' ),
 				'center' => __( 'Center', 'estar' ),
 			],
+		] );
+
+		$wp_customize->add_setting( 'post_header_height', [
+			'sanitize_callback' => 'absint',
+		] );
+		$wp_customize->add_control( 'post_header_height', [
+			'label'       => esc_html__( 'Header Height (px)', 'estar' ),
+			'section'     => 'post',
+			'type'        => 'number',
+			'description' => esc_html__( 'Works only when the thumbnail is set as header background.', 'estar' ),
 		] );
 	}
 
@@ -119,6 +131,19 @@ class Post {
 		wp_reset_postdata();
 
 		return ob_get_clean();
+	}
+
+	public function output_css() {
+		if ( ! is_singular() ) {
+			return;
+		}
+		$type = is_page() ? 'page' : 'post';
+
+		$height             = self::get_header_height();
+		$thumbnail_position = self::get_thumbnail_position();
+		if ( $height && 'thumbnail-header-background' === $thumbnail_position ) {
+			echo '<style>.entry-header { height: ', wp_strip_all_tags( $height ), 'px; }</style>';
+		}
 	}
 
 	public static function date() {
@@ -177,5 +202,10 @@ class Post {
 
 		$class = 'thumbnail-header-background' === $thumbnail_position ? 'alignfull' : ( 'no-sidebar' === $layout ? 'alignwide' : '' );
 		return apply_filters( 'estar_post_thumbnail_class', $class );
+	}
+
+	public static function get_header_height() {
+		$type = is_page() ? 'page' : 'post';
+		return apply_filters( 'estar_post_header_height', get_theme_mod( "{$type}_header_height" ) );
 	}
 }
