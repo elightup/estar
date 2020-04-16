@@ -187,7 +187,7 @@ class Loader {
 		new Fonts\Fonts;
 		new Colors\Colors;
 
-		$sanitizer = new Sanitizer;
+		$sanitizer = new Customizer\Sanitizer;
 
 		new Customizer( $sanitizer );
 

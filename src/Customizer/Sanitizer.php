@@ -1,5 +1,5 @@
 <?php
-namespace EStar;
+namespace EStar\Customizer;
 
 class Sanitizer {
 	public function sanitize_checkbox( $checked ) {
