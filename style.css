@@ -1686,6 +1686,14 @@ blockquote.has-text-align-right,
 	align-items: start;
 }
 
+.list-vertical .entries {
+	display: block;
+}
+
+.list-vertical .entry + .entry {
+	margin-top: 48px;
+}
+
 .list-vertical .entry-thumbnail {
 	margin-bottom: 16px;
 	padding-bottom: 56.25%;
