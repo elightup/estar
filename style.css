@@ -318,6 +318,10 @@ button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type
 	opacity: .75;
 }
 
+button[disabled], input[type="button"][disabled], input[type="submit"][disabled], input[type="reset"][disabled] {
+	background-color: var(--color-gray);
+}
+
 fieldset {
 	padding: 8px 12px;
 	margin-bottom: 1.5em;

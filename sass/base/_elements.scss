@@ -27,6 +27,10 @@ select {
 }
 button, input[type="button"], input[type="submit"], input[type="reset"] {
 	@include button;
+
+	&[disabled] {
+		background-color: var(--color-gray);
+	}
 }
 fieldset {
 	padding: 8px 12px;
