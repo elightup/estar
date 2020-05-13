@@ -1193,6 +1193,7 @@ blockquote.has-text-align-right,
 .branding {
 	display: flex;
 	z-index: 1;
+	margin-right: auto;
 }
 
 .custom-logo-link {
@@ -1239,7 +1240,6 @@ blockquote.has-text-align-right,
 	letter-spacing: .05em;
 	font-size: var(--text-sm);
 	font-weight: 600;
-	margin-left: auto;
 	z-index: 1;
 }
 
