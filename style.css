@@ -1612,6 +1612,14 @@ blockquote.has-text-align-right,
 	position: fixed;
 	right: 12px;
 	bottom: 12px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all .25s;
+}
+
+.go-to-top.is-visible {
+	opacity: 1;
+	visibility: visible;
 }
 
 .go-to-top:hover {
