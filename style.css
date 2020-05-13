@@ -382,7 +382,7 @@ img, video, svg {
 	height: auto;
 }
 
-embed, iframe, object {
+figure, embed, iframe, object {
 	max-width: 100%;
 }
 
@@ -1532,8 +1532,7 @@ blockquote.has-text-align-right,
 
 .reply a:before {
 	content: "\21B5";
-	-webkit-transform: scale(1, -1);
-	        transform: scale(1, -1);
+	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
@@ -1704,8 +1703,8 @@ blockquote.has-text-align-right,
 }
 
 .grid .entries {
-	-webkit-column-gap: 32px;
-	        column-gap: 32px;
+	-moz-column-gap: 32px;
+	     column-gap: 32px;
 	row-gap: 48px;
 }
 
