@@ -78,7 +78,7 @@ class Page {
 			return $classes;
 		}
 		if ( ! is_page_template() ) {
-			$classes[] = 'entry-header-' . get_theme_mod( 'page_header_align', 'left' );
+			$classes[] = 'entry-header-' . esc_attr( get_theme_mod( 'page_header_align', 'left' ) );
 		}
 
 		return $classes;

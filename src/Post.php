@@ -88,13 +88,13 @@ class Post {
 
 		$thumbnail_position = self::get_thumbnail_position();
 		if ( has_post_thumbnail() || 'thumbnail-header-background' !== $thumbnail_position ) {
-			$classes[] = $thumbnail_position;
+			$classes[] = esc_attr( $thumbnail_position );
 		}
 
 		if ( ! is_single() ) {
 			return $classes;
 		}
-		$classes[] = 'entry-header-' . get_theme_mod( 'post_header_align', 'left' );
+		$classes[] = 'entry-header-' . esc_attr( get_theme_mod( 'post_header_align', 'left' ) );
 		return $classes;
 	}
 
@@ -146,7 +146,7 @@ class Post {
 		$height             = self::get_header_height();
 		$thumbnail_position = self::get_thumbnail_position();
 		if ( $height && 'thumbnail-header-background' === $thumbnail_position ) {
-			echo '<style>.entry-header { height: ', esc_html( $height ), 'px; }</style>';
+			echo '<style>.entry-header { height: ', absint( $height ), 'px; }</style>';
 		}
 	}
 

@@ -114,7 +114,7 @@ class PostSettings {
 
 		$content_width = rwmb_meta( 'content_width' );
 		if ( $content_width ) {
-			$classes[] = "content-$content_width";
+			$classes[] = esc_attr( "content-$content_width" );
 		}
 
 		$header_sticky = rwmb_meta( 'header_sticky' );
@@ -134,7 +134,7 @@ class PostSettings {
 		$align = rwmb_meta( 'post_header_align' );
 		if ( $align ) {
 			$classes = array_diff( $classes, ['entry-header-left', 'entry-header-right', 'entry-header-center'] );
-			$classes[] = "entry-header-$align";
+			$classes[] = esc_attr( "entry-header-$align" );
 		}
 
 		$classes = array_unique( array_filter( $classes ) );

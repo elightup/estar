@@ -98,7 +98,7 @@ class Archive {
 		$classes[] = 'archive hfeed'; // .hfeed is required for hAtom.
 
 		$layout    = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
-		$classes[] = $layout;
+		$classes[] = esc_attr( $layout );
 		if ( 'grid-card' === $layout ) {
 			$classes[] = 'grid';
 		}
@@ -117,7 +117,7 @@ class Archive {
 	}
 
 	public function change_excerpt_length( $length ) {
-		return get_theme_mod( 'archive_excerpt_length', 55 );
+		return is_admin() ? $length : get_theme_mod( 'archive_excerpt_length', 55 );
 	}
 
 	public function change_archive_title( $title ) {
@@ -133,8 +133,8 @@ class Archive {
 		$sizes = [
 			'list-horizontal' => 'post-thumbnail',
 			'list-vertical'   => 'medium_large',
-			'grid'            => 'grid',
-			'grid-card'       => 'grid',
+			'grid'            => 'estar-grid',
+			'grid-card'       => 'estar-grid',
 		];
 		$layout = get_theme_mod( 'archive_content_layout', 'list-horizontal' );
 		return $sizes[ $layout ];

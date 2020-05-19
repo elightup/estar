@@ -7,7 +7,7 @@ class Layout {
 	}
 
 	public static function add_body_classes( $classes ) {
-		$classes[] = self::get_layout();
+		$classes[] = esc_attr( self::get_layout() );
 		return $classes;
 	}
 
