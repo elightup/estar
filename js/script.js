@@ -21,6 +21,33 @@
 		} );
 	}
 
+	function keepFocusInMenu() {
+		document.addEventListener( 'keydown', function( e ) {
+			const nav = document.querySelector( '.nav' );
+
+			if ( ! nav || ! nav.classList.contains( 'is-open' ) ) {
+				return;
+			}
+
+			const elements = [...nav.querySelectorAll( 'input, a, button' )],
+				lastEl = elements[ elements.length - 1 ],
+				firstEl = elements[0],
+				activeEl = document.activeElement,
+				tabKey = e.keyCode === 9,
+				shiftKey = e.shiftKey;
+
+			if ( ! shiftKey && tabKey && lastEl === activeEl ) {
+				e.preventDefault();
+				firstEl.focus();
+			}
+
+			if ( shiftKey && tabKey && firstEl === activeEl ) {
+				e.preventDefault();
+				lastEl.focus();
+			}
+		} );
+	}
+
 	// @link https://www.w3.org/WAI/tutorials/menus/flyout/
 	function toggleSubmenu() {
 		const nav = document.querySelector( '.nav' );
@@ -111,6 +138,7 @@
 		sidebar.style.paddingTop = `${entryHeader.clientHeight}px`;
 	}
 
+	keepFocusInMenu();
 	toggleMenu();
 	toggleSubmenu();
 	goToTop();
