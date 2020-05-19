@@ -9,7 +9,6 @@ class PostSettings {
 		add_filter( 'estar_post_thumbnail_position', [ $this, 'get_post_thumbnail_position' ] );
 		add_filter( 'estar_post_thumbnail_class', [ $this, 'get_post_thumbnail_class' ] );
 		add_filter( 'estar_post_header_height', [ $this, 'get_post_header_height' ] );
-		add_action( 'wp_head', [ $this, 'output_custom_css' ] );
 	}
 
 	public function register_meta_boxes( $meta_boxes ) {
@@ -102,12 +101,6 @@ class PostSettings {
 						'0' => esc_html__( 'No', 'estar' ),
 					],
 				],
-				[
-					'name' => esc_html__( 'Custom CSS', 'estar' ),
-					'id'   => 'custom_css',
-					'type' => 'textarea',
-					'rows' => 10,
-				],
 			],
 		];
 
@@ -182,15 +175,5 @@ class PostSettings {
 			$height = $settings;
 		}
 		return $height;
-	}
-
-	public function output_custom_css() {
-		if ( ! is_singular() ) {
-			return;
-		}
-		$css = rwmb_meta( 'custom_css' );
-		if ( $css ) {
-			echo '<style>', wp_strip_all_tags( $css ), '</style>';
-		}
 	}
 }

@@ -1,1 +1,2 @@
-<?php the_custom_logo() ?>
+<?php
+the_custom_logo();

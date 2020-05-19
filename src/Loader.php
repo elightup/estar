@@ -149,6 +149,7 @@ class Loader {
 			],
 		] );
 
+		// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
 		$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 768 );
 	}
 

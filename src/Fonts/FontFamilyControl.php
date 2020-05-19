@@ -32,6 +32,8 @@ class FontFamilyControl extends \WP_Customize_Control {
 			</optgroup>
 			<optgroup label="<?php esc_attr_e( 'Google Fonts', 'estar' ); ?>">
 				<?php
+				// Using PHP include instead of get_template_part to get array of fonts config.
+				// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 				$fonts = include __DIR__ . '/google-fonts.php';
 				foreach ( $fonts as $font ) {
 					printf(

@@ -107,8 +107,10 @@ class Post {
 		if ( empty( $adjacent_post ) ) {
 			return $output;
 		}
+
+		// Using global $post for setup_postdata() to make template tags work.
 		global $post;
-		$post = $adjacent_post;
+		$post = $adjacent_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		setup_postdata( $post );
 
 		ob_start();
@@ -122,8 +124,10 @@ class Post {
 		if ( empty( $adjacent_post ) ) {
 			return $output;
 		}
+
+		// Using global $post for setup_postdata() to make template tags work.
 		global $post;
-		$post = $adjacent_post;
+		$post = $adjacent_post; // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 		setup_postdata( $post );
 
 		ob_start();
@@ -142,7 +146,7 @@ class Post {
 		$height             = self::get_header_height();
 		$thumbnail_position = self::get_thumbnail_position();
 		if ( $height && 'thumbnail-header-background' === $thumbnail_position ) {
-			echo '<style>.entry-header { height: ', wp_strip_all_tags( $height ), 'px; }</style>';
+			echo '<style>.entry-header { height: ', esc_html( $height ), 'px; }</style>';
 		}
 	}
 
@@ -152,24 +156,22 @@ class Post {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		printf(
+			$time_string, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
 			esc_html( get_the_modified_date() )
 		);
-
-		echo $time_string; // WPCS: OK.
 	}
 
 	public static function author() {
-		$byline = sprintf(
+		printf(
 			'<span class="author vcard">%s <a class="url fn n" href="%s">%s</a></span>',
 			get_avatar( get_the_author_meta( 'user_email' ), 24 ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		);
-		echo $byline; // WPCS: OK.
 	}
 
 	public static function categories() {
@@ -177,10 +179,7 @@ class Post {
 	}
 
 	public static function tags() {
-		$tags = get_the_tag_list( '', '' );
-		if ( $tags ) {
-			echo '<div class="tags">', $tags, '</div>'; // WPCS: OK.
-		}
+		the_tags( '<div class="tags">', '', '</div>' );
 	}
 
 	public static function get_thumbnail_position() {
