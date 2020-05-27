@@ -1,0 +1,41 @@
+body {
+	font-family: var(--font-sans);
+	line-height: 1.5;
+	color: var(--color-base);
+}
+
+// Headings.
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	color: var(--color-dark);
+	margin: 0 0 1.5rem;
+	line-height: 1.25;
+	font-weight: 700;
+}
+h1 {
+	font-size: var(--text-3xl);
+}
+h2 {
+	font-size: var(--text-2xl);
+}
+h3 {
+	font-size: var(--text-xl);
+}
+h4 {
+	font-size: var(--text-lg);
+}
+h5 {
+	font-size: var(--base-md);
+}
+h6 {
+	font-size: var(--base-sm);
+}
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: all .25s;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

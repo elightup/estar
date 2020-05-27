@@ -2,234 +2,97 @@
 .header {
 	padding: 8px 0;
 	border-bottom: 1px solid var(--color-light);
-	position: sticky;
-	top: 0;
 	background: #fff;
-	z-index: 9;
+	z-index: 99;
 
-	.container {
+	&-inner {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		position: relative;
 	}
+}
+
+// Sticky header.
+.header-sticky .header {
+	position: sticky;
+	top: 0;
 }
 // For logged in users.
 @media (min-width: 601px) and (max-width: 782px) {
-	.admin-bar .header {
+	.header-sticky.admin-bar .header {
 		top: 46px;
 	}
 }
 @media (min-width: 783px) {
-	.admin-bar .header {
+	.header-sticky.admin-bar .header {
 		top: 32px;
+	}
+}
+
+// Transparent header.
+.header-transparent {
+	.header {
+		position: absolute;
+		left: 0;
+		right: 0;
+		background: none;
+		border-bottom-color: rgba(255, 255, 255, .2);
+	}
+	.site-description,
+	.site-title a,
+	.menu-toggle,
+	.cart-icon,
+	.search-open {
+		color: #fff;
+	}
+	.site-title a:hover,
+	.menu-toggle:hover,
+	.cart-icon:hover,
+	.search-open:hover {
+		opacity: .75;
 	}
 }
 
 .branding {
 	display: flex;
+	z-index: 1;
+	margin-right: auto;
 }
-.logo, .logo img {
-	margin: 0;
+.custom-logo-link {
+	margin-right: 12px;
+}
+.custom-logo {
 	display: block;
 }
-.site-name {
-	margin-left: 12px;
-
-	.hide-site-name & {
-		display: none;
-	}
+.hide-site-name .site-name {
+	display: none;
 }
 .site-title {
-	font-size: var(--text-lg);
+	font-size: var(--text-xl);
 	font-weight: 700;
+	line-height: 1;
 	text-transform: uppercase;
-	letter-spacing: .05em;
+	letter-spacing: var(--tracking-wide);
 	margin: 0;
 
 	a {
-		color: inherit;
+		color: var(--color-dark);
 		text-decoration: none;
 	}
 }
 
-// Primary Menu.
-.nav {
-	text-transform: uppercase;
-	letter-spacing: .05em;
-	font-size: var(--text-sm);
-	font-weight: 500;
-
-	ul {
-		display: none;
-	}
-	li {
-		border-top: 1px solid var(--color-light);
-	}
-	a {
-		display: block;
-		padding: 8px 12px;
-		color: inherit;
-
-		&:hover {
-			text-decoration: none;
-		}
-	}
-
-	.menu {
-		border-bottom: 1px solid var(--color-light);
-	}
-
-	// Indent sub menus.
-	.sub-menu {
-		text-indent: 12px;
-		font-size: var(--text-xs);
-
-		ul {
-			text-indent: 24px;
-
-			ul {
-				text-indent: 36px;
-			}
-		}
-	}
-}
-
-// Active status on selected.
-.current-menu-item > a,
-.current-menu-item > .menu-text,
-.current-menu-ancestor > .menu-text {
-	color: var(--color-accent);
-}
-
-// Toggle icon for hamburger menu.
-.menu-toggle {
-	width: 24px;
-	height: 20px;
-	padding: 0;
-	border: 0;
-	position: relative;
-	background: transparent;
-	color: inherit;
-	display: flex;
-
-	// 3 lines.
-	&:before {
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 24px;
-		height: 20px;
-		border-top: 12px double;
-		border-bottom: 4px solid;
-	}
-}
-
-// Dropdown icon for submenu toggling.
-.menu-text {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-
-	a {
-		padding-right: 0;
-		flex: 1;
-	}
-}
-.sub-menu-toggle {
-	color: inherit;
-	background: transparent;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 12px 12px 12px 4px;
-
-	&:after {
-		content: "";
-		display: block;
-		border: 4px solid transparent;
-		border-top-color: currentColor;
-		width: 0;
-		height: 0;
-		margin-top: 4px;
-	}
-
-	.is-open > .menu-text > &:after {
-		border-top-color: transparent;
-		border-bottom-color: currentColor;
-		margin-top: -6px;
-	}
-}
-
-// Open state.
-.is-open > ul {
-	display: block;
-}
-.is-open > .menu {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	right: 0;
-	z-index: 9;
-	background: #fff;
-}
-
 @media (min-width: 1024px) {
-	.menu-toggle {
-		display: none;
-	}
-	.nav {
-		.menu {
-			display: flex;
-			align-items: center;
+	.header-transparent {
+		.nav > ul > li > a,
+		.nav > ul > li > .menu-text > a,
+		.nav > ul > li > .menu-text > .sub-menu-toggle {
+			color: #fff;
 		}
-		li {
-			position: relative;
+		.nav > ul > li:hover > a,
+		.nav > ul > li:hover > .menu-text > a,
+		.nav > ul > li:hover > .menu-text > .sub-menu-toggle {
+			opacity: .75;
 		}
-
-		// Dropdown 2nd level.
-		.sub-menu {
-			position: absolute;
-			left: 0;
-			top: 100%;
-			z-index: 999;
-			background: #fff;
-			width: 180px;
-			box-shadow: 0 5px 12px rgba(74, 85, 104, .2);
-			text-indent: 0;
-		}
-
-		// Dropdown 3-rd, 4th, ... level submenu
-		.sub-menu ul {
-			top: 0;
-			left: 100%;
-		}
-
-		.menu,
-		.menu > li,
-		li:first-child {
-			border: none;
-		}
-	}
-
-	.nav li:hover > ul {
-		display: block;
-	}
-
-	// Active status when hover.
-	.nav li:hover > a,
-	.nav li:hover > .menu-text {
-		color: var(--color-accent);
-	}
-
-	.sub-menu .sub-menu-toggle:after {
-		border-top-color: transparent;
-		border-left-color: currentColor;
-		margin-top: 0;
-	}
-	.sub-menu .is-open > .menu-text > .sub-menu-toggle::after {
-		border-bottom-color: transparent;
-		margin-top: 0;
 	}
 }

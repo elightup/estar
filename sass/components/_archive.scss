@@ -1,0 +1,146 @@
+.page-header {
+	margin-bottom: 32px;
+}
+.page-title {
+	margin-bottom: 6px;
+}
+
+.more {
+	margin-bottom: 0;
+}
+
+.archive {
+	.entry-thumbnail {
+		display: block;
+		width: 100%;
+		padding-bottom: 75%;
+		position: relative;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.entry-meta {
+		text-transform: uppercase;
+		margin-bottom: 6px;
+		letter-spacing: var(--tracking-wide);
+	}
+	.entry-title {
+		margin-bottom: 12px;
+
+		a {
+			color: var(--color-dark);
+
+			&:hover {
+				text-decoration: none;
+				color: var(--color-accent);
+			}
+		}
+	}
+}
+.entries {
+	display: grid;
+	grid-gap: 48px;
+	grid-template-columns: 1fr;
+	align-items: start;
+}
+
+// List vertical.
+.list-vertical {
+	.entries {
+		display: block;
+	}
+	.entry + .entry {
+		margin-top: 48px;
+	}
+	.entry-thumbnail {
+		margin-bottom: 16px;
+		padding-bottom: 56.25%;
+	}
+}
+
+// Grid layout.
+.grid {
+	.entries {
+		column-gap: 32px;
+		row-gap: 48px;
+	}
+	.entry-thumbnail {
+		padding-bottom: 56.25%;
+
+		+ .entry-body {
+			margin-top: 16px;
+		}
+	}
+	.entry-title {
+		font-size: var(--text-xl);
+	}
+	.entry-meta {
+		display: flex;
+		justify-content: space-between;
+		text-transform: none;
+		margin-bottom: 0;
+	}
+}
+
+// Card style for grid.
+.grid-card {
+	background: var(--color-lightest);
+
+	.entries {
+		row-gap: 32px;
+	}
+	.entry {
+		box-shadow: var(--shadow-md);
+
+		&:hover {
+			box-shadow: var(--shadow-lg);
+		}
+	}
+	.entry-thumbnail img {
+		border-radius: 4px 4px 0 0;
+	}
+	.entry-body {
+		border-radius: 4px;
+		background: #fff;
+		padding: 18px 24px;
+	}
+	.entry-thumbnail + .entry-body {
+		border-radius: 0 0 4px 4px;
+		margin-top: 0;
+	}
+
+	// Pagination.
+	.page-numbers {
+		background: #fff;
+	}
+}
+
+@media ( min-width: 768px ) {
+	.grid .entries {
+		grid-template-columns: 1fr 1fr;
+	}
+	.list-horizontal {
+		.entry {
+			display: flex;
+			align-items: flex-start;
+		}
+		.entry-thumbnail {
+			width: 280px;
+			padding-bottom: 210px;
+			margin-right: 16px;
+		}
+		.entry-body {
+			flex: 1;
+		}
+	}
+}
+@media ( min-width: 1024px ) {
+	.grid.no-sidebar .entries {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}

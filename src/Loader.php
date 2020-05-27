@@ -3,11 +3,26 @@ namespace EStar;
 
 class Loader {
 	public function __construct() {
+		add_action( 'tgmpa_register', [ $this, 'register_plugins' ] );
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
 
 		$this->init();
+	}
+
+	public function register_plugins() {
+		$plugins = [
+			[
+				'name' => __( 'eRocket', 'estar' ),
+				'slug' => 'erocket',
+			],
+			[
+				'name' => __( 'Meta Box', 'estar' ),
+				'slug' => 'meta-box',
+			],
+		];
+		tgmpa( $plugins );
 	}
 
 	public function setup() {
@@ -19,9 +34,13 @@ class Loader {
 
 		add_theme_support( 'automatic-feed-links' );
 		add_theme_support( 'title-tag' );
-		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption'] );
 		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support( 'custom-logo' );
+
+		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 373, 280, true );
+		add_image_size( 'estar-grid', 373, 210, true );
 
 		/**
 		 * Add support for the block editor.
@@ -83,6 +102,18 @@ class Loader {
 				'size'      => 36,
 				'slug'      => '4xl',
 			],
+			[
+				'name'      => _x( '5XL', 'Name of the 4XL font size in the block editor', 'estar' ),
+				'shortName' => _x( '5XL', 'Short name of the 4XL font size in the block editor.', 'estar' ),
+				'size'      => 48,
+				'slug'      => '5xl',
+			],
+			[
+				'name'      => _x( '6XL', 'Name of the 4XL font size in the block editor', 'estar' ),
+				'shortName' => _x( '6XL', 'Short name of the 4XL font size in the block editor.', 'estar' ),
+				'size'      => 64,
+				'slug'      => '6xl',
+			],
 		] );
 
 		add_theme_support( 'editor-color-palette', [
@@ -118,26 +149,31 @@ class Loader {
 			],
 		] );
 
-		$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 648 );
+		// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
+		$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 768 );
 	}
 
 	public function enqueue_assets() {
-		wp_enqueue_style( 'estar', get_template_directory_uri() . '/style.css', [], '0.0.1' );
-
-		if ( is_child_theme() ) {
-			wp_enqueue_style( get_stylesheet(), get_stylesheet_uri(), ['estar'], '0.0.1' );
+		$suffix = defined( 'WP_DEBUG' ) && WP_DEBUG ? '' : '.min';
+		wp_enqueue_style( 'estar', get_template_directory_uri() . "/style$suffix.css", [], '0.0.1' );
+		wp_enqueue_script( 'estar', get_template_directory_uri() . "/js/script$suffix.js", [], '0.0.1', true );
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
 		}
-
-		wp_enqueue_script( 'estar', get_template_directory_uri() . '/js/script.js', [], '0.0.1', true );
-		wp_localize_script( 'estar', 'EStar', [
-			'submenuToggle' => __( 'Show submenu for %s', 'estar' ),
-		] );
 	}
 
 	public function widgets_init() {
 		register_sidebar( [
-			'name'          => esc_html__( 'Footer', 'estar' ),
+			'name'          => esc_html__( 'Sidebar', 'estar' ),
 			'id'            => 'sidebar-1',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		] );
+		register_sidebar( [
+			'name'          => esc_html__( 'Footer', 'estar' ),
+			'id'            => 'sidebar-2',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -146,21 +182,37 @@ class Loader {
 	}
 
 	private function init() {
+		Structure::setup();
+		Layout::setup();
+
 		new Fonts\Fonts;
 		new Colors\Colors;
 
-		$sanitizer = new Sanitizer;
+		$sanitizer = new Customizer\Sanitizer;
 
-		new Customizer;
+		new Customizer( $sanitizer );
 
-		$logo = new Logo( $sanitizer );
-		$logo->setup();
+		new Archive( $sanitizer );
+		new Post( $sanitizer );
+		new Page( $sanitizer );
 
-		$icons = new Icons;
-		new GoToTop( $sanitizer, $icons );
+		new GoToTop( $sanitizer );
 
 		if ( ! is_admin() ) {
-			new TemplateFunctions;
+			new Menu;
+		}
+
+		if ( defined( 'FL_THEME_BUILDER_VERSION' ) ) {
+			new Integration\BeaverThemer;
+		}
+		if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
+			new Integration\ElementorPro;
+		}
+		if ( defined( 'WC_PLUGIN_FILE' ) ) {
+			new Integration\WooCommerce( $sanitizer );
+		}
+		if ( defined( 'RWMB_VER' ) ) {
+			new PostSettings;
 		}
 	}
 }

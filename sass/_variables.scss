@@ -1,9 +1,9 @@
 :root {
-	// Bootstrap Grid with padding on both sides, so no negative margins on childrens.
+	// Bootstrap Grid with padding on both sides.
 	// https://getbootstrap.com/docs/4.4/layout/overview/
-	--container-xl: 1140px;
-	--container-lg: 960px;
-	--container-md: 720px;
+	--container-xl: 1110px;
+	--container-lg: 930px;
+	--container-md: 690px;
 
 	// https://tailwindcss.com/docs/font-family/
 	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -18,6 +18,9 @@
 	--text-xl: 20px;
 	--text-2xl: 24px;
 	--text-3xl: 30px;
+	--text-4xl: 36px;
+	--text-5xl: 48px;
+	--text-6xl: 64px;
 
 	// https://tailwindcss.com/docs/text-color/
 	--color-accent: #4299e1; // blue-500
@@ -25,4 +28,15 @@
 	--color-base: #4a5568; // gray-700
 	--color-gray: #a0aec0; // gray-500
 	--color-light: #e2e8f0; // gray-300
+	--color-lighter: #edf2f7; // gray-200
+	--color-lightest: #f7fafc; // gray-100
+
+	// https://tailwindcss.com/docs/box-shadow/
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+	// https://tailwindcss.com/docs/letter-spacing/
+	--tracking-wide: 0.025em;
+	--tracking-wider: 0.05em;
+	--tracking-widest: 0.1em;
 }

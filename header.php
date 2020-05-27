@@ -6,33 +6,18 @@
 	<?php wp_head() ?>
 </head>
 <body <?php body_class() ?>>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'estar' ); ?></a>
+
 	<?php
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
+	} else {
+		do_action( 'wp_body_open' ); // phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
+
+	do_action( 'estar_header_before' );
+	do_action( 'estar_header' );
+	do_action( 'estar_header_after' );
 	?>
-	<header class="header">
-		<div class="container">
-			<div class="branding">
-				<?php get_template_part( 'template-parts/site/logo' ); ?>
-				<div class="site-name">
-					<?php
-					get_template_part( 'template-parts/site/title' );
-					get_template_part( 'template-parts/site/description' );
-					?>
-				</div>
-			</div>
-			<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
-				<nav class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>">
-					<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span></button>
-					<?php
-					wp_nav_menu( [
-						'container'      => null,
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					] );
-					?>
-				</nav>
-			<?php endif ?>
-		</div>
-	</header>
+
+	<div class="content container" id="content">

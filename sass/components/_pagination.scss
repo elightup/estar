@@ -1,16 +1,29 @@
 .pagination {
-	text-align: center;
+	margin-top: 32px;
+
+	.nav-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 }
 .page-numbers {
-	padding: .25rem .5rem;
+	background: var(--color-light);
+	color: var(--color-base);
+	border-radius: 2px;
+	border: none;
+	display: inline-block;
+	padding: 8px 12px;
+	margin: 0 4px 4px 0;
+	line-height: 1;
+	font-size: var(--text-sm);
 }
-a.page-numbers {
-	border: 1px solid var(----color-accent);
-	border-radius: .125rem;
+a.page-numbers:hover {
 	text-decoration: none;
-
-	&:hover {
-		background: var(----color-accent);
-		color: #fff;
-	}
+	background: var(--color-accent);
+	color: #fff;
+}
+.page-numbers.current {
+	background: var(--color-accent);
+	color: #fff;
 }

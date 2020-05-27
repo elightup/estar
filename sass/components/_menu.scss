@@ -1,0 +1,171 @@
+// Primary Menu.
+.nav {
+	text-transform: uppercase;
+	letter-spacing: .05em;
+	font-size: var(--text-sm);
+	font-weight: 600;
+	z-index: 1;
+
+	ul {
+		display: none;
+	}
+	li {
+		border-top: 1px solid var(--color-light);
+	}
+	a {
+		display: block;
+		padding: 8px 12px;
+		color: inherit;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.menu {
+		box-shadow: var(--shadow-md);
+		border-bottom: 1px solid var(--color-light);
+	}
+
+	// Indent sub menus.
+	.sub-menu {
+		text-indent: 12px;
+		font-size: var(--text-xs);
+
+		ul {
+			text-indent: 24px;
+
+			ul {
+				text-indent: 36px;
+			}
+		}
+	}
+}
+
+// Active status on selected.
+.current-menu-item > a,
+.current-menu-item > .menu-text,
+.current-menu-ancestor > .menu-text {
+	color: var(--color-accent);
+}
+
+// Toggle icon for hamburger menu.
+.menu-toggle {
+	padding: 0;
+	border: 0;
+	position: relative;
+	background: transparent;
+	color: inherit;
+	display: flex;
+	align-items: center;
+}
+
+// Dropdown icon for submenu toggling.
+.menu-text {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+
+	a {
+		padding-right: 0;
+		flex: 1;
+	}
+}
+.sub-menu-toggle {
+	color: inherit;
+	background: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 12px 12px 4px;
+
+	&:after {
+		content: "";
+		display: block;
+		border: 4px solid transparent;
+		border-top-color: currentColor;
+		width: 0;
+		height: 0;
+		margin-top: 4px;
+	}
+
+	.is-open > .menu-text > &:after {
+		border-top-color: transparent;
+		border-bottom-color: currentColor;
+		margin-top: -6px;
+	}
+}
+
+// Open state.
+.is-open > ul {
+	display: block;
+}
+.is-open > .menu {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 9;
+	background: #fff;
+}
+
+@media (min-width: 1024px) {
+	.menu-toggle {
+		display: none;
+	}
+	.nav {
+		.menu {
+			box-shadow: none;
+			display: flex;
+			align-items: center;
+		}
+		li {
+			position: relative;
+		}
+
+		// Dropdown 2nd level.
+		.sub-menu {
+			position: absolute;
+			left: 0;
+			top: 100%;
+			z-index: 999;
+			background: #fff;
+			width: 180px;
+			box-shadow: var(--shadow-md);
+			text-indent: 0;
+		}
+
+		// Dropdown 3-rd, 4th, ... level submenu
+		.sub-menu ul {
+			top: 0;
+			left: 100%;
+		}
+
+		.menu,
+		.menu > li,
+		li:first-child {
+			border: none;
+		}
+	}
+
+	.nav li:hover > ul {
+		display: block;
+	}
+
+	// Active status when hover.
+	.nav li:hover > a,
+	.nav li:hover > .menu-text {
+		color: var(--color-accent);
+	}
+
+	.sub-menu .sub-menu-toggle:after {
+		border-top-color: transparent;
+		border-left-color: currentColor;
+		margin-top: 0;
+	}
+	.sub-menu .is-open > .menu-text > .sub-menu-toggle::after {
+		border-bottom-color: transparent;
+		margin-top: 0;
+	}
+}

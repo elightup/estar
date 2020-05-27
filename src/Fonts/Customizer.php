@@ -1,14 +1,19 @@
 <?php
 namespace EStar\Fonts;
 
+use EStar\Customizer as Base;
+use EStar\Customizer\Controls\CheckboxList;
+use EStar\Customizer\Controls\Heading;
+
 class Customizer {
 	private $elements;
+	private $wp_customize;
+	private $section;
 
 	public function __construct() {
 		$this->elements = Fonts::get_elements();
 
 		add_action( 'customize_register', [ $this, 'register' ] );
-		add_action( 'customize_controls_enqueue_scripts', [ $this, 'enqueue_controls_scripts' ] );
 		add_action( 'customize_preview_init', [ $this, 'enqueue_preview_scripts' ] );
 	}
 
@@ -17,38 +22,92 @@ class Customizer {
 			return;
 		}
 
-		$wp_customize->add_panel( 'estar_fonts', [
+		$this->wp_customize = $wp_customize;
+
+		$this->wp_customize->add_panel( 'estar_fonts', [
 			'title'    => __( 'Fonts', 'estar' ),
-			'priority' => '1100',
+			'priority' => Base::get_priority( 'fonts' ),
 		] );
 
-		array_walk( $this->elements, [ $this, 'register_element_settings' ], $wp_customize );
+		$this->register_global_settings();
+
+		array_walk( $this->elements, [ $this, 'register_element_settings' ] );
 	}
 
-	public function register_element_settings( $element, $id, $wp_customize ) {
-		// Section.
-		$wp_customize->add_section( "{$id}_font", [
+	private function register_global_settings() {
+		$this->section = 'font_global';
+
+		$this->wp_customize->add_section( $this->section, [
+			'title' => __( 'Global', 'estar' ),
+			'panel' => 'estar_fonts',
+		] );
+
+		$this->wp_customize->add_setting( 'base_heading' );
+		$this->wp_customize->add_control( new Heading( $this->wp_customize, 'base_heading', [
+			'label'   => __( 'Base Font', 'estar' ),
+			'section' => $this->section,
+			'panel'   => 'estar_fonts',
+		] ) );
+
+		$this->register_font_family( 'base' );
+		$this->register_line_height( 'base' );
+
+		$this->wp_customize->add_setting( 'headings_heading' );
+		$this->wp_customize->add_control( new Heading( $this->wp_customize, 'headings_heading', [
+			'label'   => __( 'Headings Font', 'estar' ),
+			'section' => $this->section,
+			'panel'   => 'estar_fonts',
+		] ) );
+
+		$this->register_font_family( 'headings' );
+		$this->register_line_height( 'headings' );
+
+		$this->wp_customize->add_setting( 'subsets_heading' );
+		$this->wp_customize->add_control( new Heading( $this->wp_customize, 'subsets_heading', [
+			'label'   => __( 'Subsets', 'estar' ),
+			'section' => $this->section,
+			'panel'   => 'estar_fonts',
+		] ) );
+
+		$this->register_font_subsets( 'global' );
+	}
+
+	private function register_element_settings( $element, $id ) {
+		$this->section = "font_$id";
+
+		$this->wp_customize->add_section( $this->section, [
 			'title' => $element['title'],
 			'panel' => 'estar_fonts',
 		] );
 
-		// Font family.
-		$wp_customize->add_setting( "{$id}_font_family", [
+		// Font family are set in the Global section.
+		// $this->register_font_family( $id );
+
+		$this->register_font_style( $id );
+		$this->register_font_size( $id );
+		$this->register_line_height( $id );
+		$this->register_letter_spacing( $id );
+		$this->register_text_transform( $id );
+	}
+
+	private function register_font_family( $id ) {
+		$this->wp_customize->add_setting( "{$id}_font_family", [
 			'sanitize_callback' => 'esc_attr',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( new FontFamilyControl( $wp_customize, "{$id}_font_family", [
+		$this->wp_customize->add_control( new FontFamilyControl( $this->wp_customize, "{$id}_font_family", [
 			'label'   => __( 'Font Family', 'estar' ),
-			'section' => "{$id}_font",
+			'section' => $this->section,
 			'panel'   => 'estar_fonts',
 		] ) );
+	}
 
-		// Font style.
-		$wp_customize->add_setting( "{$id}_font_style", [
+	private function register_font_style( $id ) {
+		$this->wp_customize->add_setting( "{$id}_font_style", [
 			'sanitize_callback' => 'esc_attr',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( "{$id}_font_style", [
+		$this->wp_customize->add_control( "{$id}_font_style", [
 			'label'   => __( 'Font Style', 'estar' ),
 			'type'    => 'select',
 			'choices' => [
@@ -72,17 +131,48 @@ class Customizer {
 				'900'       => __( 'Ultra-Bold 900', 'estar' ),
 				'900italic' => __( 'Ultra-Bold 900 Italic', 'estar' ),
 			],
-			'section' => "{$id}_font",
+			'section' => $this->section,
 			'panel'   => 'estar_fonts',
 		] );
+	}
 
-		// Languages.
-		$wp_customize->add_setting( "{$id}_font_subsets", [
+	private function register_font_size( $id ) {
+		$this->wp_customize->add_setting( "{$id}_font_size", [
 			'sanitize_callback' => 'esc_attr',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( new CheckboxListControl( $wp_customize, "{$id}_font_subsets", [
-			'label'   => __( 'Languages', 'estar' ),
+		$this->wp_customize->add_control( "{$id}_font_size", [
+			'label'      => __( 'Font Size', 'estar' ),
+			'type'       => 'number',
+			'section'    => $this->section,
+			'panel'      => 'estar_fonts',
+			'input_atts' => ['step' => 'any'],
+		] );
+		$this->wp_customize->add_setting( "{$id}_font_size_unit", [
+			'default'           => 'px',
+			'sanitize_callback' => 'estar_sanitize_select',
+			'transport'         => 'postMessage',
+		] );
+		$this->wp_customize->add_control( "{$id}_font_size_unit", [
+			'type'    => 'select',
+			'choices' => [
+				'px'  => 'px',
+				'em'  => 'em',
+				'rem' => 'rem',
+				'%'   => '%',
+			],
+			'section' => $this->section,
+			'panel'   => 'estar_fonts',
+		] );
+	}
+
+	private function register_font_subsets( $id ) {
+		$this->wp_customize->add_setting( "{$id}_font_subsets", [
+			'sanitize_callback' => 'esc_attr',
+			'transport'         => 'postMessage',
+		] );
+		$this->wp_customize->add_control( new CheckboxList( $this->wp_customize, "{$id}_font_subsets", [
+			'label'   => '',
 			'choices' => [
 				'cyrillic'     => __( 'Cyrillic', 'estar' ),
 				'cyrillic-ext' => __( 'Cyrillic Extended', 'estar' ),
@@ -92,56 +182,28 @@ class Customizer {
 				'latin-ext'    => __( 'Latin Extended', 'estar' ),
 				'vietnamese'   => __( 'Vietnamese', 'estar' ),
 			],
-			'section' => "{$id}_font",
+			'section' => $this->section,
 			'panel'   => 'estar_fonts',
 		] ) );
+	}
 
-		// Font size.
-		$wp_customize->add_setting( "{$id}_font_size", [
+	private function register_line_height( $id ) {
+		$this->wp_customize->add_setting( "{$id}_line_height", [
 			'sanitize_callback' => 'esc_attr',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( "{$id}_font_size", [
-			'label'      => __( 'Font Size', 'estar' ),
-			'type'       => 'number',
-			'section'    => "{$id}_font",
-			'panel'      => 'estar_fonts',
-			'input_atts' => ['step' => 'any'],
-		] );
-		$wp_customize->add_setting( "{$id}_font_size_unit", [
-			'default'           => 'px',
-			'sanitize_callback' => 'estar_sanitize_select',
-			'transport'         => 'postMessage',
-		] );
-		$wp_customize->add_control( "{$id}_font_size_unit", [
-			'type'    => 'select',
-			'choices' => [
-				'px'  => 'px',
-				'em'  => 'em',
-				'rem' => 'rem',
-				'%'   => '%',
-			],
-			'section' => "{$id}_font",
-			'panel'   => 'estar_fonts',
-		] );
-
-		// Line height.
-		$wp_customize->add_setting( "{$id}_line_height", [
-			'sanitize_callback' => 'esc_attr',
-			'transport'         => 'postMessage',
-		] );
-		$wp_customize->add_control( "{$id}_line_height", [
+		$this->wp_customize->add_control( "{$id}_line_height", [
 			'label'      => __( 'Line Height', 'estar' ),
 			'type'       => 'number',
-			'section'    => "{$id}_font",
+			'section'    => $this->section,
 			'panel'      => 'estar_fonts',
 			'input_atts' => ['step' => 'any'],
 		] );
-		$wp_customize->add_setting( "{$id}_line_height_unit", [
+		$this->wp_customize->add_setting( "{$id}_line_height_unit", [
 			'sanitize_callback' => 'estar_sanitize_select',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( "{$id}_line_height_unit", [
+		$this->wp_customize->add_control( "{$id}_line_height_unit", [
 			'type'    => 'select',
 			'choices' => [
 				''    => '-',
@@ -150,28 +212,29 @@ class Customizer {
 				'rem' => 'rem',
 				'%'   => '%',
 			],
-			'section' => "{$id}_font",
+			'section' => $this->section,
 			'panel'   => 'estar_fonts',
 		] );
+	}
 
-		// Letter spacing.
-		$wp_customize->add_setting( "{$id}_letter_spacing", [
+	private function register_letter_spacing( $id ) {
+		$this->wp_customize->add_setting( "{$id}_letter_spacing", [
 			'sanitize_callback' => 'esc_attr',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( "{$id}_letter_spacing", [
+		$this->wp_customize->add_control( "{$id}_letter_spacing", [
 			'label'      => __( 'Letter Spacing', 'estar' ),
 			'type'       => 'number',
-			'section'    => "{$id}_font",
+			'section'    => $this->section,
 			'panel'      => 'estar_fonts',
 			'input_atts' => ['step' => 'any'],
 		] );
-		$wp_customize->add_setting( "{$id}_letter_spacing_unit", [
+		$this->wp_customize->add_setting( "{$id}_letter_spacing_unit", [
 			'default'           => 'px',
 			'sanitize_callback' => 'estar_sanitize_select',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( "{$id}_letter_spacing_unit", [
+		$this->wp_customize->add_control( "{$id}_letter_spacing_unit", [
 			'type'    => 'select',
 			'choices' => [
 				'px'  => 'px',
@@ -179,16 +242,17 @@ class Customizer {
 				'rem' => 'rem',
 				'%'   => '%',
 			],
-			'section' => "{$id}_font",
+			'section' => $this->section,
 			'panel'   => 'estar_fonts',
 		] );
+	}
 
-		// Text transform.
-		$wp_customize->add_setting( "{$id}_text_transform", [
+	private function register_text_transform( $id ) {
+		$this->wp_customize->add_setting( "{$id}_text_transform", [
 			'sanitize_callback' => 'esc_attr',
 			'transport'         => 'postMessage',
 		] );
-		$wp_customize->add_control( "{$id}_text_transform", [
+		$this->wp_customize->add_control( "{$id}_text_transform", [
 			'label'   => __( 'Text Transform', 'estar' ),
 			'type'    => 'select',
 			'choices' => [
@@ -198,17 +262,9 @@ class Customizer {
 				'uppercase'  => __( 'UPPERCASE', 'estar' ),
 				'capitalize' => __( 'Capitalize', 'estar' ),
 			],
-			'section' => "{$id}_font",
+			'section' => $this->section,
 			'panel'   => 'estar_fonts',
 		] );
-	}
-
-	/**
-	 * Enqueue scripts and styles for styling controls in the customizer.
-	 */
-	public function enqueue_controls_scripts() {
-		wp_enqueue_style( 'estar-fonts-controls', get_template_directory_uri() . '/src/Fonts/assets/controls.css', [], '1.0.0' );
-		wp_enqueue_script( 'estar-fonts-controls', get_template_directory_uri() . '/src/Fonts/assets/controls.js', ['jquery', 'customize-preview'], '1.0.0', true );
 	}
 
 	/**

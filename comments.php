@@ -8,11 +8,11 @@ if ( post_password_required() ) {
 		<h3 class="comments-title">
 			<?php
 			$estar_comment_count = get_comments_number();
-			printf( // WPCS: XSS OK.
+			echo esc_html( sprintf(
 				// Translators: 1: comment count number.
-				esc_html( _n( '%1$s comment', '%1$s comments', $estar_comment_count, 'estar' ) ),
+				_n( '%1$s comment', '%1$s comments', $estar_comment_count, 'estar' ),
 				number_format_i18n( $estar_comment_count )
-			);
+			) );
 			?>
 		</h3>
 		<ol class="comment-list">

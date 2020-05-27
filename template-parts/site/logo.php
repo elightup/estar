@@ -1,1 +1,2 @@
-<?php EStar\Logo::output(); ?>
+<?php
+the_custom_logo();

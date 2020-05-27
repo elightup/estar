@@ -1,37 +1,11 @@
-html {
-	font-family: var(--font-sans);
-	line-height: 1.5;
+body {
 	box-sizing: border-box;
-	color: var(--color-base);
+	word-break: break-word;
+	background: #fff;
+	overflow-x: hidden; // Fix horizontal scrollbar for .alignfull
 }
 *, *:before, *:after {
 	box-sizing: inherit;
-}
-
-// Headings.
-h1, h2, h3, h4, h5, h6 {
-	clear: both;
-	color: var(--color-dark);
-	margin: 0 0 1.5rem;
-	line-height: 1.25;
-}
-h1 {
-	font-size: var(--text-3xl);
-}
-h2 {
-	font-size: var(--text-2xl);
-}
-h3 {
-	font-size: var(--text-xl);
-}
-h4 {
-	font-size: var(--text-lg);
-}
-h5 {
-	font-size: var(--base-md);
-}
-h6 {
-	font-size: var(--base-sm);
 }
 
 // Forms.
@@ -39,31 +13,36 @@ input,
 textarea,
 select {
 	border: 1px solid var(--color-light);
-	border-radius: .25rem;
-	padding: .5rem;
-	line-height: 1.5;
+	border-radius: 4px;
+	padding: 8px 12px;
+	line-height: 24px;
+	font-size: var(--text-md);
+	color: var(--color-base);
 }
 textarea {
 	width: 100%;
 }
+select {
+	max-width: 100%;
+}
 button, input[type="button"], input[type="submit"], input[type="reset"] {
-	background: var(--color-accent);
-	color: #fff;
-	border-radius: .25rem;
-	border: none;
-	padding: .75rem 1rem;
-	cursor: pointer;
-	line-height: 1;
-	font-size: var(--text-sm);
-	font-weight: 700;
+	@include button;
 
-	&:hover {
-		text-decoration: none;
-		opacity: .75;
+	&[disabled] {
+		background-color: var(--color-gray);
 	}
 }
+fieldset {
+	padding: 8px 12px;
+	margin-bottom: 1.5em;
+	border: 1px solid var(--color-light);
+	border-radius: 4px;
+}
+legend {
+	padding: 0 4px;
+}
 
-p, ul, ol, blockquote, pre, figure, hr, dl, dd, table, address {
+p, ul, ol, blockquote, pre, figure, dl, dd, table, address {
 	margin: 0 0 1.5em;
 }
 
@@ -87,16 +66,8 @@ li > ol {
 hr {
 	background-color: var(--color-light);
 	border: 0;
-	height: 1px;
-}
-
-a {
-	color: var(--color-accent);
-	text-decoration: none;
-
-	&:hover {
-		text-decoration: underline;
-	}
+	height: 2px;
+	margin-bottom: 1.5em;
 }
 
 label {
@@ -109,15 +80,18 @@ table {
 }
 th, td {
 	border: 1px solid var(--color-light);
-	padding: .5rem 1rem;
+	padding: 8px 12px;
 }
 
-img, video {
+img, video, svg {
 	max-width: 100%;
 	height: auto;
 }
 figure, embed, iframe, object {
 	max-width: 100%;
+}
+svg {
+	fill: currentColor;
 }
 
 pre, code, kbd, samp, tt, var {
