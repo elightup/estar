@@ -1,15 +1,3 @@
-/*!
- * Theme Name:  eStar
- * Theme URI:   https://gretathemes.com/wordpress-themes/estar/
- * Author:      GretaThemes
- * Author URI:  https://gretathemes.com
- * Description: Flexible themes for building all types of websites.
- * Version:     0.0.1
- * License:     GNU General Public License v2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: estar
- * Tags:        bright, clean, elegant, light, minimal, modern, natural, professional, retro, simple, sophisticated, author-bio, classic-menu, custom-menu, editor-style, featured-images, fixed-menu, infinite-scroll, post-formats, post-slider, rtl-language-support, site-logo, social-menu, sticky-post, threaded-comments, translation-ready, blog, craft, fashion, food, holiday, journal, lifestream, music, nature, travel, tumblelog, white, responsive-layout, right-sidebar, two-columns
- */
 :root {
 	--container-xl: 1110px;
 	--container-lg: 930px;
