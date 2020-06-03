@@ -62,6 +62,14 @@ class Fonts {
 				'title'    => __( 'Post Title (Archive)', 'estar' ),
 				'selector' => '.archive .entry-title',
 			],
+			'post_content_singular' => [
+				'title'    => __( 'Post Content (Singular)', 'estar' ),
+				'selector' => '.entry-content',
+			],
+			'post_content_archive' => [
+				'title'    => __( 'Post Content (Archive)', 'estar' ),
+				'selector' => '.entry-summary',
+			],
 		];
 		return apply_filters( 'estar_fonts_elements', $elements );
 	}

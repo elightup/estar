@@ -156,6 +156,7 @@
 
 .entry-content {
 	@include clearfix;
+	font-size: var(--text-lg);
 }
 .page-links {
 	clear: both;
