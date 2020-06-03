@@ -1,3 +1,5 @@
+<?php do_action( 'estar_entry_before' ); ?>
+
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a class="entry-thumbnail" href="<?php the_permalink(); ?>">
@@ -27,3 +29,5 @@
 		<?php endif; ?>
 	</div>
 </article>
+
+<?php do_action( 'estar_entry_after' ); ?>
