@@ -202,7 +202,7 @@ class Loader {
 			new Menu;
 		}
 
-		if ( defined( 'FL_THEME_BUILDER_VERSION' ) ) {
+		if ( defined( 'FL_BUILDER_VERSION' ) && defined( 'FL_THEME_BUILDER_VERSION' ) ) {
 			new Integration\BeaverThemer;
 		}
 		if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
