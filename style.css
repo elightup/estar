@@ -1900,12 +1900,6 @@ blockquote.has-text-align-right,
 	margin: 0 12px;
 }
 
-.singular .entry-content > p:first-child {
-	font-size: var(--text-xl);
-	font-weight: 200;
-	color: var(--color-gray);
-}
-
 .thumbnail-after-header .entry-thumbnail {
 	order: 2;
 	margin-top: 32px;
