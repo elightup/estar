@@ -9,6 +9,15 @@
 	padding-top: 48px;
 	padding-bottom: 48px;
 }
+.page-template-narrow,
+.page-template-wide,
+.page-template-full {
+	.content {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
 .sidebar {
 	margin-top: 48px;
 }
@@ -73,14 +82,6 @@
 	.content-full {
 		.content {
 			max-width: none;
-		}
-	}
-	.page-template-narrow,
-	.page-template-wide,
-	.page-template-full {
-		.content {
-			padding-top: 0;
-			padding-bottom: 0;
 		}
 	}
 	.content > .elementor-edit-area {

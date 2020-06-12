@@ -540,6 +540,13 @@ pre {
 	padding-bottom: 48px;
 }
 
+.page-template-narrow .content,
+.page-template-wide .content,
+.page-template-full .content {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
 .sidebar {
 	margin-top: 48px;
 }
@@ -593,12 +600,6 @@ pre {
 	.page-template-full .content,
 	.content-full .content {
 		max-width: none;
-	}
-	.page-template-narrow .content,
-	.page-template-wide .content,
-	.page-template-full .content {
-		padding-top: 0;
-		padding-bottom: 0;
 	}
 	.content > .elementor-edit-area {
 		width: 100%;
@@ -1257,7 +1258,7 @@ blockquote.has-text-align-right,
 
 .nav a {
 	display: block;
-	padding: 8px 12px;
+	padding: 12px;
 	color: inherit;
 }
 
