@@ -2380,3 +2380,11 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	background: none;
 	padding: 0;
 }
+
+.tribe-events-c-view-selector__list-item-link {
+	white-space: nowrap;
+}
+
+.tribe-events-calendar-month__day-cell--mobile {
+	justify-content: center;
+}

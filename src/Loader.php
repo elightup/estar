@@ -211,6 +211,9 @@ class Loader {
 		if ( defined( 'WC_PLUGIN_FILE' ) ) {
 			new Integration\WooCommerce( $sanitizer );
 		}
+		if ( defined( 'TRIBE_EVENTS_FILE' ) ) {
+			new Integration\TheEventsCalendar;
+		}
 		if ( defined( 'RWMB_VER' ) ) {
 			new PostSettings;
 		}
