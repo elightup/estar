@@ -1,0 +1,11 @@
+#customize-theme-controls .control-section-estar-link .accordion-section-title,
+#customize-theme-controls .control-section-estar-link .accordion-section-title:hover {
+	background-color: #eee;
+	border: none;
+}
+
+#customize-theme-controls .control-panel-themes > .accordion-section-title,
+#customize-theme-controls .control-panel-themes > .accordion-section-title:hover {
+	margin-bottom: 0px;
+	border-bottom: none;
+}

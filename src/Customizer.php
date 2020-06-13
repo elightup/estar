@@ -1,6 +1,8 @@
 <?php
 namespace EStar;
 
+use EStar\Customizer\Sections\Link;
+
 class Customizer {
 	private $sanitizer;
 
@@ -8,6 +10,7 @@ class Customizer {
 		$this->sanitizer = $sanitizer;
 
 		add_action( 'customize_register', [ $this, 'register' ] );
+		add_action( 'customize_controls_enqueue_scripts', [ $this, 'enqueue' ] );
 		add_action( 'customize_preview_init', [ $this, 'enqueue_preview_js' ] );
 
 		add_filter( 'body_class', [ $this, 'add_body_classes' ] );
@@ -16,6 +19,14 @@ class Customizer {
 	public function register( $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+
+		// Links.
+		$wp_customize->register_section_type( Link::class );
+		$wp_customize->add_section( new Link( $wp_customize, 'estar', [
+			'title'    => esc_html__( 'Need help setting up your site?', 'estar' ),
+			'url'      => esc_url( 'https://gretathemes.com/docs/estar/?utm_source=WordPress&utm_medium=link&utm_campaign=estar' ),
+			'priority' => 0,
+		 ] ) );
 
 		// Header.
 		$wp_customize->get_section( 'title_tagline' )->title = esc_html__( 'Header', 'estar' );
@@ -70,8 +81,13 @@ class Customizer {
 		] );
 	}
 
+	public function enqueue() {
+		wp_enqueue_style( 'estar-customizer', get_template_directory_uri() . '/src/Customizer/assets/link.css', '1.0.0' );
+		wp_enqueue_script( 'estar-customizer', get_template_directory_uri() . '/src/Customizer/assets/link.js', ['customize-controls'], '1.0.0', true );
+	}
+
 	public function enqueue_preview_js() {
-		wp_enqueue_script( 'estar-customizer', get_template_directory_uri() . '/js/customizer.js', ['customize-preview'], '1.0.0', true );
+		wp_enqueue_script( 'estar-customizer-preview', get_template_directory_uri() . '/js/customizer.js', ['customize-preview'], '1.0.0', true );
 	}
 
 	public function add_body_classes( $classes ) {
