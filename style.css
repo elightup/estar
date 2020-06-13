@@ -2381,6 +2381,10 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	padding: 0;
 }
 
+.tribe-common button[disabled] {
+	background-color: transparent;
+}
+
 .tribe-events-c-view-selector__list-item-link {
 	white-space: nowrap;
 }
