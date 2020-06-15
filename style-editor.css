@@ -542,6 +542,11 @@ blockquote.has-text-align-right,
 	border-radius: 50%;
 }
 
+body,
+p {
+	font-size: var(--text-lg);
+}
+
 .wp-block {
 	max-width: 678px;
 }

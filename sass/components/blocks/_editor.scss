@@ -1,6 +1,12 @@
 @import "blocks";
 @import "woocommerce";
 
+// Increase default font size for post content.
+body,
+p {
+	font-size: var(--text-lg);
+}
+
 // Main column width.
 .wp-block {
     max-width: 648px + 15px*2; // Margin on both sides.
