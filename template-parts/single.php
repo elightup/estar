@@ -10,7 +10,7 @@
 		if ( comments_open() || get_comments_number() ) {
 			comments_template();
 		}
-		do_action( 'estar_ccomments_after' );
+		do_action( 'estar_comments_after' );
 	}
 	?>
 </main>
