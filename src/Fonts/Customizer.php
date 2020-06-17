@@ -81,7 +81,7 @@ class Customizer {
 		] );
 
 		// Font family are set in the Global section.
-		// $this->register_font_family( $id );
+		$this->register_font_family( $id );
 
 		$this->register_font_style( $id );
 		$this->register_font_size( $id );
