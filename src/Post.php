@@ -15,7 +15,6 @@ class Post {
 		add_filter( 'next_post_link', [ $this, 'next_post_link' ], 10, 4 );
 
 		add_action( 'wp_head', [ $this, 'output_css' ] );
-		add_action( 'wp_head', [ $this, 'no_amp_class' ] );
 	}
 
 	public function register( $wp_customize ) {
@@ -149,15 +148,6 @@ class Post {
 		if ( $height && 'thumbnail-header-background' === $thumbnail_position ) {
 			echo '<style>.entry-header { height: ', absint( $height ), 'px; }</style>';
 		}
-	}
-
-	public function no_amp_class() {
-		if ( Integration\AMP::is_active() ) {
-			return;
-		}
-		?>
-		<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
-		<?php
 	}
 
 	public static function date() {

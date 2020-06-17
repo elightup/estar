@@ -7,7 +7,7 @@ class Loader {
 		add_action( 'after_setup_theme', [ $this, 'setup' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 		add_action( 'widgets_init', [ $this, 'widgets_init' ] );
-
+		add_action( 'wp_head', [ $this, 'replace_html_class' ] );
 		$this->init();
 	}
 
@@ -150,21 +150,18 @@ class Loader {
 		] );
 
 		// AMP.
-		add_theme_support(
-			'amp',
-			array(
-				'paired' => true,
-				'nav_menu_toggle' => array(
-					'nav_container_id'           => 'nav',
-					'nav_container_toggle_class' => 'is-open',
-					'menu_button_id'             => 'menu-toggle',
-				),
-				'nav_menu_dropdown' => array(
-					'sub_menu_button_class'        => 'sub-menu-toggle',
-					'sub_menu_button_toggle_class' => 'is-open',
-				),
-			)
-		);
+		add_theme_support( 'amp', [
+			'paired' => true,
+			'nav_menu_toggle' => [
+				'nav_container_id'           => 'nav',
+				'nav_container_toggle_class' => 'is-open',
+				'menu_button_id'             => 'menu-toggle',
+			],
+			'nav_menu_dropdown' => [
+				'sub_menu_button_class'        => 'sub-menu-toggle',
+				'sub_menu_button_toggle_class' => 'is-open',
+			],
+		] );
 
 		// phpcs:ignore WPThemeReview.CoreFunctionality.PrefixAllGlobals.NonPrefixedVariableFound
 		$GLOBALS['content_width'] = apply_filters( 'estar_content_width', 768 );
@@ -198,6 +195,15 @@ class Loader {
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		] );
+	}
+
+	public function replace_html_class() {
+		if ( Integration\AMP::is_active() ) {
+			return;
+		}
+		?>
+		<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
+		<?php
 	}
 
 	private function init() {
