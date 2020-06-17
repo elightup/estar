@@ -169,9 +169,10 @@ class Loader {
 
 	public function enqueue_assets() {
 		$suffix = defined( 'WP_DEBUG' ) && WP_DEBUG ? '' : '.min';
-		wp_enqueue_style( 'estar', get_template_directory_uri() . "/style$suffix.css", [], '0.0.1' );
+		$version = wp_get_theme( get_template() )->Version;
+		wp_enqueue_style( 'estar', get_template_directory_uri() . "/style$suffix.css", [], $version );
 		if ( ! Integration\AMP::is_active() ) {
-			wp_enqueue_script( 'estar', get_template_directory_uri() . "/js/script$suffix.js", [], '0.0.1', true );
+			wp_enqueue_script( 'estar', get_template_directory_uri() . "/js/script$suffix.js", [], $version, true );
 			if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 				wp_enqueue_script( 'comment-reply' );
 			}
