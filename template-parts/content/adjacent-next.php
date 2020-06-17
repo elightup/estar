@@ -7,5 +7,5 @@
 	<div class="adjacent-body">
 		<div class="adjacent-label"><?php esc_html_e( 'Next Post', 'estar' ); ?></div>
 		<?php the_title( '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a>' ); ?>
-	</header>
+	</div>
 </article>
