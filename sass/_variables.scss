@@ -6,7 +6,8 @@
 	--container-md: 690px;
 
 	// https://tailwindcss.com/docs/font-family/
-	--font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	// sans-serif: use default WordPress admin font stack
+	--font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 	--font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
