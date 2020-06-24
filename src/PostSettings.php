@@ -21,6 +21,7 @@ class PostSettings {
 			'title'      => __( 'Settings', 'estar' ),
 			'id'         => 'estar-page-settings',
 			'post_types' => $post_types,
+			'context'    => 'side',
 			'fields'     => [
 				[
 					'type' => 'custom_html',
