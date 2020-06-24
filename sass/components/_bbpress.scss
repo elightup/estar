@@ -1,0 +1,37 @@
+.forum-archive.list-horizontal {
+	.bbp-search-form {
+		margin-bottom: 20px;
+	}
+}
+
+#bbpress-forums {
+	.bbp-reply-author a:hover {
+		background: transparent;
+		color: inherit;
+	}
+	fieldset.bbp-form {
+		select,
+		input[type=text] {
+			height: auto;
+		}
+	}
+	p.bbp-topic-meta img.avatar,
+	div.bbp-template-notice img.avatar {
+		border: none;
+	}
+	img.avatar {
+		border-radius: 50%;
+	}
+	.reply a:before {
+		display: none;
+	}
+	ul.bbp-topics {
+		font-size: 14px;
+	}
+}
+
+@media ( min-width: 768px ) {
+	.bbpress.list-horizontal .entry {
+		display: block;
+	}
+}

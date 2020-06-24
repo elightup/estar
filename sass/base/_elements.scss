@@ -4,6 +4,9 @@ body {
 	background: #fff;
 	overflow-x: hidden; // Fix horizontal scrollbar for .alignfull
 }
+*:focus {
+	outline: 1px dotted;
+}
 *, *:before, *:after {
 	box-sizing: inherit;
 }
