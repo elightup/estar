@@ -22,6 +22,7 @@ class PostSettings {
 			'id'         => 'estar-page-settings',
 			'post_types' => $post_types,
 			'context'    => 'side',
+			'priority'   => 'low',
 			'fields'     => [
 				[
 					'type' => 'custom_html',
