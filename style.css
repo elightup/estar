@@ -388,7 +388,7 @@ img, video, svg {
 	height: auto;
 }
 
-figure, embed, iframe, object {
+embed, iframe, object {
 	max-width: 100%;
 }
 
@@ -466,6 +466,7 @@ pre {
 
 .wp-caption {
 	margin-bottom: 1.5em;
+	max-width: 100%;
 }
 
 .wp-caption img {
