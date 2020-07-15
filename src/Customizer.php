@@ -24,9 +24,9 @@ class Customizer {
 		$wp_customize->register_section_type( Link::class );
 		$wp_customize->add_section( new Link( $wp_customize, 'estar', [
 			'title'    => esc_html__( 'Need help setting up your site?', 'estar' ),
-			'url'      => esc_url( 'https://gretathemes.com/docs/estar/?utm_source=WordPress&utm_medium=link&utm_campaign=estar' ),
+			'url'      => esc_url( apply_filters( 'estar_docs_url', 'https://gretathemes.com/docs/estar/?utm_source=WordPress&utm_medium=link&utm_campaign=estar' ), 'estar' ),
 			'priority' => 0,
-		 ] ) );
+		] ) );
 
 		// Header.
 		$wp_customize->get_section( 'title_tagline' )->title = esc_html__( 'Header', 'estar' );
