@@ -59,7 +59,7 @@ class CSS {
 				'subset'  => implode( ',', array_unique( array_filter( $subset ) ) ),
 				'display' => 'swap',
 			] ),
-			'https://fonts.googleapis.com/css'
+			'https://fonts.googleapis.com/css2'
 		);
 
 		wp_enqueue_style( 'estar-custom-fonts', $fonts_url );
