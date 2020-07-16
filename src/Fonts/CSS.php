@@ -59,12 +59,10 @@ class CSS {
 				'subset'  => implode( ',', array_unique( array_filter( $subset ) ) ),
 				'display' => 'swap',
 			] ),
-			'https://fonts.googleapis.com/css'
+			'https://fonts.googleapis.com/css2'
 		);
 
-		add_action( 'wp_head', function() use ( $fonts_url ) {
-			echo "<link href='", $fonts_url, "rel='preload' as='style'>";
-		} );
+		wp_enqueue_style( 'estar-custom-fonts', $fonts_url );
 	}
 
 	public function enqueue_admin() {
