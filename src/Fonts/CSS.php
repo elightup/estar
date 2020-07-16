@@ -15,7 +15,7 @@ class CSS {
 		// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 		$this->fonts    = include __DIR__ . '/google-fonts.php';
 
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue' ] );
+		add_action( 'wp_head', [ $this, 'enqueue' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_admin' ] );
 		add_action( 'wp_head', [ $this, 'output_frontend' ], 20 );
 		add_action( 'admin_head', [ $this, 'output_admin' ] );
@@ -61,10 +61,11 @@ class CSS {
 			] ),
 			'https://fonts.googleapis.com/css'
 		);
+		$fonts_url = esc_url( $fonts_url );
 
-		add_action( 'wp_head', function() use ( $fonts_url ) {
-			echo "<link href='", $fonts_url, "' rel='preload' as='style'>";
-		} );
+		echo "\n<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />";
+		echo "\n<link rel='preload' as='style' href='$fonts_url' />";
+		echo "\n<link rel='stylesheet' href='$fonts_url' media='print' onload='this.media=\"all\"' />\n";
 	}
 
 	public function enqueue_admin() {
