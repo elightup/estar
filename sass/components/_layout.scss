@@ -22,20 +22,10 @@
 	margin-top: 48px;
 }
 
-@media (min-width: 768px) {
-	.container {
-		padding-left: 0;
-		padding-right: 0;
-		max-width: var(--container-md);
-	}
-}
 @media (min-width: 1024px) {
 	$sidebar-width: 310px;
 	$sidebar-margin: 32px;
 
-	.container {
-		max-width: var(--container-lg);
-	}
 	.sidebar {
 		width: $sidebar-width;
 		margin-left: $sidebar-margin;
@@ -90,6 +80,6 @@
 }
 @media (min-width: 1280px) {
 	.container {
-		max-width: var(--container-xl);
+		max-width: var(--container);
 	}
 }

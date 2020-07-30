@@ -1,9 +1,7 @@
 :root {
 	// Bootstrap Grid with padding on both sides.
 	// https://getbootstrap.com/docs/4.4/layout/overview/
-	--container-xl: 1110px;
-	--container-lg: 930px;
-	--container-md: 690px;
+	--container: 1134px; // 1100px (content) + 12px * 2 (padding on both sides)
 
 	// https://tailwindcss.com/docs/font-family/
 	// sans-serif: use default WordPress admin font stack
@@ -33,11 +31,11 @@
 	--color-lightest: #f7fafc; // gray-100
 
 	// https://tailwindcss.com/docs/box-shadow/
-	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
 
 	// https://tailwindcss.com/docs/letter-spacing/
-	--tracking-wide: 0.025em;
-	--tracking-wider: 0.05em;
-	--tracking-widest: 0.1em;
+	--tracking-wide: .025em;
+	--tracking-wider: .05em;
+	--tracking-widest: .1em;
 }

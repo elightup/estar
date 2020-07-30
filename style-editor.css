@@ -1,7 +1,5 @@
 :root {
-	--container-xl: 1110px;
-	--container-lg: 930px;
-	--container-md: 690px;
+	--container: 1134px;
 	--font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 	--font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -22,11 +20,11 @@
 	--color-light: #e2e8f0;
 	--color-lighter: #edf2f7;
 	--color-lightest: #f7fafc;
-	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--tracking-wide: 0.025em;
-	--tracking-wider: 0.05em;
-	--tracking-widest: 0.1em;
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, .1), 0 4px 6px -2px rgba(0, 0, 0, .05);
+	--tracking-wide: .025em;
+	--tracking-wider: .05em;
+	--tracking-widest: .1em;
 }
 
 body {
