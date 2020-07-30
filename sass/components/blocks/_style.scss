@@ -2,11 +2,14 @@
 @import "woocommerce";
 
 // Align full and align wide.
+.alignwide,
 .alignfull {
-	width: 100vw;
-	max-width: 100vw;
-	margin-left: calc(50% - 50vw);
-	margin-right: calc(50% - 50vw);
+	--width: 100vw;
+
+	width: var(--width);
+	max-width: var(--width);
+	margin-left: calc(50% - var(--width)/2);
+	margin-right: calc(50% - var(--width)/2);
 
 	.alignfull {
 		width: 100%;
@@ -14,29 +17,10 @@
 		margin-right: 0;
 	}
 }
-.wp-block-image.alignwide img {
-	width: auto;
-	@include center-block;
-}
 
-@media(min-width: 768px) {
-	.alignwide {
-		--width: var(--container-md);
-
-		width: var(--width);
-		max-width: var(--width);
-		margin-left: calc(50% - var(--width)/2);
-		margin-right: calc(50% - var(--width)/2);
-	}
-}
-@media(min-width: 1024px) {
-	.alignwide {
-		--width: var(--container-lg);
-	}
-}
 @media(min-width: 1280px) {
 	.alignwide {
-		--width: var(--container-xl);
+		--width: var(--container);
 	}
 }
 
