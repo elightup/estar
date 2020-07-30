@@ -18,6 +18,9 @@
 	}
 }
 
+.alignwide {
+	--width: calc(100vw - 24px); // Padding on both sides.
+}
 @media(min-width: 1280px) {
 	.alignwide {
 		--width: var(--container);

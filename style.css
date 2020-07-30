@@ -1087,6 +1087,10 @@ blockquote.has-text-align-right,
 	margin-right: 0;
 }
 
+.alignwide {
+	--width: calc(100vw - 24px);
+}
+
 @media (min-width: 1280px) {
 	.alignwide {
 		--width: var(--container);
