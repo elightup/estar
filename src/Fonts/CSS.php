@@ -27,7 +27,7 @@ class CSS {
 
 		// Font family are set in the Global section.
 		$elements = ['base', 'headings'];
-		// $elements = array_merge( $elements, array_keys( $this->elements ) );
+		$elements = array_merge( $elements, array_keys( $this->elements ) );
 
 		foreach ( $elements as $id ) {
 			$family = get_theme_mod( "{$id}_font_family" );
