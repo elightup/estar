@@ -13,7 +13,7 @@
  * Tags:         blog, news, portfolio, grid-layout, one-column, two-columns, three-columns, left-sidebar, right-sidebar, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, microformats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks
  */
 :root {
-	--container: 1110px;
+	--container: 1134px;
 	--font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
 	--font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 	--font-mono: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -531,6 +531,7 @@ pre {
 }
 
 .container {
+	max-width: var(--container);
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -595,14 +596,6 @@ pre {
 	}
 	.content > .elementor-edit-area {
 		width: 100%;
-	}
-}
-
-@media (min-width: 1280px) {
-	.container {
-		padding-left: 0;
-		padding-right: 0;
-		max-width: var(--container);
 	}
 }
 
@@ -1093,7 +1086,7 @@ blockquote.has-text-align-right,
 
 @media (min-width: 1280px) {
 	.alignwide {
-		--width: var(--container);
+		--width: calc(var(--container) - 24px);
 	}
 }
 

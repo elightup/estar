@@ -1,7 +1,7 @@
 :root {
 	// Bootstrap Grid with padding on both sides.
 	// https://getbootstrap.com/docs/4.4/layout/overview/
-	--container: 1110px;
+	--container: 1134px; // 1110px (content) + 12px * 2 (padding on both sides).
 
 	// https://tailwindcss.com/docs/font-family/
 	// sans-serif: use default WordPress admin font stack
