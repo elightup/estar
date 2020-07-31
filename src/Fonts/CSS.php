@@ -40,8 +40,15 @@ class CSS {
 			if ( ! $font ) {
 				continue;
 			}
-			$fonts[ $family]    = isset( $fonts[ $family] ) ? $fonts[ $family] : [];
+			$fonts[ $family ]   = isset( $fonts[ $family ] ) ? $fonts[ $family ] : [];
 			$fonts[ $family ][] = get_theme_mod( "{$id}_font_style" );
+
+			if ( in_array( $id, ['base', 'body'] ) ) {
+				$fonts[ $family ] = array_merge( $fonts[ $family ], ['regular', 'italic', '700', '700italic'] );
+			}
+			if ( in_array( $id, ['headings', 'heading_1', 'heading_2', 'heading_3', 'heading_4', 'heading_5', 'heading_6', 'site_title', 'post_title_singular', 'post_title_archive'], true ) ) {
+				$fonts[ $family ][] = '700';
+			}
 
 			$subset = array_merge( $subset, explode( ',', get_theme_mod( "{$id}_font_subsets" ) ) );
 		}
@@ -49,7 +56,7 @@ class CSS {
 			return;
 		}
 		foreach ( $fonts as $family => $styles ) {
-			$styles = implode( ',', array_filter( $styles ) );
+			$styles = implode( ',', array_unique( array_filter( $styles ) ) );
 			$fonts[ $family ] = $styles ? "$family:$styles" : $family;
 		}
 
