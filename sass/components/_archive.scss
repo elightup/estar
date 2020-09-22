@@ -13,7 +13,6 @@
 	.entry-thumbnail {
 		display: block;
 		width: 100%;
-		padding-bottom: 75%;
 		position: relative;
 
 		img {
@@ -21,6 +20,11 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+		}
+		&:after {
+			content: '';
+			display: block;
+			padding-bottom: 75%;
 		}
 	}
 
@@ -131,7 +135,6 @@
 		}
 		.entry-thumbnail {
 			width: 280px;
-			padding-bottom: 210px;
 			margin-right: 16px;
 		}
 		.entry-body {
