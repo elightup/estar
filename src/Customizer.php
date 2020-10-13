@@ -62,6 +62,21 @@ class Customizer {
 			'type'    => 'checkbox',
 		] );
 
+		$wp_customize->add_setting( 'header_width', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'full-width',
+		] );
+		$wp_customize->add_control( 'header_width', [
+			'label'   => esc_html__( 'Header width', 'estar' ),
+			'section' => 'title_tagline',
+			'type'    => 'select',
+			'choices' => [
+				'full-width' => esc_html__( 'Full width', 'estar' ),
+				'wide'       => esc_html__( 'Wide', 'estar' ),
+				'narrow'     => esc_html__( 'Narrow', 'estar' ),
+			],
+		] );
+
 		// Footer.
 		$wp_customize->add_section( 'footer', [
 			'title'    => esc_html__( 'Footer', 'estar' ),
@@ -97,6 +112,8 @@ class Customizer {
 		if ( ! get_theme_mod( 'show_site_name', true ) ) {
 			$classes[] = 'hide-site-name';
 		}
+		$header_width = get_theme_mod( 'header_width', 'full-width' );
+		$classes[] = "header-{$header_width}";
 		return $classes;
 	}
 

@@ -1,3 +1,10 @@
+.header-full-width .header-inner {
+	max-width: none;
+}
+.header-narrow .header-inner {
+	max-width: 792px; // 768px (content) + 12px * 2 (padding on both sides)
+}
+
 // Sticky header.
 .header {
 	padding: 8px 0;
