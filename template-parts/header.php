@@ -28,7 +28,7 @@
 
 		<?php EStar\Integration\WooCommerce::output_cart_icon(); ?>
 
-		<?php if ( get_theme_mod( 'header_search', true ) ) : ?>
+		<?php if ( get_theme_mod( 'header_search', true ) || get_theme_mod( 'header_search_form', true ) ) : ?>
 			<button class="search-open" aria-expanded="false"
 				<?php if ( EStar\Integration\AMP::is_active() ) : ?>
 					on="tap:header.toggleClass( class='header-search-open' )"

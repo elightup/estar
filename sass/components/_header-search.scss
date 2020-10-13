@@ -41,6 +41,24 @@
 		display: flex;
 	}
 }
+@media (min-width: 768px) {
+	.header-search-form {
+		.search-open, .search-close {
+			display: none;
+		}
+		.header-search {
+			display: block;
+			position: relative;
+			margin-left: 12px;
+		}
+		.header-search .search-field {
+			border: 1px solid var(--color-light);
+			border-radius: 4px;
+			font-size: var(--text-sm);
+			padding: 4px 8px;
+		}
+	}
+}
 @media (min-width: 1024px) {
 	.search-open {
 		padding-left: 12px;

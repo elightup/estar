@@ -62,6 +62,16 @@ class Customizer {
 			'type'    => 'checkbox',
 		] );
 
+		$wp_customize->add_setting( 'header_search_form', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => false,
+		] );
+		$wp_customize->add_control( 'header_search_form', [
+			'label'   => esc_html__( 'Show search form', 'estar' ),
+			'section' => 'title_tagline',
+			'type'    => 'checkbox',
+		] );
+
 		$wp_customize->add_setting( 'header_width', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'default'           => 'full-width',
@@ -112,8 +122,11 @@ class Customizer {
 		if ( ! get_theme_mod( 'show_site_name', true ) ) {
 			$classes[] = 'hide-site-name';
 		}
-		$header_width = get_theme_mod( 'header_width', 'full-width' );
-		$classes[] = "header-{$header_width}";
+		$classes[] = 'header-' . get_theme_mod( 'header_width', 'full-width' );
+		if ( get_theme_mod( 'header_search_form', true ) ) {
+			$classes[] = 'header-search-form';
+		}
+
 		return $classes;
 	}
 
