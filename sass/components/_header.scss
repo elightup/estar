@@ -89,6 +89,20 @@
 	}
 }
 
+// Highlight last menu item.
+.header-highlight-last-item .nav .menu > li:last-child > a {
+	background: var(--color-accent);
+	color: #fff;
+	border-radius: 4px;
+	padding: 8px 12px;
+	margin-left: 12px;
+	transition: all .25s;
+
+	&:hover {
+		opacity: .75;
+	}
+}
+
 @media (min-width: 1024px) {
 	.header-transparent {
 		.nav > ul > li > a,
