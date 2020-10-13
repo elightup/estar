@@ -72,7 +72,7 @@ class Archive {
 
 		$wp_customize->add_setting( 'archive_excerpt_length', [
 			'sanitize_callback' => 'absint',
-			'default'           => 55,
+			'default'           => 30,
 		] );
 		$wp_customize->add_control( 'archive_excerpt_length', [
 			'label'   => esc_html__( 'Excerpt Length', 'estar' ),
