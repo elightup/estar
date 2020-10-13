@@ -58,6 +58,11 @@
 	color: inherit;
 	display: flex;
 	align-items: center;
+
+	svg {
+		width: 24px;
+		height: 24px;
+	}
 }
 
 // Dropdown icon for submenu toggling.
@@ -78,23 +83,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 12px 12px 12px 4px;
+	padding: 12px 12px 12px 0;
 
-	&:after {
-		content: "";
-		display: block;
-		border: 4px solid transparent;
-		border-top-color: currentColor;
-		width: 0;
-		height: 0;
-		margin-top: 4px;
+	svg {
+		width: 16px;
+		height: 16px;
+		transition: all .2s;
 	}
-
-	.is-open > .menu-text > &:after {
-		border-top-color: transparent;
-		border-bottom-color: currentColor;
-		margin-top: -6px;
-	}
+}
+.is-open > .menu-text svg {
+	transform: rotate(180deg);
 }
 
 // Open state.
@@ -152,7 +150,7 @@
 			top: 100%;
 			z-index: 999;
 			background: #fff;
-			width: 180px;
+			width: 220px;
 			box-shadow: var(--shadow-md);
 			text-indent: 0;
 		}
@@ -180,13 +178,7 @@
 		color: var(--color-accent);
 	}
 
-	.sub-menu .sub-menu-toggle:after {
-		border-top-color: transparent;
-		border-left-color: currentColor;
-		margin-top: 0;
-	}
-	.sub-menu .is-open > .menu-text > .sub-menu-toggle::after {
-		border-bottom-color: transparent;
-		margin-top: 0;
+	.sub-menu .sub-menu-toggle svg {
+		transform: rotate(-90deg);
 	}
 }

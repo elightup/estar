@@ -32,6 +32,22 @@ class Customizer {
 		$wp_customize->get_section( 'title_tagline' )->title = esc_html__( 'Header', 'estar' );
 		$wp_customize->get_section( 'title_tagline' )->priority = self::get_priority( 'header' );
 
+		$wp_customize->add_setting( 'header_width', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'full-width',
+		] );
+		$wp_customize->add_control( 'header_width', [
+			'label'    => esc_html__( 'Header width', 'estar' ),
+			'section'  => 'title_tagline',
+			'type'     => 'select',
+			'priority' => 1,
+			'choices'  => [
+				'full-width' => esc_html__( 'Full width', 'estar' ),
+				'wide'       => esc_html__( 'Wide', 'estar' ),
+				'narrow'     => esc_html__( 'Narrow', 'estar' ),
+			],
+		] );
+
 		$wp_customize->add_setting( 'show_site_name', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
 			'default'           => true,
@@ -80,21 +96,6 @@ class Customizer {
 			'label'   => esc_html__( 'Highlight last menu item as button', 'estar' ),
 			'section' => 'title_tagline',
 			'type'    => 'checkbox',
-		] );
-
-		$wp_customize->add_setting( 'header_width', [
-			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
-			'default'           => 'full-width',
-		] );
-		$wp_customize->add_control( 'header_width', [
-			'label'   => esc_html__( 'Header width', 'estar' ),
-			'section' => 'title_tagline',
-			'type'    => 'select',
-			'choices' => [
-				'full-width' => esc_html__( 'Full width', 'estar' ),
-				'wide'       => esc_html__( 'Wide', 'estar' ),
-				'narrow'     => esc_html__( 'Narrow', 'estar' ),
-			],
 		] );
 
 		// Footer.

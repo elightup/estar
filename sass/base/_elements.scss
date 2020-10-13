@@ -93,13 +93,17 @@ img, video, svg {
 embed, iframe, object {
 	max-width: 100%;
 }
-svg {
-	fill: currentColor;
-}
 
 pre, code, kbd, samp, tt, var {
 	font-family: var(--font-mono);
 }
 pre {
 	white-space: pre-wrap;
+}
+
+// SVG icons.
+.icon {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
 }

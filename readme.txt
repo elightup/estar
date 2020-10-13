@@ -1,7 +1,7 @@
 === eStar ===
 Contributors: elightup, gretathemes, rilwis
 Requires at least: 4.0
-Tested up to: 5.5
+Tested up to: 5.5.2
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -32,5 +32,5 @@ See http://gretathemes.com/wordpress-themes/estar/
 
 * Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc., GPLv2 or later
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2020 Nicolas Gallagher and Jonathan Neal, MIT
-* SVG icons (chevron-up & search) https://github.com/sschoger/heroicons-ui/, (C) Steve Schoger, MIT
+* Feather icons https://feathericons.com/, (C) Cole Bemis, MIT
 * Screenshot URL https://stocksnap.io/photo/VHXFNKMU96, (C) StockSnapp, CC0

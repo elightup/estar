@@ -26,7 +26,7 @@ class GoToTop {
 	public function output() {
 		if ( get_theme_mod( 'go_to_top', true ) ) {
 			?>
-			<a href="#" class="go-to-top"><svg aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.7 14.7a1 1 0 0 1-1.4-1.4l4-4a1 1 0 0 1 1.4 0l4 4a1 1 0 0 1-1.4 1.4L12 11.42l-3.3 3.3z"/></svg></a>
+			<a href="#" class="go-to-top"><?php Icons::render( 'chevron-up' ) ?></a>
 			<?php
 		}
 	}
