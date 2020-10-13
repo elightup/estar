@@ -134,10 +134,10 @@ class Customizer {
 			$classes[] = 'hide-site-name';
 		}
 		$classes[] = 'header-' . get_theme_mod( 'header_width', 'full-width' );
-		if ( get_theme_mod( 'header_search_form', true ) ) {
+		if ( get_theme_mod( 'header_search_form', false ) ) {
 			$classes[] = 'header-search-form';
 		}
-		if ( get_theme_mod( 'highlight_last_item', true ) ) {
+		if ( get_theme_mod( 'highlight_last_item', false ) ) {
 			$classes[] = 'header-highlight-last-item';
 		}
 
