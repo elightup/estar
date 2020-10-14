@@ -1113,7 +1113,7 @@ blockquote.has-text-align-right,
 	margin-bottom: 1.5em;
 }
 
-.header-full-width .header-inner {
+.header-full .header-inner {
 	max-width: none;
 }
 
