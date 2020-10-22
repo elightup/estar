@@ -1779,6 +1779,8 @@ blockquote.has-text-align-right,
 
 .grid-card .entry {
 	box-shadow: var(--shadow-md);
+	height: 100%;
+	background: #fff;
 }
 
 .grid-card .entry:hover {
@@ -1791,7 +1793,6 @@ blockquote.has-text-align-right,
 
 .grid-card .entry-body {
 	border-radius: 4px;
-	background: #fff;
 	padding: 18px 24px;
 }
 

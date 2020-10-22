@@ -100,7 +100,8 @@
 	}
 	.entry {
 		box-shadow: var(--shadow-md);
-
+		height: 100%;
+		background: #fff;
 		&:hover {
 			box-shadow: var(--shadow-lg);
 		}
@@ -110,7 +111,6 @@
 	}
 	.entry-body {
 		border-radius: 4px;
-		background: #fff;
 		padding: 18px 24px;
 	}
 	.entry-thumbnail + .entry-body {
