@@ -2426,6 +2426,10 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	margin-bottom: 20px;
 }
 
+#bbpress-forums {
+	font-size: 16px;
+}
+
 #bbpress-forums .bbp-reply-author a:hover {
 	background: transparent;
 	color: inherit;
