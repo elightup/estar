@@ -2449,8 +2449,46 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 	display: none;
 }
 
-#bbpress-forums ul.bbp-topics {
-	font-size: 14px;
+#bbpress-forums ul.bbp-topics,
+#bbpress-forums ul.bbp-forums,
+#bbpress-forums ul.bbp-lead-topic,
+#bbpress-forums ul.bbp-replies,
+#bbpress-forums ul.bbp-search-results,
+#bbpress-forums .bbp-forum-info .bbp-forum-content,
+#bbpress-forums p.bbp-topic-meta,
+#bbpress-forums .bbp-breadcrumb p,
+#bbpress-forums .bbp-pagination-count,
+#bbpress-forums .bbp-pagination-count,
+#bbpress-forums legend,
+#bbpress-forums #subscription-toggle,
+#bbpress-forums #favorite-toggle,
+#bbpress-forums .bbp-topic-description,
+#bbpress-forums .bbp-forum-description {
+	font-size: 16px;
+	font-family: var(--font-sans);
+}
+
+#bbpress-forums fieldset.bbp-form label {
+	margin-bottom: 5px;
+}
+
+#bbpress-forums div.bbp-search-form {
+	float: right;
+	margin-bottom: 20px;
+}
+
+.bbp-form label {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+
+.bbp-form .bbp-login-form label {
+	width: 175px;
+}
+
+div#wp-bbp_forum_content-editor-container,
+.wp-editor-container {
+	margin-bottom: 27px;
 }
 
 @media (min-width: 768px) {
