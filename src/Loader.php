@@ -240,6 +240,9 @@ class Loader {
 		if ( defined( 'TRIBE_EVENTS_FILE' ) ) {
 			new Integration\TheEventsCalendar;
 		}
+		if ( class_exists( 'bbPress' ) ) {
+			new Integration\BBPress;
+		}
 		if ( defined( 'RWMB_VER' ) ) {
 			new PostSettings;
 		}

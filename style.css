@@ -1552,7 +1552,7 @@ blockquote.has-text-align-right,
 	display: block;
 }
 
-.reply a {
+.comment .reply a {
 	font-size: var(--text-xs);
 	color: var(--color-gray);
 	border: 1px solid var(--color-light);
@@ -1560,14 +1560,14 @@ blockquote.has-text-align-right,
 	padding: 2px 4px;
 }
 
-.reply a:before {
+.comment .reply a:before {
 	content: "\21B5";
 	transform: scale(1, -1);
 	display: inline-block;
 	margin-right: 2px;
 }
 
-.reply a:hover {
+.comment .reply a:hover {
 	text-decoration: none;
 	background: var(--color-gray);
 	border-color: var(--color-gray);
@@ -2420,83 +2420,4 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 
 .tribe-events-calendar-month__day-cell--mobile {
 	justify-content: center;
-}
-
-.forum-archive.list-horizontal .bbp-search-form {
-	margin-bottom: 20px;
-}
-
-#bbpress-forums {
-	font-size: 16px;
-}
-
-#bbpress-forums .bbp-reply-author a:hover {
-	background: transparent;
-	color: inherit;
-}
-
-#bbpress-forums fieldset.bbp-form select,
-#bbpress-forums fieldset.bbp-form input[type=text] {
-	height: auto;
-}
-
-#bbpress-forums p.bbp-topic-meta img.avatar,
-#bbpress-forums div.bbp-template-notice img.avatar {
-	border: none;
-}
-
-#bbpress-forums img.avatar {
-	border-radius: 50%;
-}
-
-#bbpress-forums .reply a:before {
-	display: none;
-}
-
-#bbpress-forums ul.bbp-topics,
-#bbpress-forums ul.bbp-forums,
-#bbpress-forums ul.bbp-lead-topic,
-#bbpress-forums ul.bbp-replies,
-#bbpress-forums ul.bbp-search-results,
-#bbpress-forums .bbp-forum-info .bbp-forum-content,
-#bbpress-forums p.bbp-topic-meta,
-#bbpress-forums .bbp-breadcrumb p,
-#bbpress-forums .bbp-pagination-count,
-#bbpress-forums .bbp-pagination-count,
-#bbpress-forums legend,
-#bbpress-forums #subscription-toggle,
-#bbpress-forums #favorite-toggle,
-#bbpress-forums .bbp-topic-description,
-#bbpress-forums .bbp-forum-description {
-	font-size: 16px;
-	font-family: var(--font-sans);
-}
-
-#bbpress-forums fieldset.bbp-form label {
-	margin-bottom: 5px;
-}
-
-#bbpress-forums div.bbp-search-form {
-	float: right;
-	margin-bottom: 20px;
-}
-
-.bbp-form label {
-	font-size: 16px;
-	margin-bottom: 5px;
-}
-
-.bbp-form .bbp-login-form label {
-	width: 175px;
-}
-
-div#wp-bbp_forum_content-editor-container,
-.wp-editor-container {
-	margin-bottom: 27px;
-}
-
-@media (min-width: 768px) {
-	.bbpress.list-horizontal .entry {
-		display: block;
-	}
 }
