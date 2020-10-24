@@ -25,6 +25,46 @@
 	position: sticky;
 	top: 0;
 }
+
+.header-sticky.menu_under_site_title .header {
+	position: unset;
+	padding-bottom: 0;
+}
+
+.header-sticky.menu_under_site_title .menu-sticky {
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	nav {
+	    margin-top: 0;
+	}
+}
+
+// Style header bottom
+nav {
+    margin-top: 15px;
+}
+
+#header-bottom {
+    background: var(--color-accent);
+    z-index: 999;
+
+    #primary-menu > li {
+    	color: #fff;
+    	opacity: 0.3;
+
+		&:hover a {
+			color: var(--color-base);
+			opacity: 0.7;
+		}
+    }
+}
+
+.header-bottom li:first-child() a {
+	padding-left: 0;
+}
+
 // For logged in users.
 @media (min-width: 601px) and (max-width: 782px) {
 	.header-sticky.admin-bar .header {

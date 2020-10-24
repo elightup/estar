@@ -98,6 +98,16 @@ class Customizer {
 			'type'    => 'checkbox',
 		] );
 
+		$wp_customize->add_setting( 'menu_under_site_title', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
+			'default'           => false,
+		] );
+		$wp_customize->add_control( 'menu_under_site_title', [
+			'label'   => esc_html__( 'Menu under site title', 'estar' ),
+			'section' => 'title_tagline',
+			'type'    => 'checkbox',
+		] );
+
 		// Footer.
 		$wp_customize->add_section( 'footer', [
 			'title'    => esc_html__( 'Footer', 'estar' ),
@@ -139,6 +149,9 @@ class Customizer {
 		}
 		if ( get_theme_mod( 'highlight_last_item', false ) ) {
 			$classes[] = 'header-highlight-last-item';
+		}
+		if ( get_theme_mod( 'menu_under_site_title', true ) ) {
+			$classes[] = 'menu_under_site_title';
 		}
 
 		return $classes;
