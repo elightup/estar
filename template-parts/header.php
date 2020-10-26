@@ -12,21 +12,7 @@
 
 		<?php
 		if ( get_theme_mod( 'menu_position' ) == 'right' ) {
-			if ( has_nav_menu( 'menu-1' ) ) : ?>
-				<nav id="nav" class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
-					<button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-						<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span>
-						<?php EStar\Icons::render( 'menu' ) ?>
-					</button>
-					<?php
-					wp_nav_menu( [
-						'container'      => null,
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					] );
-					?>
-				</nav>
-			<?php endif;
+			get_template_part( 'template-parts/menu' );
 		} ?>
 
 		<?php EStar\Integration\WooCommerce::output_cart_icon(); ?>
@@ -53,25 +39,11 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<div class="header-bottom" id="header-bottom">
-		<div class="container">
-			<?php if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
-				if ( has_nav_menu( 'menu-1' ) ) : ?>
-					<nav id="nav" class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
-						<button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-							<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span>
-							<?php EStar\Icons::render( 'menu' ) ?>
-						</button>
-						<?php
-						wp_nav_menu( [
-							'container'      => null,
-							'theme_location' => 'menu-1',
-							'menu_id'        => 'primary-menu',
-						] );
-						?>
-					</nav>
-				<?php endif;
-			} ?>
-		</div>
-	</div>
+	<?php if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
+		echo '<div class="header-bottom" id="header-bottom">';
+			echo '<div class="container">';
+					get_template_part( 'template-parts/menu' );
+			echo '</div>';
+		echo '</div>';
+	} ?>
 </header>
