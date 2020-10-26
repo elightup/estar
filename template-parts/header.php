@@ -11,7 +11,7 @@
 		</div>
 
 		<?php
-		if ( ! get_theme_mod( 'menu_under_site_title' ) ) {
+		if ( get_theme_mod( 'menu_position' ) == 'right' ) {
 			if ( has_nav_menu( 'menu-1' ) ) : ?>
 				<nav id="nav" class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
 					<button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
@@ -55,7 +55,7 @@
 	</div>
 	<div class="header-bottom" id="header-bottom">
 		<div class="container">
-			<?php if ( get_theme_mod( 'menu_under_site_title' ) ) {
+			<?php if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
 				if ( has_nav_menu( 'menu-1' ) ) : ?>
 					<nav id="nav" class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
 						<button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">

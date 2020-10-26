@@ -98,14 +98,19 @@ class Customizer {
 			'type'    => 'checkbox',
 		] );
 
-		$wp_customize->add_setting( 'menu_under_site_title', [
-			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
-			'default'           => false,
+		$wp_customize->add_setting( 'menu_position', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'right',
 		] );
-		$wp_customize->add_control( 'menu_under_site_title', [
-			'label'   => esc_html__( 'Menu under site title', 'estar' ),
-			'section' => 'title_tagline',
-			'type'    => 'checkbox',
+		$wp_customize->add_control( 'menu_position', [
+			'label'    => esc_html__( 'Menu positions', 'estar' ),
+			'section'  => 'title_tagline',
+			'type'     => 'select',
+			'priority' => 1,
+			'choices'  => [
+				'right'   => esc_html__( 'Right', 'estar' ),
+				'bottom'   => esc_html__( 'bottom', 'estar' ),
+			],
 		] );
 
 		// Footer.
