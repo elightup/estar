@@ -1141,18 +1141,18 @@ blockquote.has-text-align-right,
 	top: 0;
 }
 
-.header-sticky.menu_position .header {
+.header-sticky.menu_bottom .header {
 	position: unset;
 	padding-bottom: 0;
 }
 
-.header-sticky.menu_position .menu-sticky {
+.header-sticky.menu_bottom .menu-sticky {
 	position: fixed;
 	top: 0;
 	width: 100%;
 }
 
-.header-sticky.menu_position .branding {
+.header-sticky.menu_bottom .branding {
 	margin-bottom: 8px;
 }
 
@@ -1278,9 +1278,12 @@ blockquote.has-text-align-right,
 	.header-bottom ul li:first-child a {
 		padding-left: 12px;
 	}
-	.menu_position .header-search,
-	.menu_position .search-open {
+	.menu_bottom .header-search,
+	.menu_bottom .search-open {
 		margin-right: 40px;
+	}
+	.header-highlight-last-item .nav .menu > li:last-child > a {
+		margin-left: 0;
 	}
 }
 
