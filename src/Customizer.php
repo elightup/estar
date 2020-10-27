@@ -103,13 +103,13 @@ class Customizer {
 			'default'           => 'right',
 		] );
 		$wp_customize->add_control( 'menu_position', [
-			'label'    => esc_html__( 'Menu positions', 'estar' ),
+			'label'    => esc_html__( 'Menu position', 'estar' ),
 			'section'  => 'title_tagline',
 			'type'     => 'select',
 			'priority' => 1,
 			'choices'  => [
 				'right'   => esc_html__( 'Right', 'estar' ),
-				'bottom'   => esc_html__( 'bottom', 'estar' ),
+				'bottom'   => esc_html__( 'Bottom', 'estar' ),
 			],
 		] );
 
@@ -155,8 +155,8 @@ class Customizer {
 		if ( get_theme_mod( 'highlight_last_item', false ) ) {
 			$classes[] = 'header-highlight-last-item';
 		}
-		if ( get_theme_mod( 'menu_under_site_title', true ) ) {
-			$classes[] = 'menu_under_site_title';
+		if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
+			$classes[] = 'menu_position';
 		}
 
 		return $classes;
