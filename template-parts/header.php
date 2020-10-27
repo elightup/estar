@@ -17,7 +17,7 @@
 		<?php EStar\Integration\WooCommerce::output_cart_icon(); ?>
 
 		<?php if ( get_theme_mod( 'header_search', true ) || get_theme_mod( 'header_search_form', false ) ) : ?>
-			<button class="search-open" aria-expanded="false"
+			<button class="search-open header-icon" aria-expanded="false"
 				<?php if ( EStar\Integration\AMP::is_active() ) : ?>
 					on="tap:header.toggleClass( class='header-search-open' )"
 				<?php endif; ?>
@@ -27,7 +27,7 @@
 			</button>
 			<div class="header-search">
 				<?php get_search_form(); ?>
-				<button class="search-close"
+				<button class="search-close header-icon"
 					<?php if ( EStar\Integration\AMP::is_active() ) : ?>
 						on="tap:header.toggleClass( class='header-search-open', force=false )"
 					<?php endif; ?>

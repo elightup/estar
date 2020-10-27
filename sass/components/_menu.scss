@@ -50,19 +50,9 @@
 }
 
 // Toggle icon for hamburger menu.
-.menu-toggle {
-	padding: 0;
-	border: 0;
-	position: relative;
-	background: transparent;
-	color: inherit;
-	display: flex;
-	align-items: center;
-
-	svg {
-		width: 24px;
-		height: 24px;
-	}
+.menu-toggle svg {
+	width: 24px;
+	height: 24px;
 }
 
 // Dropdown icon for submenu toggling.

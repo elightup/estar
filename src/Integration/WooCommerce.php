@@ -154,7 +154,7 @@ class WooCommerce {
 			return;
 		}
 		?>
-		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-icon">
+		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="cart-icon header-icon">
 			<?php
 			$count = WC()->cart->get_cart_contents_count();
 			if ( $count ) {
