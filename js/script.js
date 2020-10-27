@@ -145,19 +145,4 @@
 	openSearch();
 	closeSearch();
 	setSidebarMargin();
-
-	window.addEventListener( 'scroll',
-		function stickyMenuUnderTitlePage() {
-			//var header_bottom = document.getElementsByClassName("header-bottom");
-			var header_bottom = document.getElementById("header-bottom");
-			//var sticky = header_bottom.offsetTop;
-
-		  	if (window.pageYOffset >= 103) {
-		    	header_bottom.classList.add("menu-sticky");
-		  	} else {
-		    	header_bottom.classList.remove( 'menu-sticky' );
-		  	}
-		}
-	);
-
 } )( window, document );

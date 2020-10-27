@@ -38,11 +38,12 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<?php if ( 'bottom' === get_theme_mod( 'menu_position', 'right' ) ) : ?>
-		<div class="header-bottom">
-			<div class="container">
-				<?php get_template_part( 'template-parts/menu' ); ?>
-			</div>
-		</div>
-	<?php endif; ?>
 </header>
+
+<?php if ( 'bottom' === get_theme_mod( 'menu_position', 'right' ) ) : ?>
+	<div class="header-bottom">
+		<div class="container">
+			<?php get_template_part( 'template-parts/menu' ); ?>
+		</div>
+	</div>
+<?php endif; ?>

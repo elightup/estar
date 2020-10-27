@@ -8,8 +8,6 @@
 // Sticky header.
 .header {
 	border-bottom: 1px solid var(--color-light);
-	background: #fff;
-	z-index: 9999;
 
 	&-inner {
 		display: flex;
@@ -22,40 +20,38 @@
 }
 
 // Sticky header.
-.header-sticky .header {
-	position: sticky;
-	top: 0;
-}
-
-.header-sticky.menu-bottom {
-	.header {
+.header-sticky {
+	.header,
+	&.menu-bottom .header-bottom {
+		position: sticky;
+		top: 0;
+		background: #fff;
+		z-index: 9999;
+	}
+	&.menu-bottom .header {
 		position: unset;
 	}
 
-	.menu-sticky {
-		position: fixed;
-		top: 0;
-		width: 100%;
+	// For logged in users.
+	@media (min-width: 601px) and (max-width: 782px) {
+		&.admin-bar .header,
+		&.admin-bar.menu-bottom .header-bottom {
+			top: 46px;
+		}
+	}
+	@media (min-width: 783px) {
+		&.admin-bar .header,
+		&.admin-bar.menu-bottom .header-bottom {
+			top: 32px;
+		}
 	}
 }
 
 .header-bottom {
-	border-top: 1px solid var(--color-light);
+	border-bottom: 1px solid var(--color-light);
 
-	.menu > li:first-child > a {
+	.menu > li:first-of-type > a {
 		padding-left: 0;
-	}
-}
-
-// For logged in users.
-@media (min-width: 601px) and (max-width: 782px) {
-	.header-sticky.admin-bar .header {
-		top: 46px;
-	}
-}
-@media (min-width: 783px) {
-	.header-sticky.admin-bar .header {
-		top: 32px;
 	}
 }
 
