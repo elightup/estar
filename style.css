@@ -1121,11 +1121,9 @@ blockquote.has-text-align-right,
 	max-width: 792px;
 }
 
-.header {
-	padding: 8px 0;
+.header,
+.header-bottom {
 	border-bottom: 1px solid var(--color-light);
-	background: #fff;
-	z-index: 9999;
 }
 
 .header-inner {
@@ -1133,22 +1131,33 @@ blockquote.has-text-align-right,
 	justify-content: space-between;
 	align-items: center;
 	position: relative;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 
-.header-sticky .header {
+.header-sticky .header,
+.header-sticky.menu-bottom .header-bottom {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
+	background: #fff;
+	z-index: 9999;
+}
+
+.header-sticky.menu-bottom .header {
+	position: unset;
 }
 
 @media (min-width: 601px) and (max-width: 782px) {
-	.header-sticky.admin-bar .header {
+	.header-sticky.admin-bar .header,
+	.header-sticky.admin-bar.menu-bottom .header-bottom {
 		top: 46px;
 	}
 }
 
 @media (min-width: 783px) {
-	.header-sticky.admin-bar .header {
+	.header-sticky.admin-bar .header,
+	.header-sticky.admin-bar.menu-bottom .header-bottom {
 		top: 32px;
 	}
 }
@@ -1162,17 +1171,11 @@ blockquote.has-text-align-right,
 }
 
 .header-transparent .site-description,
-.header-transparent .site-title a,
-.header-transparent .menu-toggle,
-.header-transparent .cart-icon,
-.header-transparent .search-open {
+.header-transparent .site-title a {
 	color: #fff;
 }
 
-.header-transparent .site-title a:hover,
-.header-transparent .menu-toggle:hover,
-.header-transparent .cart-icon:hover,
-.header-transparent .search-open:hover {
+.header-transparent .site-title a:hove {
 	opacity: .75;
 }
 
@@ -1208,6 +1211,24 @@ blockquote.has-text-align-right,
 	text-decoration: none;
 }
 
+.header-icon {
+	padding: 8px 0 8px 12px;
+	background: none;
+	border: 0;
+	display: flex;
+	color: inherit;
+	position: relative;
+}
+
+.header-icon:hover {
+	opacity: .75;
+}
+
+.header-icon svg {
+	width: 18px;
+	height: 18px;
+}
+
 .header-highlight-last-item .nav .menu > li:last-child > a {
 	background: var(--color-accent);
 	color: #fff;
@@ -1219,6 +1240,15 @@ blockquote.has-text-align-right,
 
 .header-highlight-last-item .nav .menu > li:last-child > a:hover {
 	opacity: .75;
+}
+
+@media (min-width: 768px) {
+	.header-bottom .menu > li:first-of-type > a {
+		padding-left: 0;
+	}
+	.header-icon ~ .header-icon {
+		padding-left: 24px;
+	}
 }
 
 @media (min-width: 1024px) {
@@ -1282,16 +1312,6 @@ blockquote.has-text-align-right,
 .current-menu-item > .menu-text,
 .current-menu-ancestor > .menu-text {
 	color: var(--color-accent);
-}
-
-.menu-toggle {
-	padding: 0;
-	border: 0;
-	position: relative;
-	background: transparent;
-	color: inherit;
-	display: flex;
-	align-items: center;
 }
 
 .menu-toggle svg {
@@ -1407,23 +1427,8 @@ blockquote.has-text-align-right,
 	}
 }
 
-.search-open {
-	padding: 8px 0;
-	background: none;
-	display: flex;
-	color: inherit;
-}
-
-.search-open svg {
-	width: 18px;
-	height: 18px;
-}
-
 .search-close {
-	padding: 8px;
-	background: none;
-	display: flex;
-	color: inherit;
+	padding-right: 12px;
 }
 
 .header-search {
@@ -1468,12 +1473,6 @@ blockquote.has-text-align-right,
 		border-radius: 4px;
 		font-size: var(--text-sm);
 		padding: 4px 8px;
-	}
-}
-
-@media (min-width: 1024px) {
-	.search-open {
-		padding-left: 12px;
 	}
 }
 
@@ -2168,23 +2167,6 @@ a.page-numbers:hover, .woocommerce nav.woocommerce-pagination ul li a:hover {
 .woocommerce-page .main {
 	margin-left: 0;
 	margin-right: 0;
-}
-
-.cart-icon {
-	padding: 8px 12px;
-	color: inherit;
-	display: flex;
-	align-items: center;
-	position: relative;
-}
-
-.cart-icon:hover {
-	opacity: .75;
-}
-
-.cart-icon svg {
-	width: 18px;
-	height: 18px;
 }
 
 .cart-badge {

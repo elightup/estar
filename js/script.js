@@ -6,7 +6,7 @@
 		}
 
 		const menu = nav.querySelector( 'ul' ),
-			button = nav.querySelector( 'button' );
+			button = document.querySelector( '#menu-toggle' );
 
 		menu.setAttribute( 'aria-expanded', 'false' );
 		button.addEventListener( 'click', () => {

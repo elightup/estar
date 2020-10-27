@@ -1,19 +1,5 @@
-.search-open {
-	padding: 8px 0;
-	background: none;
-	display: flex;
-	color: inherit;
-
-	svg {
-		width: 18px;
-		height: 18px;
-	}
-}
 .search-close {
-	padding: 8px;
-	background: none;
-	display: flex;
-	color: inherit;
+	padding-right: 12px;
 }
 .header-search {
 	display: none;
@@ -57,10 +43,5 @@
 			font-size: var(--text-sm);
 			padding: 4px 8px;
 		}
-	}
-}
-@media (min-width: 1024px) {
-	.search-open {
-		padding-left: 12px;
 	}
 }

@@ -10,26 +10,14 @@
 			</div>
 		</div>
 
-		<?php if ( has_nav_menu( 'menu-1' ) ) : ?>
-			<nav id="nav" class="nav" aria-label="<?php esc_attr_e( 'Primary Navigation', 'estar' ); ?>" role="navigation">
-				<button id="menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'estar' ); ?></span>
-					<?php EStar\Icons::render( 'menu' ) ?>
-				</button>
-				<?php
-				wp_nav_menu( [
-					'container'      => null,
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				] );
-				?>
-			</nav>
-		<?php endif ?>
+		<?php if ( 'right' === get_theme_mod( 'menu_position', 'right' ) ) : ?>
+			<?php get_template_part( 'template-parts/menu' ); ?>
+		<?php endif; ?>
 
 		<?php EStar\Integration\WooCommerce::output_cart_icon(); ?>
 
 		<?php if ( get_theme_mod( 'header_search', true ) || get_theme_mod( 'header_search_form', false ) ) : ?>
-			<button class="search-open" aria-expanded="false"
+			<button class="search-open header-icon" aria-expanded="false"
 				<?php if ( EStar\Integration\AMP::is_active() ) : ?>
 					on="tap:header.toggleClass( class='header-search-open' )"
 				<?php endif; ?>
@@ -39,7 +27,7 @@
 			</button>
 			<div class="header-search">
 				<?php get_search_form(); ?>
-				<button class="search-close"
+				<button class="search-close header-icon"
 					<?php if ( EStar\Integration\AMP::is_active() ) : ?>
 						on="tap:header.toggleClass( class='header-search-open', force=false )"
 					<?php endif; ?>
@@ -49,5 +37,15 @@
 				</button>
 			</div>
 		<?php endif; ?>
+
+		<?php get_template_part( 'template-parts/menu-toggle' ); ?>
 	</div>
 </header>
+
+<?php if ( 'bottom' === get_theme_mod( 'menu_position', 'right' ) ) : ?>
+	<div class="header-bottom">
+		<div class="container">
+			<?php get_template_part( 'template-parts/menu' ); ?>
+		</div>
+	</div>
+<?php endif; ?>

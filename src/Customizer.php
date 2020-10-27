@@ -48,6 +48,21 @@ class Customizer {
 			],
 		] );
 
+		$wp_customize->add_setting( 'menu_position', [
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
+			'default'           => 'right',
+		] );
+		$wp_customize->add_control( 'menu_position', [
+			'label'    => esc_html__( 'Menu position', 'estar' ),
+			'section'  => 'title_tagline',
+			'type'     => 'select',
+			'priority' => 2,
+			'choices'  => [
+				'right'  => esc_html__( 'Right', 'estar' ),
+				'bottom' => esc_html__( 'Bottom', 'estar' ),
+			],
+		] );
+
 		$wp_customize->add_setting( 'show_site_name', [
 			'sanitize_callback' => [ $this->sanitizer, 'sanitize_checkbox' ],
 			'default'           => true,
@@ -140,6 +155,7 @@ class Customizer {
 		if ( get_theme_mod( 'highlight_last_item', false ) ) {
 			$classes[] = 'header-highlight-last-item';
 		}
+		$classes[] = 'menu-' . get_theme_mod( 'menu_position', 'right' );
 
 		return $classes;
 	}

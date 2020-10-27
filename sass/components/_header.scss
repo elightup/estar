@@ -5,35 +5,45 @@
 	max-width: 792px; // 768px (content) + 12px * 2 (padding on both sides)
 }
 
-// Sticky header.
-.header {
-	padding: 8px 0;
+.header,
+.header-bottom {
 	border-bottom: 1px solid var(--color-light);
-	background: #fff;
-	z-index: 9999;
+}
 
-	&-inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		position: relative;
-	}
+.header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	padding-top: 8px;
+	padding-bottom: 8px;
 }
 
 // Sticky header.
-.header-sticky .header {
-	position: sticky;
-	top: 0;
-}
-// For logged in users.
-@media (min-width: 601px) and (max-width: 782px) {
-	.header-sticky.admin-bar .header {
-		top: 46px;
+.header-sticky {
+	.header,
+	&.menu-bottom .header-bottom {
+		position: sticky;
+		top: 0;
+		background: #fff;
+		z-index: 9999;
 	}
-}
-@media (min-width: 783px) {
-	.header-sticky.admin-bar .header {
-		top: 32px;
+	&.menu-bottom .header {
+		position: unset;
+	}
+
+	// For logged in users.
+	@media (min-width: 601px) and (max-width: 782px) {
+		&.admin-bar .header,
+		&.admin-bar.menu-bottom .header-bottom {
+			top: 46px;
+		}
+	}
+	@media (min-width: 783px) {
+		&.admin-bar .header,
+		&.admin-bar.menu-bottom .header-bottom {
+			top: 32px;
+		}
 	}
 }
 
@@ -47,16 +57,10 @@
 		border-bottom-color: rgba(255, 255, 255, .2);
 	}
 	.site-description,
-	.site-title a,
-	.menu-toggle,
-	.cart-icon,
-	.search-open {
+	.site-title a {
 		color: #fff;
 	}
-	.site-title a:hover,
-	.menu-toggle:hover,
-	.cart-icon:hover,
-	.search-open:hover {
+	.site-title a:hove {
 		opacity: .75;
 	}
 }
@@ -88,6 +92,23 @@
 		text-decoration: none;
 	}
 }
+.header-icon {
+	padding: 8px 0 8px 12px;
+	background: none;
+	border: 0;
+	display: flex;
+	color: inherit;
+	position: relative;
+
+	&:hover {
+		opacity: .75;
+	}
+
+	svg {
+		width: 18px;
+		height: 18px;
+	}
+}
 
 // Highlight last menu item.
 .header-highlight-last-item .nav .menu > li:last-child > a {
@@ -103,6 +124,14 @@
 	}
 }
 
+@media (min-width: 768px) {
+	.header-bottom .menu > li:first-of-type > a {
+		padding-left: 0;
+	}
+	.header-icon ~ .header-icon {
+		padding-left: 24px;
+	}
+}
 @media (min-width: 1024px) {
 	.header-transparent {
 		.nav > ul > li > a,
