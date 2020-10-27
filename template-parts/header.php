@@ -10,10 +10,9 @@
 			</div>
 		</div>
 
-		<?php
-		if ( get_theme_mod( 'menu_position' ) == 'right' ) {
-			get_template_part( 'template-parts/menu' );
-		} ?>
+		<?php if ( 'right' === get_theme_mod( 'menu_position', 'right' ) ) : ?>
+			<?php get_template_part( 'template-parts/menu' ); ?>
+		<?php endif; ?>
 
 		<?php EStar\Integration\WooCommerce::output_cart_icon(); ?>
 
@@ -39,11 +38,11 @@
 			</div>
 		<?php endif; ?>
 	</div>
-	<?php if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
-		echo '<div class="header-bottom" id="header-bottom">';
-			echo '<div class="container">';
-					get_template_part( 'template-parts/menu' );
-			echo '</div>';
-		echo '</div>';
-	} ?>
+	<?php if ( 'bottom' === get_theme_mod( 'menu_position', 'right' ) ) : ?>
+		<div class="header-bottom">
+			<div class="container">
+				<?php get_template_part( 'template-parts/menu' ); ?>
+			</div>
+		</div>
+	<?php endif; ?>
 </header>

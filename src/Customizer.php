@@ -108,8 +108,8 @@ class Customizer {
 			'type'     => 'select',
 			'priority' => 1,
 			'choices'  => [
-				'right'   => esc_html__( 'Right', 'estar' ),
-				'bottom'   => esc_html__( 'Bottom', 'estar' ),
+				'right'  => esc_html__( 'Right', 'estar' ),
+				'bottom' => esc_html__( 'Bottom', 'estar' ),
 			],
 		] );
 
@@ -156,7 +156,7 @@ class Customizer {
 			$classes[] = 'header-highlight-last-item';
 		}
 		if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
-			$classes[] = 'menu_bottom';
+			$classes[] = 'menu-bottom';
 		}
 
 		return $classes;
