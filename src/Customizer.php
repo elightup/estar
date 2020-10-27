@@ -155,9 +155,7 @@ class Customizer {
 		if ( get_theme_mod( 'highlight_last_item', false ) ) {
 			$classes[] = 'header-highlight-last-item';
 		}
-		if ( get_theme_mod( 'menu_position' ) == 'bottom' ) {
-			$classes[] = 'menu-bottom';
-		}
+		$classes[] = 'menu-' . get_theme_mod( 'menu_position', 'right' );
 
 		return $classes;
 	}
