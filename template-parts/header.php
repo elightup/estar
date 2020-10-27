@@ -37,6 +37,8 @@
 				</button>
 			</div>
 		<?php endif; ?>
+
+		<?php get_template_part( 'template-parts/menu-toggle' ); ?>
 	</div>
 </header>
 
