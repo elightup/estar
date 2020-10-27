@@ -1152,42 +1152,22 @@ blockquote.has-text-align-right,
 	width: 100%;
 }
 
-.header-sticky.menu_under_site_title .menu-sticky nav {
-	margin-top: 0;
-}
-
-nav {
-	margin-top: 15px;
+.header-sticky.menu_under_site_title .branding {
+	margin-bottom: 8px;
 }
 
 #header-bottom {
-	background: var(--color-accent);
 	z-index: 999;
+	border-top: 1px solid var(--color-light);
+	background-color: #fff;
 }
 
-#header-bottom #primary-menu > li {
-	color: #fff;
+#header-bottom ul li:first-child a {
+	padding-left: 0;
 }
 
-#header-bottom #primary-menu > li:hover {
-	background-color: #2b7dc1;
-}
-
-#header-bottom #primary-menu > li:hover a {
-	color: #fff;
-}
-
-#header-bottom #primary-menu > li .sub-menu a {
-	color: var(--color-base);
-}
-
-#header-bottom #primary-menu > li .sub-menu a:hover {
-	color: var(--color-accent);
-}
-
-#header-bottom .current-menu-item > a {
-	color: #fff;
-	background-color: #2b7dc1;
+#header-bottom ul.sub-menu li a {
+	padding-left: 12px;
 }
 
 @media (min-width: 601px) and (max-width: 782px) {
@@ -1288,37 +1268,18 @@ nav {
 		background-color: #fff;
 		z-index: 999;
 		position: relative;
+		border-top: 0;
 	}
 	#header-bottom #menu-toggle {
 		position: absolute;
 		right: 12px;
-		top: -49px;
+		top: -39px;
 	}
-	#header-bottom a,
-	#header-bottom .sub-menu-toggle {
-		color: var(--color-base);
+	#header-bottom ul li:first-child a {
+		padding-left: 12px;
 	}
-	#header-bottom a:hover,
-	#header-bottom .sub-menu-toggle:hover {
-		color: var(--color-accent);
-	}
-	#header-bottom #primary-menu > li {
-		color: var(--color-base);
-	}
-	#header-bottom #primary-menu > li:hover {
-		background-color: #fff;
-	}
-	#header-bottom #primary-menu > li:hover a {
-		color: var(--color-accent);
-	}
-	#header-bottom #primary-menu > li .sub-menu a {
-		color: var(--color-base);
-	}
-	#header-bottom #primary-menu > li .sub-menu a:hover {
-		color: var(--color-accent);
-	}
-	.header-search-form .header-search,
-	.search-open {
+	.menu_under_site_title .header-search-form .header-search,
+	.menu_under_site_title .search-open {
 		margin-right: 40px;
 	}
 }
