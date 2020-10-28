@@ -238,6 +238,14 @@ blockquote,
 	}
 }
 
+// Code.
+.wp-block-code {
+	color: inherit;
+	border-color: var(--color-light);
+	font-size: var(--text-md);
+	padding: 12px 16px;
+}
+
 // Font sizes.
 .has-xs-font-size {
 	font-size: var(--text-xs);

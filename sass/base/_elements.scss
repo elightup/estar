@@ -96,6 +96,7 @@ embed, iframe, object {
 
 pre, code, kbd, samp, tt, var {
 	font-family: var(--font-mono);
+	font-size: var(--text-md);
 }
 pre {
 	white-space: pre-wrap;
