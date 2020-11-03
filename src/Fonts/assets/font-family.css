@@ -15,7 +15,11 @@ li[id$="letter_spacing_unit"],
 li[id$="line_height_unit"] {
 	width: 100px;
 	clear: none;
-	margin: 29px 0 0 -46px;
+	margin: 28px 0 0 -46px;
+}
+
+li[id$="line_height_unit"] {
+	margin: 28px 0 0 5px;
 }
 
 @media screen and (max-width: 782px) {

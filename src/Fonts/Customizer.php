@@ -194,7 +194,7 @@ class Customizer {
 		] );
 		$this->wp_customize->add_control( "{$id}_line_height", [
 			'label'      => __( 'Line Height', 'estar' ),
-			'type'       => 'number',
+			'type'       => 'text',
 			'section'    => $this->section,
 			'panel'      => 'estar_fonts',
 			'input_atts' => ['step' => 'any'],
@@ -224,7 +224,7 @@ class Customizer {
 		] );
 		$this->wp_customize->add_control( "{$id}_letter_spacing", [
 			'label'      => __( 'Letter Spacing', 'estar' ),
-			'type'       => 'number',
+			'type'       => 'text',
 			'section'    => $this->section,
 			'panel'      => 'estar_fonts',
 			'input_atts' => ['step' => 'any'],
