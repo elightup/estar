@@ -14,10 +14,11 @@
     "sync": "browser-sync start --proxy \"localhost/themedemos\" --files \"style.css\""
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
+    "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "node-sass": "^4.13.1",
-    "postcss-cli": "^7.1.0",
+    "postcss": "^8.1.4",
+    "postcss-cli": "^7.1.2",
     "terser": "^4.6.13"
   }
 }
