@@ -1626,8 +1626,18 @@ blockquote.has-text-align-right,
 	border-top: 1px solid var(--color-light);
 }
 
+.footer-widgets .container {
+	display: grid;
+	grid-gap: 32px;
+	grid-template-columns: 100%;
+}
+
 .footer .widget {
 	flex: 1;
+}
+
+.footer .widget + .widget {
+	margin-top: 0;
 }
 
 .site-info {
@@ -1651,7 +1661,7 @@ blockquote.has-text-align-right,
 	bottom: 12px;
 	opacity: 0;
 	visibility: hidden;
-	transition: all .25s;
+	transition: all 0.25s;
 }
 
 .go-to-top.is-visible {
@@ -1671,13 +1681,7 @@ blockquote.has-text-align-right,
 
 @media (min-width: 1024px) {
 	.footer-widgets .container {
-		display: flex;
-		justify-content: space-between;
-		align-items: top;
-	}
-	.footer-widgets .widget + .widget {
-		margin-top: 0;
-		margin-left: 32px;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	}
 }
 

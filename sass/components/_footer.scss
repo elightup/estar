@@ -1,9 +1,17 @@
 .footer-widgets {
 	padding: 48px 0;
 	border-top: 1px solid var(--color-light);
+	.container {
+		display: grid;
+		grid-gap: 32px;
+		grid-template-columns: 100%;
+	}
 }
 .footer .widget {
 	flex: 1;
+	& + .widget {
+		margin-top: 0;
+	}
 }
 .site-info {
 	background: #fff;
@@ -21,13 +29,13 @@
 	width: 48px;
 	height: 48px;
 	border-radius: 4px;
-	background: rgba(0, 0, 0, .2);
+	background: rgba(0, 0, 0, 0.2);
 	position: fixed;
 	right: 12px;
 	bottom: 12px;
 	opacity: 0;
 	visibility: hidden;
-	transition: all .25s;
+	transition: all 0.25s;
 
 	&.is-visible {
 		opacity: 1;
@@ -35,7 +43,7 @@
 	}
 
 	&:hover {
-		background: rgba(0, 0, 0, .3);
+		background: rgba(0, 0, 0, 0.3);
 	}
 
 	svg {
@@ -48,13 +56,7 @@
 @media (min-width: 1024px) {
 	.footer-widgets {
 		.container {
-			display: flex;
-			justify-content: space-between;
-			align-items: top;
-		}
-		.widget + .widget {
-			margin-top: 0;
-			margin-left: 32px;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 		}
 	}
 }
