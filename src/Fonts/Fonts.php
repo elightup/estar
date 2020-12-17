@@ -70,6 +70,14 @@ class Fonts {
 				'title'    => __( 'Post Content (Archive)', 'estar' ),
 				'selector' => '.entry-summary',
 			],
+			'sidebar_widget_title' => [
+				'title'    => __( 'Widget Title', 'estar' ),
+				'selector' => '.widget-title',
+			],
+			'sidebar_widget_content' => [
+				'title'    => __( 'Widget content', 'estar' ),
+				'selector' => '.widget',
+			],
 		];
 		return apply_filters( 'estar_fonts_elements', $elements );
 	}
