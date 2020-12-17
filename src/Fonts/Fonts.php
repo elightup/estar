@@ -82,6 +82,10 @@ class Fonts {
 				'title'    => __( 'Widget content', 'estar' ),
 				'selector' => '.widget',
 			],
+			'nav_menu' => [
+				'title'    => __( 'Menu', 'estar' ),
+				'selector' => '.nav a',
+			],
 		];
 		return apply_filters( 'estar_fonts_elements', $elements );
 	}
