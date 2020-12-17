@@ -259,7 +259,7 @@ class Customizer {
 			'type'    => 'select',
 			'choices' => [
 				''           => __( '- No change -', 'estar' ),
-				'normal'     => __( 'None', 'estar' ),
+				'none'     => __( 'None', 'estar' ),
 				'lowercase'  => __( 'lowercase', 'estar' ),
 				'uppercase'  => __( 'UPPERCASE', 'estar' ),
 				'capitalize' => __( 'Capitalize', 'estar' ),
