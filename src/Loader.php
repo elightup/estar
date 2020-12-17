@@ -211,10 +211,10 @@ class Loader {
 		Structure::setup();
 		Layout::setup();
 
-		new Fonts\Fonts;
-		new Colors\Colors;
-
 		$sanitizer = new Customizer\Sanitizer;
+
+		new Fonts\Fonts( $sanitizer );
+		new Colors\Colors;
 
 		new Customizer( $sanitizer );
 

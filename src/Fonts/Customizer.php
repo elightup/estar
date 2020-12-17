@@ -9,8 +9,10 @@ class Customizer {
 	private $elements;
 	private $wp_customize;
 	private $section;
+	private $sanitizer;
 
-	public function __construct() {
+	public function __construct( $sanitizer ) {
+		$this->sanitizer = $sanitizer;
 		$this->elements = Fonts::get_elements();
 
 		add_action( 'customize_register', [ $this, 'register' ] );
@@ -150,7 +152,7 @@ class Customizer {
 		] );
 		$this->wp_customize->add_setting( "{$id}_font_size_unit", [
 			'default'           => 'px',
-			'sanitize_callback' => 'estar_sanitize_select',
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'transport'         => 'postMessage',
 		] );
 		$this->wp_customize->add_control( "{$id}_font_size_unit", [
@@ -200,7 +202,7 @@ class Customizer {
 			'input_atts' => ['step' => 'any'],
 		] );
 		$this->wp_customize->add_setting( "{$id}_line_height_unit", [
-			'sanitize_callback' => 'estar_sanitize_select',
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'transport'         => 'postMessage',
 		] );
 		$this->wp_customize->add_control( "{$id}_line_height_unit", [
@@ -231,7 +233,7 @@ class Customizer {
 		] );
 		$this->wp_customize->add_setting( "{$id}_letter_spacing_unit", [
 			'default'           => 'px',
-			'sanitize_callback' => 'estar_sanitize_select',
+			'sanitize_callback' => [ $this->sanitizer, 'sanitize_choice' ],
 			'transport'         => 'postMessage',
 		] );
 		$this->wp_customize->add_control( "{$id}_letter_spacing_unit", [

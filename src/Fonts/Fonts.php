@@ -2,7 +2,11 @@
 namespace EStar\Fonts;
 
 class Fonts {
-	public function __construct() {
+	private $sanitizer;
+
+	public function __construct( $sanitizer ) {
+		$this->sanitizer = $sanitizer;
+
 		add_action( 'init', [ $this, 'init' ] );
 	}
 
@@ -12,7 +16,7 @@ class Fonts {
 			return;
 		}
 
-		new Customizer;
+		new Customizer( $this->sanitizer );
 		new CSS;
 	}
 
