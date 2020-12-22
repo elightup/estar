@@ -34,3 +34,4 @@ See http://gretathemes.com/wordpress-themes/estar/
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2020 Nicolas Gallagher and Jonathan Neal, MIT
 * Feather icons https://feathericons.com/, (C) Cole Bemis, MIT
 * Screenshot URL https://stocksnap.io/photo/VHXFNKMU96, (C) StockSnapp, CC0
+* Child theme https://github.com/elightup/estar-child
