@@ -2082,12 +2082,6 @@ blockquote.has-text-align-right,
 	.thumbnail-header-background:not(.no-sidebar) .sidebar {
 		margin-top: 48px;
 	}
-	.thumbnail-header-background:not(.no-sidebar) .entry-header {
-		width: calc(100% + 342px);
-	}
-	.thumbnail-header-background.sidebar-left .entry-header {
-		left: -342px;
-	}
 }
 
 .widget {

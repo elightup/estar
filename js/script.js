@@ -138,6 +138,16 @@
 		sidebar.style.paddingTop = `${entryHeader.clientHeight}px`;
 	}
 
+	function setThumbnailFullwidth() {
+		const sidebar = document.querySelector( '.sidebar' ),
+			sidebarWidth = sidebar.offsetWidth + 32,
+			windowWidth = window.innerWidth;
+		if ( windowWidth >= 1024 ) {
+			document.querySelector( '.thumbnail-header-background.sidebar-left .entry-header' ).style.left = `-${sidebarWidth}px`;
+			document.querySelector( '.thumbnail-header-background:not(.no-sidebar) .entry-header' ).style.width = `calc(100% + ${sidebarWidth}px)`;
+		}
+	}
+
 	keepFocusInMenu();
 	toggleMenu();
 	toggleSubmenu();
@@ -145,4 +155,5 @@
 	openSearch();
 	closeSearch();
 	setSidebarMargin();
+	setThumbnailFullwidth();
 } )( window, document );
