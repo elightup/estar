@@ -4,23 +4,14 @@ li[id$="line_height"] {
 	width: 150px;
 }
 
-li[id$="font_size"] input[type="number"],
-li[id$="letter_spacing"] input[type="number"],
-li[id$="line_height"] input[type="number"] {
-	width: 100px;
-}
-
 li[id$="font_size_unit"],
 li[id$="letter_spacing_unit"],
 li[id$="line_height_unit"] {
 	width: 100px;
 	clear: none;
-	margin: 28px 0 0 -46px;
-}
-
-li[id$="line_height_unit"] {
 	margin: 28px 0 0 5px;
 }
+
 
 @media screen and (max-width: 782px) {
 	li[id$="font_size_unit"] select,
