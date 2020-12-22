@@ -139,12 +139,20 @@
 	}
 
 	function setThumbnailFullwidth() {
+		if ( ! document.body.classList.contains( 'thumbnail-header-background' ) || document.body.classList.contains( 'no-sidebar' ) ) {
+			return;
+		}
 		const sidebar = document.querySelector( '.sidebar' ),
 			sidebarWidth = sidebar.offsetWidth + 32,
 			windowWidth = window.innerWidth;
-		if ( windowWidth >= 1024 && document.body.classList.contains( 'thumbnail-header-background' ) ) {
+
+		if ( windowWidth < 1024 ) {
+			return;
+		}
+		document.querySelector( '.thumbnail-header-background:not(.no-sidebar) .entry-header' ).style.width = `calc(100% + ${sidebarWidth}px)`;
+
+		if ( document.body.classList.contains( 'sidebar-left' ) ) {
 			document.querySelector( '.thumbnail-header-background.sidebar-left .entry-header' ).style.left = `-${sidebarWidth}px`;
-			document.querySelector( '.thumbnail-header-background:not(.no-sidebar) .entry-header' ).style.width = `calc(100% + ${sidebarWidth}px)`;
 		}
 	}
 

@@ -20,4 +20,6 @@
 	<?php endif; ?>
 </main>
 
-<?php get_sidebar(); ?>
+<?php if ( have_posts() ) : ?>
+	<?php get_sidebar(); ?>
+<?php endif; ?>
