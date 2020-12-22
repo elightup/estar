@@ -5,3 +5,4 @@ sass export-ignore
 postcss.config.js export-ignore
 *.json export-ignore
 *.zip export-ignore
+*.md export-ignore
