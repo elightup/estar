@@ -116,7 +116,6 @@
 	color: #fff;
 	border-radius: 4px;
 	padding: 8px 12px;
-	margin-left: 12px;
 	transition: all .25s;
 
 	&:hover {
@@ -130,6 +129,10 @@
 	}
 	.header-icon ~ .header-icon {
 		padding-left: 24px;
+	}
+
+	.header-highlight-last-item .nav .menu > li:last-child > a {
+		margin-left: 12px;
 	}
 }
 @media (min-width: 1024px) {
