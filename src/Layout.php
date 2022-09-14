@@ -17,8 +17,9 @@ class Layout {
 	}
 
 	public static function get_layout() {
+		$layout = '';
 		if ( is_page() ) {
-			$layout = get_theme_mod( 'page_layout', 'no-sidebar' );
+			$layout = is_page_template() ? '' : get_theme_mod( 'page_layout', 'no-sidebar' );
 		} elseif ( is_single() ) {
 			$layout = get_theme_mod( 'post_layout', 'sidebar-right' );
 		} else {
