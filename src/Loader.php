@@ -143,6 +143,16 @@ class Loader {
 				'color' => get_theme_mod( 'color-light', '#e2e8f0' ),
 			],
 			[
+				'name'  => __( 'Lighter', 'estar' ),
+				'slug'  => 'lighter',
+				'color' => get_theme_mod( 'color-lighter', '#edf2f7' ),
+			],
+			[
+				'name'  => __( 'Lightest', 'estar' ),
+				'slug'  => 'lightest',
+				'color' => get_theme_mod( 'color-lightest', '#f7fafc' ),
+			],
+			[
 				'name'  => __( 'White', 'estar' ),
 				'slug'  => 'white',
 				'color' => '#fff',

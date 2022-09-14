@@ -1,24 +1,16 @@
 {
   "scripts": {
-    "css:style": "node-sass --output-style expanded --indent-type tab --indent-width 1 sass/style.scss -o .",
-    "postcss:style": "postcss style.css -u autoprefixer --no-map -o style.css --autoprefixer.browsers=\"last 2 versions\"",
-    "css:editor": "node-sass --output-style expanded --indent-type tab --indent-width 1 sass/style-editor.scss -o .",
-    "postcss:editor": "postcss style-editor.css -u autoprefixer --no-map -o style-editor.css --autoprefixer.browsers=\"last 2 versions\"",
-    "css:bbpress": "node-sass --output-style compressed sass/bbpress.scss -o css",
-    "postcss:bbpress": "postcss css/bbpress.css -u autoprefixer --no-map -o css/bbpress.css --autoprefixer.browsers=\"last 2 versions\"",
-    "css:minify": "postcss style.css -o style.min.css",
+    "css:style": "sass --no-source-map sass/style.scss style.css",
+    "css:editor": "sass --no-source-map sass/style-editor.scss style-editor.css",
+    "css:bbpress": "sass --no-source-map --style=compressed sass/bbpress.scss css/bbpress.css",
+    "css:minify": "sass --no-source-map --style=compressed sass/style.scss style.min.css",
     "js:minify": "terser js/script.js -c -m -o js/script.min.js",
-    "watch": "node-sass --output-style expanded --indent-type tab --indent-width 1 -w sass -r -o .",
+    "watch": "sass --no-source-map --watch sass",
     "zip": "git archive -o estar.zip --prefix=estar/ HEAD",
-    "start": "npm run css:style & npm run css:editor & npm run css:bbpress && npm run css:minify && npm run js:minify",
-    "sync": "browser-sync start --proxy \"localhost/themedemos\" --files \"style.css\""
+    "start": "npm run css:style & npm run css:editor & npm run css:bbpress && npm run css:minify && npm run js:minify"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.6",
-    "cssnano": "^4.1.10",
-    "node-sass": "^4.13.1",
-    "postcss": "^8.1.4",
-    "postcss-cli": "^7.1.2",
-    "terser": "^4.6.13"
+    "sass": "^1.54.9",
+    "terser": "^5.15.0"
   }
 }

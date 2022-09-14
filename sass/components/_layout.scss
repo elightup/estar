@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Container.
 .container {
 	max-width: var(--container);
@@ -57,8 +59,8 @@
 	.content-narrow,
 	.no-sidebar {
 		.main {
-			margin-left: ($sidebar-width + $sidebar-margin) / 2;
-			margin-right: ($sidebar-width + $sidebar-margin) / 2;
+			margin-left: math.div($sidebar-width + $sidebar-margin, 2);
+			margin-right: math.div($sidebar-width + $sidebar-margin, 2);
 		}
 	}
 	.grid.no-sidebar,
