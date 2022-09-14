@@ -26,4 +26,5 @@ p {
 .editor-post-title__input {
 	font-family: var(--font-sans);
 	@extend h1;
+	margin-inline: auto;
 }

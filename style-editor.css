@@ -560,4 +560,5 @@ p {
 
 .editor-post-title__input {
   font-family: var(--font-sans);
+  margin-inline: auto;
 }

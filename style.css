@@ -448,8 +448,7 @@ pre {
 .aligncenter {
   clear: both;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 .wp-smiley {
@@ -465,8 +464,7 @@ pre {
 }
 .wp-caption img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 }
 
 .wp-caption-text {
@@ -528,8 +526,7 @@ pre {
 .container {
   max-width: var(--container);
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   padding-left: 12px;
   padding-right: 12px;
 }
