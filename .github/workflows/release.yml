@@ -1,0 +1,48 @@
+name: Release
+on:
+  workflow_call:
+    secrets:
+      DEMO_URL:
+        required: true
+      DEMO_USER:
+        required: true
+      DEMO_PASSWORD:
+        required: true
+      SSH_KEY:
+        required: true
+      SSH_KNOWN_HOSTS:
+        required: true
+      SSH_USERNAME:
+        required: true
+      SERVER_IP:
+        required: true
+      DOWNLOADS_DIR:
+        required: true
+jobs:
+  deploy:
+    name: Deploy to demo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: SamKirkland/FTP-Deploy-Action@3.0.0
+        with:
+          ftp-server: ${{ secrets.DEMO_URL }}
+          ftp-username: ${{ secrets.DEMO_USER }}
+          ftp-password: ${{ secrets.DEMO_PASSWORD }}
+          git-ftp-args: --insecure
+  release:
+    name: Release .zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Create zip and upload
+        run: |
+          name=$(basename -s .git $(git config --get remote.origin.url))
+          git archive -o $name.zip --prefix=$name/ HEAD
+          rsync -e "ssh -o StrictHostKeyChecking=no" $name.zip ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }}:${{ secrets.DOWNLOADS_DIR }}
