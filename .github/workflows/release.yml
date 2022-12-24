@@ -2,12 +2,6 @@ name: Release
 on:
   workflow_call:
     secrets:
-      DEMO_URL:
-        required: true
-      DEMO_USER:
-        required: true
-      DEMO_PASSWORD:
-        required: true
       SSH_KEY:
         required: true
       SSH_KNOWN_HOSTS:
@@ -18,18 +12,22 @@ on:
         required: true
       DOWNLOADS_DIR:
         required: true
+      THEME_DIR:
+        required: true
 jobs:
   deploy:
     name: Deploy to demo
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: SamKirkland/FTP-Deploy-Action@3.0.0
+      - name: Install SSH key
+        uses: shimataro/ssh-key-action@v2
         with:
-          ftp-server: ${{ secrets.DEMO_URL }}
-          ftp-username: ${{ secrets.DEMO_USER }}
-          ftp-password: ${{ secrets.DEMO_PASSWORD }}
-          git-ftp-args: --insecure
+          key: ${{ secrets.SSH_KEY }}
+          known_hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Upload
+        run: rsync -razhe "ssh -o StrictHostKeyChecking=no" --exclude={'.git','.github','.gitignore','composer.json'} . ${{ secrets.SSH_USERNAME }}@${{ secrets.SERVER_IP }}:${{ secrets.THEME_DIR }}
   release:
     name: Release .zip
     runs-on: ubuntu-latest
