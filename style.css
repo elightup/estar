@@ -559,7 +559,7 @@ pre {
     min-height: 0;
   }
   .sidebar-left .content,
-.sidebar-right .content {
+  .sidebar-right .content {
     display: flex;
     flex-wrap: wrap;
   }
@@ -571,19 +571,19 @@ pre {
     order: 2;
   }
   .page-template-narrow .main,
-.content-narrow .main,
-.no-sidebar .main {
+  .content-narrow .main,
+  .no-sidebar .main {
     margin-left: 171px;
     margin-right: 171px;
   }
   .grid.no-sidebar .main,
-.content-wide .main,
-.content-full .main {
+  .content-wide .main,
+  .content-full .main {
     margin-left: 0;
     margin-right: 0;
   }
   .page-template-full .content,
-.content-full .content {
+  .content-full .content {
     max-width: none;
   }
   .content > .elementor-edit-area {
@@ -1102,6 +1102,10 @@ blockquote.has-text-align-right,
   margin-bottom: 1.5em;
 }
 
+.wp-block-image figure {
+  margin-bottom: 1.5em;
+}
+
 .header-full .header-inner {
   max-width: none;
 }
@@ -1230,13 +1234,13 @@ blockquote.has-text-align-right,
 }
 @media (min-width: 1024px) {
   .header-transparent .nav > ul > li > a,
-.header-transparent .nav > ul > li > .menu-text > a,
-.header-transparent .nav > ul > li > .menu-text > .sub-menu-toggle {
+  .header-transparent .nav > ul > li > .menu-text > a,
+  .header-transparent .nav > ul > li > .menu-text > .sub-menu-toggle {
     color: #fff;
   }
   .header-transparent .nav > ul > li:hover > a,
-.header-transparent .nav > ul > li:hover > .menu-text > a,
-.header-transparent .nav > ul > li:hover > .menu-text > .sub-menu-toggle {
+  .header-transparent .nav > ul > li:hover > .menu-text > a,
+  .header-transparent .nav > ul > li:hover > .menu-text > .sub-menu-toggle {
     opacity: 0.75;
   }
 }
@@ -1374,15 +1378,15 @@ blockquote.has-text-align-right,
     left: 100%;
   }
   .nav .menu,
-.nav .menu > li,
-.nav li:first-child {
+  .nav .menu > li,
+  .nav li:first-child {
     border: none;
   }
   .nav li:hover > ul {
     display: block;
   }
   .nav li:hover > a,
-.nav li:hover > .menu-text {
+  .nav li:hover > .menu-text {
     color: var(--color-accent);
   }
   .sub-menu .sub-menu-toggle svg {
