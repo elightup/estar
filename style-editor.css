@@ -123,6 +123,12 @@ a:hover {
   display: block;
 }
 
+.wp-block-image figcaption {
+  text-align: center;
+  font-size: var(--text-sm);
+  margin-top: 0.5rem;
+}
+
 .wp-block-file .wp-block-file__button {
   background: var(--color-accent);
   border-radius: 4px;
