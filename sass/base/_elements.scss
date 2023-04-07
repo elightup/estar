@@ -94,12 +94,17 @@ embed, iframe, object {
 	max-width: 100%;
 }
 
-pre, code, kbd, samp, tt, var {
+code, kbd, samp, tt, var {
 	font-family: var(--font-mono);
 	font-size: var(--text-md);
 }
 pre {
 	white-space: pre-wrap;
+	background: var(--color-lighter);
+	padding: 1rem;
+	border-radius: .25rem;
+	font-family: var(--font-mono);
+	font-size: var(--text-sm);
 }
 
 // SVG icons.
