@@ -168,7 +168,7 @@ class Post {
 	public static function author() {
 		printf(
 			'<span class="author vcard">%s <a class="url fn n" href="%s">%s</a></span>',
-			get_avatar( get_the_author_meta( 'user_email' ), 24 ),
+			get_avatar( get_the_author_meta( 'user_email' ), 24, '', get_the_author() ),
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_html( get_the_author() )
 		);
